@@ -115,11 +115,11 @@ The app configuration includes a variety of options that allow you to customize 
 ### Plugins
 
 ::: zone pivot="csharp,typescript"
-Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](/developer-tools/devtools) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 ::: zone-end
 
 ::: zone pivot="python"
-Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (on_activity, on_activity_sent, etc.). In fact, the [DevTools](/developer-tools/devtools) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (on_activity, on_activity_sent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 ::: zone-end
 
 > [!WARNING]
