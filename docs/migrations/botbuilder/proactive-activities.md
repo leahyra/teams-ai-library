@@ -1,0 +1,263 @@
+---
+sidebar_position: 2
+sidebar_label: Proactive Activities
+title: Proactive Activities
+languages: ['typescript', 'csharp', 'python']
+summary: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Proactive Activities
+
+The BotBuilder proactive message flow requires storing a conversation reference. 
+In Teams SDK, we expose a <LanguageInclude content={{"typescript": "`send`", "csharp": "`SendAsync`", "python": "`send`"}} /> method in the `App` class, almost identical to the one 
+passed into our activity handlers through our context. This method accepts a <LanguageInclude content={{"typescript": "`conversationId`", "csharp": "`conversationId`", "python": "`conversation_id`"}} />, so storing just that is enough!
+
+
+::: zone pivot="csharp"
+<Tabs groupId="proactive-activities">
+  <TabItem value="Diff" default>
+    ```csharp
+    // highlight-error-start
+-   using Microsoft.Bot.Builder;
+-   using Microsoft.Bot.Builder.Integration.AspNet.Core;
+-   using Microsoft.Bot.Schema;
+    // highlight-error-end
+    // highlight-success-line
++   using Microsoft.Teams.Apps;
+
+    // highlight-error-start
+-   var conversationReference = new ConversationReference
+-   {
+-       ServiceUrl = "...",
+-       Bot = new ChannelAccount { ... },
+-       ChannelId = "msteams",
+-       Conversation = new ConversationAccount { ... },
+-       User = new ChannelAccount { ... }
+-   };
+-
+-   await adapter.ContinueConversationAsync(
+-       configuration["MicrosoftAppId"],
+-       conversationReference,
+-       async (turnContext, cancellationToken) =>
+-       {
+-           await turnContext.SendActivityAsync("proactive hello", cancellationToken: cancellationToken);
+-       },
+-       default);
+    // highlight-error-end
+    // highlight-success-start
++   var teams = app.UseTeams();
++   await teams.Send("your-conversation-id", "proactive hello");
+    // highlight-success-end
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```csharp showLineNumbers
+    using Microsoft.Bot.Builder;
+    using Microsoft.Bot.Builder.Integration.AspNet.Core;
+    using Microsoft.Bot.Schema;
+
+    // highlight-start
+    var conversationReference = new ConversationReference
+    {
+        ServiceUrl = "...",
+        Bot = new ChannelAccount { ... },
+        ChannelId = "msteams",
+        Conversation = new ConversationAccount { ... },
+        User = new ChannelAccount { ... }
+    };
+
+    await adapter.ContinueConversationAsync(
+        configuration["MicrosoftAppId"],
+        conversationReference,
+        async (turnContext, cancellationToken) =>
+        {
+            await turnContext.SendActivityAsync("proactive hello", cancellationToken: cancellationToken);
+        },
+        default);
+    // highlight-end
+    ```
+  </TabItem>
+  <TabItem value="Teams SDK">
+    ```csharp showLineNumbers
+    using Microsoft.Teams.Apps;
+
+    // highlight-start
+    var teams = app.UseTeams();
+    await teams.Send("your-conversation-id", "proactive hello");
+    // highlight-end
+    ```
+  </TabItem>
+</Tabs>
+::: zone-end
+
+::: zone pivot="python"
+<Tabs groupId="proactive-activities">
+  <TabItem value="Diff" default>
+    ```python
+    # highlight-error-start
+-   from botbuilder.core import TurnContext
+-   from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
+-   from botbuilder.schema import ChannelAccount, ConversationAccount, ConversationReference
+    # highlight-error-end
+    # highlight-success-line
++   from microsoft_teams.apps import App
+
+    # highlight-error-start
+-   adapter = CloudAdapter(ConfigurationBotFrameworkAuthentication(config))
+    # highlight-error-end
+    # highlight-success-line
++   app = App()
+
+    # highlight-error-start
+-   conversation_reference = ConversationReference(
+-       service_url="...",
+-       bot=ChannelAccount(...),
+-       channel_id="msteams",
+-       conversation=ConversationAccount(...),
+-       user=ChannelAccount(...)
+-   )
+-
+-   async def send_proactive(turn_context: TurnContext):
+-       await turn_context.send_activity("proactive hello")
+-
+-   await adapter.continue_conversation(
+-       conversation_reference,
+-       send_proactive,
+-   )
+    # highlight-error-end
+    # highlight-success-start
++   await app.send("your-conversation-id", "proactive hello")
+    # highlight-success-end
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```python showLineNumbers
+    from botbuilder.core import TurnContext
+    from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
+    from botbuilder.schema import ChannelAccount, ConversationAccount, ConversationReference
+
+    adapter = CloudAdapter(ConfigurationBotFrameworkAuthentication(config))
+
+    # highlight-start
+    conversation_reference = ConversationReference(
+        service_url="...",
+        bot=ChannelAccount(...),
+        channel_id="msteams",
+        conversation=ConversationAccount(...),
+        user=ChannelAccount(...)
+    )
+
+    async def send_proactive(turn_context: TurnContext):
+        await turn_context.send_activity("proactive hello")
+
+    await adapter.continue_conversation(
+        conversation_reference,
+        send_proactive
+    )
+    # highlight-end
+    ```
+  </TabItem>
+  <TabItem value="Teams SDK">
+    ```python showLineNumbers
+    from microsoft_teams.apps import App
+
+    app = App()
+
+    # highlight-start
+    await app.send("your-conversation-id", "proactive hello")
+    # highlight-end
+    ```
+  </TabItem>
+</Tabs>
+::: zone-end
+
+::: zone pivot="javascript"
+<Tabs groupId="proactive-activities">
+  <TabItem value="Diff" default>
+    ```typescript
+    // highlight-error-start
+-    import {
+-      CloudAdapter,
+-      ConfigurationBotFrameworkAuthentication,
+-      ConversationReference,
+-    } from 'botbuilder';
+    // highlight-error-end
+    // highlight-success-line
++    import { App } from '@microsoft/teams.apps';
+
+    // highlight-error-start
+-    const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+-    const adapter = new CloudAdapter(auth);
+    // highlight-error-end
+    // highlight-success-line
++    const app = new App();
+
+    (async () => {
+      // highlight-error-start
+-      const conversationReference: ConversationReference = {
+-        serviceUrl: '...',
+-        bot: { ... },
+-        channelId: 'msteams',
+-        conversation: { ... },
+-        user: { ... },
+-      };
+
+-      await adapter.continueConversationAsync(process.env.MicrosoftAppId ?? '', conversationReference, async context => {
+-        await context.sendActivity('proactive hello');
+-      });
+      // highlight-error-end
+      // highlight-success-start
++      await app.start();
++      await app.send('your-conversation-id', 'proactive hello');
+      // highlight-success-end
+    }());
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```typescript showLineNumbers
+    import {
+      CloudAdapter,
+      ConfigurationBotFrameworkAuthentication,
+      ConversationReference,
+    } from 'botbuilder';
+
+    const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+    const adapter = new CloudAdapter(auth);
+
+    // highlight-start
+    (async () => {
+      const conversationReference: ConversationReference = {
+        serviceUrl: '...',
+        bot: { ... },
+        channelId: 'msteams',
+        conversation: { ... },
+        user: { ... },
+      };
+
+      await adapter.continueConversationAsync(process.env.MicrosoftAppId ?? '', conversationReference, async context => {
+        await context.sendActivity('proactive hello');
+      });
+    }());
+    // highlight-end
+    ```
+  </TabItem>
+  <TabItem value="Teams SDK">
+    ```typescript showLineNumbers
+    import { App } from '@microsoft/teams.apps';
+
+    const app = new App();
+
+    // highlight-start
+    (async () => {
+      await app.start();
+      await app.send('your-conversation-id', 'proactive hello');
+    }());
+    // highlight-end
+    ```
+  </TabItem>
+</Tabs>
+::: zone-end
+

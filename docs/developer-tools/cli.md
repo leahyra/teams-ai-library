@@ -1,8 +1,6 @@
 ---
-title: Teams CLI
-description: Comprehensive guide to the Teams CLI tool for creating, managing, and deploying Teams SDK applications with simple command-line operations. Use this when you need to set up a new Teams SDK agent or manage existing ones.
-ms.topic: how-to
-ms.date: 11/17/2025
+sidebar_position: 1
+summary: Comprehensive guide to the Teams CLI tool for creating, managing, and deploying Teams SDK applications with simple command-line operations. Use this when you need to set up a new Teams SDK agent or manage existing ones.
 ---
 
 # Teams CLI
@@ -15,8 +13,9 @@ The Teams CLI was created with the intent of supporting developers by making com
 | `config`      | Add Microsoft 365 Agents Toolkit configuration files to your existing Teams SDK agent project.       |
 | `environment` | Manage multiple environments (e.g. dev, prod) and their keys for your agent.                         |
 
-> [!TIP]
-> With the CLI, you can enter `npx @microsoft/teams.cli <token-arguments> --help` at any command level to access information about the command, tokens, or required arguments.
+:::tip
+With the CLI, you can enter `npx @microsoft/teams.cli <token-arguments> --help` at any command level to access information about the command, tokens, or required arguments.
+:::
 
 ## Create an agent with one command line
 
@@ -26,12 +25,14 @@ npx @microsoft/teams.cli@latest new <typscript | csharp | python> <app-name> <op
 
 The `new` token will create a brand new agent with `app-name` applied as the directory name and project name.
 
-> [!NOTE]
-> The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
+:::note
+The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
+:::
 
-> [!WARNING]
-> Our Python SDK is currently in Public Preview. As a result, we have the CLI under a feature flag.
-> Please run the below command to enable this language.
+:::warning
+Our Python SDK is currently in Public Preview. As a result, we have the CLI under a feature flag.
+Please run the below command to enable this language.
+:::
 
 ```sh
 $env:ENABLE_EXPERIMENTAL_PYTHON_OPTIONS = 1
@@ -39,8 +40,9 @@ $env:ENABLE_EXPERIMENTAL_PYTHON_OPTIONS = 1
 
 ### Optional parameters
 
-> [!TIP]
-> Use command line `npx @microsoft/teams.cli --help` to see the latest options for all optional params.
+:::tip
+Use command line `npx @microsoft/teams.cli --help` to see the latest options for all optional params.
+:::
 
 | Parameter              | Description                                                                                                                                                                                                                                                 |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

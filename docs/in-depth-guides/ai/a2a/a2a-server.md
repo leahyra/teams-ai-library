@@ -1,39 +1,43 @@
 ---
+sidebar_position: 1
 title: A2A Server
-description: How to implement an A2A server to expose your Teams app capabilities to other agents using the A2A protocol.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+summary: How to implement an A2A server to expose your Teams app capabilities to other agents using the A2A protocol.
+languages: ['typescript', 'python']
 ---
+
+import FileCodeBlock from '@site/src/components/FileCodeBlock';
 
 # A2A Server
 
-::: zone pivot="csharp"
-This page isn't available for C#.
-::: zone-end
-
-::: zone pivot="typescript,python"
 ## What is an A2A Server?
 
 An A2A server is an agent that exposes its capabilities to other agents using the A2A protocol. With this package, you can make your Teams app accessible to A2A clients.
 
 ## Adding the `A2APlugin`
+
+::: zone pivot="csharp"
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
 To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agent_card`:
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agentCard`:
+::: zone-end
+
+
+::: zone pivot="csharp"
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
 from os import getenv
 from a2a.types import AgentCard, AgentCapabilities, AgentSkill
-from microsoft.teams.a2a import A2APlugin, A2APluginOptions
-from microsoft.teams.apps import App, PluginBase
+from microsoft_teams.a2a import A2APlugin, A2APluginOptions
+from microsoft_teams.apps import App, PluginBase
 
 PORT = getenv("PORT", "4000")
 
@@ -69,7 +73,7 @@ app = App(logger=logger, plugins=plugins)
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { AgentCard } from '@a2a-js/sdk';
 import { A2APlugin } from '@microsoft/teams.a2a';
@@ -110,7 +114,7 @@ const app = new App({
 ```
 ::: zone-end
 
-::: zone pivot="typescript,python"
+
 ## Agent Card Exposure
 
 The plugin automatically exposes your agent card at the path `/a2a/.well-known/agent-card.json`.
@@ -118,11 +122,15 @@ The plugin automatically exposes your agent card at the path `/a2a/.well-known/a
 ## Handling A2A Requests
 
 Handle incoming A2A requests by adding an event handler for the `a2a:message` event. You may use `accumulateArtifacts` to iteratively accumulate artifacts for the task, or simply `respond` with the final result.
+
+
+::: zone pivot="csharp"
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.a2a import A2AMessageEvent, A2AMessageEventKey
+from microsoft_teams.a2a import A2AMessageEvent, A2AMessageEventKey
 from a2a.types import TextPart
 
 @app.event(A2AMessageEventKey)
@@ -148,7 +156,7 @@ async def handle_a2a_message(message: A2AMessageEvent) -> None:
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.event('a2a:message', async ({ respond, requestContext }) => {
   logger.info(`Received message: ${requestContext.userMessage}`);
@@ -165,14 +173,26 @@ app.event('a2a:message', async ({ respond, requestContext }) => {
 ```
 ::: zone-end
 
-::: zone pivot="typescript,python"
-> [!NOTE]
->
-> - You must have only a single handler that calls `respond`.
-> - You **must** call `respond` as the last step in your handler. This resolves the open request to the caller.
->
+
+:::note
+
+- You must have only a single handler that calls `respond`.
+- You **must** call `respond` as the last step in your handler. This resolves the open request to the caller.
+
+:::
 
 ## Sequence Diagram
 
-:::image type="content" source="~/assets/diagrams/a2a-server-1.png" alt-text="alt-text for a2a-server-1.png" lightbox="~/assets/diagrams/a2a-server-1.png":::
-::: zone-end
+```mermaid
+sequenceDiagram
+    participant A2A Client
+    participant App
+    participant A2APlugin
+    participant YourEventHandler
+
+    A2A Client->>App: /task/send
+    App->>A2APlugin: Call A2APlugin
+    A2APlugin->>YourEventHandler: Call your event handler a2a:message
+    YourEventHandler->>A2APlugin: Call respond
+    A2APlugin->>A2A Client: Return response
+```

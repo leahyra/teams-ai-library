@@ -1,9 +1,7 @@
 ---
+sidebar_position: 4
+summary: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
 title: Sending Messages
-description: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
-ms.topic: overview
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
 ---
 
 # Sending Messages
@@ -12,27 +10,12 @@ Sending messages is a core part of an agent's functionality. With all activity h
 
 
 ::: zone pivot="csharp"
-
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
-{
-    await client.Send($"you said: {activity.Text}");
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
     await context.Send($"you said: {context.activity.Text}");
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -43,7 +26,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.on('message', async ({ activity, send }) => {
   await send(`You said: ${activity.text}`);
@@ -56,26 +39,12 @@ In the above example, the handler gets a `message` activity, and uses the `send`
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
 ```csharp
-[SignIn.VerifyState]
-public async Task OnVerifyState([Context] SignIn.VerifyStateActivity activity, [Context] IContext.Client client)
-{
-    await client.Send("You have successfully signed in!");
-}
-```
-
-# [Minimal](#tab/minimal)
-```csharp
-app.OnVerifyState(async context =>
-{
-    await context.Send("You have successfully signed in!");
-});
-```
-
----
-
-
+  app.OnVerifyState(async context =>
+  {
+      await context.Send("You have successfully signed in!");
+  });
+  ```
 ::: zone-end
 
 ::: zone pivot="python"
@@ -87,7 +56,7 @@ async def handle_sign_in(event: SignInEvent):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.on('signin.verify-state', async ({ send }) => {
   await send('You have successfully signed in!');
@@ -104,12 +73,13 @@ You are not restricted to only replying to `message` activities. In the above ex
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `sign_in` events, which are sent when a user successfully signs in.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `signin.verify-state` events, which are sent when a user successfully signs in.
 ::: zone-end
 
-> [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
+:::tip
+This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards) section for more details.
+:::
 
 ## Streaming
 
@@ -117,19 +87,6 @@ You may also stream messages to the user which can be useful for long messages, 
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public void OnMessage([Context] MessageActivity activity, [Context] IStreamer stream)
-{
-    stream.Emit("hello");
-    stream.Emit(", ");
-    stream.Emit("world!");
-    // result message: "hello, world!"
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
@@ -140,10 +97,6 @@ app.OnMessage(async context =>
     return Task.CompletedTask;
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -162,7 +115,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.on('message', async ({ activity, stream }) => {
   stream.emit('hello');
@@ -175,10 +128,11 @@ app.on('message', async ({ activity, stream }) => {
 ::: zone-end
 
 
-> [!NOTE]
-> Streaming is currently only supported in 1:1 conversations, not group chats or channels
+:::note
+Streaming is currently only supported in 1:1 conversations, not group chats or channels
+:::
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="alt-text for streaming-chat.gif" lightbox="~/assets/screenshots/streaming-chat.gif":::
+![Animated image showing agent response text incrementally appearing in the chat window.](/screenshots/streaming-chat.gif)
 
 ## @Mention
 
@@ -190,32 +144,18 @@ Sending a message at `@mentions` a user is as simple including the details of th
 Sending a message at `@mentions` a user is as simple including the details of the user using the `add_mention` method
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 Sending a message at `@mentions` a user is as simple including the details of the user using the `addMention` method
 ::: zone-end
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
-{
-    await client.Send(new MessageActivity("hi!").AddMention(activity.From));
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
     await context.Send(new MessageActivity("hi!").AddMention(activity.From));
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -226,10 +166,11 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.on('message', async ({ send, activity }) => {
   await send(new MessageActivity('hi!').addMention(activity.from));
 });
 ```
 ::: zone-end
+

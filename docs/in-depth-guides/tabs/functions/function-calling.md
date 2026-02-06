@@ -1,17 +1,13 @@
 ---
-title: Executing Functions
-description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 1
+title: 'Executing Functions'
+summary: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
+languages: ['typescript']
+suppressLanguageIncludeWarning: true
 ---
 
 # Executing Functions
-::: zone pivot="csharp,python"
-This page isn't available for C# and Python.
-::: zone-end
 
-::: zone pivot="typescript"
 The client App exposes an `exec()` method that can be used to call functions implemented in an agent created with this SDK. The function call uses the `app.http` client to make a request, attaching a bearer token created from the `app.msalInstance` MSAL public client application, so that the remote function can authenticate and authorize the caller.
 
 The `exec()` method supports passing arguments and provides options to attach custom request headers and/or controlling the MSAL token scope.
@@ -31,7 +27,7 @@ await app.start();
 const result = await app.exec<string>('my-function');
 ```
 
-If the deployment is more complex, the [AppOptions](../app-options.md) can be used to influence the URL as well as the scope in the token.
+If the deployment is more complex, the [AppOptions](../app-options) can be used to influence the URL as well as the scope in the token.
 
 ## Function arguments
 
@@ -63,7 +59,7 @@ const result = await app.exec('my-other-function', args, { requestHeaders });
 
 ## Request bearer token
 
-By default, the HTTP request will include a header with a bearer token acquired by requesting an `access_as_user` permission. The resource used for the request depends on the `remoteApiOptions.remoteAppResource` [AppOption](../app-options.md). If this app option is not provided, the token is requested for the scope `api://<clientId>/access_as_user`. If this option is provided, the token is requested for the scope `<remoteApiOptions.remoteAppResource>/access_as_user`.
+By default, the HTTP request will include a header with a bearer token acquired by requesting an `access_as_user` permission. The resource used for the request depends on the `remoteApiOptions.remoteAppResource` [AppOption](../app-options). If this app option is not provided, the token is requested for the scope `api://<clientId>/access_as_user`. If this option is provided, the token is requested for the scope `<remoteApiOptions.remoteAppResource>/access_as_user`.
 
 When calling a function that requires a different permission or scope, the `exec` options let you override the behavior.
 
@@ -110,10 +106,9 @@ const result = await app.exec('my-other-function', args, options);
 
 The `exec()` function supports incremental, just-in-time consent such that the user is prompted to consent during the `exec()` call, if they haven't already consented earlier.
 
-If you find that you'd rather test for consent or request consent before making the `exec()` call, the `hasConsentForScopes` and `ensureConsentForScopes` can be used. More details about those are given in the [Graph](../graph.md) section.
+If you find that you'd rather test for consent or request consent before making the `exec()` call, the `hasConsentForScopes` and `ensureConsentForScopes` can be used. More details about those are given in the [Graph](../graph) section.
 
 ## References
 
-- [Graph API overview](/graph/api/overview)
-- [Graph API permissions overview](/graph/permissions-reference)
-::: zone-end
+- [Graph API overview](https://learn.microsoft.com/en-us/graph/api/overview)
+- [Graph API permissions overview](https://learn.microsoft.com/en-us/graph/permissions-reference)

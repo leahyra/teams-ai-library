@@ -1,20 +1,43 @@
 ---
-title: Chat Generation
-description: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 2
+sidebar_label: 💬 Chat Generation
+title: 💬 Chat Generation
+summary: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
 ---
 
-# Chat Generation
+# 💬 Chat Generation
 
-Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
+Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.mdx) guide.
 
-## Setup
+# Setup
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
-:::image type="content" source="~/assets/diagrams/chat-1.png" alt-text="alt-text for chat-1.png" lightbox="~/assets/diagrams/chat-1.png":::
+```mermaid
+flowchart LR
+    Prompt
+
+    subgraph Application
+        Send --> Prompt
+        UserMessage["User Message<br/>Hi how are you?"] --> Send
+        Send --> Content["Content<br/>I am doing great! How can I help you?"]
+
+        subgraph Setup
+            Messages --> Prompt
+            Instructions --> Prompt
+            Options["Other options..."] --> Prompt
+
+            Prompt --> Model
+        end
+    end
+
+    subgraph LLMProvider
+        Model --> AOAI["Azure Open AI"]
+        Model --> OAI["Open AI"]
+        Model --> Anthropic["Claude"]
+        Model --> OtherModels["..."]
+    end
+```
 
 ## Simple chat generation
 
@@ -42,14 +65,14 @@ Create a ChatModel, ChatPrompt, and handle user - LLM interactions:
 Import the relevant objects:
 
 ```python
-from microsoft.teams.ai import ChatPrompt
-from microsoft.teams.api import MessageActivity, MessageActivityInput
-from microsoft.teams.apps import ActivityContext
-from microsoft.teams.openai import OpenAICompletionsAIModel
+from microsoft_teams.ai import ChatPrompt
+from microsoft_teams.api import MessageActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.openai import OpenAICompletionsAIModel
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 Import the relevant objects:
 
 ```typescript
@@ -122,7 +145,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { ChatPrompt } from '@microsoft/teams.ai';
 import { MessageActivity } from '@microsoft/teams.api';
@@ -204,20 +227,22 @@ teamsApp.OnMessage(async (context) =>
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 <!-- Not applicable -->
 ::: zone-end
 
 
 
-::: zone pivot="csharp,typescript"
-> [!NOTE]
-> The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
+::: zone pivot="csharp,javascript"
+:::note
+The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
+:::
 ::: zone-end
 
 ::: zone pivot="python"
-> [!NOTE]
-> The current `OpenAICompletionsAIModel` implementation uses Chat Completions API. The Responses API is also available.
+:::note
+The current `OpenAICompletionsAIModel` implementation uses Chat Completions API. The Responses API is also available.
+:::
 ::: zone-end
 
 
@@ -232,7 +257,7 @@ teamsApp.OnMessage(async (context) =>
 Instead of `ChatPrompt`, you may also use `Agent`. The `Agent` class is a derivation from `ChatPrompt` but it differs in that it's stateful. The `memory` object passed to the `Agent` object will be reused for subsequent calls to `send`, whereas for `ChatPrompt`, each call to `send` is independent.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 <!-- Not applicable -->
 ::: zone-end
 
@@ -241,8 +266,9 @@ Instead of `ChatPrompt`, you may also use `Agent`. The `Agent` class is a deriva
 
 LLMs can take a while to generate a response, so often streaming the response leads to a better, more responsive user experience.
 
-> [!WARNING]
-> Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
+:::warning
+Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
+:::
 
 
 ::: zone pivot="csharp"
@@ -271,10 +297,10 @@ teamsApp.OnMessage(async (context) =>
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import ChatPrompt
-from microsoft.teams.api import MessageActivity, MessageActivityInput
-from microsoft.teams.apps import ActivityContext
-from microsoft.teams.openai import OpenAICompletionsAIModel
+from microsoft_teams.ai import ChatPrompt
+from microsoft_teams.api import MessageActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.openai import OpenAICompletionsAIModel
 # ...
 
 @app.on_message
@@ -298,7 +324,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { ChatPrompt } from '@microsoft/teams.ai';
 import { MessageActivity } from '@microsoft/teams.api';
@@ -335,4 +361,4 @@ app.on('message', async ({ stream, send, activity, next, log }) => {
 ::: zone-end
 
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="alt-text for streaming-chat.gif" lightbox="~/assets/screenshots/streaming-chat.gif":::
+![Animated image showing agent response text incrementally appearing in the chat window.](/screenshots/streaming-chat.gif)

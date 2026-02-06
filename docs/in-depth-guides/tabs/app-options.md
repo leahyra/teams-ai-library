@@ -1,24 +1,19 @@
 ---
-title: App Options
-description: Configure app settings for observability, MSAL authentication, and remote agent function calling.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 3
+title: 'App Options'
+summary: Configure app settings for observability, MSAL authentication, and remote agent function calling.
+languages: ['typescript']
+suppressLanguageIncludeWarning: true
 ---
 
 # App Options
 
-::: zone pivot="python,csharp"
-This page isn't available for Python and C#.
-::: zone-end
-
-::: zone pivot="typescript"
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and
 remote agent function calling. Each setting is optional, with the app using a reasonable default as needed.
 
 ## Logger
 
-If no logger is specified in the app options, the app will create a [ConsoleLogger](../observability/logging.md). You can however provide your own logger implementation to control log level and destination.
+If no logger is specified in the app options, the app will create a [ConsoleLogger](../observability/logging). You can however provide your own logger implementation to control log level and destination.
 
 ```typescript
 import { App } from '@microsoft/teams.client';
@@ -164,7 +159,7 @@ The MSAL options let you control whether and how the user is prompted to give th
 
 With this option, you can either pre-warm a specific set of scopes or disable pre-warming altogether. If no setting is provided, the default behavior is to prompt the user for the Graph scopes listed in the app manifest, unless they've already consented to at least on Graph scope.
 
-For more details on how and when to prompt for scope consent, see the [Graph](./graph.md) documentation.
+For more details on how and when to prompt for scope consent, see the [Graph](./graph) documentation.
 
 #### Default behavior
 
@@ -180,8 +175,9 @@ const app = new App(clientId);
 await app.start();
 ```
 
-> [!NOTE]
-> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::info
+The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::
 
 #### Pre-warm a specific set of scopes
 
@@ -199,8 +195,9 @@ const app = new App(clientId, {
 await app.start();
 ```
 
-> [!NOTE]
-> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::info
+The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::
 
 #### Disabling pre-warming
 
@@ -222,10 +219,10 @@ await app.start();
 const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 ```
 
-> [!NOTE]
-> Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
+:::info
+Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
+:::
 
 ## References
 
-[MSAL Configuration](/entra/identity-platform/msal-client-application-configuration)
-::: zone-end
+[MSAL Configuration](https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-application-configuration)

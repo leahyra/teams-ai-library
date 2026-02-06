@@ -1,19 +1,13 @@
 ---
+sidebar_position: 2
 title: A2A Client
-description: How to implement an A2A client to proactively send tasks to A2A servers using the AgentManager.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_label: A2A Client
+summary: How to implement an A2A client to proactively send tasks to A2A servers using the AgentManager.
+languages: ['typescript', 'python']
 ---
 
 # A2A Client
-::: zone pivot="csharp"
 
-This page isn't available for C#.
-
-::: zone-end
-
-::: zone pivot="typescript,python"
 ## What is an A2A Client?
 
 An A2A client is an agent or application that can proactively send tasks to A2A servers and interact with them using the A2A protocol.
@@ -22,6 +16,9 @@ An A2A client is an agent or application that can proactively send tasks to A2A 
 
 For direct control over A2A interactions, you can use the `A2AClient` from the SDK:
 
+
+::: zone pivot="csharp"
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
@@ -70,7 +67,7 @@ async def _send_message(self) -> None:
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { A2AClient } from '@a2a-js/sdk/client';
 
@@ -89,20 +86,22 @@ const response = await client.sendMessage({
 ```
 ::: zone-end
 
-::: zone pivot="typescript,python"
 
 ## Using `A2AClientPlugin` with ChatPrompt
 
 A2A is most effective when used with an LLM. The `A2AClientPlugin` can be added to your chat prompt to allow interaction with A2A agents. Once added, the plugin will automatically configure the system prompt and tool calls to determine if the a2a server is needed for a particular task, and if so, it will do the work of orchestrating the call to the A2A server.
 
+
+::: zone pivot="csharp"
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
 from os import getenv
-from microsoft.teams.openai.completions_model import OpenAICompletionsAIModel
-from microsoft.teams.a2a import A2AClientPlugin, A2APluginUseParams
-from microsoft.teams.ai import ChatPrompt
+from microsoft_teams.openai.completions_model import OpenAICompletionsAIModel
+from microsoft_teams.a2a import A2AClientPlugin, A2APluginUseParams
+from microsoft_teams.ai import ChatPrompt
 
 PORT = getenv("PORT", "4000")
 
@@ -132,7 +131,7 @@ prompt = ChatPrompt(
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { A2AClientPlugin } from '@microsoft/teams.a2a';
 import { ChatPrompt } from '@microsoft/teams.ai';
@@ -158,8 +157,12 @@ const prompt = new ChatPrompt(
 ```
 ::: zone-end
 
-::: zone pivot="typescript,python"
+
 To send a message:
+
+
+::: zone pivot="csharp"
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
@@ -170,7 +173,7 @@ result = await prompt.send(message)
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 // Now we can send the message to the prompt and it will decide if
 // the a2a agent should be used or not and also manages contacting the agent
@@ -178,11 +181,14 @@ const result = await prompt.send(message);
 ```
 ::: zone-end
 
-::: zone pivot="typescript,python"
+
 ### Advanced `A2AClientPlugin` Configuration
 
 You can customize how the client interacts with A2A agents by providing custom builders:
 
+
+::: zone pivot="csharp"
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
@@ -239,7 +245,7 @@ advanced_prompt = ChatPrompt(model=completions_model, plugins=[advanced_plugin])
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 // Example with custom message builders and response processors
 export const advancedPrompt = new ChatPrompt(
@@ -282,17 +288,89 @@ export const advancedPrompt = new ChatPrompt(
 ```
 ::: zone-end
 
-::: zone pivot="typescript,python"
+
 ## Sequence Diagram
 
 Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
 
+
+::: zone pivot="csharp"
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/diagrams/a2a-client-1.png" alt-text="alt-text for a2a-client-1.png" lightbox="~/assets/diagrams/a2a-client-1.png":::
+```mermaid
+sequenceDiagram
+    participant User
+    participant ChatPrompt
+    participant A2AClientPlugin
+    participant A2ACardResolver
+    participant Client
+    participant LLM
+    participant A2AServer
+
+    Note over User,A2AServer: Configuration
+    User->>A2AClientPlugin: on_use_plugin()
+
+    Note over User,A2AServer: Message Flow
+    User->>ChatPrompt: send(message)
+    ChatPrompt->>A2AClientPlugin: on_build_instructions()
+    A2AClientPlugin->>A2ACardResolver: fetch_agent_card()
+    A2ACardResolver->>A2AServer: GET /.well-known/agent-card.json
+    A2AServer-->>A2ACardResolver: AgentCard
+    A2ACardResolver-->>A2AClientPlugin: AgentCard
+    A2AClientPlugin-->>ChatPrompt: Enhanced system prompt
+
+    ChatPrompt->>A2AClientPlugin: on_build_functions()
+    A2AClientPlugin-->>ChatPrompt: Function tools for agents
+
+    ChatPrompt->>LLM: Enhanced prompt + tools
+    LLM-->>ChatPrompt: Function call (message_agent)
+    ChatPrompt->>A2AClientPlugin: Execute function handler
+    A2AClientPlugin->>Client: send_message()
+    Client->>A2AServer: POST /a2a/task/send
+    A2AServer-->>Client: Response
+    Client-->>A2AClientPlugin: Response
+    A2AClientPlugin-->>ChatPrompt: Processed response
+    ChatPrompt-->>User: Final response
+```
 ::: zone-end
 
-::: zone pivot="typescript"
-:::image type="content" source="~/assets/diagrams/a2a-client-2.png" alt-text="alt-text for a2a-client-2.png" lightbox="~/assets/diagrams/a2a-client-2.png":::
+::: zone pivot="javascript"
+```mermaid
+sequenceDiagram
+    participant User
+    participant ChatPrompt
+    participant A2AClientPlugin
+    participant A2AClient
+    participant LLM
+    participant A2AServer
+
+    Note over User,A2AServer: Configuration
+    User->>ChatPrompt: usePlugin('a2a', {cardUrl})
+    ChatPrompt->>A2AClientPlugin: onUsePlugin()
+
+    Note over User,A2AServer: Message Flow
+    User->>ChatPrompt: send(message)
+    ChatPrompt->>A2AClientPlugin: onBuildPrompt()
+    A2AClientPlugin->>A2AClient: getAgentCard()
+    A2AClient->>A2AServer: GET /.well-known/agent-card.json
+    A2AServer-->>A2AClient: AgentCard
+    A2AClient-->>A2AClientPlugin: AgentCard
+    A2AClientPlugin-->>ChatPrompt: Enhanced system prompt
+
+    ChatPrompt->>A2AClientPlugin: onBuildFunctions()
+    A2AClientPlugin-->>ChatPrompt: Function tools for agents
+
+    ChatPrompt->>LLM: Enhanced prompt + tools
+    LLM-->>ChatPrompt: Function call (messageAgent)
+    ChatPrompt->>A2AClientPlugin: Execute function handler
+    A2AClientPlugin->>A2AClient: sendMessage()
+    A2AClient->>A2AServer: POST /a2a/task/send
+    A2AServer-->>A2AClient: Response
+    A2AClient-->>A2AClientPlugin: Response
+    A2AClientPlugin-->>ChatPrompt: Processed response
+    ChatPrompt-->>User: Final response
+```
 ::: zone-end
+

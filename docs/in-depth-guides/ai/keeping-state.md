@@ -1,9 +1,8 @@
 ---
+sidebar_position: 4
+sidebar_label: Keeping State
 title: Keeping State
-description: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+summary: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
 ---
 
 # Keeping State
@@ -14,13 +13,15 @@ It's common practice to keep state of the conversation history in your applicati
 By default, the `ChatPrompt` instance will create a temporary in-memory store to keep track of the conversation history. This is beneficial
 when you want to use it to generate an LLM response, but not persist the conversation history. But in other cases, you may want to keep the conversation history
 
-> [!WARNING]
-> By reusing the same `ChatPrompt` class instance across multiple conversations will lead to the conversation history being shared across all conversations. Which is usually not the desired behavior.
+:::warning
+By reusing the same `ChatPrompt` class instance across multiple conversations will lead to the conversation history being shared across all conversations. Which is usually not the desired behavior.
+:::
 
 To avoid this, you need to get messages from your persistent (or in-memory) store and pass it in to the `ChatPrompt`.
 
-> [!NOTE]
-> The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
+:::note
+The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
+:::
 
 ## State Initialization
 
@@ -73,8 +74,8 @@ public static Task ClearConversationMemory(string conversationId)
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import ChatPrompt, ListMemory, AIModel
-from microsoft.teams.openai import OpenAICompletionsAIModel
+from microsoft_teams.ai import ChatPrompt, ListMemory, AIModel
+from microsoft_teams.openai import OpenAICompletionsAIModel
 
 # Simple in-memory store for conversation histories
 # In your application, it may be a good idea to use a more
@@ -99,7 +100,7 @@ async def clear_conversation_memory(conversation_id: str) -> None:
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { ChatPrompt, IChatModel, Message } from '@microsoft/teams.ai';
 import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
@@ -173,9 +174,9 @@ public static async Task HandleStatefulConversation(OpenAIChatModel model, ICont
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import ChatPrompt, ListMemory, AIModel
-from microsoft.teams.api import MessageActivity, MessageActivityInput
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.ai import ChatPrompt, ListMemory, AIModel
+from microsoft_teams.api import MessageActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
 # ...
 
 async def handle_stateful_conversation(model: AIModel, ctx: ActivityContext[MessageActivity]) -> None:
@@ -214,7 +215,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 /**
  * Example of a stateful conversation handler that maintains conversation history
@@ -278,19 +279,22 @@ teamsApp.OnMessage(async (context) =>
 4. **Automatic Updates**: After receiving a response, manually add both the user message and AI response to the store
 5. **Persistence**: The conversation history persists across multiple user interactions within the same conversation
 
-> [!TIP]
-> The `ChatPrompt.Send()` method does **not** automatically update the messages you pass in via `RequestOptions`. You must manually add the user message and AI response to your conversation store after each interaction.
+:::tip
+The `ChatPrompt.Send()` method does **not** automatically update the messages you pass in via `RequestOptions`. You must manually add the user message and AI response to your conversation store after each interaction.
+:::
 
-> [!NOTE]
-> In a production application, consider using a more robust storage solution like Azure Cosmos DB, SQL Server, or Redis instead of an in-memory dictionary. This ensures conversation history persists across application restarts and scales across multiple instances.
+:::note
+In a production application, consider using a more robust storage solution like Azure Cosmos DB, SQL Server, or Redis instead of an in-memory dictionary. This ensures conversation history persists across application restarts and scales across multiple instances.
+:::
 
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
+![Stateful Chat Example](/screenshots/stateful-chat-example.png)
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
+![Screenshot of chat between user and agent, user first states 'My dinosaur's name is Barnie' and later asks What's my pet's name and the agent responds correctly with 'Barnie'.](/screenshots/stateful-chat-example.png)
 ::: zone-end
 
-::: zone pivot="typescript"
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
+::: zone pivot="javascript"
+![Stateful Chat Example](/screenshots/stateful-chat-example.png)
 ::: zone-end
+

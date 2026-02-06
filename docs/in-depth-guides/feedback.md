@@ -1,16 +1,15 @@
 ---
-title: Implementing User Feedback
-description: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 7
+title: Feedback
+sidebar_label: Feedback
+summary: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
 ---
 
-# Implementing User Feedback
+# Feedback
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="alt-text for feedback.gif" lightbox="~/assets/screenshots/feedback.gif":::
+![Animated image showing user selecting the thumbs-up button on an agent response and a dialog opening asking 'What did you like?'. The user types 'Nice' and hits Submit.](/screenshots/feedback.gif)
 
 ## Storage
 
@@ -46,7 +45,7 @@ Once you receive a feedback event, you can choose to store it in some persistent
 For production applications, consider using databases, file systems, or cloud storage. The examples below use in-memory storage for simplicity.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
 import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
@@ -96,9 +95,9 @@ FeedbackStore.StoredFeedbackByMessageId[sentMessageId.Id] = new FeedbackStore.Fe
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import Agent
-from microsoft.teams.api import MessageActivityInput
-from microsoft.teams.apps import ActivityContext, MessageActivity
+from microsoft_teams.ai import Agent
+from microsoft_teams.api import MessageActivityInput
+from microsoft_teams.apps import ActivityContext, MessageActivity
 
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
@@ -118,7 +117,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
 import {
@@ -200,8 +199,8 @@ public Task OnFeedbackReceived([Context] Microsoft.Teams.Api.Activities.Invokes.
 ```python
 import json
 from typing import Dict, Any
-from microsoft.teams.api import MessageSubmitActionInvokeActivity
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import MessageSubmitActionInvokeActivity
+from microsoft_teams.apps import ActivityContext
 # ...
 
 # Handle feedback submission events
@@ -239,7 +238,7 @@ async def handle_message_feedback(ctx: ActivityContext[MessageSubmitActionInvoke
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -268,3 +267,4 @@ app.on('message.submit.feedback', async ({ activity, log }) => {
 });
 ```
 ::: zone-end
+

@@ -1,16 +1,15 @@
 ---
-title: Handling Dialog Submissions
-description: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 2
+sidebar_label: Handling Dialog Submissions
+title: 'Handling Dialog Submissions'
+summary: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
 ---
 
 # Handling Dialog Submissions
 
 
 ::: zone pivot="csharp"
-Dialogs have a specific `TaskSubmit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
+Dialogs have a specific `TaskSubmit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms)).
 
 :::warning Return Type Requirement
 Methods decorated with `[TaskSubmit]` **must** return `Task<Microsoft.Teams.Api.TaskModules.Response>`. Every code path must return a Response object containing either a `MessageTask` (to show a message and close the dialog) or a `ContinueTask` (to show another dialog). Using just `Task` or `void` will compile but fail at runtime when the Teams client expects a Response object.
@@ -20,11 +19,11 @@ Methods decorated with `[TaskSubmit]` **must** return `Task<Microsoft.Teams.Api.
 ::: zone-end
 
 ::: zone pivot="python"
-Dialogs have a specific `dialog_submit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
+Dialogs have a specific `dialog_submit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms)).
 ::: zone-end
 
-::: zone pivot="typescript"
-Dialogs have a specific `dialog.submit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
+::: zone pivot="javascript"
+Dialogs have a specific `dialog.submit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms)).
 ::: zone-end
 
 
@@ -88,8 +87,8 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 ::: zone pivot="python"
 ```python
 from typing import Optional, Any
-from microsoft.teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_dialog_submit
@@ -105,7 +104,7 @@ async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -148,8 +147,8 @@ case "webpage_dialog":
 ::: zone pivot="python"
 ```python
 from typing import Optional, Any
-from microsoft.teams.api import TaskSubmitInvokeActivity, InvokeResponse, TaskModuleResponse, TaskModuleMessageResponse
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import TaskSubmitInvokeActivity, InvokeResponse, TaskModuleResponse, TaskModuleMessageResponse
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_dialog_submit
@@ -168,7 +167,7 @@ async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -262,6 +261,7 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 <!-- Not applicable -->
 ::: zone-end
+

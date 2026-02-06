@@ -1,9 +1,8 @@
 ---
-title: Handling Multi-Step Forms
-description: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 3
+sidebar_label: Handling Multi-Step Forms
+title: 'Handling Multi-Step Forms'
+summary: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
 ---
 
 # Handling Multi-Step Forms
@@ -21,7 +20,7 @@ Start off by sending an initial card in the `TaskFetch` event.
 Start off by sending an initial card in the `dialog_open` event.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 Start off by sending an initial card in the `dialog.open` event.
 ::: zone-end
 
@@ -113,7 +112,7 @@ dialog_card = AdaptiveCard.model_validate(
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { AdaptiveCard, TextInput, SubmitAction } from '@microsoft/teams.cards';
@@ -290,7 +289,7 @@ async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
 ```typescript
@@ -463,6 +462,7 @@ public async Task<Response> OnTaskSubmit([Context] Tasks.SubmitActivity activity
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 <!-- Not applicable -->
 ::: zone-end
+

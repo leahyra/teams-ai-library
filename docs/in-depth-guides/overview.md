@@ -1,9 +1,7 @@
 ---
 title: In-Depth Guides
-description: Advanced guides covering complex topics like AI integration, adaptive cards, dialogs, message extensions, and user authentication.
-ms.topic: overview
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 3
+summary: Advanced guides covering complex topics like AI integration, adaptive cards, dialogs, message extensions, and user authentication.
 ---
 
 # In-Depth Guides
@@ -17,7 +15,7 @@ This documentation covers advanced features and capabilities of the Teams SDK in
 This documentation covers advanced features and capabilities of the Teams SDK in Python.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 This documentation covers advanced features and capabilities of the Teams SDK in TypeScript.
 ::: zone-end
 

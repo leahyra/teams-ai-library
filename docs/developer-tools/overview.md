@@ -1,8 +1,6 @@
 ---
-title: Developer Tools
-description: Overview of developer tools in Teams SDK including the CLI for project management and DevTools for testing and debugging agents.
-ms.topic: overview
-ms.date: 11/17/2025
+sidebar_position: 4
+summary: Overview of developer tools in Teams SDK including the CLI for project management and DevTools for testing and debugging agents.
 ---
 
 # Developer Tools
@@ -11,5 +9,5 @@ One of the main motivations for Teams SDK is to provide excellent tools that sim
 
 Learn more about the developer tools that come with Teams SDK.
 
-1. [Teams CLI](./cli.md)
-2. [DevTools](./devtools/overview.md)
+1. [Teams CLI](./cli)
+2. [DevTools](./devtools)

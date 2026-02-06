@@ -1,9 +1,11 @@
 ---
+sidebar_position: 1
 title: Client Secret Setup
-description: Set up client secret authentication for your Teams bot in Azure Portal or Azure CLI
-ms.topic: how-to
-ms.date: 11/17/2025
+summary: Set up client secret authentication for your Teams bot in Azure Portal or Azure CLI
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Client Secret Authentication Setup
 
@@ -21,11 +23,13 @@ Before you begin, ensure you have:
 
 When creating your Azure Bot Service, you must select `Single Tenant` for the `Type of App`.
 
-:::image type="content" source="~/assets/screenshots/single-tenant-bot.png" alt-text="alt-text for single-tenant-bot.png" lightbox="~/assets/screenshots/single-tenant-bot.png":::
+![Single Tenant Bot Creation](/screenshots/single-tenant-bot.png)
 
 ### Step 2: Create Client Secret
 
-# [Azure Portal](#tab/azure-portal)
+<Tabs>
+<TabItem value="portal" label="Azure Portal">
+
 1. Navigate to your **App Registration** in the Azure Portal
 2. Go to **Certificates and Secrets**
 3. Click **New client secret**
@@ -33,9 +37,11 @@ When creating your Azure Bot Service, you must select `Single Tenant` for the `T
 5. Click **Add**
 6. **Important**: Copy the secret value immediately - it won't be shown again
 
-:::image type="content" source="~/assets/screenshots/client-secret.png" alt-text="alt-text for client-secret.png" lightbox="~/assets/screenshots/client-secret.png":::
+![Secret in Certificates and Secrets](/screenshots/client-secret.png)
 
-# [Azure CLI](#tab/azure-cli)
+</TabItem>
+<TabItem value="cli" label="Azure CLI">
+
 ```bash
 # Create a new client secret
 az ad app credential reset --id $APP_ID --append
@@ -43,9 +49,8 @@ az ad app credential reset --id $APP_ID --append
 
 The command will output the secret value. Save it securely.
 
----
-
-
+</TabItem>
+</Tabs>
 
 ## Next Steps
 

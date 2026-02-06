@@ -1,9 +1,8 @@
 ---
+sidebar_position: 1
+sidebar_label: Quickstart
 title: Quickstart
-description: Quick start guide for Teams SDK using the Teams CLI to create and run your first agent.
-ms.topic: quickstart
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+summary: Quick start guide for Teams SDK using the Teams CLI to create and run your first agent.
 ---
 
 # Quickstart
@@ -16,19 +15,14 @@ Get started with Teams SDK quickly using the Teams CLI.
 
 
 ::: zone pivot="csharp"
-- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/download).
+- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/en-us/download).
 ::: zone-end
 
 ::: zone pivot="python"
 - **Python** v3.12 or higher. Install or upgrade from [python.org/downloads](https://www.python.org/downloads/).
-- **UV** v0.8.11 or higher. Install or upgrade from [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/)
-
-> [!NOTE]
-> UV is a fast Python package installer and resolver. While you can use other package managers like pip, UV provides better performance and dependency resolution for Teams SDK projects.
-
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 - **Node.js** v.20 or higher. Install or upgrade from [nodejs.org](https://nodejs.org/).
 ::: zone-end
 
@@ -43,10 +37,10 @@ Use your terminal to run the Teams CLI using npx:
 npx @microsoft/teams.cli --version
 ```
 
-> [!NOTE]
-> _The [Teams CLI](../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process.
-> 
-> Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
+:::info
+_The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
+:::
 
 ## Creating Your First Agent
 
@@ -65,7 +59,7 @@ npx @microsoft/teams.cli@latest new python quote-agent --template echo
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```sh
 npx @microsoft/teams.cli@latest new typescript quote-agent --template echo
 ```
@@ -78,13 +72,13 @@ This command:
 ::: zone pivot="csharp"
 1. Creates a new directory called `Quote.Agent`.
 2. Bootstraps the echo agent template files into your project directory.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
 
-::: zone pivot="python,typescript"
+::: zone pivot="python,javascript"
 1. Creates a new directory called `quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
 
 
@@ -123,11 +117,11 @@ cd quote-agent
 Start the development server:
 
 ```sh
-uv run src\main.py
+python src/main.py
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 1. Navigate to your new agent's directory:
 
 ```sh
@@ -179,7 +173,7 @@ INFO:     Uvicorn running on http://0.0.0.0:3979 (Press CTRL+C to quit)
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 4. In the console, you should see a similar output:
 
 ```sh
@@ -203,22 +197,23 @@ When the application starts, you'll see:
 1. An HTTP server starting up (on port `3978`). This is the main server which handles incoming requests and serves the agent application.
 2. A devtools server starting up (on port `3979`). This is a developer server that provides a web interface for debugging and testing your agent quickly, without having to deploy it to Teams.
 
-> [!NOTE]
-> The DevTools server runs on a separate port to avoid conflicts with your main application server. This allows you to test your agent locally while keeping the main server available for Teams integration.
+:::info
+The DevTools server runs on a separate port to avoid conflicts with your main application server. This allows you to test your agent locally while keeping the main server available for Teams integration.
+:::
 
 Now, navigate to the devtools server by opening your browser and navigating to [http://localhost:3979/devtools](http://localhost:3979/devtools). You should see a simple interface where you can interact with your agent. Try sending it a message!
 
-:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="alt-text for devtools-echo-chat.png" lightbox="~/assets/screenshots/devtools-echo-chat.png":::
+![Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'.](/screenshots/devtools-echo-chat.png)
 
 ## Next steps
 
-After creating and running your first agent, read about [the code basics](code-basics.md) to better understand its components and structure.
+After creating and running your first agent, read about [the code basics](code-basics) to better understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](./running-in-teams/overview.md) guide.
+Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](running-in-teams) guide.
 
 ## Resources
 
-- [Teams CLI documentation](../developer-tools/cli.md)
-- [Teams DevTools documentation](../developer-tools/devtools/overview.md)
-- [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
-- [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
+- [Teams CLI documentation](/developer-tools/cli)
+- [Teams DevTools documentation](/developer-tools/devtools)
+- [Teams manifest schema](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema)
+- [Teams sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

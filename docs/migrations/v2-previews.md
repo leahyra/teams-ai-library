@@ -1,23 +1,22 @@
 ---
-title: Migrating from Teams AI Library v2 Preview
-description: Here's how to migrate from preview versions of the Teams SDK to the latest stable release.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 3
+sidebar_label: From V2 Previews
+title: From V2 Previews
+languages: ['typescript']
 ---
 
-# Migrating from Teams SDK (AI Library) v2 Preview
+# From V2 Previews
 
 
 ::: zone pivot="csharp"
-This page isn't available for C#.
+<!-- Missing section content -->
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
+<!-- Missing section content -->
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 If you're moving from preview versions of Teams SDK, you may encounter a few breaking changes along the way. This page outlines those and shows how to get back on track.
 
 ## Graph Client
@@ -112,3 +111,4 @@ await app.graph.call(setPresence.create, newPresence);
 await app.graph.call(updatePresence, newPresence);
 ```
 ::: zone-end
+

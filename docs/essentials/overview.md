@@ -1,9 +1,7 @@
 ---
 title: Essentials
-description: Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
-ms.topic: overview
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 2
+summary: Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
 ---
 
 # Essentials
@@ -15,7 +13,7 @@ With Teams SDK, we've made it easier than ever to build this kind of reactive, c
 Before diving in, let's define a few key terms:
 
 
-::: zone pivot="csharp,python,typescript"
+::: zone pivot="csharp,python,javascript"
 - Event: Anything interesting that happens on Teams — or within your application as a result of handling an earlier event.
 - Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and adaptive card actions.
 - InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
@@ -24,15 +22,50 @@ Before diving in, let's define a few key terms:
 
 
 ::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png" lightbox="~/assets/diagrams/overview-1.png":::
+```mermaid
+flowchart LR
+    Teams["Teams"]
+    Server["App Server"]
+    AppEventHandlers["Event Handler (app.OnEvent())"]
+    AppRouter["Activity Event Router"]
+    AppActivityHandlers["Activity Handlers (app.OnActivity())"]
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/diagrams/overview-2.png" alt-text="alt-text for overview-2.png" lightbox="~/assets/diagrams/overview-2.png":::
+```mermaid
+flowchart LR
+    Teams["Teams"]
+    Server["App Server"]
+    AppEventHandlers["Event Handler decorator (@app.event())"]
+    AppRouter["Activity Event Router"]
+    AppActivityHandlers["Activity Handler decorators (@app.on_activity())"]
 ::: zone-end
 
-::: zone pivot="typescript"
-:::image type="content" source="~/assets/diagrams/overview-3.png" alt-text="alt-text for overview-3.png" lightbox="~/assets/diagrams/overview-3.png":::
+::: zone pivot="javascript"
+```mermaid
+flowchart LR
+    Teams["Teams"]
+    Server["App Server"]
+    AppEventHandlers["Event Handler (app.event())"]
+    AppRouter["Activity Event Router"]
+    AppActivityHandlers["Activity Handlers (app.on())"]
 ::: zone-end
+
+    Teams --> |Activity| Server
+    Teams --> |Signed In| Server
+    Teams --> |...other<br/>incoming events| Server
+    Server --> |ActivityEvent<br/>or InvokeEvent| AppRouter
+    Server ---> |incoming<br/>events| AppEventHandlers
+    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
+    AppRouter --> |message activity| AppActivityHandlers
+    AppRouter --> |card activity| AppActivityHandlers
+    AppRouter --> |installation activity| AppActivityHandlers
+    AppRouter --> |...other activities| AppActivityHandlers
+
+
+    linkStyle 0,3 stroke:#66fdf3,stroke-width:1px,color:Tomato
+    linkStyle 1,2,4,5 stroke:#66fdf3,stroke-width:1px
+    linkStyle 6,7,8,9 color:Tomato
+```
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.

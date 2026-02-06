@@ -1,12 +1,11 @@
 ---
-title: Custom Logger
-description: Configure custom loggers in your Teams app to control log levels and output destinations.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 2
+sidebar_label: '🗃️ Custom Logger'
+title: '🗃️ Custom Logger'
+summary: Configure custom loggers in your Teams app to control log levels and output destinations.
 ---
 
-# Custom Logger
+# 🗃️ Custom Logger
 
 ::: zone pivot="csharp"
 The `App` will provide a default logger, but you can also provide your own.
@@ -18,7 +17,7 @@ The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the `microsoft-teams-common` package.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the `@microsoft/teams.common` package.
 ::: zone-end
@@ -46,10 +45,10 @@ var teams = app.UseTeams();
 ```python
 import asyncio
 
-from microsoft.teams.api import MessageActivity
-from microsoft.teams.api.activities.typing import TypingActivityInput
-from microsoft.teams.apps import ActivityContext, App
-from microsoft.teams.common import ConsoleLogger, ConsoleLoggerOptions
+from microsoft_teams.api import MessageActivity
+from microsoft_teams.api.activities.typing import TypingActivityInput
+from microsoft_teams.apps import ActivityContext, App
+from microsoft_teams.common import ConsoleLogger, ConsoleLoggerOptions
 
 logger = ConsoleLogger().create_logger("echo", ConsoleLoggerOptions(level="debug"))
 app = App(logger=logger)
@@ -66,7 +65,7 @@ if __name__ == "__main__":
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common';
@@ -88,3 +87,4 @@ app.on('message', async ({ send, activity, log }) => {
 })();
 ```
 ::: zone-end
+

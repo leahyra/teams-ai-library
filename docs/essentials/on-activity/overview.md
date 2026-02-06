@@ -1,9 +1,7 @@
 ---
+sidebar_position: 1
+summary: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
 title: Listening to Activities
-description: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
-ms.topic: overview
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
 ---
 
 # Listening To Activities
@@ -13,49 +11,43 @@ Where _events_ describe high‑level happenings inside your app, _activities_ ar
 
 
 ::: zone pivot="csharp"
-The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.OnActivity(...)`, or you can use controllers/attributes.
+The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.OnActivity(...)` using minimal APIs.
 ::: zone-end
 
 ::: zone pivot="python"
 The Teams SDK exposes a fluent router so you can subscribe to these activities with `@app.event("activity")`.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.on('<route>', …)`.
 ::: zone-end
 
 
-:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png" lightbox="~/assets/diagrams/overview-1.png":::
+```mermaid
+flowchart LR
+    Teams["Teams"]:::less-interesting
+    Server["App Server"]:::interesting
+    ActivityRouter["Activity Router (app.on())"]:::interesting
+    Handlers["Your Activity Handlers"]:::interesting
+
+    Teams --> |Events| Server
+    Server --> |Activity Event| ActivityRouter
+    ActivityRouter --> |handler invoked| Handlers
+
+    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
+    classDef less-interesting fill:#666,stroke:#333,stroke-width:4px;
+```
 
 Here is an example of a basic message handler:
 
 
 ::: zone pivot="csharp"
-
-# [Controller](#tab/controller)
 ```csharp
-[TeamsController]
-public class MainController
-{
-    [Message]
-    public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
+    app.OnMessage(async context =>
     {
-        await client.Send($"you said: {activity.Text}");
-    }
-}
-```
-
-# [Minimal](#tab/minimal)
-```csharp
-app.OnMessage(async context =>
-{
-    await context.Send($"you said: {context.activity.Text}");
-});
-```
-
----
-
-
+        await context.Send($"you said: {context.activity.Text}");
+    });
+    ```
 ::: zone-end
 
 ::: zone pivot="python"
@@ -66,7 +58,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.on('message', async ({ activity, send }) => {
   await send(`You said: ${activity.text}`);
@@ -77,17 +69,17 @@ app.on('message', async ({ activity, send }) => {
 
 
 ::: zone pivot="csharp"
-In the above example, the `activity` parameter is of type `MessageActivity`, which has a `Text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
+In the above example, the `context.activity` parameter is of type `MessageActivity`, which has a `Text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 ::: zone-end
 
 ::: zone pivot="python"
 In the above example, the `ctx.activity` parameter is of type `MessageActivity`, which has a `text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 In the above example, the `activity` parameter is of type `MessageActivity`, which has a `text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 
-[Other activity types](./activity-ref.md) have different properties and different required results. For a given handler, the SDK will automatically determine the type of `activity` and also enforce the correct return type.
+[Other activity types](./activity-ref) have different properties and different required results. For a given handler, the SDK will automatically determine the type of `activity` and also enforce the correct return type.
 ::: zone-end
 
 
@@ -102,53 +94,22 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
 The `event` activity handlers (and attributes) follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `python` middlewares work. This means that for each activity handler, a `next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `express` middlewares work. This means that for each activity handler, a `next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
 ::: zone-end
 
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
 ```csharp
-[Message]
-public void OnMessage([Context] MessageActivity activity, [Context] ILogger logger, [Context] IContext.Next next)
-{
-    Console.WriteLine("global logger");
-    next(); // pass control onward
-}
-```
+  app.OnMessage(async context =>
+  {
+      Console.WriteLine("global logger");
+      context.Next(); // pass control onward
+      return Task.CompletedTask;
+  });
+  ```
 
-# [Minimal](#tab/minimal)
-```csharp
-app.OnMessage(async context =>
-{
-    Console.WriteLine("global logger");
-    context.Next(); // pass control onward
-    return Task.CompletedTask;
-});
-```
-
----
-
-
-
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage(IContext<MessageActivity> context)
-{
-    if (context.Activity.Text == "/help")
-    {
-        await context.Send("Here are all the ways I can help you...");
-    }
-
-    // Conditionally pass control to the next handler
-    context.Next();
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
@@ -160,34 +121,13 @@ app.OnMessage(async context =>
     // Conditionally pass control to the next handler
     context.Next();
 });
-```
-
----
-
-
-
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage(IContext<MessageActivity> context)
-{
-    // Fallthrough to the final handler
-    await context.Send($"Hello! you said {context.Activity.Text}");
-}
-```
-
-# [Minimal](#tab/minimal)
-```csharp
-app.OnMessage(async context =>
-{
-    // Fallthrough to the final handler
-    await context.Send($"Hello! you said {context.Activity.Text}");
-});
-```
-
----
-
-
+    
+  app.OnMessage(async context =>
+  {
+      // Fallthrough to the final handler
+      await context.Send($"Hello! you said {context.Activity.Text}");
+  });
+  ```
 ::: zone-end
 
 ::: zone pivot="python"
@@ -215,7 +155,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.on('message', async ({ next }) => {
   console.log('global logger');
@@ -244,8 +184,9 @@ app.on('message', async ({ activity }) => {
 ::: zone-end
 
 
-> [!NOTE]
-> Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler. The order of registration for the handlers also matters as that determines how the handlers will be called.
+:::info
+Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler. The order of registration for the handlers also matters as that determines how the handlers will be called.
+:::
 
 
 ::: zone pivot="csharp"
@@ -256,8 +197,9 @@ app.on('message', async ({ activity }) => {
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ## Activity Reference
 
-For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref.md).
+For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref).
 ::: zone-end
+

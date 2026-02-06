@@ -1,13 +1,11 @@
 ---
-title: Enabling in Microsoft 365 Copilot
-description: Learn how to enable your Teams app to work in Microsoft 365 Copilot by updating the app manifest.
-ms.topic: how-to
-ms.date: 11/17/2025
+sidebar_position: 6
+summary: Learn how to enable your Teams app to work in M365 Copilot by updating the app manifest.
 ---
 
-# Enabling in Microsoft 365 Copilot
+# Enabling in M365 Copilot
 
-If you've built a Teams app or agent and want to make it available in Microsoft 365 Copilot, you can easily do so by updating your app manifest. This allows users to interact with your agent through Copilot's interface.
+If you've built a Teams app or agent and want to make it available in M365 Copilot, you can easily do so by updating your app manifest. This allows users to interact with your agent through Copilot's interface.
 
 ## Prerequisites
 
@@ -44,7 +42,7 @@ Here's how the `copilotAgents` section fits into the overall manifest structure:
 
 ```json
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
   "manifestVersion": "1.19",
   "version": "1.0.0",
   "id": "${{APP_ID}}",
@@ -118,11 +116,11 @@ If you're manually packaging your app:
 
 Once you've updated and redeployed your app:
 
-1. Open Microsoft 365 Copilot in Teams or at [m365.cloud.microsoft](https://m365.cloud.microsoft/)
+1. Open M365 Copilot in Teams or at [m365.cloud.microsoft](https://m365.cloud.microsoft/)
 2. Your app should now be available as an agent option
 3. Interact with your agent through the Copilot interface
 
 ## Resources
 
-- [Convert Your Declarative Agent for Microsoft 365 Copilot to a Custom Engine Agent](/microsoft-365-copilot/extensibility/convert-declarative-agent)
-- [Teams app manifest reference](/microsoftteams/platform/resources/schema/manifest-schema)
+- [Convert Your Declarative Agent for Microsoft 365 Copilot to a Custom Engine Agent](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/convert-declarative-agent)
+- [Teams app manifest reference](https://learn.microsoft.com/microsoftteams/platform/resources/schema/manifest-schema)

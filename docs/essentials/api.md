@@ -1,9 +1,8 @@
 ---
+sidebar_position: 6
+sidebar_label: API Client
 title: API Client
-description: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+summary: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
 ---
 
 # Teams API Client
@@ -12,7 +11,7 @@ ms.date: 11/17/2025
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.Api` object. Here is a short summary of the different areas:
 ::: zone-end
 
-::: zone pivot="python,typescript"
+::: zone pivot="python,javascript"
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.api` object. Here is a short summary of the different areas:
 ::: zone-end
 
@@ -25,7 +24,7 @@ Teams has a number of areas that your application has access to via its API. The
 | `Teams`         | Gives your application access to team or channel details                                                                                                             |
 ::: zone-end
 
-::: zone pivot="python,typescript"
+::: zone pivot="python,javascript"
 | Area            | Description                                                                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `conversations` | Gives your application the ability to perform activities on conversations (send, update, delete messages, etc.), or create conversations (like 1:1 chat with a user) |
@@ -42,33 +41,22 @@ An instance of the API client is passed to handlers that can be used to fetch de
 In this example, we use the API client to fetch the members in a conversation. The `Api` object is passed to the activity handler in this case.
 ::: zone-end
 
-::: zone pivot="python,typescript"
+::: zone pivot="python,javascript"
 In this example, we use the API client to fetch the members in a conversation. The `api` object is passed to the activity handler in this case.
 ::: zone-end
 
 
 ::: zone pivot="csharp"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage([Context] MessageActivity activity, [Context] ApiClient api)
-{
-    var members = await api.Conversations.Members.Get(context.Conversation.Id);
-}
-```
 
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
     var members = await context.Api.Conversations.Members.Get(context.Conversation.Id);
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -79,7 +67,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.on('message', async ({ activity, api }) => {
   const members = await api.conversations.members(activity.conversation.id).get();
@@ -105,10 +93,11 @@ members = await app.api.conversations.members.get("...")
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 const res = await app.api.graph.call(endpoints.chats.getAllMessages.get);
 ```
 ::: zone-end
+

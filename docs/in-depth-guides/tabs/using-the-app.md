@@ -1,23 +1,18 @@
 ---
-title: Using the App
-description: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 2
+title: 'Using the App'
+summary: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
+languages: ['typescript']
+suppressLanguageIncludeWarning: true
 ---
 
 # Using The App
 
-::: zone pivot="python,csharp"
-This page isn't available for Python and C#"
-::: zone-end
-
-::: zone pivot="typescript"
 The `@microsoft/teams.client` App class helps solve common challenges when building Single Page Applications hosted in Microsoft Teams, Outlook, and Microsoft 365. It is the client-side counterpart to the `@microsoft/teams.app` App that you can use to build AI agents.
 
 These two App classes are designed to work well together. For instance, when you use the `@microsoft/teams.app` App to expose a server-side function, you can then use the `@microsoft/teams.client` App `exec` method to easily invoke that function, as the client-side app knows how to construct an HTTP request that the server-side app can process. It can issue a request to the right URL, with the expected payload and contextual headers. The client-side app even includes a bearer token that the server side app uses to authenticate the caller.
 
-## Starting the app
+# Starting the app
 
 To use the `@microsoft/teams.client` package, you first create an App instance and then call `app.start()`.
 
@@ -33,7 +28,7 @@ The app constructor strives to make it easy to get started on a new app, while s
 The constructor takes two arguments: a required app client ID, and an optional `AppOptions` argument. The app client ID is the AAD app registration **Application (client) ID**. The options can be used to customize observability, Microsoft Authentication Library (MSAL) configuration, and
 remote agent function calling.
 
-For more details on the app options, see the [App options](./app-options.md) page.
+For more details on the app options, see the [App options](./app-options) page.
 
 ## What happens during start
 
@@ -71,4 +66,3 @@ const presenceResult = await app.graph.call(endpoints.me.presence.get);
 // ...and call remote agent functions...
 const agentResult = await app.exec<string>('hello-world');
 ```
-::: zone-end

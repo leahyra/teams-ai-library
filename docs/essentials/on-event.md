@@ -1,9 +1,8 @@
 ---
+sidebar_position: 2
+sidebar_label: Listening to Events
 title: Listening to Events
-description: Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+summary: Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.
 ---
 
 # Listening To Events
@@ -12,11 +11,41 @@ An **event** is a foundational concept in building agents — it represents some
 
 
 ::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/on-event-1.png" alt-text="alt-text for on-event-1.png" lightbox="~/assets/diagrams/on-event-1.png":::
+```mermaid
+flowchart LR
+    Teams["Teams"]:::less-interesting
+    Server["App Server"]:::interesting
+    AppEventHandlers["Event Handler (app.OnEvent())"]:::interesting
+
+    Teams --> |Activity| Server
+    Teams --> |Signed In| Server
+    Teams --> |...other<br/>incoming events| Server
+    Server ---> |incoming<br/>events| AppEventHandlers
+    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
+
+
+    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
+    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
+```
 ::: zone-end
 
-::: zone pivot="python,typescript"
-:::image type="content" source="~/assets/diagrams/on-event-2.png" alt-text="alt-text for on-event-2.png" lightbox="~/assets/diagrams/on-event-2.png":::
+::: zone pivot="python,javascript"
+```mermaid
+flowchart LR
+    Teams["Teams"]:::less-interesting
+    Server["App Server"]:::interesting
+    AppEventHandlers["Event Handler (app.event())"]:::interesting
+
+    Teams --> |Activity| Server
+    Teams --> |Signed In| Server
+    Teams --> |...other<br/>incoming events| Server
+    Server ---> |incoming<br/>events| AppEventHandlers
+    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
+
+
+    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
+    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
+```
 ::: zone-end
 
 
@@ -25,7 +54,7 @@ The Teams SDK makes it easy to subscribe to these events and respond appropriate
 Here are the events that you can start building handlers for:
 
 
-::: zone pivot="csharp,typescript"
+::: zone pivot="csharp,javascript"
 | **Event Name**      | **Description**                                                                |
 | ------------------- | ------------------------------------------------------------------------------ |
 | `start`             | Triggered when your application starts. Useful for setup or boot-time logging. |
@@ -46,9 +75,10 @@ Here are the events that you can start building handlers for:
 | `activity_response` | Triggered when your app sends a response to an activity. Useful for logging.   |
 | `activity_sent`     | Triggered when an activity is sent (not necessarily in response).              |
 
-
-> [!NOTE]
-> Event handler registration uses `@app.event("<event_name>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
+<br/>
+:::info
+Event handler registration uses `@app.event("<event_name>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
+:::
 ::: zone-end
 
 
@@ -78,7 +108,7 @@ async def handle_error(event: ErrorEvent):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.event('error', ({ error }) => {
   app.log.error(error);
@@ -113,7 +143,7 @@ async def handle_activity(event: ActivityEvent):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 When a user signs in using `OAuth` or `SSO`, use the graph api to fetch their profile and say hello.
 
 ```typescript
@@ -125,3 +155,4 @@ app.event('signin', async ({ activity, send, userGraph }) => {
 });
 ```
 ::: zone-end
+

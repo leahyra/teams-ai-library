@@ -1,23 +1,25 @@
 ---
-title: Settings
-description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
+sidebar_position: 3
+sidebar_label: 'Settings'
+title: 'Settings'
+summary: Add configurable settings pages to your message extensions to allow users to customize app behavior.
 ignore: true
-ms.date: 11/17/2025
 ---
 
-# Settings
+import SettingsImgUrl from '@site/static/screenshots/settings.png';
+
+# ⚙️ Settings
 
 You can add a settings page that allows users to configure settings for your app.
 
 The user can access the settings by right-clicking the app item in the compose box.
 
-:::image type="content" source="~/assets/screenshots/settings.png" alt-text="alt-text for settings.png" lightbox="~/assets/screenshots/settings.png":::
+<br />
+<img src={SettingsImgUrl} height="300px" alt="Settings" />
 
 This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
-:::image type="content" source="~/assets/screenshots/settings-page.png" alt-text="alt-text for settings-page.png" lightbox="~/assets/screenshots/settings-page.png":::
+![Settings Page](/screenshots/settings-page.png)
 
 ## 1. Update the Teams Manifest
 
@@ -97,7 +99,7 @@ This is the code snippet for the settings `html` page:
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```html
 <html>
   <body>
@@ -185,7 +187,7 @@ app.page("settings", str(Path(__file__).parent), "/tabs/settings")
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import path from 'path';
 import { App } from '@microsoft/teams.apps';
@@ -195,10 +197,20 @@ app.tab('settings', path.resolve(__dirname));
 ```
 ::: zone-end
 
-::: zone pivot="csharp,typescript"
-> [!NOTE]
-> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/overview.md) to learn more.
+
+
+::: zone pivot="csharp,javascript"
+:::note
+This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs) to learn more.
+:::
 ::: zone-end
+
+::: zone pivot="python"
+:::note
+This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab.
+:::
+::: zone-end
+
 
 ## 3. Specify the URL to the settings page
 
@@ -273,7 +285,7 @@ async def handle_message_ext_query_settings_url(ctx: ActivityContext[MessageExte
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -377,7 +389,7 @@ async def handle_message_ext_setting(ctx: ActivityContext[MessageExtensionSettin
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -402,3 +414,4 @@ app.on('message.ext.setting', async ({ activity, send }) => {
 });
 ```
 ::: zone-end
+

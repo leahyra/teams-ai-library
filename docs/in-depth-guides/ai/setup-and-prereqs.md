@@ -1,9 +1,8 @@
 ---
+sidebar_position: 1
+sidebar_label: Setup & Prerequisites
 title: Setup & Prerequisites
-description: Prerequisites and setup guide for integrating LLMs into Teams SDK applications, including API keys and configuration.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+summary: Prerequisites and setup guide for integrating LLMs into Teams SDK applications, including API keys and configuration.
 ---
 
 # Setup & Prerequisites
@@ -11,7 +10,7 @@ ms.date: 11/17/2025
 There are a few prerequisites to getting started with integrating LLMs into your application:
 
 - LLM API Key - To generate messages using an LLM, you will need to have an API Key for the LLM you are using.
-  - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
+  - [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
   - [OpenAI](https://platform.openai.com/)
 
 
@@ -27,8 +26,18 @@ dotnet add package Microsoft.Teams.AI
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="typescript"
-<!-- Not applicable -->
+::: zone pivot="javascript"
+Install the required AI packages to your application:
+
+```bash
+npm install @microsoft/teams.apps @microsoft/teams.ai @microsoft/teams.openai
+```
+
+For development, you may also want to install the DevTools plugin:
+
+```bash
+npm install @microsoft/teams.dev --save-dev
+```
 ::: zone-end
 
 
@@ -36,7 +45,7 @@ dotnet add package Microsoft.Teams.AI
 - In your application, you should include your keys in a secure way. You should include your keys securely using `appsettings.json` or environment variables
 ::: zone-end
 
-::: zone pivot="python,typescript"
+::: zone pivot="python,javascript"
 - In your application, you should include your keys in a secure way. We recommend putting it in an .env file at the root level of your project
 ::: zone-end
 
@@ -55,7 +64,7 @@ my-app/
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```
 my-app/
 |── appPackage/       # Teams app package files
@@ -68,7 +77,7 @@ my-app/
 
 ### Azure OpenAI
 
-You will need to deploy a model in Azure OpenAI. View the [resource creation guide](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model 'Azure OpenAI Model Deployment Guide') for more information on how to do this.
+You will need to deploy a model in Azure OpenAI. View the [resource creation guide](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model 'Azure OpenAI Model Deployment Guide') for more information on how to do this.
 
 
 ::: zone pivot="csharp"
@@ -102,8 +111,9 @@ var azureOpenAI = new AzureOpenAIClient(
 var aiModel = new OpenAIChatModel(azureOpenAIModel, azureOpenAI);
 ```
 
-> [!TIP]
-> Use `appsettings.Development.json` for local development and keep it in `.gitignore`. For production, use environment variables or Azure Key Vault.
+:::tip
+Use `appsettings.Development.json` for local development and keep it in `.gitignore`. For production, use environment variables or Azure Key Vault.
+:::
 ::: zone-end
 
 ::: zone pivot="python"
@@ -117,7 +127,7 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 Once you have deployed a model, include the following key/values in your `.env` file:
 
 ```env
@@ -131,13 +141,15 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 
 
 ::: zone pivot="csharp"
-> [!NOTE]
-> The Azure OpenAI SDK handles API versioning automatically. You don't need to specify an API version manually.
+:::info
+The Azure OpenAI SDK handles API versioning automatically. You don't need to specify an API version manually.
+:::
 ::: zone-end
 
-::: zone pivot="python,typescript"
-> [!NOTE]
-> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
+::: zone pivot="python,javascript"
+:::info
+The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
+:::
 ::: zone-end
 
 
@@ -168,8 +180,9 @@ var openAIModel = configuration["OpenAIModel"] ?? "gpt-4o";
 var aiModel = new OpenAIChatModel(openAIModel, openAIKey);
 ```
 
-> [!TIP]
-> Use `appsettings.Development.json` for local development and keep it in `.gitignore`. For production, use environment variables or Azure Key Vault.
+:::tip
+Use `appsettings.Development.json` for local development and keep it in `.gitignore`. For production, use environment variables or Azure Key Vault.
+:::
 ::: zone-end
 
 ::: zone pivot="python"
@@ -181,7 +194,7 @@ OPENAI_MODEL=gpt-4  # Optional: defaults to gpt-4o if not specified
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 Once you have your API key, include the following key/values in your `.env` file:
 
 ```env
@@ -189,21 +202,59 @@ OPENAI_API_KEY=sk-your-openai-api-key
 ```
 ::: zone-end
 
-::: zone pivot="python"
-> [!NOTE]
-> **Automatic Environment Variable Loading**: The AI models automatically read these environment variables when initialized. You can also pass these values explicitly as constructor parameters if needed for advanced configurations.
->
-> ```python
-> # Automatic (recommended)
-> model = OpenAICompletionsAIModel(model="your-model-name")
->
-> # Explicit (for advanced use cases)
-> model = OpenAICompletionsAIModel(
->     key="your-api-key",
->     model="your-model-name",
->     azure_endpoint="your-endpoint",  # Azure only
->     api_version="your-api-version"   # Azure only
-> )
-> ```
->
+
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
 ::: zone-end
+
+::: zone pivot="python"
+:::note
+**Automatic Environment Variable Loading**: The AI models automatically read these environment variables when initialized. You can also pass these values explicitly as constructor parameters if needed for advanced configurations.
+
+```python
+# Automatic (recommended)
+model = OpenAICompletionsAIModel(model="your-model-name")
+
+# Explicit (for advanced use cases)
+model = OpenAICompletionsAIModel(
+    key="your-api-key",
+    model="your-model-name",
+    azure_endpoint="your-endpoint",  # Azure only
+    api_version="your-api-version"   # Azure only
+)
+```
+
+:::
+::: zone-end
+
+::: zone pivot="javascript"
+:::note
+**Automatic Environment Variable Loading**: The OpenAI model automatically reads environment variables when options are not explicitly provided. You can pass values explicitly as constructor parameters if needed for advanced configurations.
+
+```typescript
+// Automatic (recommended) - uses environment variables
+const model = new OpenAIChatModel({
+  model: 'gpt-4o',
+});
+
+// Explicit (for advanced use cases)
+const model = new OpenAIChatModel({
+  apiKey: 'your-api-key',
+  model: 'gpt-4o',
+  endpoint: 'your-endpoint',      // Azure only
+  apiVersion: 'your-api-version', // Azure only
+  baseUrl: 'your-base-url',       // Custom base URL
+  organization: 'your-org-id',    // Optional
+  project: 'your-project-id',     // Optional
+});
+```
+
+**Environment variables automatically loaded:**
+- `OPENAI_API_KEY` or `AZURE_OPENAI_API_KEY`
+- `AZURE_OPENAI_ENDPOINT` (Azure only)
+- `OPENAI_API_VERSION` (Azure only)
+
+:::
+::: zone-end
+

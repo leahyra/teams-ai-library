@@ -1,9 +1,7 @@
 ---
-title: Middleware
-description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 1
+title: 'Middleware'
+summary: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
 ---
 
 # Middleware
@@ -13,7 +11,7 @@ Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.Use` method.
 ::: zone-end
 
-::: zone pivot="python,typescript"
+::: zone pivot="python,javascript"
 Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.
 ::: zone-end
@@ -48,7 +46,7 @@ async def log_activity(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 app.use(async ({ log, next }) => {
   const startedAt = new Date();
@@ -57,3 +55,4 @@ app.use(async ({ log, next }) => {
 });
 ```
 ::: zone-end
+

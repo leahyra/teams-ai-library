@@ -1,12 +1,11 @@
 ---
-title: Search Commands
-description: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+sidebar_position: 2
+sidebar_label: 'Search Commands'
+title: 'Search Commands'
+summary: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
 ---
 
-# Search commands
+# 🔍 Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 
@@ -19,7 +18,7 @@ There are two different areas search commands can be invoked from:
 
 ### Compose Area and Box
 
-:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="alt-text for compose-area.png" lightbox="~/assets/screenshots/compose-area.png":::
+![Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps).](/screenshots/compose-area.png)
 
 ## Setting up your Teams app manifest
 
@@ -101,7 +100,7 @@ public Response OnMessageExtensionQuery(
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import AdaptiveCardAttachment, MessageExtensionQueryInvokeActivity, ThumbnailCardAttachment, card_attachment, InvokeResponse, AttachmentLayout, MessagingExtensionAttachment, MessagingExtensionInvokeResponse, MessagingExtensionResult, MessagingExtensionResultType
+from microsoft_teams.api import AdaptiveCardAttachment, MessageExtensionQueryInvokeActivity, ThumbnailCardAttachment, card_attachment, InvokeResponse, AttachmentLayout, MessagingExtensionAttachment, MessagingExtensionInvokeResponse, MessagingExtensionResult, MessagingExtensionResultType
 # ...
 
 @app.on_message_ext_query
@@ -134,7 +133,7 @@ async def handle_message_ext_query(ctx: ActivityContext[MessageExtensionQueryInv
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -314,7 +313,7 @@ private static Response CreateItemSelectionResponse(object? selectedItem, ILogge
 
 ```python
 from typing import Any, Dict, List
-from microsoft.teams.cards import AdaptiveCard
+from microsoft_teams.cards import AdaptiveCard
 # ...
 
 async def create_dummy_cards(search_query: str) -> List[Dict[str, Any]]:
@@ -361,7 +360,7 @@ async def create_dummy_cards(search_query: str) -> List[Dict[str, Any]]:
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 `createDummyCards()` function
 
 ```typescript
@@ -420,11 +419,11 @@ export async function createDummyCards(searchQuery: string) {
 
 The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
 
-:::image type="content" source="~/assets/screenshots/preview-card.png" alt-text="alt-text for preview-card.png" lightbox="~/assets/screenshots/preview-card.png":::
+![Screenshot of Teams showing a message extensions search menu open with list of search results displayed as preview cards.](/screenshots/preview-card.png)
 
 When a user clicks on a list item the dummy adaptive card is added to the compose box:
 
-:::image type="content" source="~/assets/screenshots/card-in-compose.png" alt-text="alt-text for card-in-compose.png" lightbox="~/assets/screenshots/card-in-compose.png":::
+![Screenshot of Teams showing the selected adaptive card added to the compose box.](/screenshots/card-in-compose.png)
 
 To implement custom actions when a user clicks on a search result item, you can add the `tap` property to the preview card. This allows you to handle the click event with custom logic:
 
@@ -435,8 +434,8 @@ To implement custom actions when a user clicks on a search result item, you can 
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import MessageExtensionSelectItemInvokeActivity, AttachmentLayout, MessagingExtensionInvokeResponse, MessagingExtensionResult, MessagingExtensionResultType
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import MessageExtensionSelectItemInvokeActivity, AttachmentLayout, MessagingExtensionInvokeResponse, MessagingExtensionResult, MessagingExtensionResultType
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_message_ext_select_item
@@ -452,7 +451,7 @@ async def handle_message_ext_select_item(ctx: ActivityContext[MessageExtensionSe
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -472,5 +471,5 @@ app.on('message.ext.select-item', async ({ activity, send }) => {
 
 ## Resources
 
-- [Search command](/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?tabs=Teams-toolkit%2Cdotnet)
-- [Just-In-Time Install](/microsoftteams/platform/messaging-extensions/how-to/search-commands/universal-actions-for-search-based-message-extensions#just-in-time-install)
+- [Search command](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?tabs=Teams-toolkit%2Cdotnet)
+- [Just-In-Time Install](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/search-commands/universal-actions-for-search-based-message-extensions#just-in-time-install)

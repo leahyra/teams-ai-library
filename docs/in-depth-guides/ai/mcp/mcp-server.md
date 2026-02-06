@@ -1,9 +1,9 @@
 ---
+sidebar_position: 1
+sidebar_label: MCP Server
 title: MCP Server
-description: How to convert your Teams app into an MCP server using the McpPlugin to expose tools, resources, and prompts to other MCP applications.
-ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+summary: How to convert your Teams app into an MCP server using the McpPlugin to expose tools, resources, and prompts to other MCP applications.
+languages: ['typescript', 'python']
 ---
 
 # MCP Server
@@ -17,7 +17,7 @@ WIP
 You are able to convert any `App` into an MCP server by using the `McpPlugin` from the `microsoft-teams-mcp` package. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications.
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 You are able to convert any `App` into an MCP server by using the `McpPlugin`. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications.
 ::: zone-end
 
@@ -28,10 +28,14 @@ You are able to convert any `App` into an MCP server by using the `McpPlugin`. T
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Not applicable -->
+Install it to your application:
+
+```bash
+pip install microsoft-teams-mcpplugin
+```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 Install it to your application:
 
 ```bash
@@ -49,8 +53,8 @@ npm install @microsoft/teams.mcp
 Your plugin can be configured as follows:
 
 ```python
-from microsoft.teams.ai import Function
-from microsoft.teams.mcpplugin import McpServerPlugin
+from microsoft_teams.ai import Function
+from microsoft_teams.mcpplugin import McpServerPlugin
 from pydantic import BaseModel
 # ...
 
@@ -77,7 +81,7 @@ mcp_server_plugin.use_tool(
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 Your plugin can be configured as follows:
 
 ```typescript
@@ -126,13 +130,15 @@ const mcpServerPlugin = new McpPlugin({
 ::: zone-end
 
 ::: zone pivot="python"
-> [!NOTE]
-> By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `path` property in the plugin configuration.
+:::note
+By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `path` property in the plugin configuration.
+:::
 ::: zone-end
 
-::: zone pivot="typescript"
-> [!NOTE]
-> By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
+::: zone pivot="javascript"
+:::note
+By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
+:::
 ::: zone-end
 
 
@@ -145,15 +151,15 @@ const mcpServerPlugin = new McpPlugin({
 And included in the app like any other plugin:
 
 ```python
-from microsoft.teams.apps import App
-from microsoft.teams.devtools import DevToolsPlugin
+from microsoft_teams.apps import App
+from microsoft_teams.devtools import DevToolsPlugin
 # ...
 
 app = App(plugins=[mcp_server_plugin, DevToolsPlugin()])
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 And included in the app like any other plugin:
 
 ```typescript
@@ -179,13 +185,15 @@ const app = new App({
 ::: zone-end
 
 ::: zone pivot="python"
-> [!TIP]
-> You may use the [MCP-Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) to test functionality with your server.
+:::tip
+You may use the [MCP-Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) to test functionality with your server.
+:::
 ::: zone-end
 
-::: zone pivot="typescript"
-> [!TIP]
-> Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
+::: zone pivot="javascript"
+:::tip
+Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
+:::
 ::: zone-end
 
 
@@ -195,11 +203,11 @@ const app = new App({
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/screenshots/mcp-inspector.gif" alt-text="alt-text for mcp-inspector.gif" lightbox="~/assets/screenshots/mcp-inspector.gif":::
+![MCP Server in Devtools](/screenshots/mcp-inspector.gif)
 ::: zone-end
 
-::: zone pivot="typescript"
-:::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="alt-text for mcp-devtools.gif" lightbox="~/assets/screenshots/mcp-devtools.gif":::
+::: zone pivot="javascript"
+![MCP Server in Devtools](/screenshots/mcp-devtools.gif)
 ::: zone-end
 
 
@@ -214,7 +222,7 @@ Here is an example of how to do this. Configure your plugin so that:
 
 1. It can validate if the incoming request is allowed to send messages to the user
 2. It fetches the correct conversation ID for the given user.
-3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging.md) for more details.
+3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging) for more details.
 
 
 ::: zone pivot="csharp"
@@ -226,8 +234,8 @@ Here is an example of how to do this. Configure your plugin so that:
 
 ```python
 from typing import Dict
-from microsoft.teams.ai import Function
-from microsoft.teams.mcpplugin import McpServerPlugin
+from microsoft_teams.ai import Function
+from microsoft_teams.mcpplugin import McpServerPlugin
 from pydantic import BaseModel
 # ...
 
@@ -268,7 +276,7 @@ mcp_server_plugin.use_tool(
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { z } from 'zod';
 import { App } from '@microsoft/teams.apps';
@@ -336,8 +344,8 @@ mcpServerPlugin.tool(
 **Store Conversation IDs in Message Handler:**
 
 ```python
-from microsoft.teams.api import MessageActivity
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import MessageActivity
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_message
@@ -359,7 +367,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -376,3 +384,4 @@ app.on('message', async ({ send, activity }) => {
 });
 ```
 ::: zone-end
+
