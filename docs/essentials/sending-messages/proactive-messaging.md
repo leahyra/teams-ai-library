@@ -19,12 +19,9 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# [Minimal](#tab/minimal)
 
-<Tabs>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp 
+```csharp 
     app.OnInstall(async context =>
     {
         // Save the conversation id in 
@@ -33,8 +30,8 @@ import TabItem from '@theme/TabItem';
         notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
     });
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="python"

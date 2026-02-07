@@ -5,9 +5,6 @@ title: Using the BotBuilder Plugin
 summary: How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Using the BotBuilder Plugin
 
 # Adapters
@@ -49,9 +46,9 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
 
 
 ::: zone pivot="csharp"
-<Tabs>
-  <TabItem value="Program.cs" default>
-    ```csharp
+# [Program.cs](#tab/program.cs)
+
+```csharp
 
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Teams.Api.Activities;
@@ -84,9 +81,9 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
     }
     ```
 
-  </TabItem>
-  <TabItem value="BotBuilderAdapter.cs">
-    ```csharp
+# [BotBuilderAdapter.cs](#tab/botbuilderadapter.cs)
+
+```csharp
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Bot.Connector.Authentication;
 
@@ -109,9 +106,9 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
     // highlight-end
     ```
 
-  </TabItem>
-  <TabItem value="ActivityHandler.cs">
-    ```csharp
+# [ActivityHandler.cs](#tab/activityhandler.cs)
+
+```csharp
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Schema;
 
@@ -128,14 +125,14 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
     // highlight-end
     ```
 
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="python"
-<Tabs>
-  <TabItem value="app.py" default>
-    ```python
+# [app.py](#tab/app.py)
+
+```python
     import asyncio
     from adapter import adapter
     from activity_handler import MyActivityHandler
@@ -156,9 +153,9 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
         asyncio.run(app.start())
     ```
 
-  </TabItem>
-  <TabItem value="adapter.py">
-    ```python
+# [adapter.py](#tab/adapter.py)
+
+```python
     from botbuilder.core import TurnContext
     from botbuilder.integration.aiohttp import (
         CloudAdapter,
@@ -186,9 +183,9 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
     # highlight-end
     ```
 
-  </TabItem>
-  <TabItem value="activity_handler.py">
-    ```python
+# [activity_handler.py](#tab/activity_handler.py)
+
+```python
     from botbuilder.core import ActivityHandler, TurnContext
 
     # replace with your ActivityHandler
@@ -199,14 +196,14 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
     # highlight-end
     ```
 
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="javascript"
-<Tabs>
-  <TabItem value="index.ts" default>
-    ```typescript
+# [index.ts](#tab/index.ts)
+
+```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
 
@@ -227,9 +224,9 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
     })();
     ```
 
-  </TabItem>
-  <TabItem value="adapter.ts">
-    ```typescript
+# [adapter.ts](#tab/adapter.ts)
+
+```typescript
     import { CloudAdapter } from 'botbuilder';
 
     // replace with your BotAdapter
@@ -250,9 +247,9 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
     export default adapter;
     ```
 
-  </TabItem>
-  <TabItem value="activity-handler.ts">
-    ```typescript
+# [activity-handler.ts](#tab/activity-handler.ts)
+
+```typescript
     import { TeamsActivityHandler } from 'botbuilder';
 
     // replace with your TeamsActivityHandler
@@ -272,8 +269,8 @@ This snippet shows how to use the `BotBuilderPlugin` to send and receive activit
     export default handler;
     ```
 
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 

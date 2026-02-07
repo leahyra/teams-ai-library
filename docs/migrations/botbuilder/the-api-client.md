@@ -6,9 +6,6 @@ languages: ['typescript', 'csharp', 'python']
 summary: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # The API Client
 
 BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams SDK
@@ -20,9 +17,9 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
 
 
 ::: zone pivot="csharp"
-<Tabs groupId="api-client">
-  <TabItem value="Diff" default>
-  ```csharp
+# [Diff](#tab/diff)
+
+```csharp
   // highlight-error-start
 -  using Microsoft.Bot.Builder;
 -  using Microsoft.Bot.Builder.Teams;
@@ -49,9 +46,9 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
 +  });
   // highlight-success-end
   ```
-  </TabItem>
-  <TabItem value="BotBuilder">
-    ```csharp showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```csharp showLineNumbers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Teams;
 
@@ -66,9 +63,9 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
         }
     }
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
-    ```csharp showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```csharp showLineNumbers
     using Microsoft.Teams.Apps;
     
     app.OnMessage(async (context) =>
@@ -77,14 +74,14 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
         var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
     });
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="python"
-<Tabs groupId="api-client">
-  <TabItem value="Diff" default>
-  ```python
+# [Diff](#tab/diff)
+
+```python
   # highlight-error-start
 -  from botbuilder.core import ActivityHandler, TurnContext
 -  from botbuilder.core.teams import TeamsInfo
@@ -104,9 +101,9 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
 +      members = await context.api.conversations.members(context.activity.conversation.id).get_all()
   # highlight-success-end
   ```
-  </TabItem>
-  <TabItem value="BotBuilder">
-    ```python showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```python showLineNumbers
     from botbuilder.core import ActivityHandler, TurnContext
     from botbuilder.core.teams import TeamsInfo
 
@@ -115,9 +112,9 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
             # highlight-next-line
             members = await TeamsInfo.get_members(turn_context)
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
-    ```python showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```python showLineNumbers
     from microsoft_teams.api import MessageActivity
     from microsoft_teams.apps import ActivityContext
 
@@ -126,14 +123,14 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
         # highlight-next-line
         members = await context.api.conversations.members(context.activity.conversation.id).get()
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="javascript"
-<Tabs groupId="api-client">
-  <TabItem value="Diff" default>
-  ```typescript
+# [Diff](#tab/diff)
+
+```typescript
   // highlight-error-start
 -  import {
 -    CloudAdapter,
@@ -167,9 +164,9 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
 +  });
   // highlight-success-end
   ```
-  </TabItem>
-  <TabItem value="BotBuilder">
-    ```typescript showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```typescript showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -189,9 +186,9 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
       }
     }
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
-    ```typescript showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();
@@ -201,8 +198,8 @@ The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to disc
       const members = await api.conversations.members(activity.conversation.id).get();
     });
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 

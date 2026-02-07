@@ -6,9 +6,6 @@ languages: ['typescript', 'csharp', 'python']
 summary: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # User Authentication
 
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
@@ -16,9 +13,9 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
 
 
 ::: zone pivot="csharp"
-<Tabs groupId="user-auth">
-  <TabItem value="BotBuilder">
-    ```csharp showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```csharp showLineNumbers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Dialogs;
     using Microsoft.Bot.Schema;
@@ -98,9 +95,9 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     );
     ```
 
-  </TabItem>
-  <TabItem value="Teams SDK">
-    ```csharp showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```csharp showLineNumbers
     using Microsoft.Teams.Apps;
 
     var builder = WebApplication.CreateBuilder(args);
@@ -132,14 +129,14 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     app.Run()
     ```
 
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="python"
-<Tabs groupId="user-auth">
-  <TabItem value="BotBuilder">
-    ```python showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```python showLineNumbers
     from botbuilder.core import (
         ActivityHandler,
         ConversationState,
@@ -222,9 +219,9 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     )
     ```
 
-  </TabItem>
-  <TabItem value="Teams SDK">
-    ```python showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```python showLineNumbers
     from microsoft_teams.apps import ActivityContext, App, SignInEvent
     from microsoft_teams.api import MessageActivity
 
@@ -248,14 +245,14 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
         await context.send("You have been signed in.")
     ```
 
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="javascript"
-<Tabs groupId="user-auth">
-    <TabItem value="BotBuilder">
-      ```typescript showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```typescript showLineNumbers
       import restify from 'restify';
       import {
         TeamsActivityHandler,
@@ -389,9 +386,9 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
       });
       ```
 
-    </TabItem>
-    <TabItem value="Teams SDK">
-      ```typescript showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```typescript showLineNumbers
       import { App } from '@microsoft/teams.apps';
       import { ConsoleLogger } from '@microsoft/teams.common/logging';
 
@@ -422,7 +419,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
       })();
       ```
 
-    </TabItem>
-  </Tabs>
+---
+
 ::: zone-end
 

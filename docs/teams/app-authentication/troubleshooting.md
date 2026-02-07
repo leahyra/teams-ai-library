@@ -5,9 +5,6 @@ summary: Common authentication errors and how to resolve them
 llms: ignore
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Authentication Troubleshooting
 
 This guide covers common authentication errors and their solutions.
@@ -18,8 +15,7 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 
 ### Error Examples
 
-<Tabs>
-<TabItem value="typescript" label="TypeScript">
+# [TypeScript](#tab/typescript)
 
 ```sh
 [ERROR] @teams/app Request failed with status code 401
@@ -37,16 +33,14 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 [ERROR] @teams/app }
 ```
 
-</TabItem>
-<TabItem value="python" label="Python">
+# [Python](#tab/python)
 
 ```sh
 [ERROR] @teams/app Failed to refresh bot token: Client error '401 Unauthorized' for url 'https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token'
 [ERROR] @teams/app For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+# [C#](#tab/csharp)
 
 ```sh
 [ERROR] Echobot Failed to get bot token on app startup.
@@ -63,8 +57,7 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 [ERROR] Echobot }
 ```
 
-</TabItem>
-</Tabs>
+---
 
 ### Solution
 

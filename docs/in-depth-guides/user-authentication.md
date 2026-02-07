@@ -358,22 +358,18 @@ app.message('/signout', async ({ send, signout, isSignedIn }) => {
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
 <!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="python"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Regional Configs
 You may be building a regional bot that is deployed in a specific Azure region (such as West Europe, East US, etc.) rather than global. This is important for organizations that have data residency requirements or want to reduce latency by keeping data and authentication flows within a specific area.
 
 These examples use West Europe, but follow the equivalent for other regions.
 
-<Tabs>
-<TabItem value="portal" label="Azure Portal">
+# [Azure Portal](#tab/portal)
+
 To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region. 
 
 1. Deploy a new App Registration in `westeurope`.
@@ -385,9 +381,8 @@ To configure a new regional bot in Azure, you must setup your resoures in the de
 
 5. In your `.env` file (or wherever you set your environment variables), add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`
-</TabItem>
+# [Agents Toolkit](#tab/atk)
 
-<TabItem value="atk" label="Agents Toolkit">
 To configure a new regional bot with ATK, you will need to make a few updates. Note that this assumes you have not yet deployed the bot previously.
 
 1. In `azurebot.bicep`, replace all `global` occurrences to `westeurope`
@@ -395,21 +390,18 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 3. In `aad.manifest.json`, replace `https://token.botframework.com/.auth/web/redirect` with `https://europe.token.botframework.com/.auth/web/redirect`
 4. In your `.env` file, add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`.
-</TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="javascript"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Regional Configs
 You may be building a regional bot that is deployed in a specific Azure region (such as West Europe, East US, etc.) rather than global. This is important for organizations that have data residency requirements or want to reduce latency by keeping data and authentication flows within a specific area.
 
 These examples use West Europe, but follow the equivalent for other regions.
 
-<Tabs>
-<TabItem value="portal" label="Azure Portal">
+# [Azure Portal](#tab/portal)
+
 To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region. 
 
 1. Deploy a new App Registration in `westeurope`.
@@ -421,9 +413,8 @@ To configure a new regional bot in Azure, you must setup your resoures in the de
 
 5. In your `.env` file (or wherever you set your environment variables), add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`
-</TabItem>
+# [Agents Toolkit](#tab/atk)
 
-<TabItem value="atk" label="Agents Toolkit">
 To configure a new regional bot with ATK, you will need to make a few updates. Note that this assumes you have not yet deployed the bot previously.
 
 1. In `azurebot.bicep`, replace all `global` occurrences to `westeurope`
@@ -431,8 +422,8 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 3. In `aad.manifest.json`, replace `https://token.botframework.com/.auth/web/redirect` with `https://europe.token.botframework.com/.auth/web/redirect`
 4. In your `.env` file, add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`
-</TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 

@@ -97,12 +97,9 @@ Once loaded, it treats these tools like any functions that are available to the 
 
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# [Minimal](#tab/minimal)
 
-<Tabs>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
+```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
     using Microsoft.Teams.AI.Prompts;
     using Microsoft.Teams.Api.Activities;
@@ -137,8 +134,8 @@ import TabItem from '@theme/TabItem';
     webApp.Run();
     ```
 
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="python"
@@ -203,7 +200,6 @@ app.on('message', async ({ send, activity }) => {
 app.start().catch(console.error);
 ```
 ::: zone-end
-
 
 
 ::: zone pivot="csharp"
@@ -277,7 +273,6 @@ import { McpClientPlugin } from '@microsoft/teams.mcpclient';
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
 In this example, we augment the `ChatPrompt` with a remote MCP Server.
 ::: zone-end
@@ -313,7 +308,6 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
 :::note
 You can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
@@ -327,11 +321,9 @@ Feel free to build an MCP Server in a different agent using the [MCP Server Guid
 ::: zone-end
 
 
-
 ::: zone pivot="csharp,python,javascript"
 ![Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned.](/screenshots/mcp-client-pokemon.gif)
 ::: zone-end
-
 
 
 ::: zone pivot="csharp,python,javascript"

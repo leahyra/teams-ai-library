@@ -37,7 +37,6 @@ If you're migrating from an earlier preview version of the Teams SDK, please see
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
 <!-- Not applicable -->
 ::: zone-end
@@ -118,7 +117,6 @@ app.graph.call(endpoints.me.get).then((user) => {
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
 To access the graph using the user's token, you need to do this as part of a message handler:
 ::: zone-end
@@ -132,12 +130,7 @@ You can also access the graph using the user's token from within a message handl
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
 ```csharp
 app.OnMessage(async context =>
 {
@@ -283,7 +276,6 @@ const getMyDisplayName = (): EndpointRequest<{ displayName: string }> => ({
 const { displayName } = await app.graph.call(getMyDisplayName);
 ```
 ::: zone-end
-
 
 
 ::: zone pivot="csharp"

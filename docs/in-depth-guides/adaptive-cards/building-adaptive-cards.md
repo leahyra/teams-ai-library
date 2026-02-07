@@ -5,9 +5,6 @@ title: Building Adaptive Cards
 summary: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
@@ -408,9 +405,9 @@ Below is a complete example showing a task management form.
 
 
 ::: zone pivot="csharp"
-<Tabs>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
+# [Minimal](#tab/minimal)
+
+```csharp
     teams.OnMessage(async context =>
     {
         var text = context.Activity.Text?.ToLowerInvariant() ?? "";
@@ -424,8 +421,7 @@ Below is a complete example showing a task management form.
     });
     ```
 
-  </TabItem>
-</Tabs>
+---
 
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end
@@ -433,7 +429,6 @@ The definition for `CreateTaskFormCard` is as follows
 ::: zone pivot="python,javascript"
 Notice how the builder pattern keeps the file readable and maintainable:
 ::: zone-end
-
 
 
 ::: zone pivot="csharp"

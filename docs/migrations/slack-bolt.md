@@ -5,9 +5,6 @@ languages: ['typescript']
 summary: Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Porting your Slack Bolt bot
 
 This guide will help you migrate or port your existing Slack Bolt application to the Teams SDK. We'll cover the key conceptual similarities and differences between Slack and Teams APIs, and provide code examples to help you port things over in no time. Let's get started!
@@ -77,10 +74,9 @@ npm install @microsoft/teams.apps
 ::: zone pivot="javascript"
 First, let's configure the `App` class in Teams JS. This is equivalent to Slack Bolt's `App` class.
 
-<Tabs>
-  <TabItem value="Diff" default>
+# [Diff](#tab/diff)
 
-  ```ts
+```ts
     // Setup app
     // highlight-error-start
     import { App } from '@slack/bolt';
@@ -156,10 +152,9 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
         await app.start();
     })();
     ```
-  </TabItem>
-  <TabItem value="slack" label="Slack Bolt">
+# [Slack Bolt](#tab/slack)
 
-    ```ts
+```ts
     import { App } from '@slack/bolt';
 
     const app = new App({
@@ -222,10 +217,9 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
         await app.start();
     })();
     ```
-  </TabItem>
-  <TabItem value="teams" label="Teams SDK">
+# [Teams SDK](#tab/teams)
 
-    ```ts
+```ts
     import { App } from '@microsoft/teams.apps';
 
     // Define app
@@ -242,8 +236,8 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
         await app.start();
     })();
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 
@@ -263,10 +257,9 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
 ::: zone-end
 
 ::: zone pivot="javascript"
-<Tabs>
-  <TabItem value="Diff" default>
+# [Diff](#tab/diff)
 
-    ```ts
+```ts
     // triggers user sends "hi" or "@bot hi"
     // highlight-error-start
     app.message("hi", async ({ message, say }) => {
@@ -296,10 +289,9 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
     });
     // highlight-success-end
     ```
-  </TabItem>
-  <TabItem value="slack" label="Slack Bolt">
+# [Slack Bolt](#tab/slack)
 
-    ```ts
+```ts
     // triggers when user sends a message containing "hi"
     app.message("hi", async ({ message, say }) => {
         // Handle only newly posted messages here
@@ -314,10 +306,9 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
         await say(`you said: ${message.text}`);
     });
     ```
-  </TabItem>
-  <TabItem value="teams" label="Teams SDK">
+# [Teams SDK](#tab/teams)
 
-    ```ts
+```ts
     // triggers when user sends "hi" or "@bot hi"
     app.message("hi", async ({ send, activity }) => {
       await send(`Hello, ${activity.from.name}!`);
@@ -328,8 +319,8 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
         await send(`you said: ${activity.text}`);
     });
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 
@@ -347,10 +338,9 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
 ::: zone-end
 
 ::: zone pivot="javascript"
-<Tabs>
-  <TabItem value="Diff" default>
+# [Diff](#tab/diff)
 
-    ```ts
+```ts
     // highlight-error-start
     app.message('card', async (client) => {
         await say({
@@ -379,9 +369,9 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
     });
     // highlight-success-end
     ```
-  </TabItem>
-  <TabItem value="slack" label="Slack Bolt">
-    For existing cards like this, the simplest way to convert that to Teams SDK is this:
+# [Slack Bolt](#tab/slack)
+
+For existing cards like this, the simplest way to convert that to Teams SDK is this:
 
     ```ts
     app.message('card', async (client) => {
@@ -399,9 +389,9 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
     });
     ```
 
-  </TabItem>
-  <TabItem value="teams" label="Teams SDK">
-    For a more thorough port, you could also do the following:
+# [Teams SDK](#tab/teams)
+
+For a more thorough port, you could also do the following:
 
     ```ts
     import { Card, TextBlock } from '@microsoft/teams.cards';
@@ -415,8 +405,8 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
     });
     ```
 
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 
@@ -444,10 +434,9 @@ Then, configure the authentication in your code.
 ::: zone-end
 
 ::: zone pivot="javascript"
-<Tabs>
-  <TabItem value="Diff" default>
+# [Diff](#tab/diff)
 
-    ```ts
+```ts
     // highlight-error-start
     // TODO: Configure App class with user OAuth permissions and install app for user
 
@@ -479,10 +468,9 @@ Then, configure the authentication in your code.
     // highlight-success-end
     ```
 
-  </TabItem>
-  <TabItem value="slack" label="Slack Bolt">
+# [Slack Bolt](#tab/slack)
 
-    ```ts
+```ts
     // TODO: Configure App class with user OAuth permissions and install app for user
 
     app.message('me', async ({ client, message }) => {
@@ -491,10 +479,9 @@ Then, configure the authentication in your code.
     });
     ```
 
-  </TabItem>
-  <TabItem value="teams" label="Teams SDK">
+# [Teams SDK](#tab/teams)
 
-    ```ts
+```ts
     import { App } from '@microsoft/teams.apps';
     import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -516,8 +503,8 @@ Then, configure the authentication in your code.
     });
     ```
 
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 

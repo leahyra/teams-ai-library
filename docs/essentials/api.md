@@ -47,10 +47,6 @@ In this example, we use the API client to fetch the members in a conversation. T
 
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
 ```csharp
 app.OnMessage(async context =>
 {

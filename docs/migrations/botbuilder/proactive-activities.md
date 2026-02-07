@@ -6,9 +6,6 @@ languages: ['typescript', 'csharp', 'python']
 summary: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Proactive Activities
 
 The BotBuilder proactive message flow requires storing a conversation reference. 
@@ -17,9 +14,9 @@ passed into our activity handlers through our context. This method accepts a <La
 
 
 ::: zone pivot="csharp"
-<Tabs groupId="proactive-activities">
-  <TabItem value="Diff" default>
-    ```csharp
+# [Diff](#tab/diff)
+
+```csharp
     // highlight-error-start
 -   using Microsoft.Bot.Builder;
 -   using Microsoft.Bot.Builder.Integration.AspNet.Core;
@@ -52,9 +49,9 @@ passed into our activity handlers through our context. This method accepts a <La
 +   await teams.Send("your-conversation-id", "proactive hello");
     // highlight-success-end
     ```
-  </TabItem>
-  <TabItem value="BotBuilder">
-    ```csharp showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```csharp showLineNumbers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Bot.Schema;
@@ -79,9 +76,9 @@ passed into our activity handlers through our context. This method accepts a <La
         default);
     // highlight-end
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
-    ```csharp showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```csharp showLineNumbers
     using Microsoft.Teams.Apps;
 
     // highlight-start
@@ -89,14 +86,14 @@ passed into our activity handlers through our context. This method accepts a <La
     await teams.Send("your-conversation-id", "proactive hello");
     // highlight-end
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="python"
-<Tabs groupId="proactive-activities">
-  <TabItem value="Diff" default>
-    ```python
+# [Diff](#tab/diff)
+
+```python
     # highlight-error-start
 -   from botbuilder.core import TurnContext
 -   from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
@@ -132,9 +129,9 @@ passed into our activity handlers through our context. This method accepts a <La
 +   await app.send("your-conversation-id", "proactive hello")
     # highlight-success-end
     ```
-  </TabItem>
-  <TabItem value="BotBuilder">
-    ```python showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```python showLineNumbers
     from botbuilder.core import TurnContext
     from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
     from botbuilder.schema import ChannelAccount, ConversationAccount, ConversationReference
@@ -159,9 +156,9 @@ passed into our activity handlers through our context. This method accepts a <La
     )
     # highlight-end
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
-    ```python showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```python showLineNumbers
     from microsoft_teams.apps import App
 
     app = App()
@@ -170,14 +167,14 @@ passed into our activity handlers through our context. This method accepts a <La
     await app.send("your-conversation-id", "proactive hello")
     # highlight-end
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
 ::: zone pivot="javascript"
-<Tabs groupId="proactive-activities">
-  <TabItem value="Diff" default>
-    ```typescript
+# [Diff](#tab/diff)
+
+```typescript
     // highlight-error-start
 -    import {
 -      CloudAdapter,
@@ -215,9 +212,9 @@ passed into our activity handlers through our context. This method accepts a <La
       // highlight-success-end
     }());
     ```
-  </TabItem>
-  <TabItem value="BotBuilder">
-    ```typescript showLineNumbers
+# [BotBuilder](#tab/botbuilder)
+
+```typescript showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -243,9 +240,9 @@ passed into our activity handlers through our context. This method accepts a <La
     }());
     // highlight-end
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
-    ```typescript showLineNumbers
+# [Teams SDK](#tab/teams-sdk)
+
+```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();
@@ -257,7 +254,7 @@ passed into our activity handlers through our context. This method accepts a <La
     }());
     // highlight-end
     ```
-  </TabItem>
-</Tabs>
+---
+
 ::: zone-end
 
