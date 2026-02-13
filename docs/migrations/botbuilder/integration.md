@@ -8,8 +8,8 @@ ms.date: 02/13/2026
 
 # Using the BotBuilder Plugin
 
-# Adapters
-A BotBuilder `CloudAdapter` is responsible for managing communication between a bot and its users.
+## Adapters
+A BotBuilder`CloudAdapter` is responsible for managing communication between a bot and its users.
 It serves as the entry point for incoming activities and forwards them to the registered `ActivityHandler` for processing. 
 You can customize the adapter to add middleware for logging, authentication, and define error handling.
 
@@ -17,15 +17,15 @@ The `BotBuilderPlugin` provided within the Teams SDK, connects the SDK with the 
 It can either use an existing `CloudAdapter` or create a new default one, allowing activities to be processed through BotBuilder
 while still handling events via the Teams SDK App framework.
 
-# Activity Handlers
-The BotBuilder `ActivityHandler` contains the actual bot logic for processing messages or events
+## Activity Handlers
+The BotBuilder`ActivityHandler` contains the actual bot logic for processing messages or events
 similar to how the Teams SDK `App` routes messages and events. You can override any number of methods,
 such as <LanguageInclude content={{"typescript": "`OnMembersAdded`", "csharp": "`OnMembersAddedAsync`", "python": "`on_members_added_activity`"}} />
 or <LanguageInclude content={{"typescript": "`onMessage`", "csharp": "`OnMessageActivityAsync`", "python": "`on_message_activity`"}} /> ,
 to handle different activity types.
 
-# Turn Context
-Each incoming activity is wrapped in a `TurnContext`, which represents the context of a single turn in the conversation.
+## Turn Context
+Each incomingactivity is wrapped in a `TurnContext`, which represents the context of a single turn in the conversation.
 TurnContext provides access to:
 - The incoming activity (message, event).
 - Services for sending responses back to the user.
@@ -33,7 +33,7 @@ TurnContext provides access to:
 
 Teams SDK has <LanguageInclude content={{"typescript": "`IActivityContext`", "csharp": "`IActivityContext`", "python": "`ActivityContext`"}} /> for the same purpose.
 
-# How it all comes together
+## How it all comes together
 
 The `CloudAdapter` creates the `TurnContext`, and the `ActivityHandler` uses it to read the activity and send responses.
 

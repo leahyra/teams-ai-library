@@ -10,9 +10,9 @@ ms.date: 02/13/2026
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
-# Setup
+## Setup
 
-The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
+The basic setup involvescreating a `ChatPrompt` and giving it the `Model` you want to use.
 
 :::image type="content" source="~/assets/diagrams/in-depth-guides-ai-chat.png" alt-text="Flowchart diagram showing User Message<br/>Hi how are you?, Content<br/>I am doing great! How can I help you?, Other options..., Azure Open AI, Open AI" lightbox="~/assets/diagrams/in-depth-guides-ai-chat.png":::
 
