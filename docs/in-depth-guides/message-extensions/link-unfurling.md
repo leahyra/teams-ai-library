@@ -39,23 +39,7 @@ Users can use link unfurling even before they discover or install your app in Te
 
 When a user pastes a URL from your registered domain (like `www.test.com`) into the Teams compose box, your app will receive a notification. Your app can then respond by returning an adaptive card that displays a preview of the linked content. This preview card appears before the user sends their message in the compose box, allowing them to see how the link will be displayed to others.
 
-```mermaid
-flowchart TD
-    A1["User pastes a URL (e.g., www\.test\.com) in Teams compose box"]
-    B1([Microsoft Teams])
-    C1["Your App"]
-    D1["Adaptive Card Preview"]
-
-    A1 --> B1
-    B1 -->|Sends URL paste notification| C1
-    C1 -->|Returns card and preview| B1
-    B1 --> D1
-
-    %% Styling for readability and compatibility
-    style B1 fill:#2E86AB,stroke:#1B4F72,stroke-width:2px,color:#ffffff
-    style C1 fill:#28B463,stroke:#1D8348,stroke-width:2px,color:#ffffff
-    style D1 fill:#F39C12,stroke:#D68910,stroke-width:2px,color:#ffffff
-```
+:::image type="content" source="~/assets/diagrams/in-depth-guides-message-extensions-link-unfurling.png" alt-text="Flowchart diagram showing User pastes a URL (e.g., www\.test\.com) in Teams compose box, Your App, Adaptive Card Preview" lightbox="~/assets/diagrams/in-depth-guides-message-extensions-link-unfurling.png":::
 
 ## Implementing link unfurling
 

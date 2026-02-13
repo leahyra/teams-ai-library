@@ -11,41 +11,11 @@ An **event** is a foundational concept in building agents — it represents some
 
 
 ::: zone pivot="csharp"
-```mermaid
-flowchart LR
-    Teams["Teams"]:::less-interesting
-    Server["App Server"]:::interesting
-    AppEventHandlers["Event Handler (app.OnEvent())"]:::interesting
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-
-
-    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
-    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
-```
+:::image type="content" source="~/assets/diagrams/essentials-on-event-csharp.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.OnEvent())" lightbox="~/assets/diagrams/essentials-on-event-csharp.png":::
 ::: zone-end
 
 ::: zone pivot="python,javascript"
-```mermaid
-flowchart LR
-    Teams["Teams"]:::less-interesting
-    Server["App Server"]:::interesting
-    AppEventHandlers["Event Handler (app.event())"]:::interesting
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-
-
-    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
-    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
-```
+:::image type="content" source="~/assets/diagrams/essentials-on-event-1-python.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.event())" lightbox="~/assets/diagrams/essentials-on-event-1-python.png":::
 ::: zone-end
 
 

@@ -59,41 +59,11 @@ npm install @microsoft/teams.a2a
 
 ### A2A Server
 
-```mermaid
-flowchart RL
-    A_S[TeamsApp]
-    B[A2APlugin]
-    D[External A2A Client]
-
-
-    D -- "task/send" message --> A_S
-    subgraph A2A Server
-        direction LR
-        A_S --> B
-    end
-    B -- AgentCard --> D
-    B -- "task/send" response --> D
-```
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-overview.png" alt-text="Flowchart diagram for In Depth Guides - Ai - A2A - Overview" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-overview.png":::
 
 ### A2A Client
 
-```mermaid
-flowchart LR
-    A_C[TeamsApp]
-    C[A2AClientPlugin]
-    E[External A2A Server]
-    U[Teams User]
-
-    U --> A_C
-    subgraph A2A Client
-        direction LR
-        A_C -- message --> C
-        C -- response from server --> A_C
-    end
-    C -- message task/send --> E
-    E -- AgentCard --> C
-    E -- task/send response --> C
-```
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-overview-1.png" alt-text="Flowchart diagram for In Depth Guides - Ai - A2A - Overview" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-overview-1.png":::
 
 ## Protocol Details
 
