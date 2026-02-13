@@ -368,7 +368,7 @@ To configure a new regional bot in Azure, you must setup your resoures in the de
 3. Deploy and link a new Azure Bot in `westeurope`.
 4. In your App Registration, in the `Authentication (Preview)` tab, add a `Redirect URI` for the Platform Type `Web` to your regional endpoint (e.g., `https://europe.token.botframework.com/.auth/web/redirect`)
 
-![Authentication Tab](/screenshots/regional-auth.png)
+:::image type="content" source="~/assets/screenshots/regional-auth.png" alt-text="Authentication Tab":::
 
 5. In your `.env` file (or wherever you set your environment variables), add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`
@@ -400,7 +400,7 @@ To configure a new regional bot in Azure, you must setup your resoures in the de
 3. Deploy and link a new Azure Bot in `westeurope`.
 4. In your App Registration, in the `Authentication (Preview)` tab, add a `Redirect URI` for the Platform Type `Web` to your regional endpoint (e.g., `https://europe.token.botframework.com/.auth/web/redirect`)
 
-![Authentication Tab](/screenshots/regional-auth.png)
+:::image type="content" source="~/assets/screenshots/regional-auth.png" alt-text="Authentication Tab":::
 
 5. In your `.env` file (or wherever you set your environment variables), add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`

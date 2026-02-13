@@ -319,7 +319,7 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 
 
 ::: zone pivot="csharp,python,javascript"
-![Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned.](/screenshots/mcp-client-pokemon.gif)
+:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned.":::
 ::: zone-end
 
 

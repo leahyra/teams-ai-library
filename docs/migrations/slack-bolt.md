@@ -514,7 +514,7 @@ In Slack, you can access external services by implementing an account binding fl
 
 First, setup your OAuth 2.0 connection settings in the [Azure Portal](https://portal.azure.com/) for your Azure Bot resource.
 
-![Screenshot showing Azure Bot custom OAuth connection settings.](/screenshots/abs-custom-oauth-connection.png)
+:::image type="content" source="~/assets/screenshots/abs-custom-oauth-connection.png" alt-text="Screenshot showing Azure Bot custom OAuth connection settings.":::
 
 Then, add the authentication code to your application to get the relevant user token and call your external service.
 

@@ -21,7 +21,7 @@ Before you begin, ensure you have:
 
 When creating your Azure Bot Service, select `User Managed Identity` for the `Type of App`.
 
-![User Managed Identity](/screenshots/umi-auth.png)
+:::image type="content" source="~/assets/screenshots/umi-auth.png" alt-text="User Managed Identity":::
 
 This will automatically create a User Managed Identity resource alongside your bot.
 

@@ -9,7 +9,7 @@ llms: ignore
 The developer tools can be used to locally interact with an app to streamline the testing/development process,
 preventing you from needing to deploy/register the app or expose a public endpoint.
 
-![Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'.](/screenshots/devtools-echo-chat.png)
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'.":::
 
 ## Basic features
 

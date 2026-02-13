@@ -199,11 +199,11 @@ const app = new App({
 ::: zone-end
 
 ::: zone pivot="python"
-![MCP Server in Devtools](/screenshots/mcp-inspector.gif)
+:::image type="content" source="~/assets/screenshots/mcp-inspector.gif" alt-text="MCP Server in Devtools":::
 ::: zone-end
 
 ::: zone pivot="javascript"
-![MCP Server in Devtools](/screenshots/mcp-devtools.gif)
+:::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="MCP Server in Devtools":::
 ::: zone-end
 
 
