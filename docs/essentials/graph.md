@@ -31,9 +31,8 @@ The SDK gives your application easy access to the Microsoft Graph API via the `@
 ::: zone-end
 
 ::: zone pivot="javascript"
-:::note
-If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/v2-previews) for details on breaking changes.
-:::
+> [!NOTE]
+> If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/v2-previews) for details on breaking changes.
 ::: zone-end
 
 
@@ -180,21 +179,18 @@ Here, the `user_graph` object is a scoped graph client for the user that sent th
 ::: zone-end
 
 ::: zone pivot="csharp"
-:::tip
-You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.Graph`.
-:::
+> [!TIP]
+> You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.Graph`.
 ::: zone-end
 
 ::: zone pivot="python"
-:::tip
-You also have access to the `app_graph` object in the activity handler. This is equivalent to `app.graph`.
-:::
+> [!TIP]
+> You also have access to the `app_graph` object in the activity handler. This is equivalent to `app.graph`.
 ::: zone-end
 
 ::: zone pivot="javascript"
-:::tip
-You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.graph`.
-:::
+> [!TIP]
+> You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.graph`.
 ::: zone-end
 
 

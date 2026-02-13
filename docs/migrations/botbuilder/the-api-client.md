@@ -11,9 +11,8 @@ summary: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected A
 BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams SDK
 we pass an instance of our `ApiClient` into all our activity handlers through the context.
 
-:::tip
-The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to discover available methods through IDE autocompletion.
-:::
+> [!TIP]
+> The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to discover available methods through IDE autocompletion.
 
 
 ::: zone pivot="csharp"

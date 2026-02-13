@@ -9,9 +9,8 @@ languages: ['typescript','python']
 
 Your application needs to authenticate to send messages to Teams as your bot. Authentication allows your app service to certify that it is _allowed_ to send messages as your Azure Bot.
 
-:::info Azure Setup Required
-Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](/teams/app-authentication) guide for instructions on creating the necessary Azure resources.
-:::
+> [!NOTE] Azure Setup Required
+> Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](/teams/app-authentication) guide for instructions on creating the necessary Azure resources.
 
 ## Authentication Methods
 
@@ -70,9 +69,8 @@ First, complete the [User Managed Identity Setup](/teams/app-authentication/user
 
 
 ::: zone pivot="csharp"
-:::note
-The environment file approach is not yet supported for C#. You need to configure authentication programmatically in your code.
-:::
+> [!NOTE]
+> The environment file approach is not yet supported for C#. You need to configure authentication programmatically in your code.
 
 In your `Program.cs`, replace the initialization:
 ```csharp
@@ -143,9 +141,8 @@ Advanced identity federation allowing you to assign managed identities directly 
 
 
 ::: zone pivot="csharp"
-:::note
-Support for C# is coming soon.
-:::
+> [!NOTE]
+> Support for C# is coming soon.
 ::: zone-end
 
 ::: zone pivot="python"

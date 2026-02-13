@@ -130,15 +130,13 @@ const mcpServerPlugin = new McpPlugin({
 ::: zone-end
 
 ::: zone pivot="python"
-:::note
-By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `path` property in the plugin configuration.
-:::
+> [!NOTE]
+> By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `path` property in the plugin configuration.
 ::: zone-end
 
 ::: zone pivot="javascript"
-:::note
-By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
-:::
+> [!NOTE]
+> By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
 ::: zone-end
 
 
@@ -185,15 +183,13 @@ const app = new App({
 ::: zone-end
 
 ::: zone pivot="python"
-:::tip
-You may use the [MCP-Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) to test functionality with your server.
-:::
+> [!TIP]
+> You may use the [MCP-Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) to test functionality with your server.
 ::: zone-end
 
 ::: zone pivot="javascript"
-:::tip
-Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
-:::
+> [!TIP]
+> Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
 ::: zone-end
 
 

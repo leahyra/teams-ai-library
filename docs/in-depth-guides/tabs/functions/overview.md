@@ -74,9 +74,8 @@ app.function<{}, { message: string }>('process-message', ({ data, log }) => {
 
 
 ::: zone pivot="csharp,javascript"
-:::warning
-This SDK does not validate that the function arguments are of the expected types or otherwise trustworthy. You must take care to validate the input arguments before using them.
-:::
+> [!WARNING]
+> This SDK does not validate that the function arguments are of the expected types or otherwise trustworthy. You must take care to validate the input arguments before using them.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -190,9 +189,8 @@ The function callback receives a context object with a number of useful values. 
 ::: zone pivot="csharp"
 The `AuthToken` is validated before the function callback is invoked, and the `TenantId`, `UserId`, and `UserName` values are extracted from the validated token. In the typical case, the remaining caller-supplied values would reflect what the Teams Tab app retrieves from the teams-js `getContext()` API, but the agent does not validate these.
 
-:::warning
-Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
-:::
+> [!WARNING]
+> Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -202,9 +200,8 @@ Take care to validate the caller-supplied values before using them. Don't assume
 ::: zone pivot="javascript"
 The `authToken` is validated before the function callback is invoked, and the `tenantId` and `userId` values are extracted from the validated token. In the typical case, the remaining caller-supplied values would reflect what the Teams Tab app retrieves from the teams-js `getContext()` API, but the agent does not validate them.
 
-:::warning
-Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
-:::
+> [!WARNING]
+> Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
 ::: zone-end
 
 
@@ -212,9 +209,8 @@ Take care to validate the caller-supplied values before using them. Don't assume
 ::: zone pivot="csharp"
 To simplify a common scenarios, the context provides a `Send` method. This method sends an activity to the current conversation ID, determined from the context values provided by the client (chatId and channelId). If neither chatId or channelId is provided by the caller, the ID of the 1:1 conversation between the agent and the user is assumed.
 
-:::warning
-The `Send` method does not validate that the chat ID or conversation ID provided by the caller is valid or correct. You must take care to validate that the user and agent both have appropriate access to the conversation.
-:::
+> [!WARNING]
+> The `Send` method does not validate that the chat ID or conversation ID provided by the caller is valid or correct. You must take care to validate that the user and agent both have appropriate access to the conversation.
 ::: zone-end
 
 ::: zone pivot="python"

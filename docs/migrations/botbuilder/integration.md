@@ -40,9 +40,8 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 1. The BotBuilder ActivityHandler runs first, handling the activity according to standard Bot Framework logic.
 2. The Teams SDK app based activity handlers execute afterward, allowing Teams SDK logic to execute.
 
-:::info
-This snippet shows how to use the `BotBuilderPlugin` to send and receive activities using botbuilder instead of the default Teams SDK http plugin.
-:::
+> [!NOTE]
+> This snippet shows how to use the `BotBuilderPlugin` to send and receive activities using botbuilder instead of the default Teams SDK http plugin.
 
 
 ::: zone pivot="csharp"

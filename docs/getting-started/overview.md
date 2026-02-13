@@ -13,9 +13,8 @@ llms: ignore-file
 ::: zone-end
 
 ::: zone pivot="python"
-:::warning
-Our Python SDK is currently in Public Preview. We're going to do our best to not ship breaking changes, but breaking changes may happen from time to time
-:::
+> [!WARNING]
+> Our Python SDK is currently in Public Preview. We're going to do our best to not ship breaking changes, but breaking changes may happen from time to time
 ::: zone-end
 
 ::: zone pivot="javascript"

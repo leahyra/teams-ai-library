@@ -175,11 +175,8 @@ const app = new App(clientId);
 await app.start();
 ```
 
-:::info
-The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
-:::
-
-#### Pre-warm a specific set of scopes
+> [!NOTE]
+> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
 
 If your app requires a specific set of scopes in order to run well, you can list those in the set of scopes to pre-warm.
 
@@ -195,11 +192,8 @@ const app = new App(clientId, {
 await app.start();
 ```
 
-:::info
-The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
-:::
-
-#### Disabling pre-warming
+> [!NOTE]
+> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
 
 Scope pre-warming can be disabled if needed. This is useful if your app doesn't use graph APIs, or if you want more control over the consent prompt.
 
@@ -219,9 +213,8 @@ await app.start();
 const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 ```
 
-:::info
-Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
-:::
+> [!NOTE]
+> Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
 
 ## References
 

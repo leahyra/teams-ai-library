@@ -200,15 +200,13 @@ app.tab('settings', path.resolve(__dirname));
 
 
 ::: zone pivot="csharp,javascript"
-:::note
-This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs) to learn more.
-:::
+> [!NOTE]
+> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs) to learn more.
 ::: zone-end
 
 ::: zone pivot="python"
-:::note
-This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab.
-:::
+> [!NOTE]
+> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab.
 ::: zone-end
 
 
