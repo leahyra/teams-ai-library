@@ -1,11 +1,11 @@
 ---
 sidebar_position: 2
-sidebar_label: '🗃️ Custom Logger'
-title: '🗃️ Custom Logger'
+sidebar_label: 'Custom Logger'
+title: 'Custom Logger'
 summary: Configure custom loggers in your Teams app to control log levels and output destinations.
 ---
 
-# 🗃️ Custom Logger
+# Custom Logger
 
 ::: zone pivot="csharp"
 The `App` will provide a default logger, but you can also provide your own.

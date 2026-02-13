@@ -601,4 +601,4 @@ app.on('message', async ({ send, activity }) => {
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building! 🎉
+Happy card building!

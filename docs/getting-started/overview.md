@@ -1,11 +1,11 @@
 ---
-title: 🚀 Getting Started
+title: Getting Started
 sidebar_position: 1
 summary: Getting started guide for Teams SDK covering application setup, structure, and local development.
 llms: ignore-file
 ---
 
-# 🚀 Getting Started
+# Getting Started
 
 
 ::: zone pivot="csharp"

@@ -4,7 +4,7 @@ summary: Test chat functionality with your Teams agent using the lightweight Dev
 llms: ignore
 ---
 
-# 💬 Devtools chat
+# Devtools chat
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 
@@ -50,7 +50,7 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 ```bash
 [nodemon] watching extensions: ts
 [nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
-[INFO] @samples/echo/http listening on port 3978 🚀
+[INFO] @samples/echo/http listening on port 3978
 [INFO] @samples/echo/devtools available at http://localhost:3979/devtools
 ```
 

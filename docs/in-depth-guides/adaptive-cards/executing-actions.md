@@ -142,7 +142,7 @@ new ActionSet(
 ### Raw JSON Alternative
 
 ::: zone pivot="csharp"
-Just like when building cards, if you prefer to work with raw JSON, you can do just that. 
+Just like when building cards, if you prefer to work with raw JSON, you can do just that.
 ::: zone-end
 
 ::: zone pivot="python"
