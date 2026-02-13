@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
-sidebar_label: User Authentication
 title: User Authentication
-summary: API guide to implement User Authentication with SSO in Teams Apps.
+description: API guide to implement User Authentication with SSO in Teams Apps.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # User Authentication

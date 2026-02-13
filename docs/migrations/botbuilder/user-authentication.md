@@ -1,9 +1,8 @@
 ---
-sidebar_position: 4
-sidebar_label: User Authentication
 title: User Authentication
-languages: ['typescript', 'csharp', 'python']
-summary: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
+description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # User Authentication

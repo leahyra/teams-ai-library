@@ -1,10 +1,8 @@
 ---
-sidebar_position: 1
-sidebar_label: From BotBuilder
 title: From BotBuilder
-languages: ['typescript', 'csharp', 'python']
-summary: Migration guide from BotBuilder to Teams SDK, including the BotBuilder plugin for compatibility with existing activity handlers and adapters.
-llms: ignore
+description: Migration guide from BotBuilder to Teams SDK, including the BotBuilder plugin for compatibility with existing activity handlers and adapters.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # From BotBuilder

@@ -1,9 +1,8 @@
 ---
-sidebar_position: 3
-sidebar_label: The API Client
 title: The API Client
-languages: ['typescript', 'csharp', 'python']
-summary: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions.
+description: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # The API Client

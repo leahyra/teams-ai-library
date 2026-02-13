@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: Listening to Events
-title: Listening to Events
-summary: Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.
+title: Listening To Events
+description: Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Listening To Events

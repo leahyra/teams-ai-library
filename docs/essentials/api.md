@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
-sidebar_label: API Client
-title: API Client
-summary: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
+title: Teams API Client
+description: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Teams API Client

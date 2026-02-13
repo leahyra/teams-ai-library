@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
-sidebar_label: Hosting Static Pages
-title: Hosting Static Pages
-summary: Shows how to host web apps.
+title: Hosting Apps/Static Pages
+description: Shows how to host web apps.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Hosting Apps/Static Pages

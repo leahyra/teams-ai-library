@@ -1,8 +1,8 @@
 ---
 title: Getting Started
-sidebar_position: 1
-summary: Getting started guide for Teams SDK covering application setup, structure, and local development.
-llms: ignore-file
+description: Getting started guide for Teams SDK covering application setup, structure, and local development.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Getting Started

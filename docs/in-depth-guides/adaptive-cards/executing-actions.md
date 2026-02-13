@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: Executing Actions
 title: Executing Actions
-summary: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
+description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Executing Actions

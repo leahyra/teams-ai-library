@@ -1,9 +1,8 @@
 ---
-sidebar_position: 1
-title: 'Executing Functions'
-summary: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: Executing Functions
+description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Executing Functions

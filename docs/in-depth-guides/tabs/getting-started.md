@@ -1,9 +1,8 @@
 ---
-sidebar_position: 1
-title: 'Getting Started'
-summary: Set up new tab app projects or add Teams client capabilities to existing tab applications.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: Getting started
+description: Set up new tab app projects or add Teams client capabilities to existing tab applications.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Getting started

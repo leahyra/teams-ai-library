@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: Code Basics
 title: Code Basics
-summary: Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.
+description: Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 

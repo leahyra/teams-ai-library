@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: MCP Client
 title: MCP Client
-summary: How to implement an MCP client to leverage remote MCP servers and their tools in your AI agent application.
+description: How to implement an MCP client to leverage remote MCP servers and their tools in your AI agent application.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # MCP Client

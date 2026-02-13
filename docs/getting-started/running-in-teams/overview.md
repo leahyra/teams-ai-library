@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
-title: 'Running in Teams'
-summary: Guide to deploying and testing your locally running agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
-llms: ignore
+title: Running In Teams
+description: Guide to deploying and testing your locally running agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Running In Teams

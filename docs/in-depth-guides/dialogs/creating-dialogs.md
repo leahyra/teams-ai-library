@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
-sidebar_label: 'Creating Dialogs'
-title: 'Creating Dialogs'
+title: Creating Dialogs
+description: Learn how to create and open dialogs in Teams using Adaptive Cards.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Creating Dialogs

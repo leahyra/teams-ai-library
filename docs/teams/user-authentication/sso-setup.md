@@ -1,6 +1,8 @@
 ---
-sidebar_position: 1
-summary: Describes how to configure SSO in Teams
+title: SSO Setup
+description: Describes how to configure SSO in Teams
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # SSO Setup

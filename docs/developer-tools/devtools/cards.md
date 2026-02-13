@@ -1,7 +1,8 @@
 ---
-sidebar_position: 3
-summary: Design and test Adaptive Cards using the DevTools card designer with live preview and JSON editing.
-llms: ignore
+title: Cards
+description: Design and test Adaptive Cards using the DevTools card designer with live preview and JSON editing.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Cards

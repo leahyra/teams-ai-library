@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: 'Search Commands'
-title: 'Search Commands'
-summary: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
+title: Search commands
+description: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Search commands

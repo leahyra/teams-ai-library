@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: Handling Dialog Submissions
-title: 'Handling Dialog Submissions'
-summary: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
+title: Handling Dialog Submissions
+description: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Handling Dialog Submissions

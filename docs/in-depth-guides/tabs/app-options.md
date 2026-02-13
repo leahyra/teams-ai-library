@@ -1,9 +1,8 @@
 ---
-sidebar_position: 3
-title: 'App Options'
-summary: Configure app settings for observability, MSAL authentication, and remote agent function calling.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: App Options
+description: Configure app settings for observability, MSAL authentication, and remote agent function calling.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # App Options

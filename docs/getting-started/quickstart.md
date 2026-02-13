@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
-sidebar_label: Quickstart
 title: Quickstart
-summary: Quick start guide for Teams SDK using the Teams CLI to create and run your first agent.
+description: Quick start guide for Teams SDK using the Teams CLI to create and run your first agent.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Quickstart

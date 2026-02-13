@@ -1,9 +1,8 @@
 ---
-sidebar_position: 1
-sidebar_label: MCP Server
 title: MCP Server
-summary: How to convert your Teams app into an MCP server using the McpPlugin to expose tools, resources, and prompts to other MCP applications.
-languages: ['typescript', 'python']
+description: How to convert your Teams app into an MCP server using the McpPlugin to expose tools, resources, and prompts to other MCP applications.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # MCP Server

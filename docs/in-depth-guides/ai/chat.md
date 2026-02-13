@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: Chat Generation
 title: Chat Generation
-summary: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
+description: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Chat Generation

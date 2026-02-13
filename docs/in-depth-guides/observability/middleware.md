@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
-title: 'Middleware'
-summary: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
+title: Middleware
+description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Middleware

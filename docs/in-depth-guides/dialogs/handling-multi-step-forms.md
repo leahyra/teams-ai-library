@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
-sidebar_label: Handling Multi-Step Forms
-title: 'Handling Multi-Step Forms'
-summary: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
+title: Handling Multi-Step Forms
+description: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Handling Multi-Step Forms

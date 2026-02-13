@@ -1,9 +1,8 @@
 ---
-sidebar_position: 2
-sidebar_label: Proactive Activities
 title: Proactive Activities
-languages: ['typescript', 'csharp', 'python']
-summary: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
+description: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Proactive Activities

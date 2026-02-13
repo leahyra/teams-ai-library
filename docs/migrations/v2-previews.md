@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
-sidebar_label: From V2 Previews
 title: From V2 Previews
-languages: ['typescript']
+description: Guide for migrating from preview versions of Teams SDK to the current release.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # From V2 Previews

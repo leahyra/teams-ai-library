@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
 title: Porting your Slack Bolt bot
-languages: ['typescript']
-summary: Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.
+description: Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Porting your Slack Bolt bot

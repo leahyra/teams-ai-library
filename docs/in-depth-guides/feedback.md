@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
 title: Feedback
-sidebar_label: Feedback
-summary: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
+description: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Feedback

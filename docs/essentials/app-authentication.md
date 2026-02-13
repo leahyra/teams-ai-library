@@ -1,8 +1,8 @@
 ---
-sidebar_position: 5
 title: App Authentication
-summary: Configure app authentication in your Teams SDK application using client secrets, user managed identities, or federated identity credentials
-languages: ['typescript','python']
+description: Configure app authentication in your Teams SDK application using client secrets, user managed identities, or federated identity credentials
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # App Authentication

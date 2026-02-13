@@ -1,9 +1,8 @@
 ---
-sidebar_position: 2
 title: A2A Client
-sidebar_label: A2A Client
-summary: How to implement an A2A client to proactively send tasks to A2A servers using the AgentManager.
-languages: ['typescript', 'python']
+description: How to implement an A2A client to proactively send tasks to A2A servers using the AgentManager.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # A2A Client

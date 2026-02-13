@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
-sidebar_label: 'Link Unfurling'
-title: 'Link Unfurling'
-summary: Enable your app to respond when users paste URLs by creating preview cards with additional information and actions.
+title: Link unfurling
+description: Enable your app to respond when users paste URLs by creating preview cards with additional information and actions.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Link unfurling

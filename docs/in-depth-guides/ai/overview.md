@@ -1,7 +1,8 @@
 ---
 title: AI
-sidebar_position: 5
-summary: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
+description: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # AI

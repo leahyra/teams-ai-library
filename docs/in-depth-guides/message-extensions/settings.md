@@ -1,9 +1,8 @@
 ---
-sidebar_position: 3
-sidebar_label: 'Settings'
-title: 'Settings'
-summary: Add configurable settings pages to your message extensions to allow users to customize app behavior.
-ignore: true
+title: Settings
+description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 import SettingsImgUrl from '@site/static/screenshots/settings.png';

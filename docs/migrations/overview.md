@@ -1,10 +1,8 @@
 ---
-sidebar_position: 4
 title: Migrations
-languages: ['typescript', 'python']
-summary: Migration guides for transitioning from older versions and frameworks to Teams SDK.
-llms: ignore
-suppressLanguageIncludeWarning: true
+description: Migration guides for transitioning from older versions and frameworks to Teams SDK.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Migrations

@@ -1,7 +1,8 @@
 ---
-sidebar_position: 4
-summary: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
 title: Sending Messages
+description: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Sending Messages

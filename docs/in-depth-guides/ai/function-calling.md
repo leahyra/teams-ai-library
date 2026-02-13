@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
-sidebar_label: Function Calling
-title: Function Calling
-summary: How to implement function calling in AI models, allowing the LLM to execute functions as part of its response generation.
+title: "Function / Tool calling"
+description: How to implement function calling in AI models, allowing the LLM to execute functions as part of its response generation.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Function / Tool calling

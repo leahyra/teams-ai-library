@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
-sidebar_label: Keeping State
 title: Keeping State
-summary: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
+description: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Keeping State

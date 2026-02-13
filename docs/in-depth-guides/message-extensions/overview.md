@@ -1,8 +1,8 @@
 ---
 title: Message Extensions
-sidebar_position: 3
-summary: Overview of message extensions for enhancing user productivity with quick access to information and actions within Teams.
-suppressLanguageIncludeWarning: true
+description: Overview of message extensions for enhancing user productivity with quick access to information and actions within Teams.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Message Extensions

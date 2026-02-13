@@ -2,7 +2,7 @@
 title: Welcome
 description: Welcome guide to Teams SDK, covering the quickstart process and how to build agents and applications for Microsoft Teams.
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Welcome

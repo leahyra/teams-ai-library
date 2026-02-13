@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
-summary: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
-title: Listening to Activities
+title: Listening To Activities
+description: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Listening To Activities

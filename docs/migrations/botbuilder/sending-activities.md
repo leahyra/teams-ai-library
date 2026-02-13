@@ -1,9 +1,8 @@
 ---
-sidebar_position: 1
-sidebar_label: Sending Activities
 title: Sending Activities
-languages: ['typescript', 'csharp', 'python']
-summary: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support.
+description: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Sending Activities

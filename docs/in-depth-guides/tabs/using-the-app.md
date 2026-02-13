@@ -1,9 +1,8 @@
 ---
-sidebar_position: 2
-title: 'Using the App'
-summary: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: Using The App
+description: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Using The App

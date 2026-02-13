@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
-sidebar_label: Setup & Prerequisites
 title: Setup & Prerequisites
-summary: Prerequisites and setup guide for integrating LLMs into Teams SDK applications, including API keys and configuration.
+description: Prerequisites and setup guide for integrating LLMs into Teams SDK applications, including API keys and configuration.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Setup & Prerequisites

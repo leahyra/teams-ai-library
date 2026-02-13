@@ -1,7 +1,8 @@
 ---
 title: Essentials
-sidebar_position: 2
-summary: Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
+description: Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Essentials

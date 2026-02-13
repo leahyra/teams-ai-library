@@ -1,9 +1,8 @@
 ---
-sidebar_position: 4
-title: 'Microsoft Graph'
-summary: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: Microsoft Graph Client
+description: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Microsoft Graph Client
