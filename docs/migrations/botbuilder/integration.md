@@ -79,7 +79,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
             await context.Client.Send($"hi from teams...");
         });
     }
-    ```
+```
 
 # [BotBuilderAdapter.cs](#tab/botbuilderadapter.cs)
 
@@ -151,7 +151,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
     if __name__ == "__main__":
         asyncio.run(app.start())
-    ```
+```
 
 # [adapter.py](#tab/adapter.py)
 
@@ -181,7 +181,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
     adapter.on_turn_error = on_error
     # highlight-end
-    ```
+```
 
 # [activity_handler.py](#tab/activity_handler.py)
 
@@ -194,7 +194,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         async def on_message_activity(self, turn_context: TurnContext):
             await turn_context.send_activity("hi from botbuilder...")
     # highlight-end
-    ```
+```
 
 ---
 
