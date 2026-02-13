@@ -7,7 +7,7 @@ languages: ['typescript', 'csharp']
 
 # Tabs
 
-Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
+Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
 
 
 ::: zone pivot="csharp"
@@ -19,7 +19,7 @@ This SDK does not offer features for implementing Tab apps in C#. It does howeve
 ::: zone-end
 
 ::: zone pivot="javascript"
-Tab apps will often need to interact with remote services. They may need to fetch data from [Microsoft Graph](https://learn.microsoft.com/en-us/graph/overview) or invoke remote agent functions, using the [Nested App Authentication](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/nested-authentication) (NAA) and the [Microsoft Authentication Library](https://learn.microsoft.com/en-us/entra/identity-platform/msal-overview) (MSAL) to ensure user consent and to allow the remote service authenticate the user.
+Tab apps will often need to interact with remote services. They may need to fetch data from [Microsoft Graph](/graph/overview) or invoke remote agent functions, using the [Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication) (NAA) and the [Microsoft Authentication Library](/entra/identity-platform/msal-overview) (MSAL) to ensure user consent and to allow the remote service authenticate the user.
 
 The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to streamline these common scenarios. It aims to simplify:
 
@@ -32,11 +32,11 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 
 ## Resources
 
-- [Tabs overview](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/what-are-tabs?tabs=personal)
-- [Teams JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library)
-- [Microsoft Graph overview](https://learn.microsoft.com/en-us/graph/overview)
-- [Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/en-us/entra/identity-platform/msal-overview)
-- [Nested App Authentication (NAA)](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/nested-authentication)
+- [Tabs overview](/microsoftteams/platform/tabs/what-are-tabs?tabs=personal)
+- [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library)
+- [Microsoft Graph overview](/graph/overview)
+- [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
+- [Nested App Authentication (NAA)](/microsoftteams/platform/concepts/authentication/nested-authentication)
 
 
 ::: zone pivot="csharp"

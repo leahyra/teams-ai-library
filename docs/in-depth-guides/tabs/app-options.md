@@ -218,4 +218,4 @@ const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 
 ## References
 
-[MSAL Configuration](https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-application-configuration)
+[MSAL Configuration](/entra/identity-platform/msal-client-application-configuration)

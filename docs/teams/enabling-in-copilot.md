@@ -122,5 +122,5 @@ Once you've updated and redeployed your app:
 
 ## Resources
 
-- [Convert Your Declarative Agent for Microsoft 365 Copilot to a Custom Engine Agent](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/convert-declarative-agent)
-- [Teams app manifest reference](https://learn.microsoft.com/microsoftteams/platform/resources/schema/manifest-schema)
+- [Convert Your Declarative Agent for Microsoft 365 Copilot to a Custom Engine Agent](/microsoft-365-copilot/extensibility/convert-declarative-agent)
+- [Teams app manifest reference](/microsoftteams/platform/resources/schema/manifest-schema)
