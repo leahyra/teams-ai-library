@@ -217,7 +217,7 @@
     - name: TypeScript SDK
       href: /javascript/api/teams-sdk-typescript
     - name: .NET SDK
-      href: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
+      href: /dotnet/api/
     - name: Python SDK
       href: /python/api/msteams-sdk-python/overview
 - name: Resources

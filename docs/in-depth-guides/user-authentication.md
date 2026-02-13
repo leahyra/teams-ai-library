@@ -17,9 +17,9 @@ At times agents must access secured online resources on behalf of the user, such
 > User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](/typescript/getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
 
 > [!NOTE]
-> It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
+> It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 
-Once you have configured your Azure Bot resource OAuth settings, as described in the [official documentation](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0), add the following code to your `App`:
+Once you have configured your Azure Bot resource OAuth settings, as described in the [official documentation](/azure/bot-service/bot-builder-concept-authentication), add the following code to your `App`:
 
 ## Project Setup
 
@@ -138,7 +138,7 @@ const app = new App({
 ## Signing In
 
 > [!NOTE]
-> This uses the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [official documentation](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0).
+> This uses the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [official documentation](/azure/bot-service/bot-builder-concept-authentication).
 
 You must call the `signin` method inside your route handler, for example: to signin when receiving the `/signin` message:
 
@@ -421,4 +421,4 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 
 ## Resources
 
-[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)

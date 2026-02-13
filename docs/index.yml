@@ -169,7 +169,7 @@ landingContent:
           - text: TypeScript SDK
             url: /javascript/api/teams-sdk-typescript
           - text: .NET SDK
-            url: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
+            url: /dotnet/api/
           - text: Python SDK
             url: /python/api/microsoft-teams-ai/microsoft.teams.ai
       - linkListType: reference
