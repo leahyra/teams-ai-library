@@ -2,6 +2,7 @@
 title: Sending Messages
 description: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

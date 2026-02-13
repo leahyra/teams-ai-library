@@ -2,6 +2,7 @@
 title: Handling Dialog Submissions
 description: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

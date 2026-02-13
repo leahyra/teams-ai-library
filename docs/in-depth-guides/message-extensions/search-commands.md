@@ -2,6 +2,7 @@
 title: Search commands
 description: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

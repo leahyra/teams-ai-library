@@ -2,6 +2,7 @@
 title: Custom Logger
 description: Configure custom loggers in your Teams app to control log levels and output destinations.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

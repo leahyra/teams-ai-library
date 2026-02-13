@@ -2,6 +2,7 @@
 title: User Authentication
 description: API guide to implement User Authentication with SSO in Teams Apps.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

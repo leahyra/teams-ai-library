@@ -2,6 +2,7 @@
 title: Code Basics
 description: Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

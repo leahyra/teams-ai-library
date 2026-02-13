@@ -2,6 +2,7 @@
 title: Tabs
 description: Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

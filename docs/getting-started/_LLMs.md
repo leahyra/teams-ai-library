@@ -2,6 +2,7 @@
 title: LLMs.txt
 description: Links to LLM context files that provide coding assistants with documentation for the Teams SDK.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

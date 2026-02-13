@@ -2,6 +2,7 @@
 title: Setup & Prerequisites
 description: Prerequisites and setup guide for integrating LLMs into Teams SDK applications, including API keys and configuration.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

@@ -2,6 +2,7 @@
 title: A2A Server
 description: How to implement an A2A server to expose your Teams app capabilities to other agents using the A2A protocol.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

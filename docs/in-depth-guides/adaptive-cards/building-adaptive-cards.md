@@ -2,6 +2,7 @@
 title: Building Adaptive Cards
 description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

@@ -2,6 +2,7 @@
 title: "Function / Tool calling"
 description: How to implement function calling in AI models, allowing the LLM to execute functions as part of its response generation.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

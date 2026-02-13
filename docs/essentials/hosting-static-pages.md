@@ -2,6 +2,7 @@
 title: Hosting Apps/Static Pages
 description: Shows how to host web apps.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

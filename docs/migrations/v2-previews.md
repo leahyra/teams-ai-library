@@ -2,6 +2,7 @@
 title: From V2 Previews
 description: Guide for migrating from preview versions of Teams SDK to the current release.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

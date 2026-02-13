@@ -2,6 +2,7 @@
 title: User Authentication
 description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

@@ -2,6 +2,7 @@
 title: Porting your Slack Bolt bot
 description: Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

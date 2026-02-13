@@ -2,6 +2,7 @@
 title: "A2A (Agent-to-Agent) Protocol"
 description: Overview of the experimental A2A (Agent-to-Agent) protocol for enabling programmatic communication between AI agents.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

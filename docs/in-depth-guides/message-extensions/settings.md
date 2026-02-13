@@ -2,6 +2,7 @@
 title: Settings
 description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

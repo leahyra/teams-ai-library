@@ -2,6 +2,7 @@
 title: Quickstart
 description: Quick start guide for Teams SDK using the Teams CLI to create and run your first agent.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

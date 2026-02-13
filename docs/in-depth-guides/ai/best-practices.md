@@ -2,6 +2,7 @@
 title: Best Practices
 description: Best practices for AI integration in Teams applications, including AI-generated message indicators, feedback collection for prompt improvement, and citation handling to ensure transparency and accuracy in AI responses.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

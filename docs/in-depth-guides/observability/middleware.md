@@ -2,6 +2,7 @@
 title: Middleware
 description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

@@ -2,6 +2,7 @@
 title: MCP Client
 description: How to implement an MCP client to leverage remote MCP servers and their tools in your AI agent application.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 

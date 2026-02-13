@@ -2,6 +2,7 @@
 title: Creating Dialogs
 description: Learn how to create and open dialogs in Teams using Adaptive Cards.
 ms.topic: how-to
+zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 
