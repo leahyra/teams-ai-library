@@ -7,7 +7,7 @@ title: 'Creating Dialogs'
 # Creating Dialogs
 
 > [!TIP]
-> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards). Understanding their basics is a prerequisite for this guide.
+> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards/overview.md). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 

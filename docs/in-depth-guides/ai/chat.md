@@ -7,7 +7,7 @@ summary: Comprehensive guide to implementing chat generation with LLMs in Teams,
 
 # Chat Generation
 
-Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.mdx) guide.
+Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
 # Setup
 
