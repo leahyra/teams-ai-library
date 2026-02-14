@@ -101,8 +101,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
 
 ::: zone pivot="csharp"
-
-# [Program.cs](#tab/program.cs)
+# [Program.cs](#tab/app-entry)
 
 ```csharp
 
@@ -137,7 +136,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     }
 ```
 
-# [BotBuilderAdapter.cs](#tab/botbuilderadapter.cs)
+# [BotBuilderAdapter.cs](#tab/adapter)
 
 ```csharp
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
@@ -162,7 +161,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     // highlight-end
 ```
 
-# [ActivityHandler.cs](#tab/activityhandler.cs)
+# [ActivityHandler.cs](#tab/handler)
 
 ```csharp
     using Microsoft.Bot.Builder;
@@ -186,8 +185,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone-end
 
 ::: zone pivot="python"
-
-# [app.py](#tab/app.py)
+# [app.py](#tab/app-entry)
 
 ```python
     import asyncio
@@ -210,7 +208,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         asyncio.run(app.start())
 ```
 
-# [adapter.py](#tab/adapter.py)
+# [adapter.py](#tab/adapter)
 
 ```python
     from botbuilder.core import TurnContext
@@ -240,7 +238,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     # highlight-end
 ```
 
-# [activity_handler.py](#tab/activity_handler.py)
+# [activity_handler.py](#tab/handler)
 
 ```python
     from botbuilder.core import ActivityHandler, TurnContext
@@ -258,8 +256,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone-end
 
 ::: zone pivot="javascript"
-
-# [index.ts](#tab/index.ts)
+# [index.ts](#tab/app-entry)
 
 ```typescript
     import { App } from '@microsoft/teams.apps';
@@ -282,7 +279,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     })();
 ```
 
-# [adapter.ts](#tab/adapter.ts)
+# [adapter.ts](#tab/adapter)
 
 ```typescript
     import { CloudAdapter } from 'botbuilder';
@@ -305,7 +302,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     export default adapter;
 ```
 
-# [activity-handler.ts](#tab/activity-handler.ts)
+# [activity-handler.ts](#tab/handler)
 
 ```typescript
     import { TeamsActivityHandler } from 'botbuilder';
