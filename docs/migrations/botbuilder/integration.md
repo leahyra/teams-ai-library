@@ -18,16 +18,18 @@ The `BotBuilderPlugin` provided within the Teams SDK, connects the SDK with the 
 It can either use an existing `CloudAdapter` or create a new default one, allowing activities to be processed through BotBuilder
 while still handling events via the Teams SDK App framework.
 
+::: zone pivot="csharp"
+
 ## Activity Handlers
 
-The BotBuilder`ActivityHandler` contains the actual bot logic for processing messages or events
+The BotBuilder `ActivityHandler` contains the actual bot logic for processing messages or events
 similar to how the Teams SDK `App` routes messages and events. You can override any number of methods,
-such as `<LanguageInclude content={{"typescript": "`OnMembersAdded`", "csharp": "`OnMembersAddedAsync`", "python": "`on_members_added_activity`"}} />`
-or `<LanguageInclude content={{"typescript": "`onMessage`", "csharp": "`OnMessageActivityAsync`", "python": "`on_message_activity`"}} />`, to handle different activity types.
+such as `OnMembersAddedAsync`
+or `OnMessageActivityAsync`, to handle different activity types.
 
 ## Turn Context
 
-Each incomingactivity is wrapped in a `TurnContext`, which represents the context of a single turn in the conversation.
+Each incoming activity is wrapped in a `TurnContext`, which represents the context of a single turn in the conversation.
 
 TurnContext provides access to:
 
@@ -35,7 +37,55 @@ TurnContext provides access to:
 - Services for sending responses back to the user.
 - Conversation, user, and channel metadata.
 
-Teams SDK has `<LanguageInclude content={{"typescript": "`IActivityContext`", "csharp": "`IActivityContext`", "python": "`ActivityContext`"}} />` for the same purpose.
+Teams SDK has `IActivityContext` for the same purpose.
+
+::: zone-end
+
+::: zone pivot="python"
+
+## Activity Handlers
+
+The BotBuilder `ActivityHandler` contains the actual bot logic for processing messages or events
+similar to how the Teams SDK `App` routes messages and events. You can override any number of methods,
+such as `on_members_added_activity`
+or `on_message_activity`, to handle different activity types.
+
+## Turn Context
+
+Each incoming activity is wrapped in a `TurnContext`, which represents the context of a single turn in the conversation.
+
+TurnContext provides access to:
+
+- The incoming activity (message, event).
+- Services for sending responses back to the user.
+- Conversation, user, and channel metadata.
+
+Teams SDK has `ActivityContext` for the same purpose.
+
+::: zone-end
+
+::: zone pivot="javascript"
+
+## Activity Handlers
+
+The BotBuilder `ActivityHandler` contains the actual bot logic for processing messages or events
+similar to how the Teams SDK `App` routes messages and events. You can override any number of methods,
+such as `OnMembersAdded`
+or `onMessage`, to handle different activity types.
+
+## Turn Context
+
+Each incoming activity is wrapped in a `TurnContext`, which represents the context of a single turn in the conversation.
+
+TurnContext provides access to:
+
+- The incoming activity (message, event).
+- Services for sending responses back to the user.
+- Conversation, user, and channel metadata.
+
+Teams SDK has `IActivityContext` for the same purpose.
+
+::: zone-end
 
 ## How it all comes together
 
@@ -51,6 +101,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
 
 ::: zone pivot="csharp"
+
 # [Program.cs](#tab/program.cs)
 
 ```csharp
@@ -135,6 +186,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone-end
 
 ::: zone pivot="python"
+
 # [app.py](#tab/app.py)
 
 ```python
@@ -206,6 +258,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone-end
 
 ::: zone pivot="javascript"
+
 # [index.ts](#tab/index.ts)
 
 ```typescript
@@ -279,13 +332,32 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone-end
 
 
+::: zone pivot="csharp"
+
 In this example:
-- <LanguageInclude content={{"typescript": "`adapter.ts`", "csharp": "`BotBuilderAdapter.cs`", "python": "`adapter.py`"}} /> defines a `CloudAdapter` to
-handle incoming activities, and can include middleware support or error handling.
-- <LanguageInclude content={{"typescript": "`activity-handler.ts`", "csharp": "`Bot.cs`", "python": "`activity_handler.py`"}} /> defines the `ActivityHandler` and contains the core bot logic,
-handling incoming messages and sending responses via the `TurnContext`.
-- <LanguageInclude content={{"typescript": "`index.ts`", "csharp": "`Program.cs`", "python": "`app.py`"}} /> sets up a Teams SDK `app`
-and registers the `BotBuilderPlugin` with your adapter and activity handler. It also defines a native Teams SDK activity handler that responds to messages.
+- `BotBuilderAdapter.cs` defines a `CloudAdapter` to handle incoming activities, and can include middleware support or error handling.
+- `Bot.cs` defines the `ActivityHandler` and contains the core bot logic, handling incoming messages and sending responses via the `TurnContext`.
+- `Program.cs` sets up a Teams SDK `app` and registers the `BotBuilderPlugin` with your adapter and activity handler. It also defines a native Teams SDK activity handler that responds to messages.
+
+::: zone-end
+
+::: zone pivot="python"
+
+In this example:
+- `adapter.py` defines a `CloudAdapter` to handle incoming activities, and can include middleware support or error handling.
+- `activity_handler.py` defines the `ActivityHandler` and contains the core bot logic, handling incoming messages and sending responses via the `TurnContext`.
+- `app.py` sets up a Teams SDK `app` and registers the `BotBuilderPlugin` with your adapter and activity handler. It also defines a native Teams SDK activity handler that responds to messages.
+
+::: zone-end
+
+::: zone pivot="javascript"
+
+In this example:
+- `adapter.ts` defines a `CloudAdapter` to handle incoming activities, and can include middleware support or error handling.
+- `activity-handler.ts` defines the `ActivityHandler` and contains the core bot logic, handling incoming messages and sending responses via the `TurnContext`.
+- `index.ts` sets up a Teams SDK `app` and registers the `BotBuilderPlugin` with your adapter and activity handler. It also defines a native Teams SDK activity handler that responds to messages.
+
+::: zone-end
 
 In the ouptut below, 
 The first line comes from the BotBuilder ActivityHandler. The second line comes from the Teams SDK message activity handler.

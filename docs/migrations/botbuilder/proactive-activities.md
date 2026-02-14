@@ -8,10 +8,29 @@ ms.date: 02/13/2026
 
 # Proactive Activities
 
-The BotBuilder proactive message flow requires storing a conversation reference. 
-In Teams SDK, we expose a <LanguageInclude content={{"typescript": "`send`", "csharp": "`SendAsync`", "python": "`send`"}} /> method in the `App` class, almost identical to the one 
-passed into our activity handlers through our context. This method accepts a <LanguageInclude content={{"typescript": "`conversationId`", "csharp": "`conversationId`", "python": "`conversation_id`"}} />, so storing just that is enough!
+::: zone pivot="csharp"
 
+The BotBuilder proactive message flow requires storing a conversation reference.
+In Teams SDK, we expose a `SendAsync` method in the `App` class, almost identical to the one
+passed into our activity handlers through our context. This method accepts a `conversationId`, so storing just that is enough!
+
+::: zone-end
+
+::: zone pivot="python"
+
+The BotBuilder proactive message flow requires storing a conversation reference.
+In Teams SDK, we expose a `send` method in the `App` class, almost identical to the one
+passed into our activity handlers through our context. This method accepts a `conversation_id`, so storing just that is enough!
+
+::: zone-end
+
+::: zone pivot="javascript"
+
+The BotBuilder proactive message flow requires storing a conversation reference.
+In Teams SDK, we expose a `send` method in the `App` class, almost identical to the one
+passed into our activity handlers through our context. This method accepts a `conversationId`, so storing just that is enough!
+
+::: zone-end
 
 ::: zone pivot="csharp"
 # [Diff](#tab/diff)

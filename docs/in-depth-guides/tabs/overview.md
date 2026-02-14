@@ -56,4 +56,3 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 
 - [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)
 ::: zone-end
-
