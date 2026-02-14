@@ -12,7 +12,7 @@ ms.date: 02/13/2026
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by registering functions with a `ChatPrompt` using the `.Function()` method.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 ::: zone-end
 
@@ -25,7 +25,7 @@ It's possible to hook up functions that the LLM can decide to call if it thinks 
 :::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling-1-python.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, Function-PokemonSearch, ExternalAPI" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling-1-python.png":::
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 :::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling-2-javascript.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, Function-PokemonSearch, ExternalAPI" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling-2-javascript.png":::
 ::: zone-end
 
@@ -274,7 +274,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
 import { ActivityLike, IMessageActivity } from '@microsoft/teams.api';
@@ -568,7 +568,7 @@ async def handle_multiple_functions(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Multiple functions
 
 Additionally, for complex scenarios, you can add multiple functions to the `ChatPrompt`. The LLM will then decide which function to call based on the context of the conversation. The LLM can pick one or more functions to call before returning the final response.
@@ -644,7 +644,7 @@ await send(result.content ?? 'Sorry I could not figure it out');
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Stopping Functions early
 
 You'll notice that after the function responds, `ChatPrompt` re-sends the response from the function invocation back to the LLM which responds back with the user-facing message. It's possible to prevent this "automatic" function calling by passing in a flag

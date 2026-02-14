@@ -15,8 +15,8 @@ With Teams SDK, we've made it easier than ever to build this kind of reactive, c
 Before diving in, let's define a few key terms:
 
 
-::: zone pivot="csharp,python,javascript"
-- Event: Anything interesting that happens on Teams — or within your application as a result of handling an earlier event.
+::: zone pivot="csharp,python,typescript"
+- Event: Anything interestingthat happens on Teams — or within your application as a result of handling an earlier event.
 - Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and adaptive card actions.
 - InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
 - Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
@@ -31,8 +31,8 @@ Before diving in, let's define a few key terms:
 :::image type="content" source="~/assets/diagrams/essentials-overview-1-python.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler decorator (@app.event()), Activity Event Router, Activity Handler decorators (@app.on_activity())" lightbox="~/assets/diagrams/essentials-overview-1-python.png":::
 ::: zone-end
 
-::: zone pivot="javascript"
-:::image type="content" source="~/assets/diagrams/essentials-overview-2-javascript.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.event()), Activity Event Router, Activity Handlers (app.on())" lightbox="~/assets/diagrams/essentials-overview-2-javascript.png":::
+::: zone pivot="typescript"
+:::image type="content" source="~/assets/diagrams/essentials-overview-2-javascript.png"alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.event()), Activity Event Router, Activity Handlers (app.on())" lightbox="~/assets/diagrams/essentials-overview-2-javascript.png":::
 ::: zone-end
 
 

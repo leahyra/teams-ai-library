@@ -19,7 +19,7 @@ With `Microsoft.Teams.Cards` you can build these cards entirely in C# while enjo
 With `microsoft-teams-cards` you can build these cards entirely in Python while enjoying full IntelliSense and compiler safety.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 With `@microsoft/teams.cards` you can build these cards entirely in TypeScript/JavaScript while enjoying full IntelliSense and compiler safety.
 ::: zone-end
 
@@ -35,7 +35,7 @@ With `@microsoft/teams.cards` you can build these cards entirely in TypeScript/J
 `microsoft-teams-cards` exposes small **builder helpers** including `Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 `@microsoft/teams.cards` exposes small **builder helpers** including `Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._
 ::: zone-end
 
@@ -102,7 +102,7 @@ card = AdaptiveCard(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 import {
   AdaptiveCard,
@@ -144,7 +144,7 @@ Benefits:
 > The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
 ::: zone-end
@@ -162,7 +162,7 @@ The package bundles the **Adaptive Card v1.5 schema** as strict Python types.
 While coding you get:
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript/JavaScript types.
 While coding you get:
 ::: zone-end
@@ -191,7 +191,7 @@ text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 // @ts-expect-error: "huge" is not a valid size for TextBlock
 const textBlock = new TextBlock('Valid', { size: 'huge' });
@@ -331,7 +331,7 @@ message = MessageActivityInput(text="Hello text!").add_card(card)
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 const cardJson = /* copied JSON */;
 const card = new AdaptiveCard().withBody(cardJson);
@@ -389,7 +389,7 @@ const rawCard: IAdaptiveCard = {
 This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `AdaptiveCard`.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `IAdaptiveCard`.
 ::: zone-end
 
@@ -423,7 +423,7 @@ Below is a complete example showing a task management form.
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 Notice how the builder pattern keeps the file readable and maintainable:
 ::: zone-end
 
@@ -534,7 +534,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 import {
   AdaptiveCard,

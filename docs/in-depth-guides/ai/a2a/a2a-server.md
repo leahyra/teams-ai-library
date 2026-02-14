@@ -22,7 +22,7 @@ This page isn't available for C#.
 To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agent_card`:
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agentCard`:
 ::: zone-end
 
@@ -72,7 +72,7 @@ app = App(logger=logger, plugins=plugins)
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { AgentCard } from '@a2a-js/sdk';
 import { A2APlugin } from '@microsoft/teams.a2a';
@@ -155,7 +155,7 @@ async def handle_a2a_message(message: A2AMessageEvent) -> None:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.event('a2a:message', async ({ respond, requestContext }) => {
   logger.info(`Received message: ${requestContext.userMessage}`);

@@ -24,9 +24,9 @@ passed into our activity handlers through our context. This method accepts a `co
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
-The BotBuilder proactive message flow requires storing a conversation reference.
+The BotBuilder proactive message flowrequires storing a conversation reference.
 In Teams SDK, we expose a `send` method in the `App` class, almost identical to the one
 passed into our activity handlers through our context. This method accepts a `conversationId`, so storing just that is enough!
 
@@ -190,7 +190,7 @@ passed into our activity handlers through our context. This method accepts a `co
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 
 ```typescript

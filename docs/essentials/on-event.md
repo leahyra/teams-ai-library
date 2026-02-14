@@ -15,8 +15,8 @@ An **event** is a foundational concept in building agents — it represents some
 :::image type="content" source="~/assets/diagrams/essentials-on-event-csharp.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.OnEvent())" lightbox="~/assets/diagrams/essentials-on-event-csharp.png":::
 ::: zone-end
 
-::: zone pivot="python,javascript"
-:::image type="content" source="~/assets/diagrams/essentials-on-event-1-python.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.event())" lightbox="~/assets/diagrams/essentials-on-event-1-python.png":::
+::: zone pivot="python,typescript"
+:::image type="content" source="~/assets/diagrams/essentials-on-event-1-python.png"alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.event())" lightbox="~/assets/diagrams/essentials-on-event-1-python.png":::
 ::: zone-end
 
 
@@ -25,8 +25,8 @@ The Teams SDK makes it easy to subscribe to these events and respond appropriate
 Here are the events that you can start building handlers for:
 
 
-::: zone pivot="csharp,javascript"
-| **Event Name**      | **Description**                                                                |
+::: zone pivot="csharp,typescript"
+| **Event Name**      | **Description**|
 | ------------------- | ------------------------------------------------------------------------------ |
 | `start`             | Triggered when your application starts. Useful for setup or boot-time logging. |
 | `signin`            | Triggered during a sign-in flow via Teams.                                     |
@@ -77,7 +77,7 @@ async def handle_error(event: ErrorEvent):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.event('error', ({ error }) => {
   app.log.error(error);
@@ -112,7 +112,7 @@ async def handle_activity(event: ActivityEvent):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 When a user signs in using `OAuth` or `SSO`, use the graph api to fetch their profile and say hello.
 
 ```typescript

@@ -536,7 +536,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 
 ```typescript

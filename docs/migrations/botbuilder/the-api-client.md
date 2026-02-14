@@ -126,7 +126,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 
 ```typescript
@@ -225,7 +225,7 @@ The following table shows common BotBuilder `TeamsInfo` methods and their equiva
 | `TeamsInfo.send_message_to_teams_channel(context, team_id, message)` | `api.conversations.create(CreateConversationParams)` then `api.conversations.activities(conversation_id).create(activity)` |
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 | BotBuilder (TeamsInfo) | Teams SDK (ApiClient) |
 |------------------------|----------------------|
 | `TeamsInfo.getMember(context, userId)` | `api.conversations.members(conversationId).getById(userId)` |

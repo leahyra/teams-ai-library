@@ -117,7 +117,7 @@ Set the following environment variable:
 - `CLIENT_ID`: Your Application (client) ID
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 Your application should automatically use User Managed Identity authentication when you provide the `CLIENT_ID` environment variable without a `CLIENT_SECRET`.
 
 ## Configuration
@@ -150,7 +150,7 @@ Advanced identity federation allowing you to assign managed identities directly 
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
 

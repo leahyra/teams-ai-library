@@ -94,7 +94,7 @@ This is the code snippet for the settings `html` page:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```html
 <html>
   <body>
@@ -182,7 +182,7 @@ app.page("settings", str(Path(__file__).parent), "/tabs/settings")
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import path from 'path';
 import { App } from '@microsoft/teams.apps';
@@ -194,7 +194,7 @@ app.tab('settings', path.resolve(__dirname));
 
 
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 > [!NOTE]
 > This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/overview.md) to learn more.
 ::: zone-end
@@ -278,7 +278,7 @@ async def handle_message_ext_query_settings_url(ctx: ActivityContext[MessageExte
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -382,7 +382,7 @@ async def handle_message_ext_setting(ctx: ActivityContext[MessageExtensionSettin
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...

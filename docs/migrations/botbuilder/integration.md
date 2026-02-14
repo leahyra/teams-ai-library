@@ -64,7 +64,7 @@ Teams SDK has `ActivityContext` for the same purpose.
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
 ## Activity Handlers
 
@@ -255,7 +255,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [index.ts](#tab/app-entry)
 
 ```typescript
@@ -347,7 +347,7 @@ In this example:
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
 In this example:
 - `adapter.ts` defines a `CloudAdapter` to handle incoming activities, and can include middleware support or error handling.

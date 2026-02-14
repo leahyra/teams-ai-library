@@ -18,7 +18,7 @@ This page isn't available for C#.
 > This package wraps the official [A2A SDK](https://github.com/a2aproject/a2a-python) for both server and client.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > This package wraps the official [A2A SDK](https://github.com/a2aproject/a2a-js) for both server and client.
 ::: zone-end
@@ -41,7 +41,7 @@ pip install microsoft-teams-a2a
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Install the package:
 
 ```bash

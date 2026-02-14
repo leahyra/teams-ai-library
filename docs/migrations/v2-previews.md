@@ -17,7 +17,7 @@ This page isn't available for C#.
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 If you're moving from preview versions of Teams SDK, you may encounter a few breaking changes along the way. This page outlines those and shows how to get back on track.
 
 ## Graph Client

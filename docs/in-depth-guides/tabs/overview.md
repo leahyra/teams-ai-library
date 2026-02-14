@@ -19,7 +19,7 @@ This SDK does not offer features for implementing Tab apps in C#. It does howeve
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Tab apps will often need to interact with remote services. They may need to fetch data from [Microsoft Graph](/graph/overview) or invoke remote agent functions, using the [Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication) (NAA) and the [Microsoft Authentication Library](/entra/identity-platform/msal-overview) (MSAL) to ensure user consent and to allow the remote service authenticate the user.
 
 The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to streamline these common scenarios. It aims to simplify:
@@ -51,7 +51,7 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ### Additional resources
 
 - [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)

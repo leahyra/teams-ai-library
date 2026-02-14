@@ -72,7 +72,7 @@ async def _send_message(self) -> None:
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
 ```typescript
 import { A2AClient } from '@a2a-js/sdk/client';
@@ -138,7 +138,7 @@ prompt = ChatPrompt(
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
 ```typescript
 import { A2AClientPlugin } from '@microsoft/teams.a2a';
@@ -182,7 +182,7 @@ result = await prompt.send(message)
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
 ```typescript
 // Now we can send the message to the prompt and it will decide if
@@ -256,7 +256,7 @@ advanced_prompt = ChatPrompt(model=completions_model, plugins=[advanced_plugin])
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
 ```typescript
 // Example with custom message builders and response processors
@@ -314,6 +314,6 @@ Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
 :::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-python.png"alt-text="Sequence diagram showing interaction between User, ChatPrompt, A2AClientPlugin, A2ACardResolver, Client" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-python.png":::
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 :::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-1-javascript.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, A2AClientPlugin, A2AClient, LLM" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-1-javascript.png":::
 ::: zone-end

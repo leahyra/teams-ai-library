@@ -22,9 +22,9 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
-BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
+BotBuilder uses its `dialogs`for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
 equivalent feature for dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
 
 ::: zone-end
@@ -266,7 +266,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
 
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [BotBuilder](#tab/botbuilder)
 
 ```typescript showLineNumbers

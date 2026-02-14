@@ -52,8 +52,8 @@ This page isn't available for C#.
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
-First, let's install the Teams SDK into your project. This will install the Teams SDK alongside any existing packages. After you've completed your migration, you can safely remove the `@microsoft/teams-ai` dependency from your `package.json` file.
+::: zone pivot="typescript"
+First, let's install the Teams SDK into your project. This will install the Teams SDK alongside any existing packages.After you've completed your migration, you can safely remove the `@microsoft/teams-ai` dependency from your `package.json` file.
 
 ```sh
 npm install @microsoft/teams.apps
@@ -72,8 +72,8 @@ This page isn't available for C#.
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
-First, let's configure the `App` class in Teams JS. This is equivalent to Slack Bolt's `App` class.
+::: zone pivot="typescript"
+First, let's configure the `App` class in Teams JS.This is equivalent to Slack Bolt's `App` class.
 
 # [Diff](#tab/diff)
 
@@ -257,7 +257,7 @@ This page isn't available for C#.
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 
 ```ts
@@ -338,7 +338,7 @@ This page isn't available for C#.
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 
 ```ts
@@ -434,12 +434,12 @@ This page isn't available for C#.
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 
 ```ts
     // highlight-error-start
-    // TODO: Configure App class with user OAuth permissions and install app for user
+    // TODO: Configure App class with user OAuth permissionsand install app for user
 
     app.message('me', async ({ client, message }) => {
         const me = await client.users.info({ user: message.user });
@@ -528,7 +528,7 @@ This page isn't available for C#.
 This page isn't available for Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 import { App } from '@microsoft/teams.apps';
 
