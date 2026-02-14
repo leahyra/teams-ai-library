@@ -10,11 +10,11 @@ ms.date: 02/13/2026
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -111,5 +111,5 @@ await app.graph.call(presence.setPresence.create, newPresence);
 await app.graph.call(setPresence.create, newPresence);
 await app.graph.call(updatePresence, newPresence);
 ```
-::: zone-end
 
+::: zone-end
