@@ -16,7 +16,7 @@ This SDK does not offer features for implementing Tab apps in C#. It does howeve
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -48,7 +48,7 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"

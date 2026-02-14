@@ -44,7 +44,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +      var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
 +  });
   // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -99,7 +99,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +  async def on_message(context: ActivityContext[MessageActivity]):
 +      members = await context.api.conversations.members(context.activity.conversation.id).get_all()
   # highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -162,7 +162,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +    const members = await api.conversations.members(activity.conversation.id).get();
 +  });
   // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```typescript showLineNumbers

@@ -45,11 +45,11 @@ First, setup a new Teams application, as shown in [Teams Integration](../teams/o
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -65,11 +65,11 @@ npm install @microsoft/teams.apps
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -250,11 +250,11 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -331,11 +331,11 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -427,11 +427,11 @@ Then, configure the authentication in your code.
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -521,11 +521,11 @@ Then, add the authentication code to your application to get the relevant user t
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"

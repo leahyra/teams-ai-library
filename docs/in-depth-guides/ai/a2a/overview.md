@@ -10,7 +10,7 @@ ms.date: 02/13/2026
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -30,7 +30,7 @@ A2A (Agent-to-Agent) is a protocol designed to enable agents to communicate and 
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"

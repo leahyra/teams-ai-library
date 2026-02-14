@@ -97,7 +97,7 @@ The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanill
       context.Next(); // pass control onward
       return Task.CompletedTask;
   });
- ```
+```
 
 ```csharp
 app.OnMessage(async context =>
@@ -116,7 +116,7 @@ app.OnMessage(async context =>
       // Fallthrough to the final handler
       await context.Send($"Hello! you said {context.Activity.Text}");
   });
- ```
+```
 ::: zone-end
 
 ::: zone pivot="python"

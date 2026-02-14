@@ -46,7 +46,7 @@ In the above example, the handler gets a `message` activity, and uses the `send`
   {
       await context.Send("You have successfully signed in!");
   });
- ```
+```
 ::: zone-end
 
 ::: zone pivot="python"

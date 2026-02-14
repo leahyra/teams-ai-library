@@ -14,7 +14,7 @@ Agents may want to expose REST APIs that client applications can call. This SDK 
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -51,7 +51,7 @@ app.AddFunction<ProcessMessageData> ("process-message", (context) => {
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -80,7 +80,7 @@ app.function<{}, { message: string }>('process-message', ({ data, log }) => {
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 
@@ -97,7 +97,7 @@ app.AddFunction('get-random-number', () => {
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -131,7 +131,7 @@ The function callback receives a context object with a number of useful values. 
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 
@@ -159,7 +159,7 @@ The function callback receives a context object with a number of useful values. 
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -195,7 +195,7 @@ The `AuthToken` is validated before the function callback is invoked, and the `T
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -215,7 +215,7 @@ To simplify a common scenarios, the context provides a `Send` method. This metho
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"
@@ -235,7 +235,7 @@ To simplify two common scenarios, the context provides the `getCurrentConversati
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Missing section content -->
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="javascript"

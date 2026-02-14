@@ -15,7 +15,7 @@ An A2A server is an agent that exposes its capabilities to other agents using th
 ## Adding the `A2APlugin`
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -28,7 +28,7 @@ To enable A2A server functionality, add the `A2APlugin` to your Teams app and pr
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -124,7 +124,7 @@ Handle incoming A2A requests by adding an event handler for the `a2a:message` ev
 
 
 ::: zone pivot="csharp"
-<!-- Missing section content -->
+This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
