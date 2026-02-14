@@ -1,9 +1,9 @@
 ---
-title: Action Commands
+title: Action commands
 description: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Action commands
@@ -20,11 +20,11 @@ There are three different areas action commands can be invoked from:
 
 ### Compose Area and Box
 
-:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="alt-text for compose-area.png" lightbox="~/assets/screenshots/compose-area.png":::
+:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps).":::
 
 ### Message action command
 
-:::image type="content" source="~/assets/screenshots/message.png" alt-text="alt-text for message.png" lightbox="~/assets/screenshots/message.png":::
+:::image type="content" source="~/assets/screenshots/message.png" alt-text="Screenshot of message extension response in Teams. By selecting the '...' button, a menu has opened with 'More actions' option in which they can select from a list of available message extension actions.":::
 
 > [!TIP]
 > See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
@@ -96,15 +96,15 @@ Here we have defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="alt-text for parameters.png" lightbox="~/assets/screenshots/parameters.png":::
+:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Screenshot of a message extension dialog with the editable fields 'Card title', 'Subtitle', and 'Text'.":::
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`, etc.
 
-:::image type="content" source="~/assets/screenshots/message-command.png" alt-text="alt-text for message-command.png" lightbox="~/assets/screenshots/message-command.png":::
+:::image type="content" source="~/assets/screenshots/message-command.png" alt-text="Screenshot of the 'More actions' message extension menu expanded with 'Get Message Details' option selected.":::
 
 3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
-:::image type="content" source="~/assets/screenshots/fetch-conversation-members.png" alt-text="alt-text for fetch-conversation-members.png" lightbox="~/assets/screenshots/fetch-conversation-members.png":::
+:::image type="content" source="~/assets/screenshots/fetch-conversation-members.png" alt-text="Screenshot of the 'Fetch Conversation Members' option exposed from the message extension menu '...' option.":::
 
 ## Handle submission
 
@@ -160,9 +160,9 @@ public Response OnMessageExtensionSubmit(
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import AdaptiveCardAttachment, MessageExtensionSubmitActionInvokeActivity, card_attachment
-from microsoft.teams.api.models import AttachmentLayout, MessagingExtensionActionInvokeResponse, MessagingExtensionAttachment, MessagingExtensionResult, MessagingExtensionResultType
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import AdaptiveCardAttachment, MessageExtensionSubmitActionInvokeActivity, card_attachment
+from microsoft_teams.api.models import AttachmentLayout, MessagingExtensionActionInvokeResponse, MessagingExtensionAttachment, MessagingExtensionResult, MessagingExtensionResultType
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_message_ext_submit
@@ -293,7 +293,7 @@ private static Response HandleCreateCard(JsonElement? data, ILogger log)
 
 ```py
 from typing import Dict
-from microsoft.teams.cards import AdaptiveCard
+from microsoft_teams.cards import AdaptiveCard
 # ...
 
 def create_card(data: Dict[str, str]) -> AdaptiveCard:
@@ -431,8 +431,8 @@ private static Response HandleGetMessageDetails(SubmitActionActivity activity, I
 
 ```python
 from typing import Dict, List, Union
-from microsoft.teams.api.models.message import Message
-from microsoft.teams.cards import AdaptiveCard
+from microsoft_teams.api.models.message import Message
+from microsoft_teams.cards import AdaptiveCard
 # ...
 
 def create_message_details_card(message_payload: Message) -> AdaptiveCard:
@@ -606,9 +606,9 @@ public async Task<ActionResponse> OnMessageExtensionFetchTask(
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import AdaptiveCardAttachment, MessageExtensionFetchTaskInvokeActivity, card_attachment
-from microsoft.teams.api.models import CardTaskModuleTaskInfo, MessagingExtensionActionInvokeResponse, TaskModuleContinueResponse
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import AdaptiveCardAttachment, MessageExtensionFetchTaskInvokeActivity, card_attachment
+from microsoft_teams.api.models import CardTaskModuleTaskInfo, MessagingExtensionActionInvokeResponse, TaskModuleContinueResponse
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_message_ext_open
@@ -731,8 +731,8 @@ private static Response CreateErrorActionResponse(string message)
 
 ```python
 from typing import List
-from microsoft.teams.api import Account
-from microsoft.teams.cards import AdaptiveCard
+from microsoft_teams.api import Account
+from microsoft_teams.cards import AdaptiveCard
 # ...
 
 def create_conversation_members_card(members: List[Account]) -> AdaptiveCard:

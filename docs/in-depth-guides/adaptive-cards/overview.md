@@ -1,9 +1,9 @@
 ---
 title: Adaptive Cards
 description: Introduction to Adaptive Cards in Teams SDK applications for creating rich, interactive user experiences across various scenarios.
-ms.topic: overview
+ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Adaptive Cards

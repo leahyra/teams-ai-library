@@ -1,9 +1,8 @@
 ---
 title: Message Extensions
 description: Overview of message extensions for enhancing user productivity with quick access to information and actions within Teams.
-ms.topic: overview
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.topic: how-to
+ms.date: 02/13/2026
 ---
 
 # Message Extensions

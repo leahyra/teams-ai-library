@@ -3,7 +3,7 @@ title: Handling Dialog Submissions
 description: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Handling Dialog Submissions
@@ -12,9 +12,8 @@ ms.date: 11/17/2025
 ::: zone pivot="csharp"
 Dialogs have a specific `TaskSubmit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
 
-:::warning Return Type Requirement
-Methods decorated with `[TaskSubmit]` **must** return `Task<Microsoft.Teams.Api.TaskModules.Response>`. Every code path must return a Response object containing either a `MessageTask` (to show a message and close the dialog) or a `ContinueTask` (to show another dialog). Using just `Task` or `void` will compile but fail at runtime when the Teams client expects a Response object.
-:::
+> [!WARNING]
+> Return Type Requirement. Methods decorated with `[TaskSubmit]` **must** return `Task<Microsoft.Teams.Api.TaskModules.Response>`. Every code path must return a Response object containing either a `MessageTask` (to show a message and close the dialog) or a `ContinueTask` (to show another dialog). Using just `Task` or `void` will compile but fail at runtime when the Teams client expects a Response object.
 
 ## Basic Example
 ::: zone-end
@@ -88,8 +87,8 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 ::: zone pivot="python"
 ```python
 from typing import Optional, Any
-from microsoft.teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_dialog_submit
@@ -148,8 +147,8 @@ case "webpage_dialog":
 ::: zone pivot="python"
 ```python
 from typing import Optional, Any
-from microsoft.teams.api import TaskSubmitInvokeActivity, InvokeResponse, TaskModuleResponse, TaskModuleMessageResponse
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import TaskSubmitInvokeActivity, InvokeResponse, TaskModuleResponse, TaskModuleMessageResponse
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_dialog_submit
@@ -265,3 +264,4 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
+

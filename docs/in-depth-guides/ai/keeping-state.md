@@ -3,7 +3,7 @@ title: Keeping State
 description: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Keeping State
@@ -73,8 +73,8 @@ public static Task ClearConversationMemory(string conversationId)
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import ChatPrompt, ListMemory, AIModel
-from microsoft.teams.openai import OpenAICompletionsAIModel
+from microsoft_teams.ai import ChatPrompt, ListMemory, AIModel
+from microsoft_teams.openai import OpenAICompletionsAIModel
 
 # Simple in-memory store for conversation histories
 # In your application, it may be a good idea to use a more
@@ -173,9 +173,9 @@ public static async Task HandleStatefulConversation(OpenAIChatModel model, ICont
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import ChatPrompt, ListMemory, AIModel
-from microsoft.teams.api import MessageActivity, MessageActivityInput
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.ai import ChatPrompt, ListMemory, AIModel
+from microsoft_teams.api import MessageActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
 # ...
 
 async def handle_stateful_conversation(model: AIModel, ctx: ActivityContext[MessageActivity]) -> None:
@@ -284,13 +284,14 @@ teamsApp.OnMessage(async (context) =>
 > [!NOTE]
 > In a production application, consider using a more robust storage solution like Azure Cosmos DB, SQL Server, or Redis instead of an in-memory dictionary. This ensures conversation history persists across application restarts and scales across multiple instances.
 
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example":::
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Screenshot of chat between user and agent, user first states 'My dinosaur's name is Barnie' and later asks What's my pet's name and the agent responds correctly with 'Barnie'.":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example":::
 ::: zone-end
+

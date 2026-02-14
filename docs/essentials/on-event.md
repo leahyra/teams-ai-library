@@ -1,9 +1,9 @@
 ---
-title: Listening to Events
+title: Listening To Events
 description: Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Listening To Events
@@ -12,11 +12,11 @@ An **event** is a foundational concept in building agents — it represents some
 
 
 ::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/on-event-1.png" alt-text="alt-text for on-event-1.png" lightbox="~/assets/diagrams/on-event-1.png":::
+:::image type="content" source="~/assets/diagrams/essentials-on-event-csharp.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.OnEvent())" lightbox="~/assets/diagrams/essentials-on-event-csharp.png":::
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-:::image type="content" source="~/assets/diagrams/on-event-2.png" alt-text="alt-text for on-event-2.png" lightbox="~/assets/diagrams/on-event-2.png":::
+:::image type="content" source="~/assets/diagrams/essentials-on-event-1-python.png"alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.event())" lightbox="~/assets/diagrams/essentials-on-event-1-python.png":::
 ::: zone-end
 
 
@@ -26,7 +26,7 @@ Here are the events that you can start building handlers for:
 
 
 ::: zone pivot="csharp,typescript"
-| **Event Name**      | **Description**                                                                |
+| **Event Name**      | **Description**|
 | ------------------- | ------------------------------------------------------------------------------ |
 | `start`             | Triggered when your application starts. Useful for setup or boot-time logging. |
 | `signin`            | Triggered during a sign-in flow via Teams.                                     |
@@ -45,7 +45,6 @@ Here are the events that you can start building handlers for:
 | `activity`          | Triggered for all incoming Teams activities (messages, commands, etc.).        |
 | `activity_response` | Triggered when your app sends a response to an activity. Useful for logging.   |
 | `activity_sent`     | Triggered when an activity is sent (not necessarily in response).              |
-
 
 > [!NOTE]
 > Event handler registration uses `@app.event("<event_name>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
@@ -125,3 +124,4 @@ app.event('signin', async ({ activity, send, userGraph }) => {
 });
 ```
 ::: zone-end
+

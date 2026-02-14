@@ -1,9 +1,9 @@
 ---
 title: Sending Messages
 description: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
-ms.topic: overview
+ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Sending Messages
@@ -12,27 +12,12 @@ Sending messages is a core part of an agent's functionality. With all activity h
 
 
 ::: zone pivot="csharp"
-
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
-{
-    await client.Send($"you said: {activity.Text}");
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
     await context.Send($"you said: {context.activity.Text}");
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -56,26 +41,12 @@ In the above example, the handler gets a `message` activity, and uses the `send`
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
 ```csharp
-[SignIn.VerifyState]
-public async Task OnVerifyState([Context] SignIn.VerifyStateActivity activity, [Context] IContext.Client client)
-{
-    await client.Send("You have successfully signed in!");
-}
+  app.OnVerifyState(async context =>
+  {
+      await context.Send("You have successfully signed in!");
+  });
 ```
-
-# [Minimal](#tab/minimal)
-```csharp
-app.OnVerifyState(async context =>
-{
-    await context.Send("You have successfully signed in!");
-});
-```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -117,19 +88,6 @@ You may also stream messages to the user which can be useful for long messages, 
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public void OnMessage([Context] MessageActivity activity, [Context] IStreamer stream)
-{
-    stream.Emit("hello");
-    stream.Emit(", ");
-    stream.Emit("world!");
-    // result message: "hello, world!"
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
@@ -140,10 +98,6 @@ app.OnMessage(async context =>
     return Task.CompletedTask;
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -178,7 +132,7 @@ app.on('message', async ({ activity, stream }) => {
 > [!NOTE]
 > Streaming is currently only supported in 1:1 conversations, not group chats or channels
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="alt-text for streaming-chat.gif" lightbox="~/assets/screenshots/streaming-chat.gif":::
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window.":::
 
 ## @Mention
 
@@ -196,26 +150,12 @@ Sending a message at `@mentions` a user is as simple including the details of th
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
-{
-    await client.Send(new MessageActivity("hi!").AddMention(activity.From));
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
     await context.Send(new MessageActivity("hi!").AddMention(activity.From));
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -233,3 +173,4 @@ app.on('message', async ({ send, activity }) => {
 });
 ```
 ::: zone-end
+

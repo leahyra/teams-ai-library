@@ -3,7 +3,7 @@ title: Best Practices
 description: Best practices for AI integration in Teams applications, including AI-generated message indicators, feedback collection for prompt improvement, and citation handling to ensure transparency and accuracy in AI responses.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Best Practices
@@ -43,7 +43,7 @@ const messageToBeSent = new MessageActivity('Hello!').addAiGenerated();
 ::: zone-end
 
 
-:::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="alt-text for ai-generated.gif" lightbox="~/assets/screenshots/ai-generated.gif":::
+:::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="Screenshot of outgoing agent message to user marked with 'AI generated' badge.":::
 
 ## Gather feedback to improve prompts
 
@@ -86,7 +86,7 @@ for (int i = 0; i < citedDocs.Length; i++)
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import MessageActivityInput, CitationAppearance
+from microsoft_teams.api import MessageActivityInput, CitationAppearance
 
 message_activity = MessageActivityInput(text=result.content).add_ai_generated()
 for i, doc in enumerate(cited_docs):
@@ -114,7 +114,7 @@ for (let i = 0; i < citedDocs.length; i++) {
 ::: zone-end
 
 
-:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="alt-text for citation.gif" lightbox="~/assets/screenshots/citation.gif":::
+:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text.":::
 
 ## Suggested actions
 
@@ -152,7 +152,7 @@ await context.Send(message);
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import CardAction, CardActionType, MessageActivityInput, SuggestedActions
+from microsoft_teams.api import CardAction, CardActionType, MessageActivityInput, SuggestedActions
 
 suggested_actions = SuggestedActions(
     to=[activity.from_.id],
@@ -181,3 +181,4 @@ message.withSuggestedActions({
 });
 ```
 ::: zone-end
+

@@ -3,7 +3,7 @@ title: Setup & Prerequisites
 description: Prerequisites and setup guide for integrating LLMs into Teams SDK applications, including API keys and configuration.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Setup & Prerequisites
@@ -28,7 +28,17 @@ dotnet add package Microsoft.Teams.AI
 ::: zone-end
 
 ::: zone pivot="typescript"
-<!-- Not applicable -->
+Install the required AI packages to your application:
+
+```bash
+npm install @microsoft/teams.apps @microsoft/teams.ai @microsoft/teams.openai
+```
+
+For development, you may also want to install the DevTools plugin:
+
+```bash
+npm install @microsoft/teams.dev --save-dev
+```
 ::: zone-end
 
 
@@ -189,11 +199,17 @@ OPENAI_API_KEY=sk-your-openai-api-key
 ```
 ::: zone-end
 
+
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
 ::: zone pivot="python"
 > [!NOTE]
 > **Automatic Environment Variable Loading**: The AI models automatically read these environment variables when initialized. You can also pass these values explicitly as constructor parameters if needed for advanced configurations.
 >
-> ```python
+>```python
 > # Automatic (recommended)
 > model = OpenAICompletionsAIModel(model="your-model-name")
 >
@@ -204,6 +220,34 @@ OPENAI_API_KEY=sk-your-openai-api-key
 >     azure_endpoint="your-endpoint",  # Azure only
 >     api_version="your-api-version"   # Azure only
 > )
-> ```
->
+>```
 ::: zone-end
+
+::: zone pivot="typescript"
+> [!NOTE]
+> **Automatic Environment Variable Loading**: The OpenAI model automatically reads environment variables when options are not explicitly provided. You can pass values explicitly as constructor parameters if needed for advanced configurations.
+>
+>```typescript
+> // Automatic (recommended) - uses environment variables
+> const model = new OpenAIChatModel({
+>   model: 'gpt-4o',
+> });
+>
+> // Explicit (for advanced use cases)
+> const model = new OpenAIChatModel({
+>   apiKey: 'your-api-key',
+>   model: 'gpt-4o',
+>   endpoint: 'your-endpoint',      // Azure only
+>   apiVersion: 'your-api-version', // Azure only
+>   baseUrl: 'your-base-url',       // Custom base URL
+>   organization: 'your-org-id',    // Optional
+>   project: 'your-project-id',     // Optional
+> });
+>```
+>
+> **Environment variables automatically loaded:**
+> - `OPENAI_API_KEY` or `AZURE_OPENAI_API_KEY`
+> - `AZURE_OPENAI_ENDPOINT` (Azure only)
+> - `OPENAI_API_VERSION` (Azure only)
+::: zone-end
+

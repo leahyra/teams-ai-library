@@ -1,9 +1,9 @@
 ---
-title: Running in Teams
+title: Running In Teams
 description: Guide to deploying and testing your locally running agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
-ms.topic: overview
+ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Running In Teams
@@ -57,7 +57,7 @@ After installing Agents Toolkit and adding the configuration:
 4. **Select "Local"** under Environment Settings of the Agents Toolkit extension.
 5. **Click on Debug (Chrome) or Debug (Edge)** to start debugging via the 'play' button.
 
-:::image type="content" source="~/assets/screenshots/agents-toolkit.png" alt-text="alt-text for agents-toolkit.png" lightbox="~/assets/screenshots/agents-toolkit.png":::
+:::image type="content" source="~/assets/screenshots/agents-toolkit.png" alt-text="Screenshot of Microsoft 365 Agents Toolkit with 'Environment' section expanded and 'local' selected.":::
 
 When debugging starts, the Agents Toolkit will:
 
@@ -119,7 +119,7 @@ After the debugging session starts:
 3. Teams will ask permission to install the app
 4. Once installed, you can start chatting with your agent!
 
-:::image type="content" source="~/assets/screenshots/example-on-teams.png" alt-text="alt-text for example-on-teams.png" lightbox="~/assets/screenshots/example-on-teams.png":::
+:::image type="content" source="~/assets/screenshots/example-on-teams.png" alt-text="Screenshot of 'quote-agent-local' agent running in Teams.":::
 
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 

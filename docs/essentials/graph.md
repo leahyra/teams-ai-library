@@ -3,7 +3,7 @@ title: Graph API Client
 description: Guide to using the Microsoft Graph API client to access Microsoft 365 data and services from your Teams SDK application.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Graph API Client
@@ -22,9 +22,27 @@ The SDK gives your application easy access to the Microsoft Graph API via the `m
 The SDK gives your application easy access to the Microsoft Graph API via the `@microsoft/teams.graph`, `@microsoft/teams.graph-endpoints` and `@microsoft/teams.graph-endpoints-beta` packages.
 ::: zone-end
 
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- Not applicable -->
+::: zone-end
+
 ::: zone pivot="typescript"
 > [!NOTE]
 > If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/v2-previews.md) for details on breaking changes.
+::: zone-end
+
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -51,16 +69,17 @@ npm install @microsoft/teams.graph-endpoints
 Microsoft Graph can be accessed by your application using its own application token, or by using the user's token. If you need access to resources that your application may not have, but your user does, you will need to use the user's scoped graph client. To grant explicit consent for your application to access resources on behalf of a user, follow the [auth guide](../in-depth-guides/user-authentication.md).
 
 ::: zone pivot="csharp"
-To access the graph using the Graph using the app, you may use the `app.Graph` object.
+To access the graph using the Graph using the app, you may use the `app.Graph` object .
 ::: zone-end
 
 ::: zone pivot="python,typescript"
 To access the graph using the Graph using the app, you may use the `app.graph` object to call the endpoint of your choice.
 ::: zone-end
 
+
 ::: zone pivot="csharp"
 ```csharp
-// Equivalent of https://learn.microsoft.com/en-us/graph/api/user-get
+// Equivalent of https://learn.microsoft.com/graph/api/user-get
 // Gets the details of the bot-user
 var user = app.Graph.Me.GetAsync().GetAwaiter().GetResult();
 Console.WriteLine($"User ID: {user.id}");
@@ -72,7 +91,7 @@ Console.WriteLine($"User Job Title: {user.jobTitle}");
 
 ::: zone pivot="python"
 ```python
-# Equivalent of https://learn.microsoft.com/en-us/graph/api/user-get
+# Equivalent of https://learn.microsoft.com/graph/api/user-get
 # Gets the details of the bot-user
 user = await app.graph.me.get()
 print(f"User ID: {user.id}")
@@ -86,7 +105,7 @@ print(f"User Job Title: {user.job_title}")
 ```typescript
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
-// Equivalent of https://learn.microsoft.com/en-us/graph/api/user-get
+// Equivalent of https://learn.microsoft.com/graph/api/user-get
 // Gets the details of the bot-user
 app.graph.call(endpoints.me.get).then((user) => {
   console.log(`User ID: ${user.id}`);
@@ -96,7 +115,6 @@ app.graph.call(endpoints.me.get).then((user) => {
 });
 ```
 ::: zone-end
-
 
 
 ::: zone pivot="csharp"
@@ -112,23 +130,7 @@ You can also access the graph using the user's token from within a message handl
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
-
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage([Context] MessageActivity activity, [Context] GraphClient userGraph)
-{
-    var user = await userGraph.Me.GetAsync();
-    Console.WriteLine($"User ID: {user.id}");
-    Console.WriteLine($"User Display Name: {user.displayName}");
-    Console.WriteLine($"User Email: {user.mail}");
-    Console.WriteLine($"User Job Title: {user.jobTitle}");
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
@@ -139,10 +141,6 @@ app.OnMessage(async context =>
     Console.WriteLine($"User Job Title: {user.jobTitle}");
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -186,14 +184,23 @@ Here, the `user_graph` object is a scoped graph client for the user that sent th
 > You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.Graph`.
 ::: zone-end
 
+::: zone pivot="python"
+> [!TIP]
+> You also have access to the `app_graph` object in the activity handler. This is equivalent to `app.graph`.
+::: zone-end
+
 ::: zone pivot="typescript"
 > [!TIP]
 > You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.graph`.
 ::: zone-end
 
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
 ::: zone pivot="python"
-> [!TIP]
-> You also have access to the `app_graph` object in the activity handler. This is equivalent to `app.graph`.
+<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -267,14 +274,23 @@ const { displayName } = await app.graph.call(getMyDisplayName);
 ```
 ::: zone-end
 
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- Not applicable -->
+::: zone-end
+
 ::: zone pivot="typescript"
 ## Additional resources
 
 Microsoft Graph offers an extensive and thoroughly documented API surface. These essential resources will serve as your go-to references for any Graph development work:
 
 - The [Microsoft Graph Rest API reference documentation](/graph/api/overview) gives details for each API, including permissions requirements.
-- The [Microsoft Graph REST API beta endpoint reference](/graph/api/overview?view=graph-rest-beta) gives similar information for preview APIs.
-- The [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) lets you discover and test drive APIs.
+- The [Microsoft Graph REST API beta endpoint reference](/graph/api/overview) gives similar information for preview APIs.
+- The [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) lets you discover and test drive APIs.
 
 In addition, the following endpoints may be especially interesting to Teams developers:
 
@@ -293,3 +309,4 @@ In addition, the following endpoints may be especially interesting to Teams deve
 | [teamwork](/graph/api/resources/teamwork)                                 | A range of Microsoft Teams functionalities                          |
 | [users](/graph/api/resources/users)                                       | User resources                                                      |
 ::: zone-end
+

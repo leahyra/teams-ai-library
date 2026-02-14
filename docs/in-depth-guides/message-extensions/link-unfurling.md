@@ -1,9 +1,9 @@
 ---
-title: Link Unfurling
+title: Link unfurling
 description: Enable your app to respond when users paste URLs by creating preview cards with additional information and actions.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Link unfurling
@@ -39,7 +39,7 @@ Link unfurling lets your app respond when users paste URLs into Teams. When a UR
 
 When a user pastes a URL from your registered domain (like `www.test.com`) into the Teams compose box, your app will receive a notification. Your app can then respond by returning an adaptive card that displays a preview of the linked content. This preview card appears before the user sends their message in the compose box, allowing them to see how the link will be displayed to others.
 
-:::image type="content" source="~/assets/diagrams/link-unfurling-1.png" alt-text="alt-text for link-unfurling-1.png" lightbox="~/assets/diagrams/link-unfurling-1.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-message-extensions-link-unfurling.png" alt-text="Flowchart diagram showing User pastes a URL (e.g., www\.test\.com) in Teams compose box, Your App, Adaptive Card Preview" lightbox="~/assets/diagrams/in-depth-guides-message-extensions-link-unfurling.png":::
 
 ## Implementing link unfurling
 
@@ -79,7 +79,7 @@ public Response OnMessageExtensionQueryLink(
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import (
+from microsoft_teams.api import (
     AdaptiveCardAttachment,
     MessageExtensionQueryLinkInvokeActivity,
     ThumbnailCardAttachment,
@@ -91,7 +91,7 @@ from microsoft.teams.api import (
     MessagingExtensionResult,
     MessagingExtensionResultType,
 )
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_message_ext_query_link
@@ -228,7 +228,7 @@ private static Response CreateErrorResponse(string message)
 
 ```python
 from typing import Any, Dict
-from microsoft.teams.cards import AdaptiveCard
+from microsoft_teams.cards import AdaptiveCard
 # ...
 
 def create_link_unfurl_card(url: str) -> Dict[str, Any]:
@@ -313,11 +313,11 @@ export function createLinkUnfurlCard(url: string) {
 
 The link unfurling response includes both a full adaptive card and a preview card. The preview card appears in the compose box when a user pastes a URL:
 
-:::image type="content" source="~/assets/screenshots/link-unfurl-preview.png" alt-text="alt-text for link-unfurl-preview.png" lightbox="~/assets/screenshots/link-unfurl-preview.png":::
+:::image type="content" source="~/assets/screenshots/link-unfurl-preview.png" alt-text="Screenshot showing a preview card for an unfurled URL in the Teams compose box.":::
 
 The user can expand the preview card by clicking on the _expand_ button on the top right.
 
-:::image type="content" source="~/assets/screenshots/link-unfurl-card.png" alt-text="alt-text for link-unfurl-card.png" lightbox="~/assets/screenshots/link-unfurl-card.png":::
+:::image type="content" source="~/assets/screenshots/link-unfurl-card.png" alt-text="Screenshot of Teams compose box with an outline around the unfurled link card labeled 'Adaptive Card'.":::
 
 The user can then choose to send either the preview or the full adaptive card as a message.
 

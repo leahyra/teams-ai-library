@@ -8,7 +8,7 @@ metadata:
   description: Developer documentation for the Teams SDK (Teams AI Library), which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
-  ms.date: 09/18/2025
+  ms.date: 02/13/2026
   ms.author: mosdevdocs
   author: erikadoyle
 
@@ -38,8 +38,12 @@ landingContent:
             url: ./essentials/app-basics.md
           - text: Listening to Events
             url: ./essentials/on-event.md
+          - text: Listening to Activities
+            url: ./essentials/on-activity/overview.md
           - text: Sending Messages
             url: ./essentials/sending-messages/overview.md
+          - text: Proactive Messaging
+            url: ./essentials/sending-messages/proactive-messaging.md
 
   # AI & Intelligence
   - title: Build intelligent conversational experiences
@@ -64,8 +68,12 @@ landingContent:
         links:
           - text: Agent-to-Agent Protocol
             url: ./in-depth-guides/ai/a2a/overview.md
-          - text: Model Context Protocol
+          - text: MCP Overview
             url: ./in-depth-guides/ai/mcp/overview.md
+          - text: MCP Server
+            url: ./in-depth-guides/ai/mcp/mcp-server.md
+          - text: MCP Client
+            url: ./in-depth-guides/ai/mcp/mcp-client.md
 
   # Advanced Features & Integration
   - title: Extend your agents with rich interactions
@@ -74,6 +82,8 @@ landingContent:
         links:
           - text: Adaptive Cards
             url: ./in-depth-guides/adaptive-cards/overview.md
+          - text: Building Adaptive Cards
+            url: ./in-depth-guides/adaptive-cards/building-adaptive-cards.md
           - text: Dialogs
             url: ./in-depth-guides/dialogs/overview.md
           - text: Message Extensions
@@ -86,8 +96,10 @@ landingContent:
             url: ./in-depth-guides/user-authentication.md
           - text: Microsoft Graph Integration
             url: ./essentials/graph.md
-          - text: Observability
-            url: ./in-depth-guides/observability/logging.md
+          - text: API Client
+            url: ./essentials/api.md
+          - text: Hosting Static Pages
+            url: ./essentials/hosting-static-pages.md
           - text: Enabling in M365 Copilot
             url: ./teams/enabling-in-copilot.md
 
@@ -96,20 +108,26 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Running in Teams
+            url: ./getting-started/running-in-teams/overview.md
           - text: Teams Configuration Overview
             url: ./teams/configuration/overview.md
           - text: Microsoft 365 Agents Toolkit
             url: ./teams/configuration/agents-toolkit.md
+          - text: Manual Configuration
+            url: ./teams/configuration/manual-configuration.md
           - text: Teams Manifest
             url: ./teams/manifest.md
       - linkListType: concept
         links:
           - text: App Authentication Setup
             url: ./teams/app-authentication/overview.md
-          - text: User Authentication
+          - text: App Authentication Configuration
+            url: ./essentials/app-authentication.md
+          - text: User Authentication Setup
             url: ./teams/user-authentication/overview.md
-          - text: Running in Teams
-            url: ./getting-started/running-in-teams/overview.md
+          - text: SSO Setup
+            url: ./teams/user-authentication/sso-setup.md
 
   # Development & Debugging
   - title: Build, test, and debug your agents
@@ -122,12 +140,16 @@ landingContent:
             url: ./developer-tools/devtools/overview.md
           - text: DevTools Chat
             url: ./developer-tools/devtools/chat.md
-      - linkListType: how-to-guide
-        links:
           - text: Inspect Activities
             url: ./developer-tools/devtools/inspect.md
+          - text: Card Designer
+            url: ./developer-tools/devtools/cards.md
+      - linkListType: how-to-guide
+        links:
           - text: Observability & Logging
             url: ./in-depth-guides/observability/logging.md
+          - text: Middleware
+            url: ./in-depth-guides/observability/middleware.md
           - text: Feedback Integration
             url: ./in-depth-guides/feedback.md
       - linkListType: concept
@@ -136,6 +158,8 @@ landingContent:
             url: ./migrations/botbuilder/overview.md
           - text: Migrate from Teams AI Library v1
             url: ./migrations/v1.md
+          - text: Migrate from Slack Bolt
+            url: ./migrations/slack-bolt.md
 
   # SDK References & Resources
   - title: Reference and resources
@@ -145,7 +169,7 @@ landingContent:
           - text: TypeScript SDK
             url: /javascript/api/teams-sdk-typescript
           - text: .NET SDK
-            url: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
+            url: /dotnet/api/
           - text: Python SDK
             url: /python/api/microsoft-teams-ai/microsoft.teams.ai
       - linkListType: reference

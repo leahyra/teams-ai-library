@@ -1,18 +1,12 @@
 ---
-title: Microsoft Graph
+title: Microsoft Graph Client
 description: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
 ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Microsoft Graph Client
 
-::: zone pivot="csharp,python"
-This page isn't available for Python and C#.
-::: zone-end
-
-::: zone pivot="typescript"
 The client App exposes a `graph` property that gives type-safe access to Microsoft Graph functions. When graph functions are invoked, the app attaches an MSAL bearer token to the request so that the call can be authenticated and authorized.
 
 ## Invoking Graph functions
@@ -98,4 +92,3 @@ if (canReadChat) {
 
 - [Graph API overview](/graph/api/overview)
 - [Graph API permissions overview](/graph/permissions-reference)
-::: zone-end

@@ -1,9 +1,9 @@
 ---
-title: API Client
+title: Teams API Client
 description: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Teams API Client
@@ -48,27 +48,12 @@ In this example, we use the API client to fetch the members in a conversation. T
 
 
 ::: zone pivot="csharp"
-
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage([Context] MessageActivity activity, [Context] ApiClient api)
-{
-    var members = await api.Conversations.Members.Get(context.Conversation.Id);
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
     var members = await context.Api.Conversations.Members.Get(context.Conversation.Id);
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -112,3 +97,4 @@ import * as endpoints from '@microsoft/teams.graph-endpoints';
 const res = await app.api.graph.call(endpoints.chats.getAllMessages.get);
 ```
 ::: zone-end
+

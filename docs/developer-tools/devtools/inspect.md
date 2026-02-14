@@ -2,13 +2,13 @@
 title: Inspect activities
 description: Inspect all incoming and outgoing activities with your agent using DevTools Activities page for debugging.
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Inspect activities
 
 Inspect incoming and outgoing activities on DevTools' Activities page. All interactions with your agent are logged here, including messages, reactions, and more.
-:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/inspect_activity.png?raw=true" alt-text="alt-text for inspect_activity.png" lightbox="https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/inspect_activity.png?raw=true":::
+![Inspect Activities view](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/inspect_activity.png?raw=true)
 
 ## View all activity
 

@@ -3,7 +3,7 @@ title: Proactive Messaging
 description: Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Proactive Messaging
@@ -20,41 +20,25 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 
 
 ::: zone pivot="csharp"
-
-# [Controller](#tab/controller)
-```csharp
-// Installation is just one place to get the conversation id. All activities
-// have the conversation id, so you can use any activity to get it.
-[Install]
-public async Task OnInstall([Context] InstallUpdateActivity activity, [Context] IContext.Client client, [Context] IStorage<string, object> storage)
-{
-    // Save the conversation id in 
-    storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
-    await client.Send("Hi! I am going to remind you to say something to me soon!");
-    notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
-}
-```
-
 # [Minimal](#tab/minimal)
+
 ```csharp 
-app.OnInstall(async context =>
-{
-    // Save the conversation id in 
-    context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
-    await context.Send("Hi! I am going to remind you to say something to me soon!");
-    notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
-});
+    app.OnInstall(async context =>
+    {
+        // Save the conversation id in 
+        context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
+        await context.Send("Hi! I am going to remind you to say something to me soon!");
+        notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
+    });
 ```
-
 ---
-
 
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import InstalledActivity, MessageActivityInput
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import InstalledActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
 # ...
 
 # This would be some persistent storage
@@ -120,7 +104,7 @@ public static class Notifications
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import MessageActivityInput
+from microsoft_teams.api import MessageActivityInput
 # ...
 
 async def send_proactive_notification(user_id: str):
