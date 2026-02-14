@@ -30,7 +30,7 @@ The main thing to note is that you need to have the `conversation_id` of the cha
         await context.Send("Hi! I am going to remind you to say something to me soon!");
         notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
     });
-    ```
+ ```
 ---
 
 ::: zone-end

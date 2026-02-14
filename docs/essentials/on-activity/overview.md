@@ -36,7 +36,7 @@ Here is an example of a basic message handler:
     {
         await context.Send($"you said: {context.activity.Text}");
     });
-    ```
+ ```
 ::: zone-end
 
 ::: zone pivot="python"

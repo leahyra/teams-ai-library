@@ -48,7 +48,7 @@ passed into our activity handlers through our context. This method accepts a <La
 +   var teams = app.UseTeams();
 +   await teams.Send("your-conversation-id", "proactive hello");
     // highlight-success-end
-    ```
+ ```
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -75,7 +75,7 @@ passed into our activity handlers through our context. This method accepts a <La
         },
         default);
     // highlight-end
-    ```
+ ```
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -85,7 +85,7 @@ passed into our activity handlers through our context. This method accepts a <La
     var teams = app.UseTeams();
     await teams.Send("your-conversation-id", "proactive hello");
     // highlight-end
-    ```
+ ```
 ---
 
 ::: zone-end
@@ -128,7 +128,7 @@ passed into our activity handlers through our context. This method accepts a <La
     # highlight-success-start
 +   await app.send("your-conversation-id", "proactive hello")
     # highlight-success-end
-    ```
+ ```
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -155,7 +155,7 @@ passed into our activity handlers through our context. This method accepts a <La
         send_proactive
     )
     # highlight-end
-    ```
+ ```
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -166,7 +166,7 @@ passed into our activity handlers through our context. This method accepts a <La
     # highlight-start
     await app.send("your-conversation-id", "proactive hello")
     # highlight-end
-    ```
+ ```
 ---
 
 ::: zone-end
@@ -211,7 +211,7 @@ passed into our activity handlers through our context. This method accepts a <La
 +      await app.send('your-conversation-id', 'proactive hello');
       // highlight-success-end
     }());
-    ```
+ ```
 # [BotBuilder](#tab/botbuilder)
 
 ```typescript showLineNumbers
@@ -239,7 +239,7 @@ passed into our activity handlers through our context. This method accepts a <La
       });
     }());
     // highlight-end
-    ```
+ ```
 # [Teams SDK](#tab/teams-sdk)
 
 ```typescript showLineNumbers
@@ -253,7 +253,7 @@ passed into our activity handlers through our context. This method accepts a <La
       await app.send('your-conversation-id', 'proactive hello');
     }());
     // highlight-end
-    ```
+ ```
 ---
 
 ::: zone-end

@@ -61,7 +61,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
             var members = await TeamsInfo.GetMembersAsync(turnContext, cancellationToken);
         }
     }
-    ```
+ ```
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -72,7 +72,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         // highlight-next-line
         var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
     });
-    ```
+ ```
 ---
 
 ::: zone-end
@@ -110,7 +110,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         async def on_message_activity(self, turn_context: TurnContext):
             # highlight-next-line
             members = await TeamsInfo.get_members(turn_context)
-    ```
+ ```
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -121,7 +121,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
     async def on_message(context: ActivityContext[MessageActivity]):
         # highlight-next-line
         members = await context.api.conversations.members(context.activity.conversation.id).get()
-    ```
+ ```
 ---
 
 ::: zone-end
@@ -184,7 +184,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         });
       }
     }
-    ```
+ ```
 # [Teams SDK](#tab/teams-sdk)
 
 ```typescript showLineNumbers
@@ -196,7 +196,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
       // highlight-next-line
       const members = await api.conversations.members(activity.conversation.id).get();
     });
-    ```
+ ```
 ---
 
 ::: zone-end

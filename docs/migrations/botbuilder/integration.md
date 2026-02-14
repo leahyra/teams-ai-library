@@ -104,7 +104,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         }
     }
     // highlight-end
-    ```
+ ```
 
 # [ActivityHandler.cs](#tab/activityhandler.cs)
 
@@ -123,7 +123,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         }
     }
     // highlight-end
-    ```
+ ```
 
 ---
 
@@ -222,7 +222,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     (async () => {
       await app.start();
     })();
-    ```
+ ```
 
 # [adapter.ts](#tab/adapter.ts)
 
@@ -245,7 +245,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     // highlight-end
 
     export default adapter;
-    ```
+ ```
 
 # [activity-handler.ts](#tab/activity-handler.ts)
 
@@ -267,7 +267,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
     const handler = new ActivityHandler();
     export default handler;
-    ```
+ ```
 
 ---
 
