@@ -113,7 +113,7 @@ Here's a complete example showing how to create a Pokemon search function that t
             await context.Reply("Sorry I could not find that pokemon");
         }
     }
- ```
+```
 
 # [Declarative](#tab/declarative)
 
@@ -121,7 +121,7 @@ This approach uses attributes to declare prompts and functions, providing clean 
 
 **Create a Prompt Class:**
 
- ```csharp
+```csharp
     using System.Text.Json;
     using Microsoft.Teams.AI.Annotations;
 
@@ -166,11 +166,11 @@ This approach uses attributes to declare prompts and functions, providing clean 
             }
         }
     }
- ```
+```
 
 **Usage in Program.cs:**
 
- ```csharp
+```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
     using Microsoft.Teams.Api.Activities;
 
@@ -193,7 +193,7 @@ This approach uses attributes to declare prompts and functions, providing clean 
             await context.Reply("Sorry I could not find that pokemon");
         }
     });
- ```
+```
 
 ---
 
@@ -404,13 +404,13 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
             await context.Reply("Sorry I could not figure it out");
         }
     }
- ```
+```
 
 # [Declarative](#tab/declarative)
 
 **Create a Prompt Class:**
 
- ```csharp
+```csharp
     using Microsoft.Teams.AI.Annotations;
 
     namespace Samples.AI.Prompts;
@@ -448,11 +448,11 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
             return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}°F";
         }
     }
- ```
+```
 
 **Usage in Program.cs:**
 
- ```csharp
+```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
     using Microsoft.Teams.Api.Activities;
 
@@ -475,7 +475,7 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
             await context.Reply("Sorry I could not figure it out");
         }
     });
- ```
+```
 
 ---
 

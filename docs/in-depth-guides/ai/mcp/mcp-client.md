@@ -132,7 +132,7 @@ Once loaded, it treats these tools like any functions that are available to the 
         await context.Send(result.Content);
     });
     webApp.Run();
- ```
+```
 
 ---
 

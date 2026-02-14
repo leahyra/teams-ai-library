@@ -152,7 +152,7 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
     (async () => {
         await app.start();
     })();
- ```
+```
 # [Slack Bolt](#tab/slack)
 
 ```ts
@@ -217,7 +217,7 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
     (async () => {
         await app.start();
     })();
- ```
+```
 # [Teams SDK](#tab/teams)
 
 ```ts
@@ -236,7 +236,7 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
     (async () => {
         await app.start();
     })();
- ```
+```
 ---
 
 ::: zone-end
@@ -289,7 +289,7 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
         await send(`you said: ${activity.text}`);
     });
     // highlight-success-end
- ```
+```
 # [Slack Bolt](#tab/slack)
 
 ```ts
@@ -306,7 +306,7 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
         // echo back users request
         await say(`you said: ${message.text}`);
     });
- ```
+```
 # [Teams SDK](#tab/teams)
 
 ```ts
@@ -319,7 +319,7 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
         // echo back users request
         await send(`you said: ${activity.text}`);
     });
- ```
+```
 ---
 
 ::: zone-end
@@ -369,12 +369,12 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
         );
     });
     // highlight-success-end
- ```
+```
 # [Slack Bolt](#tab/slack)
 
 For existing cards like this, the simplest way to convert that to Teams SDK is this:
 
- ```ts
+```ts
     app.message('card', async (client) => {
         await say({
             blocks: [
@@ -388,13 +388,13 @@ For existing cards like this, the simplest way to convert that to Teams SDK is t
             ],
         });
     });
- ```
+```
 
 # [Teams SDK](#tab/teams)
 
 For a more thorough port, you could also do the following:
 
- ```ts
+```ts
     import { Card, TextBlock } from '@microsoft/teams.cards';
 
     app.message('/card', async ({ send }) => {
@@ -404,7 +404,7 @@ For a more thorough port, you could also do the following:
         })
       );
     });
- ```
+```
 
 ---
 
@@ -467,7 +467,7 @@ Then, configure the authentication in your code.
         await send(JSON.stringify(me));
     });
     // highlight-success-end
- ```
+```
 
 # [Slack Bolt](#tab/slack)
 
@@ -478,7 +478,7 @@ Then, configure the authentication in your code.
         const me = await client.users.info({ user: message.user });
         await client.send(JSON.stringify(me));
     });
- ```
+```
 
 # [Teams SDK](#tab/teams)
 
@@ -502,7 +502,7 @@ Then, configure the authentication in your code.
         const me = await userGraph.call(endpoints.me.get);
         await send(JSON.stringify(me));
     });
- ```
+```
 
 ---
 

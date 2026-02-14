@@ -46,7 +46,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       await context.Send(new Activity(type:"typing"));
 +   });
     // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -65,7 +65,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
                 cancellationToken: cancellationToken);
         }
     }
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -79,7 +79,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         // highlight-next-line
         await context.Send(new Activity(type:"typing"));
     });
- ```
+```
 ---
 
 ## Strings
@@ -114,7 +114,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       await context.Send("hello world");
 +   });
     // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -131,7 +131,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
             await turnContext.SendActivityAsync("hello world", cancellationToken: cancellationToken);
         }
     }
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -144,7 +144,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         // highlight-next-line
         await context.Send("hello world");
     });
- ```
+```
 ---
 
 ## Adaptive Cards
@@ -195,7 +195,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       await context.Send(new AdaptiveCard(new TextBlock("hello world")));
 +   });
     // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -228,7 +228,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
             // highlight-end
         }
     }
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -242,7 +242,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         // highlight-next-line
         await context.Send(new AdaptiveCard(new TextBlock("hello world")));
     });
- ```
+```
 ---
 
 ## Attachments
@@ -281,7 +281,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       await context.SendAsync(activity);
 +   });
     // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -300,7 +300,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
             // highlight-end
         }
     }
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -317,7 +317,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         await context.SendAsync(activity);
         // highlight-end
     });
- ```
+```
 ---
 
 ::: zone-end
@@ -345,7 +345,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +   async def on_message(context: ActivityContext[MessageActivity]):
 +       await context.send(TypingActivityInput())
     # highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -356,7 +356,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         async def on_message_activity(self, turn_context: TurnContext):
             # highlight-next-line
             await turn_context.send_activity(Activity(type="typing"))
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -367,7 +367,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
     async def on_message(context: ActivityContext[MessageActivity]):
         # highlight-next-line
         await context.send(TypingActivityInput())
- ```
+```
 ---
 
 ## Strings
@@ -393,7 +393,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +   async def on_message(context: ActivityContext[MessageActivity]):
 +       await context.send("hello world")
     # highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -403,7 +403,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         async def on_message_activity(self, turn_context: TurnContext):
             # highlight-next-line
             await turn_context.send_activity("hello world")
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -414,7 +414,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
     async def on_message(context: ActivityContext[MessageActivity]):
         # highlight-next-line
         await context.send("hello world")
- ```
+```
 ---
 
 ## Adaptive Cards
@@ -445,7 +445,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +   async def on_message(context: ActivityContext[MessageActivity]):
 +       await context.send(AdaptiveCard().with_body([TextBlock(text="Hello from Adaptive Card!")]))
     # highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -460,7 +460,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
           activity = Activity(type="message", attachments=[attachment])
           await turn_context.send_activity(activity)
           # highlight-end
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -472,7 +472,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
     async def on_message(context: ActivityContext[MessageActivity]):
         # highlight-next-line
         await context.send(AdaptiveCard(body=[TextBlock(text="Hello from Adaptive Card!")]))
- ```
+```
 ---
 
 ## Attachments
@@ -503,7 +503,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       activity = MessageActivityInput().add_attachments([attachment])
 +       await context.send(activity)
     # highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -517,7 +517,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
             activity = Activity(type="message", attachments=[attachment])
             await turn_context.send_activity(activity)
             # highlight-end
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -531,7 +531,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         activity = MessageActivityInput().add_attachments([attachment])
         await context.send(activity)
         # highlight-end
- ```
+```
 ---
 
 ::: zone-end
@@ -557,7 +557,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +      await send({ type: 'typing' });
 +    });
     // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```typescript showLineNumbers
@@ -572,7 +572,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         });
       }
     }
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```typescript showLineNumbers
@@ -580,7 +580,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
       // highlight-next-line
       await send({ type: 'typing' });
     });
- ```
+```
 ---
 
 ## Strings
@@ -605,7 +605,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +      await send('hello world');
 +    });
     // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```typescript showLineNumbers
@@ -620,7 +620,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         });
       }
     }
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```typescript showLineNumbers
@@ -628,7 +628,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
       // highlight-next-line
       await send('hello world');
     });
- ```
+```
 ---
 
 ## Adaptive Cards
@@ -669,7 +669,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +      await send(new AdaptiveCard(new TextBlock('hello world')));
 +    });
     // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```typescript showLineNumbers
@@ -698,7 +698,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         });
       }
     }
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```typescript showLineNumbers
@@ -708,7 +708,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
       // highlight-next-line
       await send(new AdaptiveCard(new TextBlock('hello world')));
     });
- ```
+```
 ---
 
 ## Attachments
@@ -741,7 +741,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +      await send(new MessageActivity().addAttachment(...));
 +    });
     // highlight-success-end
- ```
+```
 # [BotBuilder](#tab/botbuilder)
 
 ```typescript showLineNumbers
@@ -762,7 +762,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         });
       }
     }
- ```
+```
 # [Teams SDK](#tab/teams-sdk)
 
 ```typescript showLineNumbers
@@ -771,7 +771,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
       // highlight-next-line
       await send(new MessageActivity().addAttachment(...));
     });
- ```
+```
 ---
 
 ::: zone-end

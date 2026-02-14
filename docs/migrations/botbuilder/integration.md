@@ -9,6 +9,7 @@ ms.date: 02/13/2026
 # Using the BotBuilder Plugin
 
 ## Adapters
+
 A BotBuilder`CloudAdapter` is responsible for managing communication between a bot and its users.
 It serves as the entry point for incoming activities and forwards them to the registered `ActivityHandler` for processing. 
 You can customize the adapter to add middleware for logging, authentication, and define error handling.
@@ -18,26 +19,30 @@ It can either use an existing `CloudAdapter` or create a new default one, allowi
 while still handling events via the Teams SDK App framework.
 
 ## Activity Handlers
+
 The BotBuilder`ActivityHandler` contains the actual bot logic for processing messages or events
 similar to how the Teams SDK `App` routes messages and events. You can override any number of methods,
-such as <LanguageInclude content={{"typescript": "`OnMembersAdded`", "csharp": "`OnMembersAddedAsync`", "python": "`on_members_added_activity`"}} />
-or <LanguageInclude content={{"typescript": "`onMessage`", "csharp": "`OnMessageActivityAsync`", "python": "`on_message_activity`"}} /> ,
-to handle different activity types.
+such as `<LanguageInclude content={{"typescript": "`OnMembersAdded`", "csharp": "`OnMembersAddedAsync`", "python": "`on_members_added_activity`"}} />`
+or `<LanguageInclude content={{"typescript": "`onMessage`", "csharp": "`OnMessageActivityAsync`", "python": "`on_message_activity`"}} />`, to handle different activity types.
 
 ## Turn Context
+
 Each incomingactivity is wrapped in a `TurnContext`, which represents the context of a single turn in the conversation.
+
 TurnContext provides access to:
+
 - The incoming activity (message, event).
 - Services for sending responses back to the user.
 - Conversation, user, and channel metadata.
 
-Teams SDK has <LanguageInclude content={{"typescript": "`IActivityContext`", "csharp": "`IActivityContext`", "python": "`ActivityContext`"}} /> for the same purpose.
+Teams SDK has `<LanguageInclude content={{"typescript": "`IActivityContext`", "csharp": "`IActivityContext`", "python": "`ActivityContext`"}} />` for the same purpose.
 
 ## How it all comes together
 
 The `CloudAdapter` creates the `TurnContext`, and the `ActivityHandler` uses it to read the activity and send responses.
 
 With the `BotBuilderPlugin`, when a message or activity is received:
+
 1. The BotBuilder ActivityHandler runs first, handling the activity according to standard Bot Framework logic.
 2. The Teams SDK app based activity handlers execute afterward, allowing Teams SDK logic to execute.
 
@@ -104,7 +109,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         }
     }
     // highlight-end
- ```
+```
 
 # [ActivityHandler.cs](#tab/activityhandler.cs)
 
@@ -123,7 +128,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         }
     }
     // highlight-end
- ```
+```
 
 ---
 
@@ -222,7 +227,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     (async () => {
       await app.start();
     })();
- ```
+```
 
 # [adapter.ts](#tab/adapter.ts)
 
@@ -245,7 +250,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     // highlight-end
 
     export default adapter;
- ```
+```
 
 # [activity-handler.ts](#tab/activity-handler.ts)
 
@@ -267,7 +272,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
     const handler = new ActivityHandler();
     export default handler;
- ```
+```
 
 ---
 

@@ -93,7 +93,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
         conversationState,
         userState
     );
- ```
+```
 
 # [Teams SDK](#tab/teams-sdk)
 
@@ -127,7 +127,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     });
 
     app.Run()
- ```
+```
 
 ---
 
@@ -217,7 +217,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
         conversation_state,
         user_state
     )
- ```
+```
 
 # [Teams SDK](#tab/teams-sdk)
 
@@ -243,7 +243,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     @app.event("sign_in")
     async def on_signin(event: SignInEvent):
         await context.send("You have been signed in.")
- ```
+```
 
 ---
 
@@ -384,7 +384,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
       server.post('/api/messages', async (req, res) => {
           await adapter.process(req, res, (context) => bot.run(context));
       });
-   ```
+  ```
 
 # [Teams SDK](#tab/teams-sdk)
 
@@ -417,7 +417,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
       (async () => {
         await app.start();
       })();
-   ```
+  ```
 
 ---
 
