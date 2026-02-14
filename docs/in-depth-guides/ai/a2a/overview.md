@@ -59,11 +59,11 @@ npm install @microsoft/teams.a2a
 
 ### A2A Server
 
-:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-overview.png" alt-text="Flowchart diagram for In Depth Guides - Ai - A2A - Overview" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-overview.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-overview.png" alt-text="Flowchart diagram for A2A server" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-overview.png":::
 
 ### A2A Client
 
-:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-overview-1.png" alt-text="Flowchart diagram for In Depth Guides - Ai - A2A - Overview" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-overview-1.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-overview-1.png" alt-text="Flowchart diagram for A2A client" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-overview-1.png":::
 
 ## Protocol Details
 
