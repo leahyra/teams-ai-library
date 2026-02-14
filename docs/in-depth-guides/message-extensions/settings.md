@@ -14,9 +14,6 @@ You can add a settings page that allows users to configure settings for your app
 
 The user can access the settings by right-clicking the app item in the compose box.
 
-<br />
-<img src={SettingsImgUrl} height="300px" alt="Settings" />
-
 This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
 :::image type="content" source="~/assets/screenshots/settings-page.png" alt-text="Settings Page":::
