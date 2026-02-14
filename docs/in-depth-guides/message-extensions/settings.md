@@ -6,8 +6,6 @@ zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 
-import SettingsImgUrl from '@site/static/screenshots/settings.png';
-
 # Settings
 
 You can add a settings page that allows users to configure settings for your app.

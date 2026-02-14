@@ -6,8 +6,6 @@ zone_pivot_groups: dev-lang
 ms.date: 02/13/2026
 ---
 
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # A2A Server
 
 ## What is an A2A Server?

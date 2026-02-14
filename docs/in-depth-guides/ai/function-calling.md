@@ -119,7 +119,7 @@ Here's a complete example showing how to create a Pokemon search function that t
 
 This approach uses attributes to declare prompts and functions, providing clean separation of concerns.
 
-    **Create a Prompt Class:**
+**Create a Prompt Class:**
 
  ```csharp
     using System.Text.Json;
@@ -168,7 +168,7 @@ This approach uses attributes to declare prompts and functions, providing clean 
     }
  ```
 
-    **Usage in Program.cs:**
+**Usage in Program.cs:**
 
  ```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
@@ -450,7 +450,7 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
     }
  ```
 
-    **Usage in Program.cs:**
+**Usage in Program.cs:**
 
  ```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
