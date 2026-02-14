@@ -1,9 +1,9 @@
 ---
 title: Creating Dialogs
-description: Learn how to create dialogs in Microsoft Teams using Adaptive Cards to handle user interactions.
+description: Learn how to create and open dialogs in Teams using Adaptive Cards.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Creating Dialogs
@@ -78,9 +78,9 @@ private static AdaptiveCard CreateDialogLauncherCard()
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import MessageActivity, MessageActivityInput, TypingActivityInput
-from microsoft.teams.apps import ActivityContext
-from microsoft.teams.cards import AdaptiveCard, TextBlock, TaskFetchAction
+from microsoft_teams.api import MessageActivity, MessageActivityInput, TypingActivityInput
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.cards import AdaptiveCard, TextBlock, TaskFetchAction
 # ...
 
 @app.on_message
@@ -338,10 +338,10 @@ private static Microsoft.Teams.Api.TaskModules.Response CreateSimpleFormDialog()
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.api import AdaptiveCardAttachment, TaskFetchInvokeActivity, InvokeResponse, card_attachment
-from microsoft.teams.api import CardTaskModuleTaskInfo, TaskModuleContinueResponse, TaskModuleResponse
-from microsoft.teams.apps import ActivityContext
-from microsoft.teams.cards import AdaptiveCard, TextBlock, TextInput, SubmitAction, SubmitActionData
+from microsoft_teams.api import AdaptiveCardAttachment, TaskFetchInvokeActivity, InvokeResponse, card_attachment
+from microsoft_teams.api import CardTaskModuleTaskInfo, TaskModuleContinueResponse, TaskModuleResponse
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.cards import AdaptiveCard, TextBlock, TextInput, SubmitAction, SubmitActionData
 # ...
 
 @app.on_dialog_open
@@ -422,7 +422,7 @@ if (dialogType === 'simple_form') {
 
 You can render a webpage in a dialog as well. There are some security requirements to be aware of:
 
-1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams [app manifest](../../teams/manifest.md) for the agent.
+1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](../../teams/manifest.md) for the agent
 2. The webpage must also host the [teams-js client library](https://www.npmjs.com/package/@microsoft/teams-js). The reason for this is that for security purposes, the Teams client will not render arbitrary webpages. As such, the webpage must explicitly opt-in to being rendered in the Teams client. Setting up the teams-js client library handles this for you.
 
 
@@ -467,7 +467,7 @@ private static Microsoft.Teams.Api.TaskModules.Response CreateWebpageDialog(ICon
 ::: zone pivot="python"
 ```python
 import os
-from microsoft.teams.api import InvokeResponse, TaskModuleContinueResponse, TaskModuleResponse, UrlTaskModuleTaskInfo
+from microsoft_teams.api import InvokeResponse, TaskModuleContinueResponse, TaskModuleResponse, UrlTaskModuleTaskInfo
 # ...
 
 return InvokeResponse(
@@ -531,3 +531,32 @@ app.AddTab("dialog-form", "Web/dialog-form");
 // <Content Remove="Web/**" />
 ```
 ::: zone-end
+
+::: zone pivot="python"
+### Setting up Embedded Web Content
+
+To serve web content for dialogs, you can use the `page` method to host static webpages:
+
+```python
+import os
+
+# In your app setup (e.g., main.py)
+# Hosts a static webpage at /tabs/dialog-form
+app.page("customform", os.path.join(os.path.dirname(__file__), "views", "customform"), "/tabs/dialog-form")
+```
+::: zone-end
+
+::: zone pivot="typescript"
+### Setting up Embedded Web Content
+
+To serve web content for dialogs, you can use the `tab` method to host static webpages:
+
+```typescript
+import path from 'path';
+
+// In your app setup (e.g., index.ts)
+// Hosts a static webpage at /tabs/dialog-form
+app.tab('dialog-form', path.join(__dirname, 'views', 'customform'));
+```
+::: zone-end
+

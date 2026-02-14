@@ -3,7 +3,7 @@ title: MCP Server
 description: How to convert your Teams app into an MCP server using the McpPlugin to expose tools, resources, and prompts to other MCP applications.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # MCP Server
@@ -28,7 +28,11 @@ You are able to convert any `App` into an MCP server by using the `McpPlugin`. T
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Not applicable -->
+Install it to your application:
+
+```bash
+pip install microsoft-teams-mcpplugin
+```
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -49,8 +53,8 @@ npm install @microsoft/teams.mcp
 Your plugin can be configured as follows:
 
 ```python
-from microsoft.teams.ai import Function
-from microsoft.teams.mcpplugin import McpServerPlugin
+from microsoft_teams.ai import Function
+from microsoft_teams.mcpplugin import McpServerPlugin
 from pydantic import BaseModel
 # ...
 
@@ -145,8 +149,8 @@ const mcpServerPlugin = new McpPlugin({
 And included in the app like any other plugin:
 
 ```python
-from microsoft.teams.apps import App
-from microsoft.teams.devtools import DevToolsPlugin
+from microsoft_teams.apps import App
+from microsoft_teams.devtools import DevToolsPlugin
 # ...
 
 app = App(plugins=[mcp_server_plugin, DevToolsPlugin()])
@@ -195,11 +199,11 @@ const app = new App({
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/screenshots/mcp-inspector.gif" alt-text="alt-text for mcp-inspector.gif" lightbox="~/assets/screenshots/mcp-inspector.gif":::
+:::image type="content" source="~/assets/screenshots/mcp-inspector.gif" alt-text="MCP Server in Devtools":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="alt-text for mcp-devtools.gif" lightbox="~/assets/screenshots/mcp-devtools.gif":::
+:::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="MCP Server in Devtools":::
 ::: zone-end
 
 
@@ -226,8 +230,8 @@ Here is an example of how to do this. Configure your plugin so that:
 
 ```python
 from typing import Dict
-from microsoft.teams.ai import Function
-from microsoft.teams.mcpplugin import McpServerPlugin
+from microsoft_teams.ai import Function
+from microsoft_teams.mcpplugin import McpServerPlugin
 from pydantic import BaseModel
 # ...
 
@@ -336,8 +340,8 @@ mcpServerPlugin.tool(
 **Store Conversation IDs in Message Handler:**
 
 ```python
-from microsoft.teams.api import MessageActivity
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import MessageActivity
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_message
@@ -376,3 +380,4 @@ app.on('message', async ({ send, activity }) => {
 });
 ```
 ::: zone-end
+

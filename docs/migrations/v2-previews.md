@@ -1,12 +1,12 @@
 ---
-title: Migrating from Teams AI Library v2 Preview
-description: Here's how to migrate from preview versions of the Teams SDK to the latest stable release.
+title: From V2 Previews
+description: Guide for migrating from preview versions of Teams SDK to the current release.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
-# Migrating from Teams SDK (AI Library) v2 Preview
+# From V2 Previews
 
 
 ::: zone pivot="csharp"
@@ -111,4 +111,5 @@ await app.graph.call(presence.setPresence.create, newPresence);
 await app.graph.call(setPresence.create, newPresence);
 await app.graph.call(updatePresence, newPresence);
 ```
+
 ::: zone-end

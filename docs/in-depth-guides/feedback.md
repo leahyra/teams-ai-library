@@ -1,16 +1,16 @@
 ---
-title: Implementing User Feedback
+title: User Feedback
 description: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
-# Implementing User Feedback
+# User Feedback
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="alt-text for feedback.gif" lightbox="~/assets/screenshots/feedback.gif":::
+:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Animated image showing user selecting the thumbs-up button on an agent response and a dialog opening asking 'What did you like?'. The user types 'Nice' and hits Submit.":::
 
 ## Storage
 
@@ -96,9 +96,9 @@ FeedbackStore.StoredFeedbackByMessageId[sentMessageId.Id] = new FeedbackStore.Fe
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import Agent
-from microsoft.teams.api import MessageActivityInput
-from microsoft.teams.apps import ActivityContext, MessageActivity
+from microsoft_teams.ai import Agent
+from microsoft_teams.api import MessageActivityInput
+from microsoft_teams.apps import ActivityContext, MessageActivity
 
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
@@ -200,8 +200,8 @@ public Task OnFeedbackReceived([Context] Microsoft.Teams.Api.Activities.Invokes.
 ```python
 import json
 from typing import Dict, Any
-from microsoft.teams.api import MessageSubmitActionInvokeActivity
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.api import MessageSubmitActionInvokeActivity
+from microsoft_teams.apps import ActivityContext
 # ...
 
 # Handle feedback submission events
@@ -268,3 +268,4 @@ app.on('message.submit.feedback', async ({ activity, log }) => {
 });
 ```
 ::: zone-end
+

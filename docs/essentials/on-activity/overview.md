@@ -1,9 +1,9 @@
 ---
-title: Listening to Activities
+title: Listening To Activities
 description: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
-ms.topic: overview
+ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Listening To Activities
@@ -13,7 +13,7 @@ Where _events_ describe high‑level happenings inside your app, _activities_ ar
 
 
 ::: zone pivot="csharp"
-The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.OnActivity(...)`, or you can use controllers/attributes.
+The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.OnActivity(...)` using minimal APIs.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -21,41 +21,22 @@ The Teams SDK exposes a fluent router so you can subscribe to these activities w
 ::: zone-end
 
 ::: zone pivot="typescript"
-The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.on('<route>', …)`.
+The Teams SDK exposes a fluent routerso you can subscribe to these activities with `app.on('<route>', …)`.
 ::: zone-end
 
 
-:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png" lightbox="~/assets/diagrams/overview-1.png":::
+:::image type="content" source="~/assets/diagrams/essentials-on-activity-overview.png" alt-text="Flowchart diagram showing Teams, App Server, Activity Router (app.on()), Your Activity Handlers" lightbox="~/assets/diagrams/essentials-on-activity-overview.png":::
 
 Here is an example of a basic message handler:
 
 
 ::: zone pivot="csharp"
-
-# [Controller](#tab/controller)
 ```csharp
-[TeamsController]
-public class MainController
-{
-    [Message]
-    public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
+    app.OnMessage(async context =>
     {
-        await client.Send($"you said: {activity.Text}");
-    }
-}
+        await context.Send($"you said: {context.activity.Text}");
+    });
 ```
-
-# [Minimal](#tab/minimal)
-```csharp
-app.OnMessage(async context =>
-{
-    await context.Send($"you said: {context.activity.Text}");
-});
-```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -77,7 +58,7 @@ app.on('message', async ({ activity, send }) => {
 
 
 ::: zone pivot="csharp"
-In the above example, the `activity` parameter is of type `MessageActivity`, which has a `Text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
+In the above example, the `context.activity` parameter is of type `MessageActivity`, which has a `Text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 ::: zone-end
 
 ::: zone pivot="python"
@@ -109,46 +90,15 @@ The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanill
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
 ```csharp
-[Message]
-public void OnMessage([Context] MessageActivity activity, [Context] ILogger logger, [Context] IContext.Next next)
-{
-    Console.WriteLine("global logger");
-    next(); // pass control onward
-}
+  app.OnMessage(async context =>
+  {
+      Console.WriteLine("global logger");
+      context.Next(); // pass control onward
+      return Task.CompletedTask;
+  });
 ```
 
-# [Minimal](#tab/minimal)
-```csharp
-app.OnMessage(async context =>
-{
-    Console.WriteLine("global logger");
-    context.Next(); // pass control onward
-    return Task.CompletedTask;
-});
-```
-
----
-
-
-
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage(IContext<MessageActivity> context)
-{
-    if (context.Activity.Text == "/help")
-    {
-        await context.Send("Here are all the ways I can help you...");
-    }
-
-    // Conditionally pass control to the next handler
-    context.Next();
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp
 app.OnMessage(async context =>
 {
@@ -160,34 +110,13 @@ app.OnMessage(async context =>
     // Conditionally pass control to the next handler
     context.Next();
 });
+    
+  app.OnMessage(async context =>
+  {
+      // Fallthrough to the final handler
+      await context.Send($"Hello! you said {context.Activity.Text}");
+  });
 ```
-
----
-
-
-
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage(IContext<MessageActivity> context)
-{
-    // Fallthrough to the final handler
-    await context.Send($"Hello! you said {context.Activity.Text}");
-}
-```
-
-# [Minimal](#tab/minimal)
-```csharp
-app.OnMessage(async context =>
-{
-    // Fallthrough to the final handler
-    await context.Send($"Hello! you said {context.Activity.Text}");
-});
-```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -261,3 +190,4 @@ app.on('message', async ({ activity }) => {
 
 For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref.md).
 ::: zone-end
+

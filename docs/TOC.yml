@@ -62,7 +62,7 @@
       items:
         - name: Overview
           href: essentials/on-activity/overview.md
-        - name: Activity Reference
+        - name: Activity Type Reference
           href: essentials/on-activity/activity-ref.md
     - name: Sending Messages
       items:
@@ -72,11 +72,11 @@
           href: essentials/sending-messages/proactive-messaging.md
     - name: App Authentication
       href: essentials/app-authentication.md
-    - name: API
+    - name: Teams API Client
       href: essentials/api.md
-    - name: Hosting Static Pages
+    - name: Hosting Apps/Static Pages
       href: essentials/hosting-static-pages.md
-    - name: Graph
+    - name: Graph API Client
       href: essentials/graph.md
 - name: In-Depth Guides
   items:
@@ -120,14 +120,22 @@
           href: in-depth-guides/ai/overview.md
         - name: Setup and Prerequisites
           href: in-depth-guides/ai/setup-and-prereqs.md
-        - name: Chat
+        - name: Chat Generation
           href: in-depth-guides/ai/chat.md
-        - name: Function Calling
+        - name: Function / Tool Calling
           href: in-depth-guides/ai/function-calling.md
         - name: Keeping State
           href: in-depth-guides/ai/keeping-state.md
         - name: Best Practices
           href: in-depth-guides/ai/best-practices.md
+        - name: MCP
+          items:
+            - name: Overview
+              href: in-depth-guides/ai/mcp/overview.md
+            - name: MCP Server
+              href: in-depth-guides/ai/mcp/mcp-server.md
+            - name: MCP Client
+              href: in-depth-guides/ai/mcp/mcp-client.md
         - name: A2A (Agent-to-Agent) Protocol
           items:
             - name: Overview
@@ -136,14 +144,6 @@
               href: in-depth-guides/ai/a2a/a2a-server.md
             - name: A2A Client
               href: in-depth-guides/ai/a2a/a2a-client.md
-        - name: Model Context Protocol (MCP)
-          items:
-            - name: Overview
-              href: in-depth-guides/ai/mcp/overview.md
-            - name: MCP Server
-              href: in-depth-guides/ai/mcp/mcp-server.md
-            - name: MCP Client
-              href: in-depth-guides/ai/mcp/mcp-client.md
     - name: Tabs
       items:
         - name: Overview
@@ -154,48 +154,48 @@
           href: in-depth-guides/tabs/using-the-app.md
         - name: App Options
           href: in-depth-guides/tabs/app-options.md
-        - name: Graph
+        - name: Microsoft Graph
           href: in-depth-guides/tabs/graph.md
         - name: Functions
           items:
             - name: Overview
               href: in-depth-guides/tabs/functions/overview.md
-            - name: Function Calling
+            - name: Executing Functions
               href: in-depth-guides/tabs/functions/function-calling.md
     - name: Feedback
       href: in-depth-guides/feedback.md
     - name: Observability
       items:
+        - name: Overview
+          href: in-depth-guides/observability/overview.md
         - name: Middleware
           href: in-depth-guides/observability/middleware.md
-        - name: Logging
+        - name: Custom Logger
           href: in-depth-guides/observability/logging.md
 - name: Migrations
   items:
+    - name: Overview
+      href: migrations/overview.md
     - name: From BotBuilder
       items:
         - name: Overview
           href: migrations/botbuilder/overview.md
-        - name: Adapters
-          href: migrations/botbuilder/adapters.md
-        - name: Activity Handlers
-          href: migrations/botbuilder/activity-handlers.md
-        - name: Turn Context
-          items:
-            - name: Overview
-              href: migrations/botbuilder/turn-context/overview.md
-            - name: Sending Activities
-              href: migrations/botbuilder/turn-context/sending-activities.md
-            - name: Proactive Activities
-              href: migrations/botbuilder/turn-context/proactive-activities.md
-            - name: The API Client
-              href: migrations/botbuilder/turn-context/the-api-client.md
+        - name: Using the BotBuilder Plugin
+          href: migrations/botbuilder/integration.md
+        - name: Sending Activities
+          href: migrations/botbuilder/sending-activities.md
+        - name: Proactive Activities
+          href: migrations/botbuilder/proactive-activities.md
+        - name: The API Client
+          href: migrations/botbuilder/the-api-client.md
         - name: User Authentication
           href: migrations/botbuilder/user-authentication.md
-    - name: From Teams AI Library v1
+    - name: From Teams SDK v1
       href: migrations/v1.md
-    - name: From Teams AI Library v2 Preview
+    - name: From V2 Previews
       href: migrations/v2-previews.md
+    - name: Porting your Slack Bolt bot
+      href: migrations/slack-bolt.md
 - name: Developer Tools
   items:
     - name: Overview
@@ -217,7 +217,7 @@
     - name: TypeScript SDK
       href: /javascript/api/teams-sdk-typescript
     - name: .NET SDK
-      href: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
+      href: /dotnet/api/
     - name: Python SDK
       href: /python/api/msteams-sdk-python/overview
 - name: Resources

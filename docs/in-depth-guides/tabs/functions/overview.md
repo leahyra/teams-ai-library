@@ -1,9 +1,9 @@
 ---
 title: Functions
 description: Details on how to register REST endpoints that can be called from Tab apps.
-ms.topic: overview
+ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Functions
@@ -50,6 +50,10 @@ app.AddFunction<ProcessMessageData> ("process-message", (context) => {
 ```
 ::: zone-end
 
+::: zone pivot="python"
+This page isn't available for Python.
+::: zone-end
+
 ::: zone pivot="typescript"
 ```typescript
 app.function('do-something', () => {
@@ -75,6 +79,12 @@ app.function<{}, { message: string }>('process-message', ({ data, log }) => {
 > This SDK does not validate that the function arguments are of the expected types or otherwise trustworthy. You must take care to validate the input arguments before using them.
 ::: zone-end
 
+::: zone pivot="python"
+This page isn't available for Python.
+::: zone-end
+
+
+
 ::: zone pivot="csharp"
 If desired, the function can return data to the caller.
 
@@ -84,6 +94,10 @@ app.AddFunction('get-random-number', () => {
               // guaranteed to be random
 });
 ```
+::: zone-end
+
+::: zone pivot="python"
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -108,11 +122,19 @@ app.function('privileged-action', ({ userId }) => {
 ```
 ::: zone-end
 
-::: zone pivot="csharp,typescript"
+
 ## Function context
 
+
+::: zone pivot="csharp,typescript"
 The function callback receives a context object with a number of useful values. Some originate within the agent itself, while others are furnished by the caller via the HTTP Request.
 ::: zone-end
+
+::: zone pivot="python"
+This page isn't available for Python.
+::: zone-end
+
+
 
 ::: zone pivot="csharp"
 | Property       | Source | Description                                                                                                        |
@@ -134,6 +156,10 @@ The function callback receives a context object with a number of useful values. 
 | `TenantId`     | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token.                            |
 | `UserId`       | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token.                            |
 | `UserName`     | Caller | Microsoft Entra name of the current user, extracted from the validated auth token.                                 |
+::: zone-end
+
+::: zone pivot="python"
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -168,6 +194,10 @@ The `AuthToken` is validated before the function callback is invoked, and the `T
 > Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
 ::: zone-end
 
+::: zone pivot="python"
+This page isn't available for Python.
+::: zone-end
+
 ::: zone pivot="typescript"
 The `authToken` is validated before the function callback is invoked, and the `tenantId` and `userId` values are extracted from the validated token. In the typical case, the remaining caller-supplied values would reflect what the Teams Tab app retrieves from the teams-js `getContext()` API, but the agent does not validate them.
 
@@ -184,6 +214,10 @@ To simplify a common scenarios, the context provides a `Send` method. This metho
 > The `Send` method does not validate that the chat ID or conversation ID provided by the caller is valid or correct. You must take care to validate that the user and agent both have appropriate access to the conversation.
 ::: zone-end
 
+::: zone pivot="python"
+This page isn't available for Python.
+::: zone-end
+
 ::: zone pivot="typescript"
 To simplify two common scenarios, the context provides the `getCurrentConversationId` and `send` methods.
 
@@ -191,15 +225,20 @@ To simplify two common scenarios, the context provides the `getCurrentConversati
 - The `send` method relies on `getCurrentConversationId` to find the conversation where the app is hosted and posts an activity.
 ::: zone-end
 
-::: zone pivot="csharp,typescript"
+
 ## Additional resources
-::: zone-end
+
 
 ::: zone pivot="csharp"
-- For details on how to Tab apps can call these functions, see the TypeScript [Executing Functions](./function-calling.md) in-depth guide.
+- For details on how to Tab apps can call these functions, see the TypeScript [Executing Functions](function-calling.md) in-depth guide.
 - For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
+::: zone-end
+
+::: zone pivot="python"
+This page isn't available for Python.
 ::: zone-end
 
 ::: zone pivot="typescript"
 - For details on how to Tab apps can invoke these functions, see the [Executing Functions](./function-calling.md) in-depth guide.
 ::: zone-end
+

@@ -3,7 +3,7 @@ title: Chat Generation
 description: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Chat Generation
@@ -12,9 +12,9 @@ Before going through this guide, please make sure you have completed the [setup 
 
 ## Setup
 
-The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
+The basic setup involvescreating a `ChatPrompt` and giving it the `Model` you want to use.
 
-:::image type="content" source="~/assets/diagrams/chat-1.png" alt-text="alt-text for chat-1.png" lightbox="~/assets/diagrams/chat-1.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-chat.png" alt-text="Flowchart diagram showing User Message<br/>Hi how are you?, Content<br/>I am doing great! How can I help you?, Other options..., Azure Open AI, Open AI" lightbox="~/assets/diagrams/in-depth-guides-ai-chat.png":::
 
 ## Simple chat generation
 
@@ -42,10 +42,10 @@ Create a ChatModel, ChatPrompt, and handle user - LLM interactions:
 Import the relevant objects:
 
 ```python
-from microsoft.teams.ai import ChatPrompt
-from microsoft.teams.api import MessageActivity, MessageActivityInput
-from microsoft.teams.apps import ActivityContext
-from microsoft.teams.openai import OpenAICompletionsAIModel
+from microsoft_teams.ai import ChatPrompt
+from microsoft_teams.api import MessageActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.openai import OpenAICompletionsAIModel
 ```
 ::: zone-end
 
@@ -271,10 +271,10 @@ teamsApp.OnMessage(async (context) =>
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import ChatPrompt
-from microsoft.teams.api import MessageActivity, MessageActivityInput
-from microsoft.teams.apps import ActivityContext
-from microsoft.teams.openai import OpenAICompletionsAIModel
+from microsoft_teams.ai import ChatPrompt
+from microsoft_teams.api import MessageActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.openai import OpenAICompletionsAIModel
 # ...
 
 @app.on_message
@@ -335,4 +335,4 @@ app.on('message', async ({ stream, send, activity, next, log }) => {
 ::: zone-end
 
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="alt-text for streaming-chat.gif" lightbox="~/assets/screenshots/streaming-chat.gif":::
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window.":::

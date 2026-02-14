@@ -3,7 +3,7 @@ title: Handling Multi-Step Forms
 description: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Handling Multi-Step Forms
@@ -466,3 +466,4 @@ public async Task<Response> OnTaskSubmit([Context] Tasks.SubmitActivity activity
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
+

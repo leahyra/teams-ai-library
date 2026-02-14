@@ -1,9 +1,9 @@
 ---
-title: Hosting Static Pages
+title: Hosting Apps/Static Pages
 description: Shows how to host web apps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Hosting Apps/Static Pages
@@ -62,3 +62,4 @@ This registers a route that is hosted at `http://localhost:{PORT}/tabs/my_app` o
 - For more details about Tab apps, see the [Tabs](../in-depth-guides/tabs/overview.md) in-depth guide.
 - For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs.md) in-depth guide.
 ::: zone-end
+

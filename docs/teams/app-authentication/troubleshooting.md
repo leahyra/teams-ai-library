@@ -1,8 +1,8 @@
 ---
-title: Troubleshooting
+title: Authentication Troubleshooting
 description: Common authentication errors and how to resolve them
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Authentication Troubleshooting
@@ -16,6 +16,7 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 ### Error Examples
 
 # [TypeScript](#tab/typescript)
+
 ```sh
 [ERROR] @teams/app Request failed with status code 401
 [ERROR] @teams/app /aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token
@@ -33,12 +34,14 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 ```
 
 # [Python](#tab/python)
+
 ```sh
 [ERROR] @teams/app Failed to refresh bot token: Client error '401 Unauthorized' for url 'https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token'
-[ERROR] @teams/app For more information check: https://developer.mozilla.org/docs/Web/HTTP/Status/401
+[ERROR] @teams/app For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
 ```
 
-# [C#](#tab/c)
+# [C#](#tab/csharp)
+
 ```sh
 [ERROR] Echobot Failed to get bot token on app startup.
 [ERROR] Echobot {
@@ -56,8 +59,6 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 
 ---
 
-
-
 ### Solution
 
 1. **Sign in to Azure Portal**
@@ -74,12 +75,12 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 4. **Check if a Service Principal exists**
    Open the app registration and verify if a Service Principal is created. If it exists already, you should see an entry for a **Managed Application in your local directory**.
 
-   :::image type="content" source="~/assets/screenshots/existing-service-principal.png" alt-text="alt-text for existing-service-principal.png" lightbox="~/assets/screenshots/existing-service-principal.png":::
+   :::image type="content" source="~/assets/screenshots/existing-service-principal.png" alt-text="Screenshot of App Registrations pane in Azure Portal showing value of 'Graphlocal' under the 'Managed application in local directory' field.":::
 
 5. **Create a Service Principal if missing**
    If it doesn't exist, click **Create Service Principal**. Wait for the page to finish loading.
 
-   :::image type="content" source="~/assets/screenshots/create-service-principal.png" alt-text="alt-text for create-service-principal.png" lightbox="~/assets/screenshots/create-service-principal.png":::
+   :::image type="content" source="~/assets/screenshots/create-service-principal.png" alt-text="Screenshot of App Registrations pane in Azure Portal showing value of 'Create Service Principal' under the 'Managed application in local directory' field.":::
 
 6. **Restart your app**
    Once the Service Principal is created, restart your application.

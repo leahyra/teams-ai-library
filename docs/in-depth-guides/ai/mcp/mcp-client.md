@@ -3,7 +3,7 @@ title: MCP Client
 description: How to implement an MCP client to leverage remote MCP servers and their tools in your AI agent application.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # MCP Client
@@ -26,7 +26,11 @@ dotnet add package Microsoft.Teams.Plugins.External.McpClient --prerelease
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Not applicable -->
+Install it to your application:
+
+```bash
+pip install microsoft-teams-mcpplugin
+```
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -93,111 +97,52 @@ Once loaded, it treats these tools like any functions that are available to the 
 
 
 ::: zone pivot="csharp"
+# [Minimal](#tab/minimal)
 
-# [Controller](#tab/controller)
 ```csharp
-// DocsPrompt.cs
+    using Microsoft.Teams.AI.Models.OpenAI;
+    using Microsoft.Teams.AI.Prompts;
+    using Microsoft.Teams.Api.Activities;
+    using Microsoft.Teams.Apps;
+    using Microsoft.Teams.Apps.Activities;
+    using Microsoft.Teams.Plugins.AspNetCore.Extensions;
+    using Microsoft.Teams.Plugins.External.McpClient;
 
-using Microsoft.Teams.AI;
-using Microsoft.Teams.AI.Annotations;
-using Microsoft.Teams.Plugins.External.McpClient;
+    WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+    builder.AddTeams();
+    WebApplication webApp = builder.Build();
 
-[Prompt]
-[Prompt.Description("helpful assistant")]
-[Prompt.Instructions(
-    "You are a helpful assistant that can help answer questions using Microsoft docs.",
-    "You MUST use tool calls to do all your work."
-)]
-public class DocsPrompt(McpClientPlugin mcpClientPlugin)
-{
-    [ChatPlugin]
-    public readonly IChatPlugin Plugin = mcpClientPlugin;
-}
+    OpenAIChatPrompt prompt = new(
+            new OpenAIChatModel(
+                model: "gpt-4o",
+                apiKey: Environment.GetEnvironmentVariable("OPENAI_API_KEY")!),
+                new ChatPromptOptions()
+                    .WithDescription("helpful assistant")
+                    .WithInstructions(
+                        "You are a helpful assistant that can help answer questions using Microsoft docs.",
+                        "You MUST use tool calls to do all your work.")
+                    );
+    prompt.Plugin(new McpClientPlugin().UseMcpServer("https://learn.microsoft.com/api/mcp"));
 
-// Controller.cs
-using Microsoft.Teams.AI.Models.OpenAI;
-using Microsoft.Teams.Api.Activities;
-using Microsoft.Teams.Apps;
-using Microsoft.Teams.Apps.Activities;
-using Microsoft.Teams.Apps.Annotations;
-
-[TeamsController]
-public class TeamsController(Func<OpenAIChatPrompt> _promptFactory)
-{
-    [Message]
-    public async Task OnMessage(IContext<MessageActivity> context)
+    App app = webApp.UseTeams();
+    app.OnMessage(async context =>
     {
         await context.Send(new TypingActivity());
-        var prompt = _promptFactory();
         var result = await prompt.Send(context.Activity.Text);
         await context.Send(result.Content);
-    }
-}
-
-// Program.cs
-using Microsoft.Teams.AI.Models.OpenAI.Extensions;
-using Microsoft.Teams.Plugins.AspNetCore.Extensions;
-using Microsoft.Teams.Plugins.External.McpClient;
-
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddTransient<TeamsController>().AddHttpContextAccessor();
-builder.Services.AddSingleton((sp) => new McpClientPlugin().UseMcpServer("https://learn.microsoft.com/api/mcp"));
-builder.AddTeams().AddOpenAI<DocsPrompt>();
-
-
-var app = builder.Build();
-
-app.UseTeams();
-app.Run();
-
-```
-
-# [Minimal](#tab/minimal)
-```csharp
-using Microsoft.Teams.AI.Models.OpenAI;
-using Microsoft.Teams.AI.Prompts;
-using Microsoft.Teams.Api.Activities;
-using Microsoft.Teams.Apps;
-using Microsoft.Teams.Apps.Activities;
-using Microsoft.Teams.Plugins.AspNetCore.Extensions;
-using Microsoft.Teams.Plugins.External.McpClient;
-
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-builder.AddTeams();
-WebApplication webApp = builder.Build();
-
-OpenAIChatPrompt prompt = new(
-        new OpenAIChatModel(
-            model: "gpt-4o",
-            apiKey: Environment.GetEnvironmentVariable("OPENAI_API_KEY")!),
-            new ChatPromptOptions()
-                .WithDescription("helpful assistant")
-                .WithInstructions(
-                    "You are a helpful assistant that can help answer questions using Microsoft docs.",
-                    "You MUST use tool calls to do all your work.")
-                );
-prompt.Plugin(new McpClientPlugin().UseMcpServer("https://learn.microsoft.com/api/mcp"));
-
-App app = webApp.UseTeams();
-app.OnMessage(async context =>
-{
-    await context.Send(new TypingActivity());
-    var result = await prompt.Send(context.Activity.Text);
-    await context.Send(result.Content);
-});
-webApp.Run();
+    });
+    webApp.Run();
 ```
 
 ---
-
 
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.ai import ChatPrompt
-from microsoft.teams.mcpplugin import McpClientPlugin
-from microsoft.teams.openai import OpenAICompletionsAIModel
+from microsoft_teams.ai import ChatPrompt
+from microsoft_teams.mcpplugin import McpClientPlugin
+from microsoft_teams.openai import OpenAICompletionsAIModel
 # ...
 
 # Set up AI model
@@ -257,7 +202,6 @@ app.start().catch(console.error);
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
 ### Custom Headers
 
@@ -276,7 +220,35 @@ new McpClientPlugin()
 ::: zone-end
 
 ::: zone pivot="python"
-<!-- Not applicable -->
+### Customize Headers
+
+Some MCP servers may require custom headers to be sent as part of the request. You can customize the headers when calling the `use_mcp_server` function:
+
+```python
+from os import getenv
+from microsoft_teams.mcpplugin import McpClientPlugin, McpClientPluginParams
+# ...
+
+# Example with Bearer token authentication
+GITHUB_PAT = getenv("GITHUB_PAT")
+
+if GITHUB_PAT:
+    mcp_plugin.use_mcp_server(
+        "https://api.githubcopilot.com/mcp/",
+        McpClientPluginParams(headers={
+            "Authorization": f"Bearer {GITHUB_PAT}",
+        })
+    )
+
+# Example with API key
+mcp_plugin.use_mcp_server(
+    "https://example.com/api/mcp",
+    McpClientPluginParams(headers={
+        "X-API-Key": getenv('API_KEY'),
+        "Custom-Header": "custom-value"
+    })
+)
+```
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -301,7 +273,6 @@ import { McpClientPlugin } from '@microsoft/teams.mcpclient';
 ::: zone-end
 
 
-
 ::: zone pivot="csharp"
 In this example, we augment the `ChatPrompt` with a remote MCP Server.
 ::: zone-end
@@ -309,47 +280,12 @@ In this example, we augment the `ChatPrompt` with a remote MCP Server.
 ::: zone pivot="python"
 In this example, we augment the `ChatPrompt` with multiple remote MCP Servers.
 
-## Authentication with Headers
-
-Many MCP servers require authentication via headers (such as API keys or Bearer tokens). You can pass these headers when configuring your MCP server:
-
-```python
-from os import getenv
-from microsoft.teams.mcpplugin import McpClientPlugin, McpClientPluginParams
-# ...
-
-# This example uses a PersonalAccessToken, but you may get
-# the user's oauth token as well by getting them to sign in
-# and then using app.sign_in to get their token.
-GITHUB_PAT = getenv("GITHUB_PAT")
-
-# MCP server with authentication headers
-if GITHUB_PAT:
-    mcp_plugin.use_mcp_server(
-        "https://api.githubcopilot.com/mcp/",
-        McpClientPluginParams(headers={
-            "Authorization": f"Bearer {GITHUB_PAT}",
-        })
-    )
-
-# Other authentication examples:
-mcp_plugin.use_mcp_server(
-    "https://example.com/api/mcp",
-    McpClientPluginParams(headers={
-        "X-API-Key": getenv('API_KEY'),
-        "Custom-Header": "custom-value"
-    })
-)
-```
-
-Headers are passed with every request to the MCP server, enabling secure access to authenticated APIs.
-
 ## Using MCP Client in Message Handlers
 
 ```python
-from microsoft.teams.ai import ChatPrompt
-from microsoft.teams.api import MessageActivity, MessageActivityInput
-from microsoft.teams.apps import ActivityContext
+from microsoft_teams.ai import ChatPrompt
+from microsoft_teams.api import MessageActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
 # ...
 
 @app.on_message
@@ -372,24 +308,23 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 ::: zone-end
 
 
+::: zone pivot="csharp"
+> [!NOTE]
+> You can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
+::: zone-end
+
+::: zone pivot="python,typescript"
 > [!NOTE]
 > Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server.md). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
-
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
-::: zone-end
-
-::: zone pivot="python,typescript"
-:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="alt-text for mcp-client-pokemon.gif" lightbox="~/assets/screenshots/mcp-client-pokemon.gif":::
 ::: zone-end
 
 
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
+::: zone pivot="csharp,python,javascript"
+:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned.":::
 ::: zone-end
 
-::: zone pivot="python,typescript"
+
+::: zone pivot="csharp,python,javascript"
 In this example, our MCP server is a Pokemon API and our client knows how to call it. The LLM is able to call the `getPokemon` function exposed by the server and return the result back to the user.
 ::: zone-end
+

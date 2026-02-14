@@ -1,10 +1,24 @@
 ---
 title: Code Basics
 description: Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.
-ms.topic: get-started
+ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
+
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="typescript"
+<!-- Not applicable -->
+::: zone-end
+
 
 # Code Basics
 
@@ -20,7 +34,6 @@ When you create a new Teams application, it generates a directory with this basi
 Quote.Agent/
 |── appPackage/       # Teams app package files
 ├── Program.cs        # Main application startup code
-├── MainController.cs # Main activity handling code
 ```
 ::: zone-end
 
@@ -70,27 +83,30 @@ The heart of an application is the `App` class. This class handles all incoming 
 
 ::: zone pivot="csharp"
 ```csharp title="Program.cs"
-using Microsoft.Teams.Plugins.AspNetCore.DevTools.Extensions;
+using Microsoft.Teams.Apps.Activities;
+using Microsoft.Teams.Apps.Extensions;
 using Microsoft.Teams.Plugins.AspNetCore.Extensions;
 
-using Quote.Agent;
-
 var builder = WebApplication.CreateBuilder(args);
-builder.AddTeams();
-builder.AddTeamsDevTools();
-builder.Services.AddTransient<MainController>();
-
+builder.AddTeams().AddTeamsDevTools();
 var app = builder.Build();
-app.UseTeams();
+var teams = app.UseTeams();
+
+teams.OnMessage(async context =>
+{
+    await context.Typing();
+    await context.Send($"you said '{context.Activity.Text}'");
+});
+
 app.Run();
 ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python title="src/main.py"
-from microsoft.teams.api import MessageActivity, TypingActivityInput
-from microsoft.teams.apps import ActivityContext, App, AppOptions
-from microsoft.teams.devtools import DevToolsPlugin
+from microsoft_teams.api import MessageActivity, TypingActivityInput
+from microsoft_teams.apps import ActivityContext, App, AppOptions
+from microsoft_teams.devtools import DevToolsPlugin
 
 app = App(plugins=[DevToolsPlugin()])
 
@@ -133,32 +149,13 @@ Teams applications respond to various types of activities. The most basic is han
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
-```csharp title="MainController.cs"
-[TeamsController("main")]
-public class MainController
-{
-    [Message]
-    public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
-    {
-        await client.Typing();
-        await client.Send($"you said \"{activity.Text}\"");
-    }
-}
-```
-
-# [Minimal](#tab/minimal)
 ```csharp title="Program.cs"
-app.OnMessage(async context =>
+teams.OnMessage(async context =>
 {
     await context.Typing();
     await context.Send($"you said \"{context.activity.Text}\"");
 });
 ```
-
----
-
-
 ::: zone-end
 
 ::: zone pivot="python"
@@ -187,7 +184,7 @@ app.on('message', async ({ send, activity }) => {
 This code:
 
 ::: zone pivot="csharp"
-1. Listens for all incoming messages using `[Message]` attribute.
+1. Listens for all incoming messages using `onMessage` handler.
 2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
 3. Responds by echoing back the received message.
 ::: zone-end
@@ -203,6 +200,7 @@ This code:
 2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
 3. Responds by echoing back the received message.
 ::: zone-end
+
 
 ::: zone pivot="csharp"
 > [!NOTE]
@@ -252,7 +250,7 @@ This code initializes your application server and, when configured for Teams, al
 
 ## Next Steps
 
-Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](./running-in-teams/overview.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
+Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams/overview.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
 
 After that, you can:
 
@@ -267,4 +265,4 @@ Continue on to the next page to learn about these advanced features.
 
 - [Essentials](../essentials/overview.md)
 - [Teams concepts](../teams/overview.md)
-- [Teams developer tools](../developer-tools/overview.md)
+- [Teams developer tools](../developer-tools/devtools/overview.md)

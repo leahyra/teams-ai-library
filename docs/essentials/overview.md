@@ -1,9 +1,9 @@
 ---
 title: Essentials
 description: Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
-ms.topic: overview
+ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Essentials
@@ -16,7 +16,7 @@ Before diving in, let's define a few key terms:
 
 
 ::: zone pivot="csharp,python,typescript"
-- Event: Anything interesting that happens on Teams — or within your application as a result of handling an earlier event.
+- Event: Anything interestingthat happens on Teams — or within your application as a result of handling an earlier event.
 - Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and adaptive card actions.
 - InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
 - Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
@@ -24,15 +24,16 @@ Before diving in, let's define a few key terms:
 
 
 ::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png" lightbox="~/assets/diagrams/overview-1.png":::
+:::image type="content" source="~/assets/diagrams/essentials-overview-csharp.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.OnEvent()), Activity Event Router, Activity Handlers (app.OnActivity())" lightbox="~/assets/diagrams/essentials-overview-csharp.png":::
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/diagrams/overview-2.png" alt-text="alt-text for overview-2.png" lightbox="~/assets/diagrams/overview-2.png":::
+:::image type="content" source="~/assets/diagrams/essentials-overview-1-python.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler decorator (@app.event()), Activity Event Router, Activity Handler decorators (@app.on_activity())" lightbox="~/assets/diagrams/essentials-overview-1-python.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::image type="content" source="~/assets/diagrams/overview-3.png" alt-text="alt-text for overview-3.png" lightbox="~/assets/diagrams/overview-3.png":::
+:::image type="content" source="~/assets/diagrams/essentials-overview-2-javascript.png"alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.event()), Activity Event Router, Activity Handlers (app.on())" lightbox="~/assets/diagrams/essentials-overview-2-javascript.png":::
 ::: zone-end
+
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.

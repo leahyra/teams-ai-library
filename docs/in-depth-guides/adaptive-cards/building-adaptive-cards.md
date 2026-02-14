@@ -3,7 +3,7 @@ title: Building Adaptive Cards
 description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Building Adaptive Cards
@@ -83,7 +83,7 @@ var card = new AdaptiveCard
 
 ::: zone pivot="python"
 ```python
-from microsoft.teams.cards import AdaptiveCard, TextBlock, ToggleInput, ActionSet, ExecuteAction
+from microsoft_teams.cards import AdaptiveCard, TextBlock, ToggleInput, ActionSet, ExecuteAction
 
 card = AdaptiveCard(
         schema="http://adaptivecards.io/schemas/adaptive-card.json",
@@ -402,40 +402,23 @@ Below is a complete example showing a task management form.
 
 
 ::: zone pivot="csharp"
-# [Controller](#tab/controller)
-```csharp
-[Message]
-public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
-{
-    var text = activity.Text?.ToLowerInvariant() ?? "";
-
-    if (text.Contains("form"))
-    {
-        await client.Typing();
-        var card = CreateTaskFormCard();
-        await client.Send(card);
-    }
-}
-```
-
 # [Minimal](#tab/minimal)
-```csharp
-teams.OnMessage(async context =>
-{
-    var text = context.Activity.Text?.ToLowerInvariant() ?? "";
 
-    if (text.Contains("form"))
+```csharp
+    teams.OnMessage(async context =>
     {
-        await context.Typing();
-        var card = CreateTaskFormCard();
-        await context.Send(card);
-    }
-});
+        var text = context.Activity.Text?.ToLowerInvariant() ?? "";
+
+        if (text.Contains("form"))
+        {
+            await context.Typing();
+            var card = CreateTaskFormCard();
+            await context.Send(card);
+        }
+    });
 ```
 
 ---
-
-
 
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end
@@ -443,7 +426,6 @@ The definition for `CreateTaskFormCard` is as follows
 ::: zone pivot="python,typescript"
 Notice how the builder pattern keeps the file readable and maintainable:
 ::: zone-end
-
 
 
 ::: zone pivot="csharp"
@@ -516,9 +498,9 @@ private static AdaptiveCard CreateTaskFormCard()
 ::: zone pivot="python"
 ```python
 from datetime import datetime
-from microsoft.teams.api import MessageActivity, TypingActivityInput
-from microsoft.teams.apps import ActivityContext
-from microsoft.teams.cards import AdaptiveCard, TextBlock, ActionSet, ExecuteAction, Choice, ChoiceSetInput, DateInput, TextInput
+from microsoft_teams.api import MessageActivity, TypingActivityInput
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.cards import AdaptiveCard, TextBlock, ActionSet, ExecuteAction, Choice, ChoiceSetInput, DateInput, TextInput
 # ...
 
 @app.on_message
@@ -616,4 +598,4 @@ app.on('message', async ({ send, activity }) => {
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building! 🎉
+Happy card building!

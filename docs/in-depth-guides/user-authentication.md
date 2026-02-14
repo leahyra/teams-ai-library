@@ -3,7 +3,7 @@ title: User Authentication
 description: API guide to implement User Authentication with SSO in Teams Apps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # User Authentication
@@ -175,11 +175,9 @@ async def handle_signin_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```ts
-app.message('/signin', async ({ send, signin, isSignedIn }) => {
-  if (isSignedIn) {
-    send('you are already signed in!');
-  } else {
-    await signin();
+app.message('/signin', async ({ signin, send }) => {
+  if (await signin()) {
+    await send('you are already signed in!');
   }
 });
 ```
@@ -283,9 +281,8 @@ async def handle_all_messages(ctx: ActivityContext[MessageActivity]):
 ```ts
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
-app.message('/whoami', async ({ send, userGraph, isSignedIn }) => {
-  if (!isSignedIn) {
-    await send('you are not signed in! please type **/signin** to sign in.');
+app.message('/whoami', async ({ send, userGraph, signin }) => {
+  if (!await signin()) {
     return;
   }
   const me = await userGraph.call(endpoints.me.get);
@@ -294,8 +291,8 @@ app.message('/whoami', async ({ send, userGraph, isSignedIn }) => {
   );
 });
 
-app.on('message', async ({ send, activity, isSignedIn }) => {
-  if (isSignedIn) {
+app.on('message', async ({ send, activity, signin }) => {
+  if (await signin()) {
     await send(
       `You said: "${activity.text}". Please type **/whoami** to see your profile or **/signout** to sign out.`
     );
@@ -345,14 +342,80 @@ async def handle_signout_message(ctx: ActivityContext[MessageActivity]):
 ::: zone pivot="typescript"
 ```ts
 app.message('/signout', async ({ send, signout, isSignedIn }) => {
-  if (!isSignedIn) {
-    await send('you are not signed in! please type **/signin** to sign in.');
-    return;
-  }
-  await signout(); // call signout for your auth connection...
+  if (!isSignedIn) return;
+  await signout();
   await send('you have been signed out!');
 });
 ```
+::: zone-end
+
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
+## Regional Configs
+You may be building a regional bot that is deployed in a specific Azure region (such as West Europe, East US, etc.) rather than global. This is important for organizations that have data residency requirements or want to reduce latency by keeping data and authentication flows within a specific area.
+
+These examples use West Europe, but follow the equivalent for other regions.
+
+# [Azure Portal](#tab/portal)
+
+To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region. 
+
+1. Deploy a new App Registration in `westeurope`.
+2. Deploy and link a new Enterprise Application (Service Principal) on Microsoft Entra in `westeurope`.
+3. Deploy and link a new Azure Bot in `westeurope`.
+4. In your App Registration, in the `Authentication (Preview)` tab, add a `Redirect URI` for the Platform Type `Web` to your regional endpoint (e.g., `https://europe.token.botframework.com/.auth/web/redirect`)
+
+:::image type="content" source="~/assets/screenshots/regional-auth.png" alt-text="Authentication Tab":::
+
+5. In your `.env` file (or wherever you set your environment variables), add your `OAUTH_URL`. For example:
+`OAUTH_URL=https://europe.token.botframework.com`
+# [Agents Toolkit](#tab/atk)
+
+To configure a new regional bot with ATK, you will need to make a few updates. Note that this assumes you have not yet deployed the bot previously.
+
+1. In `azurebot.bicep`, replace all `global` occurrences to `westeurope`
+2. In `manifest.json`, in `validDomains`, `*.botframework.com` should be replaced by `europe.token.botframework.com`
+3. In `aad.manifest.json`, replace `https://token.botframework.com/.auth/web/redirect` with `https://europe.token.botframework.com/.auth/web/redirect`
+4. In your `.env` file, add your `OAUTH_URL`. For example:
+`OAUTH_URL=https://europe.token.botframework.com`.
+---
+
+::: zone-end
+
+::: zone pivot="typescript"
+## Regional Configs
+You may be building a regional bot that is deployed in a specific Azure region (such as West Europe, East US, etc.) rather than global. This is important for organizations that have data residency requirements or want to reduce latency by keeping data and authentication flows within a specific area.
+
+These examples use West Europe, but follow the equivalent for other regions.
+
+# [Azure Portal](#tab/portal)
+
+To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region. 
+
+1. Deploy a new App Registration in `westeurope`.
+2. Deploy and link a new Enterprise Application (Service Principal) on Microsoft Entra in `westeurope`.
+3. Deploy and link a new Azure Bot in `westeurope`.
+4. In your App Registration, in the `Authentication (Preview)` tab, add a `Redirect URI` for the Platform Type `Web` to your regional endpoint (e.g., `https://europe.token.botframework.com/.auth/web/redirect`)
+
+:::image type="content" source="~/assets/screenshots/regional-auth.png" alt-text="Authentication Tab":::
+
+5. In your `.env` file (or wherever you set your environment variables), add your `OAUTH_URL`. For example:
+`OAUTH_URL=https://europe.token.botframework.com`
+# [Agents Toolkit](#tab/atk)
+
+To configure a new regional bot with ATK, you will need to make a few updates. Note that this assumes you have not yet deployed the bot previously.
+
+1. In `azurebot.bicep`, replace all `global` occurrences to `westeurope`
+2. In `manifest.json`, in `validDomains`, `*.botframework.com` should be replaced by `europe.token.botframework.com`
+3. In `aad.manifest.json`, replace `https://token.botframework.com/.auth/web/redirect` with `https://europe.token.botframework.com/.auth/web/redirect`
+4. In your `.env` file, add your `OAUTH_URL`. For example:
+`OAUTH_URL=https://europe.token.botframework.com`
+---
+
 ::: zone-end
 
 

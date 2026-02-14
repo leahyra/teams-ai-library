@@ -1,9 +1,9 @@
 ---
 title: Quickstart
 description: Quick start guide for Teams SDK using the Teams CLI to create and run your first agent.
-ms.topic: quickstart
+ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Quickstart
@@ -16,20 +16,15 @@ Get started with Teams SDK quickly using the Teams CLI.
 
 
 ::: zone pivot="csharp"
-- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/download).
+- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/en-us/download).
 ::: zone-end
 
 ::: zone pivot="python"
 - **Python** v3.12 or higher. Install or upgrade from [python.org/downloads](https://www.python.org/downloads/).
-- **UV** v0.8.11 or higher. Install or upgrade from [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/)
-
-> [!NOTE]
-> UV is a fast Python package installer and resolver. While you can use other package managers like pip, UV provides better performance and dependency resolution for Teams SDK projects.
-
 ::: zone-end
 
 ::: zone pivot="typescript"
-- **Node.js** v.20 or higher. Install or upgrade from [nodejs.org](https://nodejs.org/).
+- **Node.js** v.20 or higher.Install or upgrade from [nodejs.org](https://nodejs.org/).
 ::: zone-end
 
 
@@ -44,8 +39,7 @@ npx @microsoft/teams.cli --version
 ```
 
 > [!NOTE]
-> _The [Teams CLI](../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process.
-> 
+> _The [Teams CLI](../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
 > Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
 
 ## Creating Your First Agent
@@ -82,7 +76,7 @@ This command:
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-1. Creates a new directory called `quote-agent`.
+1. Creates a new directory called`quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
 3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
@@ -123,7 +117,7 @@ cd quote-agent
 Start the development server:
 
 ```sh
-uv run src\main.py
+python src/main.py
 ```
 ::: zone-end
 
@@ -208,13 +202,13 @@ When the application starts, you'll see:
 
 Now, navigate to the devtools server by opening your browser and navigating to [http://localhost:3979/devtools](http://localhost:3979/devtools). You should see a simple interface where you can interact with your agent. Try sending it a message!
 
-:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="alt-text for devtools-echo-chat.png" lightbox="~/assets/screenshots/devtools-echo-chat.png":::
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'.":::
 
 ## Next steps
 
 After creating and running your first agent, read about [the code basics](code-basics.md) to better understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](./running-in-teams/overview.md) guide.
+Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](running-in-teams/overview.md) guide.
 
 ## Resources
 

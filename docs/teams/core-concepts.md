@@ -2,7 +2,7 @@
 title: Teams Core Concepts
 description: Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Teams Core Concepts
@@ -11,7 +11,7 @@ When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Tea
 
 ## Basic Flow
 
-:::image type="content" source="~/assets/diagrams/core-concepts-1.png" alt-text="alt-text for core-concepts-1.png" lightbox="~/assets/diagrams/core-concepts-1.png":::
+:::image type="content" source="~/assets/diagrams/teams-core-concepts.png" alt-text="Flowchart diagram showing Teams Client, Teams Backend, App Registration, Azure Bot, DevTunnel" lightbox="~/assets/diagrams/teams-core-concepts.png":::
 
 **Teams**
 

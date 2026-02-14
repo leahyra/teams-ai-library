@@ -2,16 +2,11 @@
 title: Executing Functions
 description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
 ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Executing Functions
-::: zone pivot="csharp,python"
-This page isn't available for C# and Python.
-::: zone-end
 
-::: zone pivot="typescript"
 The client App exposes an `exec()` method that can be used to call functions implemented in an agent created with this SDK. The function call uses the `app.http` client to make a request, attaching a bearer token created from the `app.msalInstance` MSAL public client application, so that the remote function can authenticate and authorize the caller.
 
 The `exec()` method supports passing arguments and provides options to attach custom request headers and/or controlling the MSAL token scope.
@@ -116,4 +111,3 @@ If you find that you'd rather test for consent or request consent before making 
 
 - [Graph API overview](/graph/api/overview)
 - [Graph API permissions overview](/graph/permissions-reference)
-::: zone-end

@@ -3,17 +3,17 @@ title: A2A Client
 description: How to implement an A2A client to proactively send tasks to A2A servers using the AgentManager.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # A2A Client
+
 ::: zone pivot="csharp"
-
 This page isn't available for C#.
-
 ::: zone-end
 
 ::: zone pivot="typescript,python"
+
 ## What is an A2A Client?
 
 An A2A client is an agent or application that can proactively send tasks to A2A servers and interact with them using the A2A protocol.
@@ -21,6 +21,7 @@ An A2A client is an agent or application that can proactively send tasks to A2A 
 ## Using `A2AClient` Directly
 
 For direct control over A2A interactions, you can use the `A2AClient` from the SDK:
+
 
 ::: zone-end
 
@@ -68,9 +69,11 @@ async def _send_message(self) -> None:
   async for event in self._get_client().send_message(message):
     # Handle the event
 ```
+
 ::: zone-end
 
 ::: zone pivot="typescript"
+
 ```typescript
 import { A2AClient } from '@a2a-js/sdk/client';
 
@@ -87,6 +90,7 @@ const response = await client.sendMessage({
   },
 });
 ```
+
 ::: zone-end
 
 ::: zone pivot="typescript,python"
@@ -98,11 +102,12 @@ A2A is most effective when used with an LLM. The `A2AClientPlugin` can be added 
 ::: zone-end
 
 ::: zone pivot="python"
+
 ```python
 from os import getenv
-from microsoft.teams.openai.completions_model import OpenAICompletionsAIModel
-from microsoft.teams.a2a import A2AClientPlugin, A2APluginUseParams
-from microsoft.teams.ai import ChatPrompt
+from microsoft_teams.openai.completions_model import OpenAICompletionsAIModel
+from microsoft_teams.a2a import A2AClientPlugin, A2APluginUseParams
+from microsoft_teams.ai import ChatPrompt
 
 PORT = getenv("PORT", "4000")
 
@@ -130,9 +135,11 @@ prompt = ChatPrompt(
     plugins=[client_plugin],
 )
 ```
+
 ::: zone-end
 
 ::: zone pivot="typescript"
+
 ```typescript
 import { A2AClientPlugin } from '@microsoft/teams.a2a';
 import { ChatPrompt } from '@microsoft/teams.ai';
@@ -156,29 +163,37 @@ const prompt = new ChatPrompt(
     cardUrl: 'http://localhost:4000/a2a/.well-known/agent-card.json',
   });
 ```
+
 ::: zone-end
 
 ::: zone pivot="typescript,python"
+
 To send a message:
+
 ::: zone-end
 
 ::: zone pivot="python"
+
 ```python
-# Now we can send the message to the prompt and it will decide if
+# Now we can send the message to the promptand it will decide if
 # the a2a agent should be used or not and also manages contacting the agent
 result = await prompt.send(message)
 ```
+
 ::: zone-end
 
 ::: zone pivot="typescript"
+
 ```typescript
 // Now we can send the message to the prompt and it will decide if
 // the a2a agent should be used or not and also manages contacting the agent
 const result = await prompt.send(message);
 ```
+
 ::: zone-end
 
 ::: zone pivot="typescript,python"
+
 ### Advanced `A2AClientPlugin` Configuration
 
 You can customize how the client interacts with A2A agents by providing custom builders:
@@ -186,8 +201,9 @@ You can customize how the client interacts with A2A agents by providing custom b
 ::: zone-end
 
 ::: zone pivot="python"
+
 ```python
-# Example with custom message builders and response processors
+# Example with custom message buildersand response processors
 def build_function_metadata(card: AgentCard) -> FunctionMetadata:
     return FunctionMetadata(
         name=f"ask{re.sub(r'\s+', '', card.name)}",
@@ -237,9 +253,11 @@ advanced_plugin.on_use_plugin(
 )
 advanced_prompt = ChatPrompt(model=completions_model, plugins=[advanced_plugin])
 ```
+
 ::: zone-end
 
 ::: zone pivot="typescript"
+
 ```typescript
 // Example with custom message builders and response processors
 export const advancedPrompt = new ChatPrompt(
@@ -280,19 +298,22 @@ export const advancedPrompt = new ChatPrompt(
   cardUrl: 'http://localhost:4000/a2a/.well-known/agent-card.json',
 });
 ```
+
 ::: zone-end
 
 ::: zone pivot="typescript,python"
+
 ## Sequence Diagram
 
 Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
 
-::: zone-end
 
+::: zone-end
 ::: zone pivot="python"
-:::image type="content" source="~/assets/diagrams/a2a-client-1.png" alt-text="alt-text for a2a-client-1.png" lightbox="~/assets/diagrams/a2a-client-1.png":::
+
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-python.png"alt-text="Sequence diagram showing interaction between User, ChatPrompt, A2AClientPlugin, A2ACardResolver, Client" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-python.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::image type="content" source="~/assets/diagrams/a2a-client-2.png" alt-text="alt-text for a2a-client-2.png" lightbox="~/assets/diagrams/a2a-client-2.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-1-javascript.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, A2AClientPlugin, A2AClient, LLM" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-1-javascript.png":::
 ::: zone-end

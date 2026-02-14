@@ -3,7 +3,7 @@ title: Custom Logger
 description: Configure custom loggers in your Teams app to control log levels and output destinations.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 11/17/2025
+ms.date: 02/13/2026
 ---
 
 # Custom Logger
@@ -46,10 +46,10 @@ var teams = app.UseTeams();
 ```python
 import asyncio
 
-from microsoft.teams.api import MessageActivity
-from microsoft.teams.api.activities.typing import TypingActivityInput
-from microsoft.teams.apps import ActivityContext, App
-from microsoft.teams.common import ConsoleLogger, ConsoleLoggerOptions
+from microsoft_teams.api import MessageActivity
+from microsoft_teams.api.activities.typing import TypingActivityInput
+from microsoft_teams.apps import ActivityContext, App
+from microsoft_teams.common import ConsoleLogger, ConsoleLoggerOptions
 
 logger = ConsoleLogger().create_logger("echo", ConsoleLoggerOptions(level="debug"))
 app = App(logger=logger)
@@ -88,3 +88,4 @@ app.on('message', async ({ send, activity, log }) => {
 })();
 ```
 ::: zone-end
+
