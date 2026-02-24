@@ -2,26 +2,41 @@
 title: Functions
 description: Details on how to register REST endpoints that can be called from Tab apps.
 ms.topic: how-to
+ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
 ---
 
 # Functions
 
+::: zone pivot="typescript"
+Agents may want to expose REST APIs that client applications can call. This SDK makes it easy to implement those APIs through the `app.function()` method. The function takes a name and a callback that implements the function.
+::: zone-end
 
 ::: zone pivot="csharp"
 Agents may want to expose REST APIs that client applications can call. This SDK makes it easy to implement those APIs through the `app.AddFunction()` method. The function takes a name and a callback that implements the function.
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
+<!-- TODO: section "overview" missing for python -->
 ::: zone-end
 
 ::: zone pivot="typescript"
-Agents may want to expose REST APIs that client applications can call. This SDK makes it easy to implement those APIs through the `app.function()` method. The function takes a name and a callback that implements the function.
+```typescript
+app.function('do-something', () => {
+  // do something useful
+});
+```
+
+This registers a REST API hosted at `http://localhost:{PORT}/api/functions/do-something` or `https://{BOT_DOMAIN}/api/functions/do-something` that clients can POST to. When they do, this SDK validates that the caller provides a valid Microsoft Entra bearer token before invoking the registered callback. If the token is missing or invalid, the request is denied with a HTTP 401.
+
+The function can be typed to accept input arguments. The clients would include those in the POST request payload, and they are made available in the callback through the `data` context argument.
+
+```typescript
+app.function<{}, { message: string }>('process-message', ({ data, log }) => {
+  log.info(`process-message called with: ${data.message}`);
+});
+```
 ::: zone-end
-
-
 
 ::: zone pivot="csharp"
 ```csharp
@@ -51,53 +66,21 @@ app.AddFunction<ProcessMessageData> ("process-message", (context) => {
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
+<!-- TODO: section "example" missing for python -->
 ::: zone-end
 
 ::: zone pivot="typescript"
-```typescript
-app.function('do-something', () => {
-  // do something useful
-});
-```
-
-This registers a REST API hosted at `http://localhost:{PORT}/api/functions/do-something` or `https://{BOT_DOMAIN}/api/functions/do-something` that clients can POST to. When they do, this SDK validates that the caller provides a valid Microsoft Entra bearer token before invoking the registered callback. If the token is missing or invalid, the request is denied with a HTTP 401.
-
-The function can be typed to accept input arguments. The clients would include those in the POST request payload, and they are made available in the callback through the `data` context argument.
-
-```typescript
-app.function<{}, { message: string }>('process-message', ({ data, log }) => {
-  log.info(`process-message called with: ${data.message}`);
-});
-```
+> [!WARNING]
+> This SDK does not validate that the function arguments are of the expected types or otherwise trustworthy. You must take care to validate the input arguments before using them.
 ::: zone-end
 
-
-
-::: zone pivot="csharp,typescript"
+::: zone pivot="csharp"
 > [!WARNING]
 > This SDK does not validate that the function arguments are of the expected types or otherwise trustworthy. You must take care to validate the input arguments before using them.
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
-
-
-
-::: zone pivot="csharp"
-If desired, the function can return data to the caller.
-
-```csharp
-app.AddFunction('get-random-number', () => {
-    return 4; // chosen by fair dice roll;
-              // guaranteed to be random
-});
-```
-::: zone-end
-
-::: zone pivot="python"
-This page isn't available for Python.
+<!-- TODO: section "validation-warning" missing for python -->
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -122,44 +105,33 @@ app.function('privileged-action', ({ userId }) => {
 ```
 ::: zone-end
 
+::: zone pivot="csharp"
+If desired, the function can return data to the caller.
+
+```csharp
+app.AddFunction('get-random-number', () => {
+    return 4; // chosen by fair dice roll;
+              // guaranteed to be random
+});
+```
+::: zone-end
+
+::: zone pivot="python"
+<!-- TODO: section "return-values" missing for python -->
+::: zone-end
 
 ## Function context
 
+::: zone pivot="typescript"
+The function callback receives a context object with a number of useful values. Some originate within the agent itself, while others are furnished by the caller via the HTTP Request.
+::: zone-end
 
-::: zone pivot="csharp,typescript"
+::: zone pivot="csharp"
 The function callback receives a context object with a number of useful values. Some originate within the agent itself, while others are furnished by the caller via the HTTP Request.
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
-
-
-
-::: zone pivot="csharp"
-| Property       | Source | Description                                                                                                        |
-| -------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| `Api`          | Agent  | The API client.                                                                                                    |
-| `AppId`        | Agent  | Unique identifier assigned to the app after deployment, ensuring correct app instance recognition across hosts.    |
-| `AppSessionId` | Caller | Unique ID for the calling app's session, used to correlate telemetry data.                                         |
-| `AuthToken`    | Caller | The validated MSAL Entra token.                                                                                    |
-| `ChannelId`    | Caller | Microsoft Teams ID for the channel associated with the content.                                                    |
-| `ChatId`       | Caller | Microsoft Teams ID for the chat associated with the content.                                                       |
-| `Data`         | Caller | The function payload.                                                                                              |
-| `Log`          | Agent  | The app logger instance.                                                                                           |
-| `MeetingId`    | Caller | Meeting ID used by tab when running in meeting context.                                                            |
-| `MessageId`    | Caller | ID of the parent message from which the task module was launched (only available in bot card-launched modules).    |
-| `PageId`       | Caller | Developer-defined unique ID for the page this content points to.                                                   |
-| `Send`         | Agent  | Sends an activity to the current conversation.                                                                     |
-| `SubPageId`    | Caller | Developer-defined unique ID for the sub-page this content points to. Used to restore specific state within a page. |
-| `TeamId`       | Caller | Microsoft Teams ID for the team associated with the content.                                                       |
-| `TenantId`     | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token.                            |
-| `UserId`       | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token.                            |
-| `UserName`     | Caller | Microsoft Entra name of the current user, extracted from the validated auth token.                                 |
-::: zone-end
-
-::: zone pivot="python"
-This page isn't available for Python.
+<!-- TODO: section "context-intro" missing for python -->
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -185,17 +157,30 @@ This page isn't available for Python.
 | `userId`                   | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token.                                                   |
 ::: zone-end
 
-
-
 ::: zone pivot="csharp"
-The `AuthToken` is validated before the function callback is invoked, and the `TenantId`, `UserId`, and `UserName` values are extracted from the validated token. In the typical case, the remaining caller-supplied values would reflect what the Teams Tab app retrieves from the teams-js `getContext()` API, but the agent does not validate these.
-
-> [!WARNING]
-> Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
+| Property       | Source | Description                                                                                                        |
+| -------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
+| `Api`          | Agent  | The API client.                                                                                                    |
+| `AppId`        | Agent  | Unique identifier assigned to the app after deployment, ensuring correct app instance recognition across hosts.    |
+| `AppSessionId` | Caller | Unique ID for the calling app's session, used to correlate telemetry data.                                         |
+| `AuthToken`    | Caller | The validated MSAL Entra token.                                                                                    |
+| `ChannelId`    | Caller | Microsoft Teams ID for the channel associated with the content.                                                    |
+| `ChatId`       | Caller | Microsoft Teams ID for the chat associated with the content.                                                       |
+| `Data`         | Caller | The function payload.                                                                                              |
+| `Log`          | Agent  | The app logger instance.                                                                                           |
+| `MeetingId`    | Caller | Meeting ID used by tab when running in meeting context.                                                            |
+| `MessageId`    | Caller | ID of the parent message from which the task module was launched (only available in bot card-launched modules).    |
+| `PageId`       | Caller | Developer-defined unique ID for the page this content points to.                                                   |
+| `Send`         | Agent  | Sends an activity to the current conversation.                                                                     |
+| `SubPageId`    | Caller | Developer-defined unique ID for the sub-page this content points to. Used to restore specific state within a page. |
+| `TeamId`       | Caller | Microsoft Teams ID for the team associated with the content.                                                       |
+| `TenantId`     | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token.                            |
+| `UserId`       | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token.                            |
+| `UserName`     | Caller | Microsoft Entra name of the current user, extracted from the validated auth token.                                 |
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
+<!-- TODO: section "context-table" missing for python -->
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -205,17 +190,15 @@ The `authToken` is validated before the function callback is invoked, and the `t
 > Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
 ::: zone-end
 
-
-
 ::: zone pivot="csharp"
-To simplify a common scenarios, the context provides a `Send` method. This method sends an activity to the current conversation ID, determined from the context values provided by the client (chatId and channelId). If neither chatId or channelId is provided by the caller, the ID of the 1:1 conversation between the agent and the user is assumed.
+The `AuthToken` is validated before the function callback is invoked, and the `TenantId`, `UserId`, and `UserName` values are extracted from the validated token. In the typical case, the remaining caller-supplied values would reflect what the Teams Tab app retrieves from the teams-js `getContext()` API, but the agent does not validate these.
 
 > [!WARNING]
-> The `Send` method does not validate that the chat ID or conversation ID provided by the caller is valid or correct. You must take care to validate that the user and agent both have appropriate access to the conversation.
+> Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
+<!-- TODO: section "context-validation" missing for python -->
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -225,20 +208,28 @@ To simplify two common scenarios, the context provides the `getCurrentConversati
 - The `send` method relies on `getCurrentConversationId` to find the conversation where the app is hosted and posts an activity.
 ::: zone-end
 
-
-## Additional resources
-
-
 ::: zone pivot="csharp"
-- For details on how to Tab apps can call these functions, see the TypeScript [Executing Functions](function-calling.md) in-depth guide.
-- For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
+To simplify a common scenarios, the context provides a `Send` method. This method sends an activity to the current conversation ID, determined from the context values provided by the client (chatId and channelId). If neither chatId or channelId is provided by the caller, the ID of the 1:1 conversation between the agent and the user is assumed.
+
+> [!WARNING]
+> The `Send` method does not validate that the chat ID or conversation ID provided by the caller is valid or correct. You must take care to validate that the user and agent both have appropriate access to the conversation.
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
+<!-- TODO: section "context-helpers" missing for python -->
 ::: zone-end
+
+## Additional resources
 
 ::: zone pivot="typescript"
 - For details on how to Tab apps can invoke these functions, see the [Executing Functions](./function-calling.md) in-depth guide.
 ::: zone-end
 
+::: zone pivot="csharp"
+- For details on how to Tab apps can call these functions, see the TypeScript [Executing Functions](../../../../typescript/in-depth-guides/tabs/functions/function-calling.md) in-depth guide.
+- For more information about the teams-js getContext() API, see the [Teams JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
+::: zone-end
+
+::: zone pivot="python"
+<!-- TODO: section "additional-resources" missing for python -->
+::: zone-end

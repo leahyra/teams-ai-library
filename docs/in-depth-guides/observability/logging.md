@@ -1,28 +1,38 @@
 ---
-title: Custom Logger
+title: 🗃️ Custom Logger
 description: Configure custom loggers in your Teams app to control log levels and output destinations.
 ms.topic: how-to
+ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
 ---
 
-# Custom Logger
+# 🗃️ Custom Logger
 
-::: zone pivot="csharp"
 The `App` will provide a default logger, but you can also provide your own.
-The default `Logger` instance will be set to `ConsoleLogger` from the `Microsoft.Teams.Common` package.
-::: zone-end
-
-::: zone pivot="python"
-The `App` will provide a default logger, but you can also provide your own.
-The default `Logger` instance will be set to `ConsoleLogger` from the `microsoft-teams-common` package.
-::: zone-end
+The default `Logger` instance will be set to :::zone pivot="typescript" inline :::`ConsoleLogger`:::zone-end:::zone pivot="csharp" inline :::`ConsoleLogger`:::zone-end:::zone pivot="python" inline :::`ConsoleLogger`:::zone-end from the :::zone pivot="typescript" inline :::`@microsoft/teams.common`:::zone-end:::zone pivot="csharp" inline :::`Microsoft.Teams.Common`:::zone-end:::zone pivot="python" inline :::`microsoft-teams-common`:::zone-end package.
 
 ::: zone pivot="typescript"
-The `App` will provide a default logger, but you can also provide your own.
-The default `Logger` instance will be set to `ConsoleLogger` from the `@microsoft/teams.common` package.
-::: zone-end
+```typescript
+import { App } from '@microsoft/teams.apps';
+import { ConsoleLogger } from '@microsoft/teams.common';
 
+// initialize app with custom console logger
+// set to debug log level
+const app = new App({
+  logger: new ConsoleLogger('echo', { level: 'debug' }),
+});
+
+app.on('message', async ({ send, activity, log }) => {
+  log.debug(activity);
+  await send({ type: 'typing' });
+  await send(`you said "${activity.text}"`);
+});
+
+(async () => {
+  await app.start();
+})();
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -65,27 +75,3 @@ if __name__ == "__main__":
     asyncio.run(app.start())
 ```
 ::: zone-end
-
-::: zone pivot="typescript"
-```typescript
-import { App } from '@microsoft/teams.apps';
-import { ConsoleLogger } from '@microsoft/teams.common';
-
-// initialize app with custom console logger
-// set to debug log level
-const app = new App({
-  logger: new ConsoleLogger('echo', { level: 'debug' }),
-});
-
-app.on('message', async ({ send, activity, log }) => {
-  log.debug(activity);
-  await send({ type: 'typing' });
-  await send(`you said "${activity.text}"`);
-});
-
-(async () => {
-  await app.start();
-})();
-```
-::: zone-end
-

@@ -2,8 +2,8 @@
 title: Essentials
 description: Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
 ms.topic: how-to
+ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
 ---
 
 # Essentials
@@ -14,26 +14,51 @@ With Teams SDK, we've made it easier than ever to build this kind of reactive, c
 
 Before diving in, let's define a few key terms:
 
-
-::: zone pivot="csharp,python,typescript"
-- Event: Anything interestingthat happens on Teams — or within your application as a result of handling an earlier event.
+::: zone pivot="typescript"
+- Event: Anything interesting that happens on Teams — or within your application as a result of handling an earlier event.
 - Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and adaptive card actions.
 - InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
 - Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
 ::: zone-end
 
-
 ::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/essentials-overview-csharp.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.OnEvent()), Activity Event Router, Activity Handlers (app.OnActivity())" lightbox="~/assets/diagrams/essentials-overview-csharp.png":::
+- Event: Anything interesting that happens on Teams — or within your application as a result of handling an earlier event.
+- Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and adaptive card actions.
+- InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
+- Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/diagrams/essentials-overview-1-python.png" alt-text="Flowchart diagram showing Teams, App Server, Event Handler decorator (@app.event()), Activity Event Router, Activity Handler decorators (@app.on_activity())" lightbox="~/assets/diagrams/essentials-overview-1-python.png":::
+- Event: Anything interesting that happens on Teams — or within your application as a result of handling an earlier event.
+- Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and adaptive card actions.
+- InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
+- Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
 ::: zone-end
 
-::: zone pivot="typescript"
-:::image type="content" source="~/assets/diagrams/essentials-overview-2-javascript.png"alt-text="Flowchart diagram showing Teams, App Server, Event Handler (app.event()), Activity Event Router, Activity Handlers (app.on())" lightbox="~/assets/diagrams/essentials-overview-2-javascript.png":::
-::: zone-end
+<!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
+```mermaid
+flowchart LR
+    Teams["Teams"]
+    Server["App Server"]
+    AppEventHandlers[":::zone pivot="typescript" inline :::Event Handler (app.event()):::zone-end:::zone pivot="csharp" inline :::Event Handler (app.OnEvent()):::zone-end:::zone pivot="python" inline :::Event Handler decorator (@app.event()):::zone-end"]
+    AppRouter["Activity Event Router"]
+    AppActivityHandlers[":::zone pivot="typescript" inline :::Activity Handlers (app.on()):::zone-end:::zone pivot="csharp" inline :::Activity Handlers (app.OnActivity()):::zone-end:::zone pivot="python" inline :::Activity Handler decorators (@app.on_activity()):::zone-end"]
 
+    Teams --> |Activity| Server
+    Teams --> |Signed In| Server
+    Teams --> |...other<br/>incoming events| Server
+    Server --> |ActivityEvent<br/>or InvokeEvent| AppRouter
+    Server ---> |incoming<br/>events| AppEventHandlers
+    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
+    AppRouter --> |message activity| AppActivityHandlers
+    AppRouter --> |card activity| AppActivityHandlers
+    AppRouter --> |installation activity| AppActivityHandlers
+    AppRouter --> |...other activities| AppActivityHandlers
+
+
+    linkStyle 0,3 stroke:#66fdf3,stroke-width:1px,color:Tomato
+    linkStyle 1,2,4,5 stroke:#66fdf3,stroke-width:1px
+    linkStyle 6,7,8,9 color:Tomato
+```
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.

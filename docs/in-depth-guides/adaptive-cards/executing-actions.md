@@ -2,8 +2,8 @@
 title: Executing Actions
 description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
 ms.topic: how-to
+ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
 ---
 
 # Executing Actions
@@ -32,6 +32,16 @@ The Teams SDK supports several action types for different interaction patterns:
 
 The SDK provides builder helpers that abstract the underlying JSON. For example:
 
+::: zone pivot="typescript"
+```typescript
+import { ExecuteAction } from '@microsoft/teams.cards';
+// ...
+
+new ExecuteAction({ title: 'Submit Feedback' })
+  .withData({ action: 'submit_feedback' })
+  .withAssociatedInputs('auto'),
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -63,22 +73,23 @@ action = ExecuteAction(title="Submit Feedback")
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-import { ExecuteAction } from '@microsoft/teams.cards';
-// ...
-
-new ExecuteAction({ title: 'Submit Feedback' })
-  .withData({ action: 'submit_feedback' })
-  .withAssociatedInputs('auto'),
-```
-::: zone-end
-
-
 ### Action Sets
 
 Group actions together using `ActionSet`:
 
+::: zone pivot="typescript"
+```typescript
+import { ExecuteAction, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
+// ...
+
+new ActionSet(
+  new ExecuteAction({ title: 'Submit Feedback' })
+    .withData({ action: 'submit_feedback' })
+    .withAssociatedInputs('auto'),
+  new OpenUrlAction('https://adaptivecards.microsoft.com').withTitle('Learn More')
+);
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -124,35 +135,22 @@ action_set = ActionSet(
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-import { ExecuteAction, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
-// ...
-
-new ActionSet(
-  new ExecuteAction({ title: 'Submit Feedback' })
-    .withData({ action: 'submit_feedback' })
-    .withAssociatedInputs('auto'),
-  new OpenUrlAction('https://adaptivecards.microsoft.com').withTitle('Learn More')
-);
-```
-::: zone-end
-
-
 ### Raw JSON Alternative
 
-::: zone pivot="csharp"
-Just like when building cards, if you prefer to work with raw JSON, you can do just that.
-::: zone-end
-
-::: zone pivot="python"
-Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get type safety for free in Python.
-::: zone-end
+Just like when building cards, if you prefer to work with raw JSON, you can do just that. :::zone pivot="typescript" inline :::You get type safety for free in TypeScript.:::zone-end:::zone pivot="csharp" inline :::<!-- Not applicable -->:::zone-end:::zone pivot="python" inline :::You get type safety for free in Python.:::zone-end
 
 ::: zone pivot="typescript"
-Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get type safety for free in TypeScript.
-::: zone-end
+```typescript
+import { IOpenUrlAction } from '@microsoft/teams.cards';
+// ...
 
+{
+  type: 'Action.OpenUrl',
+  url: 'https://adaptivecards.microsoft.com',
+  title: 'Learn More',
+} as const satisfies IOpenUrlAction
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -177,26 +175,53 @@ json = {
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-import { IOpenUrlAction } from '@microsoft/teams.cards';
-// ...
-
-{
-  type: 'Action.OpenUrl',
-  url: 'https://adaptivecards.microsoft.com',
-  title: 'Learn More',
-} as const satisfies IOpenUrlAction
-```
-::: zone-end
-
-
 ## Working with Input Values
 
 ### Associating data with the cards
 
 Sometimes you want to send a card and have it be associated with some data. Set the `data` value to be sent back to the client so you can associate it with a particular entity.
 
+::: zone pivot="typescript"
+```typescript
+import {
+  AdaptiveCard,
+  TextInput,
+  ToggleInput,
+  ActionSet,
+  ExecuteAction,
+} from '@microsoft/teams.cards';
+// ...
+
+function editProfileCard() {
+  const card = new AdaptiveCard(
+    new TextInput({ id: 'name' }).withLabel('Name').withValue('John Doe'),
+    new TextInput({ id: 'email', label: 'Email', value: 'john@contoso.com' }),
+    new ToggleInput('Subscribe to newsletter').withId('subscribe').withValue('false'),
+    new ActionSet(
+      new ExecuteAction({ title: 'Save' })
+        .withData({
+          action: 'save_profile',
+          entityId: '12345', // This will come back once the user submits
+        })
+        .withAssociatedInputs('auto')
+    )
+  );
+
+  // Data received in handler
+  /**
+  {
+    action: "save_profile",
+    entityId: "12345",     // From action data
+    name: "John Doe",      // From name input
+    email: "john@doe.com", // From email input
+    subscribe: "true"      // From toggle input (as string)
+  }
+  */
+
+  return card;
+}
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -305,53 +330,49 @@ profile_card = AdaptiveCard(
 ```
 ::: zone-end
 
+### Input Validation
+
+Input Controls provide ways for you to validate. More details can be found on the Adaptive Cards [documentation](https://adaptivecards.microsoft.com/?topic=input-validation).
+
 ::: zone pivot="typescript"
 ```typescript
 import {
   AdaptiveCard,
+  NumberInput,
   TextInput,
-  ToggleInput,
   ActionSet,
   ExecuteAction,
 } from '@microsoft/teams.cards';
 // ...
 
-function editProfileCard() {
+function createProfileCardInputValidation() {
+  const ageInput = new NumberInput({ id: 'age' })
+    .withLabel('Age')
+    .withIsRequired(true)
+    .withMin(0)
+    .withMax(120);
+
+  const nameInput = new TextInput({ id: 'name' })
+    .withLabel('Name')
+    .withIsRequired()
+    .withErrorMessage('Name is required!'); // Custom error messages
   const card = new AdaptiveCard(
-    new TextInput({ id: 'name' }).withLabel('Name').withValue('John Doe'),
-    new TextInput({ id: 'email', label: 'Email', value: 'john@contoso.com' }),
-    new ToggleInput('Subscribe to newsletter').withId('subscribe').withValue('false'),
+    nameInput,
+    ageInput,
+    new TextInput({ id: 'location' }).withLabel('Location'),
     new ActionSet(
       new ExecuteAction({ title: 'Save' })
         .withData({
           action: 'save_profile',
-          entityId: '12345', // This will come back once the user submits
         })
-        .withAssociatedInputs('auto')
+        .withAssociatedInputs('auto') // All inputs should be validated
     )
   );
-
-  // Data received in handler
-  /**
-  {
-    action: "save_profile",
-    entityId: "12345",     // From action data
-    name: "John Doe",      // From name input
-    email: "john@doe.com", // From email input
-    subscribe: "true"      // From toggle input (as string)
-  }
-  */
 
   return card;
 }
 ```
 ::: zone-end
-
-
-### Input Validation
-
-Input Controls provide ways for you to validate. More details can be found on the Adaptive Cards [documentation](https://adaptivecards.microsoft.com/?topic=input-validation).
-
 
 ::: zone pivot="csharp"
 ```csharp
@@ -440,53 +461,78 @@ def create_profile_card_input_validation():
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-import {
-  AdaptiveCard,
-  NumberInput,
-  TextInput,
-  ActionSet,
-  ExecuteAction,
-} from '@microsoft/teams.cards';
-// ...
-
-function createProfileCardInputValidation() {
-  const ageInput = new NumberInput({ id: 'age' })
-    .withLabel('Age')
-    .withIsRequired(true)
-    .withMin(0)
-    .withMax(120);
-
-  const nameInput = new TextInput({ id: 'name' })
-    .withLabel('Name')
-    .withIsRequired()
-    .withErrorMessage('Name is required!'); // Custom error messages
-  const card = new AdaptiveCard(
-    nameInput,
-    ageInput,
-    new TextInput({ id: 'location' }).withLabel('Location'),
-    new ActionSet(
-      new ExecuteAction({ title: 'Save' })
-        .withData({
-          action: 'save_profile',
-        })
-        .withAssociatedInputs('auto') // All inputs should be validated
-    )
-  );
-
-  return card;
-}
-```
-::: zone-end
-
-
 ## Server Handlers
 
 ### Basic Structure
 
 Card actions arrive as `card.action` activities in your app. These give you access to the validated input values plus any `data` values you had configured to be sent back to you.
 
+::: zone pivot="typescript"
+```typescript
+import {
+  AdaptiveCardActionErrorResponse,
+  AdaptiveCardActionMessageResponse,
+} from '@microsoft/teams.api';
+import { App } from '@microsoft/teams.apps';
+// ...
+
+app.on('card.action', async ({ activity, send }) => {
+  const data = activity.value?.action?.data;
+  if (!data?.action) {
+    return {
+      statusCode: 400,
+      type: 'application/vnd.microsoft.error',
+      value: {
+        code: 'BadRequest',
+        message: 'No action specified',
+        innerHttpError: {
+          statusCode: 400,
+          body: { error: 'No action specified' },
+        },
+      },
+    } satisfies AdaptiveCardActionErrorResponse;
+  }
+
+  console.debug('Received action data:', data);
+
+  switch (data.action) {
+    case 'submit_feedback':
+      await send(`Feedback received: ${data.feedback}`);
+      break;
+
+    case 'purchase_item':
+      await send(`Purchase request received for game: ${data.choiceGameSingle}`);
+      break;
+
+    case 'save_profile':
+      await send(
+        `Profile saved!\nName: ${data.name}\nEmail: ${data.email}\nSubscribed: ${data.subscribe}`
+      );
+      break;
+
+    default:
+      return {
+        statusCode: 400,
+        type: 'application/vnd.microsoft.error',
+        value: {
+          code: 'BadRequest',
+          message: 'Unknown action',
+          innerHttpError: {
+            statusCode: 400,
+            body: { error: 'Unknown action' },
+          },
+        },
+      } satisfies AdaptiveCardActionErrorResponse;
+  }
+
+  return {
+    statusCode: 200,
+    type: 'application/vnd.microsoft.activity.message',
+    value: 'Action processed successfully',
+  } satisfies AdaptiveCardActionMessageResponse;
+});
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -638,73 +684,9 @@ async def handle_card_action(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -
 ::: zone-end
 
 ::: zone pivot="typescript"
-```typescript
-import {
-  AdaptiveCardActionErrorResponse,
-  AdaptiveCardActionMessageResponse,
-} from '@microsoft/teams.api';
-import { App } from '@microsoft/teams.apps';
-// ...
-
-app.on('card.action', async ({ activity, send }) => {
-  const data = activity.value?.action?.data;
-  if (!data?.action) {
-    return {
-      statusCode: 400,
-      type: 'application/vnd.microsoft.error',
-      value: {
-        code: 'BadRequest',
-        message: 'No action specified',
-        innerHttpError: {
-          statusCode: 400,
-          body: { error: 'No action specified' },
-        },
-      },
-    } satisfies AdaptiveCardActionErrorResponse;
-  }
-
-  console.debug('Received action data:', data);
-
-  switch (data.action) {
-    case 'submit_feedback':
-      await send(`Feedback received: ${data.feedback}`);
-      break;
-
-    case 'purchase_item':
-      await send(`Purchase request received for game: ${data.choiceGameSingle}`);
-      break;
-
-    case 'save_profile':
-      await send(
-        `Profile saved!\nName: ${data.name}\nEmail: ${data.email}\nSubscribed: ${data.subscribe}`
-      );
-      break;
-
-    default:
-      return {
-        statusCode: 400,
-        type: 'application/vnd.microsoft.error',
-        value: {
-          code: 'BadRequest',
-          message: 'Unknown action',
-          innerHttpError: {
-            statusCode: 400,
-            body: { error: 'Unknown action' },
-          },
-        },
-      } satisfies AdaptiveCardActionErrorResponse;
-  }
-
-  return {
-    statusCode: 200,
-    type: 'application/vnd.microsoft.activity.message',
-    value: 'Action processed successfully',
-  } satisfies AdaptiveCardActionMessageResponse;
-});
-```
+> [!NOTE]
+> The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
 ::: zone-end
-
-
 
 ::: zone pivot="csharp"
 > [!NOTE]
@@ -715,9 +697,3 @@ app.on('card.action', async ({ activity, send }) => {
 > [!NOTE]
 > The `data` values are accessible as a dictionary and can be accessed using `.get()` method for safe access.
 ::: zone-end
-
-::: zone pivot="typescript"
-> [!NOTE]
-> The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
-::: zone-end
-

@@ -1,8 +1,7 @@
 ---
 title: Dialogs
-description: Learn how to use dialogs in Teams to improve interactions between your agent and users.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: '2026-02-24'
 ---
 
 # Dialogs
@@ -22,5 +21,5 @@ Dialogs are a helpful paradigm in Teams which improve interactions between your 
 
 ## Resources
 
-- [Task Modules](/microsoftteams/platform/task-modules-and-cards/what-are-task-modules)
-- [Invoking Task Modules](/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules)
+- [Task Modules](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-task-modules)
+- [Invoking Task Modules](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules)

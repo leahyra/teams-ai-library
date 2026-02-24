@@ -1,9 +1,9 @@
 ---
-title: Running In Teams
+title: Running in Teams
 description: Guide to deploying and testing your locally running agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
 ms.topic: how-to
+ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
 ---
 
 # Running In Teams
@@ -12,13 +12,13 @@ Now that you completed [the quickstart](../quickstart.md) and your agent is runn
 
 ## Microsoft 365 Agents Toolkit
 
-Microsoft 365 Agents Toolkit is a powerful tool that simplifies deploying and debugging Teams applications. It automates tasks like managing the Teams app manifest, configuring authentication, provisioning, and deployment. If you'd like to learn about these concepts, check out [Teams core concepts](../../teams/core-concepts.md).
+Microsoft 365 Agents Toolkit is a powerful tool that simplifies deploying and debugging Teams applications. It automates tasks like managing the Teams app manifest, configuring authentication, provisioning, and deployment. If you'd like to learn about these concepts, check out [Teams core concepts](/teams/core-concepts).
 
 ### Install Microsoft 365 Agents Toolkit
 
 First, you'll need to install the Agents Toolkit IDE extension:
 
-- Visit the [Microsoft 365 Agents Toolkit installation guide](/microsoftteams/platform/toolkit/install-teams-toolkit) to install on your preferred IDE.
+- Visit the [Microsoft 365 Agents Toolkit installation guide](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/install-teams-toolkit) to install on your preferred IDE.
 
 ## Adding Teams configuration files via `teams` CLI
 
@@ -35,7 +35,7 @@ npx @microsoft/teams.cli config add atk.basic
 > The `atk.basic` configuration is a basic setup for Agents Toolkit. It includes the necessary files and configuration to get started with Teams development.<br/>
 > Explore more advanced configurations as needed with `npx @microsoft/teams.cli config --help`.<br />
 
-This [CLI](../../developer-tools/cli.md) command adds configuration files required by Agents Toolkit, including:
+This [CLI](/developer-tools/cli) command adds configuration files required by Agents Toolkit, including:
 
 - Environment setup in the `env` folder and root `.env` file
 - Teams app manifest in the `appPackage` folder (if not already present)
@@ -57,12 +57,12 @@ After installing Agents Toolkit and adding the configuration:
 4. **Select "Local"** under Environment Settings of the Agents Toolkit extension.
 5. **Click on Debug (Chrome) or Debug (Edge)** to start debugging via the 'play' button.
 
-:::image type="content" source="~/assets/screenshots/agents-toolkit.png" alt-text="Screenshot of Microsoft 365 Agents Toolkit with 'Environment' section expanded and 'local' selected.":::
+![Screenshot of Microsoft 365 Agents Toolkit with 'Environment' section expanded and 'local' selected.](/screenshots/agents-toolkit.png)
 
 When debugging starts, the Agents Toolkit will:
 
 - **Build** your application
-- **Start a [devtunnel](../../teams/core-concepts.md#devtunnel)** that will assign a temporary public URL to your local server
+- **Start a [devtunnel](/teams/core-concepts#devtunnel)** that will assign a temporary public URL to your local server
 - **Provision the Teams app** for your tenant so that it can be installed and be authenticated on Teams
 - **Set up the local variables** necessary for your agent to run in Teams in `env/.env.local` and `env/env.local.user`. This includes propagating the app manifest with your newly provisioned resources.
 - **Start** the local server.
@@ -72,6 +72,18 @@ When debugging starts, the Agents Toolkit will:
 
 If you set up Agents Toolkit via the Teams SDK CLI, you should see something like the following in your terminal:
 
+::: zone pivot="typescript"
+```sh
+[nodemon] 3.1.9
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): src/**
+[nodemon] watching extensions: ts
+[nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
+[WARN] @teams/app/devtools ⚠️  Devtools are not secure and should not be used production environments ⚠️
+[INFO] @teams/app/http listening on port 3978 🚀
+[INFO] @teams/app/devtools available at http://localhost:3979/devtools
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```sh
@@ -96,20 +108,6 @@ INFO:     Uvicorn running on http://0.0.0.0:3979 (Press CTRL+C to quit)
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```sh
-[nodemon] 3.1.9
-[nodemon] to restart at any time, enter `rs`
-[nodemon] watching path(s): src/**
-[nodemon] watching extensions: ts
-[nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
-[WARN] @teams/app/devtools ⚠️  Devtools are not secure and should not be used production environments ⚠️
-[INFO] @teams/app/http listening on port 3978 🚀
-[INFO] @teams/app/devtools available at http://localhost:3979/devtools
-```
-::: zone-end
-
-
 ## Testing your agent
 
 After the debugging session starts:
@@ -119,27 +117,27 @@ After the debugging session starts:
 3. Teams will ask permission to install the app
 4. Once installed, you can start chatting with your agent!
 
-:::image type="content" source="~/assets/screenshots/example-on-teams.png" alt-text="Screenshot of 'quote-agent-local' agent running in Teams.":::
+![Screenshot of `quote-agent-local` agent running in Teams.](/screenshots/example-on-teams.png)
 
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 
 > [!TIP]
-> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](../../developer-tools/devtools/overview.md)! Note that the DevTools server is running on port 3979. You can open it in your browser to interact with your agent and monitor activities in real time.
+> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](/developer-tools/devtools)! Note that the DevTools server is running on port 3979. You can open it in your browser to interact with your agent and monitor activities in real time.
 
 ## Troubleshooting
 
-For deployment and resource management we recommend the Microsoft 365 Agents Toolkit. For authentication-related issues, refer to our [Authentication Troubleshooting](../../teams/app-authentication/troubleshooting.md) guide.
+For deployment and resource management we recommend the Microsoft 365 Agents Toolkit. For authentication-related issues, refer to our [Authentication Troubleshooting](/teams/app-authentication/troubleshooting) guide.
 
-If you prefer to set everything up by hand, follow our [Manual Configuration](../../teams/configuration/manual-configuration.md) guide. The Teams SDK itself doesn't handle deployment or Azure resources, so you'll need to rely on the general [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview) for in-depth help.
+If you prefer to set everything up by hand, follow our [Manual Configuration](/teams/configuration/manual-configuration) guide. The Teams SDK itself doesn't handle deployment or Azure resources, so you'll need to rely on the general [Microsoft Teams deployment documentation](https://learn.microsoft.com/en-us/microsoftteams/deploy-overview) for in-depth help.
 
 ## Next steps
 
-Now that your agent is running in Teams, you can learn more [essential concepts](../../essentials/overview.md) to understand how to build more complex agents. Explore the [in-depth guides](../../in-depth-guides/overview.md) for advanced topics like authentication, message extensions, and more.
+Now that your agent is running in Teams, you can learn more [essential concepts](../../essentials.md) to understand how to build more complex agents. Explore the [in-depth guides](../../in-depth-guides.md) for advanced topics like authentication, message extensions, and more.
 
 ## Resources
 
-- [Teams CLI documentation](../../developer-tools/cli.md)
-- [Microsoft 365 Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
-- [Microsoft 365 Agents Toolkit CLI documentation](/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
+- [Teams CLI documentation](/developer-tools/cli)
+- [Microsoft 365 Agents Toolkit documentation](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
+- [Microsoft 365 Agents Toolkit CLI documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
-- [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview)
+- [Microsoft Teams deployment documentation](https://learn.microsoft.com/en-us/microsoftteams/deploy-overview)

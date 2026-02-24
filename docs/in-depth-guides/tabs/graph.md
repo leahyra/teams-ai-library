@@ -1,8 +1,8 @@
 ---
-title: Microsoft Graph Client
+title: Microsoft Graph
 description: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: '2026-02-24'
 ---
 
 # Microsoft Graph Client
@@ -90,5 +90,5 @@ if (canReadChat) {
 
 ## References
 
-- [Graph API overview](/graph/api/overview)
-- [Graph API permissions overview](/graph/permissions-reference)
+- [Graph API overview](https://learn.microsoft.com/en-us/graph/api/overview)
+- [Graph API permissions overview](https://learn.microsoft.com/en-us/graph/permissions-reference)

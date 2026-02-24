@@ -2,9 +2,11 @@
 title: A2A Server
 description: How to implement an A2A server to expose your Teams app capabilities to other agents using the A2A protocol.
 ms.topic: how-to
+ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
 ---
+
+import FileCodeBlock from '@site/src/components/FileCodeBlock';
 
 # A2A Server
 
@@ -14,21 +16,51 @@ An A2A server is an agent that exposes its capabilities to other agents using th
 
 ## Adding the `A2APlugin`
 
-::: zone pivot="csharp"
-This page isn't available for C#.
-::: zone-end
-
-::: zone pivot="python"
-To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agent_card`:
-::: zone-end
+To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an :::zone pivot="typescript" inline :::`agentCard`:::zone-end:::zone pivot="csharp" inline :::<!-- TODO: section "agent-card" missing for csharp -->:::zone-end:::zone pivot="python" inline :::`agent_card`:::zone-end:
 
 ::: zone pivot="typescript"
-To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agentCard`:
+```typescript
+import { AgentCard } from '@a2a-js/sdk';
+import { A2APlugin } from '@microsoft/teams.a2a';
+import { App } from '@microsoft/teams.apps';
+
+const agentCard: AgentCard = {
+  name: 'Weather Agent',
+  description: 'An agent that can tell you the weather',
+  url: `http://localhost:${PORT}/a2a`,
+  version: '0.0.1',
+  protocolVersion: '0.3.0',
+  capabilities: {},
+  defaultInputModes: [],
+  defaultOutputModes: [],
+  skills: [
+    {
+      id: 'get_weather',
+      name: 'Get Weather',
+      description: 'Get the weather for a given location',
+      tags: ['weather', 'get', 'location'],
+      examples: [
+        'Get the weather for London',
+        'What is the weather',
+        "What's the weather in Tokyo?",
+        'How is the current temperature in San Francisco?',
+      ],
+    },
+  ],
+};
+
+const app = new App({
+  plugins: [
+    new A2APlugin({
+      agentCard,
+    }),
+  ],
+});
+```
 ::: zone-end
 
-
 ::: zone pivot="csharp"
-This page isn't available for C#.
+<!-- TODO: section "plugin-example" missing for csharp -->
 ::: zone-end
 
 ::: zone pivot="python"
@@ -72,48 +104,6 @@ app = App(logger=logger, plugins=plugins)
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-import { AgentCard } from '@a2a-js/sdk';
-import { A2APlugin } from '@microsoft/teams.a2a';
-import { App } from '@microsoft/teams.apps';
-
-const agentCard: AgentCard = {
-  name: 'Weather Agent',
-  description: 'An agent that can tell you the weather',
-  url: `http://localhost:${PORT}/a2a`,
-  version: '0.0.1',
-  protocolVersion: '0.3.0',
-  capabilities: {},
-  defaultInputModes: [],
-  defaultOutputModes: [],
-  skills: [
-    {
-      id: 'get_weather',
-      name: 'Get Weather',
-      description: 'Get the weather for a given location',
-      tags: ['weather', 'get', 'location'],
-      examples: [
-        'Get the weather for London',
-        'What is the weather',
-        "What's the weather in Tokyo?",
-        'How is the current temperature in San Francisco?',
-      ],
-    },
-  ],
-};
-
-const app = new App({
-  plugins: [
-    new A2APlugin({
-      agentCard,
-    }),
-  ],
-});
-```
-::: zone-end
-
-
 ## Agent Card Exposure
 
 The plugin automatically exposes your agent card at the path `/a2a/.well-known/agent-card.json`.
@@ -122,9 +112,25 @@ The plugin automatically exposes your agent card at the path `/a2a/.well-known/a
 
 Handle incoming A2A requests by adding an event handler for the `a2a:message` event. You may use `accumulateArtifacts` to iteratively accumulate artifacts for the task, or simply `respond` with the final result.
 
+::: zone pivot="typescript"
+```typescript
+app.event('a2a:message', async ({ respond, requestContext }) => {
+  logger.info(`Received message: ${requestContext.userMessage}`);
+  const textInput = requestContext.userMessage.parts
+    .filter((p): p is TextPart => p.kind === 'text')
+    .at(0)?.text;
+  if (!textInput) {
+    await respond('My agent currently only supports text input');
+    return;
+  }
+  const result = await myEventHandler(textInput);
+  await respond(result);
+});
+```
+::: zone-end
 
 ::: zone pivot="csharp"
-This page isn't available for C#.
+<!-- TODO: section "event-handler" missing for csharp -->
 ::: zone-end
 
 ::: zone pivot="python"
@@ -155,29 +161,23 @@ async def handle_a2a_message(message: A2AMessageEvent) -> None:
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-app.event('a2a:message', async ({ respond, requestContext }) => {
-  logger.info(`Received message: ${requestContext.userMessage}`);
-  const textInput = requestContext.userMessage.parts
-    .filter((p): p is TextPart => p.kind === 'text')
-    .at(0)?.text;
-  if (!textInput) {
-    await respond('My agent currently only supports text input');
-    return;
-  }
-  const result = await myEventHandler(textInput);
-  await respond(result);
-});
-```
-::: zone-end
-
-
 > [!NOTE]
->
 > - You must have only a single handler that calls `respond`.
 > - You **must** call `respond` as the last step in your handler. This resolves the open request to the caller.
 
 ## Sequence Diagram
 
-:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-server.png" alt-text="Sequence diagram showing interaction between A2A, App, A2APlugin, YourEventHandler" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-server.png":::
+<!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
+```mermaid
+sequenceDiagram
+    participant A2A Client
+    participant App
+    participant A2APlugin
+    participant YourEventHandler
+
+    A2A Client->>App: /task/send
+    App->>A2APlugin: Call A2APlugin
+    A2APlugin->>YourEventHandler: Call your event handler a2a:message
+    YourEventHandler->>A2APlugin: Call respond
+    A2APlugin->>A2A Client: Return response
+```

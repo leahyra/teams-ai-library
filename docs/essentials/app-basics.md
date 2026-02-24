@@ -2,7 +2,7 @@
 title: App Basics
 description: Comprehensive guide to the App class, the main entry point for Teams SDK agents that handles server hosting, request routing, authentication, and plugin management.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: '2026-02-24'
 ---
 
 # App Basics
@@ -17,7 +17,40 @@ It is responsible for:
 4. Providing helpful utilities which simplify the ability for your application to interact with the Teams platform
 5. Managing plugins which can extend the functionality of your agent
 
-:::image type="content" source="~/assets/diagrams/essentials-app-basics.png" alt-text="Flowchart diagram showing Plugins, Events, Activity Routing, Utilities, Auth" lightbox="~/assets/diagrams/essentials-app-basics.png":::
+<!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
+```mermaid
+flowchart LR
+    %% Layout Definitions
+    direction LR
+
+    Teams
+
+    subgraph AppClass
+        CorePlugins["Plugins"]
+        Events["Events"]
+        subgraph AppResponsibilities
+            direction TB
+            ActivityRouting["Activity Routing"]
+            Utilities["Utilities"]
+            Auth["Auth"]
+        end
+        Plugins2["Plugins"]
+    end
+    ApplicationLogic["Application Logic"]
+
+    %% Connections
+    Teams --> CorePlugins
+    CorePlugins --> Events
+    Events --> ActivityRouting
+    ActivityRouting --> Plugins2
+    Plugins2 --> ApplicationLogic
+    Auth --> ApplicationLogic
+    Utilities --> ApplicationLogic
+
+    %% Styling
+    style Teams fill:#2E86AB,stroke:#1B4F72,stroke-width:2px,color:#ffffff
+    style ApplicationLogic fill:#28B463,stroke:#1D8348,stroke-width:2px,color:#ffffff
+```
 
 ## Core Components
 

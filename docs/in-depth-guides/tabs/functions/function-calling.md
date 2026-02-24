@@ -2,7 +2,7 @@
 title: Executing Functions
 description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: '2026-02-24'
 ---
 
 # Executing Functions
@@ -109,5 +109,5 @@ If you find that you'd rather test for consent or request consent before making 
 
 ## References
 
-- [Graph API overview](/graph/api/overview)
-- [Graph API permissions overview](/graph/permissions-reference)
+- [Graph API overview](https://learn.microsoft.com/en-us/graph/api/overview)
+- [Graph API permissions overview](https://learn.microsoft.com/en-us/graph/permissions-reference)

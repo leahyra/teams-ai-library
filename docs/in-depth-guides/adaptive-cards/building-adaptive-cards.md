@@ -2,14 +2,20 @@
 title: Building Adaptive Cards
 description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ms.topic: how-to
+ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
 
+::: zone pivot="typescript"
+With `@microsoft/teams.cards` you can build these cards entirely in TypeScript/JavaScript while enjoying full IntelliSense and compiler safety.
+::: zone-end
 
 ::: zone pivot="csharp"
 With `Microsoft.Teams.Cards` you can build these cards entirely in C# while enjoying full IntelliSense and compiler safety.
@@ -19,13 +25,11 @@ With `Microsoft.Teams.Cards` you can build these cards entirely in C# while enjo
 With `microsoft-teams-cards` you can build these cards entirely in Python while enjoying full IntelliSense and compiler safety.
 ::: zone-end
 
-::: zone pivot="typescript"
-With `@microsoft/teams.cards` you can build these cards entirely in TypeScript/JavaScript while enjoying full IntelliSense and compiler safety.
-::: zone-end
-
-
 ## The Builder Pattern
 
+::: zone pivot="typescript"
+`@microsoft/teams.cards` exposes small **builder helpers** including `Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._
+::: zone-end
 
 ::: zone pivot="csharp"
 `Microsoft.Teams.Cards` exposes small **builder helpers** including `AdaptiveCard`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._
@@ -35,13 +39,29 @@ With `@microsoft/teams.cards` you can build these cards entirely in TypeScript/J
 `microsoft-teams-cards` exposes small **builder helpers** including `Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._
 ::: zone-end
 
-::: zone pivot="typescript"
-`@microsoft/teams.cards` exposes small **builder helpers** including `Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._
-::: zone-end
-
-
 Each helper wraps raw JSON and provides fluent, chainable methods that keep your code concise and readable.
 
+::: zone pivot="typescript"
+```ts
+import {
+  AdaptiveCard,
+  TextBlock,
+  ToggleInput,
+  ExecuteAction,
+  ActionSet,
+} from '@microsoft/teams.cards';
+
+const card = new AdaptiveCard(
+  new TextBlock('Hello world', { wrap: true, weight: 'Bolder' }),
+  new ToggleInput('Notify me').withId('notify'),
+  new ActionSet(
+    new ExecuteAction({ title: 'Submit' })
+      .withData({ action: 'submit_basic' })
+      .withAssociatedInputs('auto')
+  )
+);
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -102,29 +122,6 @@ card = AdaptiveCard(
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```ts
-import {
-  AdaptiveCard,
-  TextBlock,
-  ToggleInput,
-  ExecuteAction,
-  ActionSet,
-} from '@microsoft/teams.cards';
-
-const card = new AdaptiveCard(
-  new TextBlock('Hello world', { wrap: true, weight: 'Bolder' }),
-  new ToggleInput('Notify me').withId('notify'),
-  new ActionSet(
-    new ExecuteAction({ title: 'Submit' })
-      .withData({ action: 'submit_basic' })
-      .withAssociatedInputs('auto')
-  )
-);
-```
-::: zone-end
-
-
 Benefits:
 
 | Benefit     | Description                                                                   |
@@ -133,6 +130,10 @@ Benefits:
 | Re‑use      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
+::: zone pivot="typescript"
+> [!NOTE]
+> Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
+::: zone-end
 
 ::: zone pivot="csharp"
 > [!NOTE]
@@ -144,33 +145,21 @@ Benefits:
 > The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
 ::: zone-end
 
-::: zone pivot="typescript"
-> [!NOTE]
-> Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
-::: zone-end
-
-
 ## Type‑safe Authoring & IntelliSense
 
-::: zone pivot="csharp"
-The package bundles the **Adaptive Card v1.5 schema** as strict C# types.
+The package bundles the **Adaptive Card v1.5 schema** as strict :::zone pivot="typescript" inline :::TypeScript/JavaScript:::zone-end:::zone pivot="csharp" inline :::C#:::zone-end:::zone pivot="python" inline :::Python:::zone-end types.
 While coding you get:
-::: zone-end
-
-::: zone pivot="python"
-The package bundles the **Adaptive Card v1.5 schema** as strict Python types.
-While coding you get:
-::: zone-end
-
-::: zone pivot="typescript"
-The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript/JavaScript types.
-While coding you get:
-::: zone-end
 
 - **Autocomplete** for every element and attribute.
 - **In‑editor validation**—invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
+::: zone pivot="typescript"
+```typescript
+// @ts-expect-error: "huge" is not a valid size for TextBlock
+const textBlock = new TextBlock('Valid', { size: 'huge' });
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -191,14 +180,6 @@ text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-// @ts-expect-error: "huge" is not a valid size for TextBlock
-const textBlock = new TextBlock('Valid', { size: 'huge' });
-```
-::: zone-end
-
-
 ## The Visual Designer
 
 Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
@@ -207,6 +188,58 @@ Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](ht
 2. Copy the JSON payload from the editor pane.
 3. Paste the JSON into your project **or** convert it to builder calls:
 
+::: zone pivot="typescript"
+```typescript
+const cardJson = /* copied JSON */;
+const card = new AdaptiveCard().withBody(cardJson);
+```
+
+```ts
+const rawCard: IAdaptiveCard = {
+  type: 'AdaptiveCard',
+  body: [
+    {
+      text: 'Please fill out the below form to send a game purchase request.',
+      wrap: true,
+      type: 'TextBlock',
+      style: 'heading',
+    },
+    {
+      columns: [
+        {
+          width: 'stretch',
+          items: [
+            {
+              choices: [
+                { title: 'Call of Duty', value: 'call_of_duty' },
+                { title: "Death's Door", value: 'deaths_door' },
+                { title: 'Grand Theft Auto V', value: 'grand_theft' },
+                { title: 'Minecraft', value: 'minecraft' },
+              ],
+              style: 'filtered',
+              placeholder: 'Search for a game',
+              id: 'choiceGameSingle',
+              type: 'Input.ChoiceSet',
+              label: 'Game:',
+            },
+          ],
+          type: 'Column',
+        },
+      ],
+      type: 'ColumnSet',
+    },
+  ],
+  actions: [
+    {
+      title: 'Request purchase',
+      type: 'Action.Execute',
+      data: { action: 'purchase_item' },
+    },
+  ],
+  version: '1.5',
+};
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -331,67 +364,7 @@ message = MessageActivityInput(text="Hello text!").add_card(card)
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-const cardJson = /* copied JSON */;
-const card = new AdaptiveCard().withBody(cardJson);
-```
-
-```ts
-const rawCard: IAdaptiveCard = {
-  type: 'AdaptiveCard',
-  body: [
-    {
-      text: 'Please fill out the below form to send a game purchase request.',
-      wrap: true,
-      type: 'TextBlock',
-      style: 'heading',
-    },
-    {
-      columns: [
-        {
-          width: 'stretch',
-          items: [
-            {
-              choices: [
-                { title: 'Call of Duty', value: 'call_of_duty' },
-                { title: "Death's Door", value: 'deaths_door' },
-                { title: 'Grand Theft Auto V', value: 'grand_theft' },
-                { title: 'Minecraft', value: 'minecraft' },
-              ],
-              style: 'filtered',
-              placeholder: 'Search for a game',
-              id: 'choiceGameSingle',
-              type: 'Input.ChoiceSet',
-              label: 'Game:',
-            },
-          ],
-          type: 'Column',
-        },
-      ],
-      type: 'ColumnSet',
-    },
-  ],
-  actions: [
-    {
-      title: 'Request purchase',
-      type: 'Action.Execute',
-      data: { action: 'purchase_item' },
-    },
-  ],
-  version: '1.5',
-};
-```
-::: zone-end
-
-
-::: zone pivot="csharp,python"
-This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `AdaptiveCard`.
-::: zone-end
-
-::: zone pivot="typescript"
-This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `IAdaptiveCard`.
-::: zone-end
+This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to :::zone pivot="typescript" inline :::`IAdaptiveCard`:::zone-end:::zone pivot="csharp" inline :::`AdaptiveCard`:::zone-end:::zone pivot="python" inline :::`AdaptiveCard`:::zone-end.
 
 > [!TIP]
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
@@ -400,11 +373,14 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 
 Below is a complete example showing a task management form.
 
+::: zone pivot="typescript"
+Notice how the builder pattern keeps the file readable and maintainable:
+::: zone-end
 
 ::: zone pivot="csharp"
-# [Minimal](#tab/minimal)
-
-```csharp
+<Tabs>
+  <TabItem label="Minimal" value="minimal">
+    ```csharp
     teams.OnMessage(async context =>
     {
         var text = context.Activity.Text?.ToLowerInvariant() ?? "";
@@ -416,17 +392,69 @@ Below is a complete example showing a task management form.
             await context.Send(card);
         }
     });
-```
+    ```
 
----
+  </TabItem>
+</Tabs>
 
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end
 
-::: zone pivot="python,typescript"
+::: zone pivot="python"
 Notice how the builder pattern keeps the file readable and maintainable:
 ::: zone-end
 
+::: zone pivot="typescript"
+```ts
+import {
+  AdaptiveCard,
+  TextBlock,
+  TextInput,
+  ChoiceSetInput,
+  DateInput,
+  ActionSet,
+  ExecuteAction,
+} from '@microsoft/teams.cards';
+import { App } from '@microsoft/teams.apps';
+// ...
+
+app.on('message', async ({ send, activity }) => {
+  await send({ type: 'typing' });
+  const card = new AdaptiveCard(
+    new TextBlock('Create New Task', {
+      size: 'Large',
+      weight: 'Bolder',
+    }),
+    new TextInput({ id: 'title' }).withLabel('Task Title').withPlaceholder('Enter task title'),
+    new TextInput({ id: 'description' })
+      .withLabel('Description')
+      .withPlaceholder('Enter task details')
+      .withIsMultiline(true),
+    new ChoiceSetInput(
+      { title: 'High', value: 'high' },
+      { title: 'Medium', value: 'medium' },
+      { title: 'Low', value: 'low' }
+    )
+      .withId('priority')
+      .withLabel('Priority')
+      .withValue('medium'),
+    new DateInput({ id: 'due_date' })
+      .withLabel('Due Date')
+      .withValue(new Date().toISOString().split('T')[0]),
+    new ActionSet(
+      new ExecuteAction({ title: 'Create Task' })
+        .withData({ action: 'create_task' })
+        .withAssociatedInputs('auto')
+        .withStyle('positive')
+    )
+  );
+  await send(card);
+  // Or build a complex activity out that includes the card:
+  // const message  = new MessageActivity('Enter this form').addCard('adaptive', card);
+  // await send(message);
+});
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -534,59 +562,6 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```ts
-import {
-  AdaptiveCard,
-  TextBlock,
-  TextInput,
-  ChoiceSetInput,
-  DateInput,
-  ActionSet,
-  ExecuteAction,
-} from '@microsoft/teams.cards';
-import { App } from '@microsoft/teams.apps';
-// ...
-
-app.on('message', async ({ send, activity }) => {
-  await send({ type: 'typing' });
-  const card = new AdaptiveCard(
-    new TextBlock('Create New Task', {
-      size: 'Large',
-      weight: 'Bolder',
-    }),
-    new TextInput({ id: 'title' }).withLabel('Task Title').withPlaceholder('Enter task title'),
-    new TextInput({ id: 'description' })
-      .withLabel('Description')
-      .withPlaceholder('Enter task details')
-      .withIsMultiline(true),
-    new ChoiceSetInput(
-      { title: 'High', value: 'high' },
-      { title: 'Medium', value: 'medium' },
-      { title: 'Low', value: 'low' }
-    )
-      .withId('priority')
-      .withLabel('Priority')
-      .withValue('medium'),
-    new DateInput({ id: 'due_date' })
-      .withLabel('Due Date')
-      .withValue(new Date().toISOString().split('T')[0]),
-    new ActionSet(
-      new ExecuteAction({ title: 'Create Task' })
-        .withData({ action: 'create_task' })
-        .withAssociatedInputs('auto')
-        .withStyle('positive')
-    )
-  );
-  await send(card);
-  // Or build a complex activity out that includes the card:
-  // const message  = new MessageActivity('Enter this form').addCard('adaptive', card);
-  // await send(message);
-});
-```
-::: zone-end
-
-
 ## Additional Resources
 
 - [**Official Adaptive Card Documentation**](https://adaptivecards.microsoft.com/)
@@ -598,4 +573,4 @@ app.on('message', async ({ send, activity }) => {
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building!
+Happy card building! 🎉

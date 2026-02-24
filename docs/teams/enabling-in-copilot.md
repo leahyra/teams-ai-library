@@ -1,8 +1,6 @@
 ---
-title: Enabling in M365 Copilot
-description: Learn how to enable your Teams app to work in M365 Copilot by updating the app manifest.
-ms.topic: how-to
-ms.date: 02/13/2026
+sidebar_position: 6
+summary: Learn how to enable your Teams app to work in M365 Copilot by updating the app manifest.
 ---
 
 # Enabling in M365 Copilot
@@ -124,5 +122,5 @@ Once you've updated and redeployed your app:
 
 ## Resources
 
-- [Convert Your Declarative Agent for Microsoft 365 Copilot to a Custom Engine Agent](/microsoft-365-copilot/extensibility/convert-declarative-agent)
-- [Teams app manifest reference](/microsoftteams/platform/resources/schema/manifest-schema)
+- [Convert Your Declarative Agent for Microsoft 365 Copilot to a Custom Engine Agent](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/convert-declarative-agent)
+- [Teams app manifest reference](https://learn.microsoft.com/microsoftteams/platform/resources/schema/manifest-schema)

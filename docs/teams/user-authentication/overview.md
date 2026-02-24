@@ -1,11 +1,9 @@
 ---
-title: User Authentication Overview
-description: Overview of user authentication in Teams SDK applications, including OAuth, SSO, and secure resource access.
-ms.topic: how-to
-ms.date: 02/13/2026
+sidebar_position: 4
+summary: Overview of user authentication in Teams SDK applications, including OAuth, SSO, and secure resource access.
 ---
 
-# User Authentication Overview
+# User Authentication
 
 At times, agents must access secured online resources on behalf of the user, such as checking email, checking flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 
@@ -25,8 +23,9 @@ When an access token expires, the app automatically initiates a token exchange f
 2. Your app exchanges this ID token for a new access token with the previously consented scopes
 3. This exchange happens silently without requiring user interaction
 
-> [!TIP]
-> Always use SSO if you're authenticating the user with Microsoft Entra ID.
+:::tip
+Always use SSO if you're authenticating the user with Microsoft Entra ID.
+:::
 
 #### The SSO Signin Flow
 
@@ -43,7 +42,7 @@ The SSO signin flow involves several components working together. Here's how it 
 
 This is what the SSO consent form looks like in Teams:
 
-:::image type="content" source="~/assets/screenshots/auth-consent-popup.png" alt-text="SSO Consent Form":::
+![SSO Consent Form](/screenshots/auth-consent-popup.png)
 
 ### OAuth
 
@@ -66,7 +65,7 @@ When an access token expires, the user will need to go through the sign-in proce
 
 This is what the OAuth card looks like in Teams:
 
-:::image type="content" source="~/assets/screenshots/auth-explicit-signin.png" alt-text="OAuthCard":::
+![OAuthCard](/screenshots/auth-explicit-signin.png)
 
 ## OAuth vs SSO - Head-to-Head Comparison
 
