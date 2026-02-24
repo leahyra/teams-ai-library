@@ -91,11 +91,8 @@ app.start().catch(console.error);
 ::: zone-end
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# [Minimal](#tab/minimal)
 
-<Tabs>
-  <TabItem label="Minimal" value="minimal">
     ```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
     using Microsoft.Teams.AI.Prompts;
@@ -131,8 +128,7 @@ import TabItem from '@theme/TabItem';
     webApp.Run();
     ```
 
-  </TabItem>
-</Tabs>
+---
 ::: zone-end
 
 ::: zone pivot="python"

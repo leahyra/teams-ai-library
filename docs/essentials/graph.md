@@ -124,10 +124,6 @@ app.on('message', async ({ activity, userGraph }) => {
 ::: zone-end
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
 ```csharp
 app.OnMessage(async context =>
 {

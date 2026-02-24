@@ -55,7 +55,6 @@ flowchart LR
     AppRouter --> |installation activity| AppActivityHandlers
     AppRouter --> |...other activities| AppActivityHandlers
 
-
     linkStyle 0,3 stroke:#66fdf3,stroke-width:1px,color:Tomato
     linkStyle 1,2,4,5 stroke:#66fdf3,stroke-width:1px
     linkStyle 6,7,8,9 color:Tomato

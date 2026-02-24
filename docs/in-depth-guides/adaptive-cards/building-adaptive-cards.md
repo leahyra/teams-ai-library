@@ -6,9 +6,6 @@ ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
@@ -378,8 +375,8 @@ Notice how the builder pattern keeps the file readable and maintainable:
 ::: zone-end
 
 ::: zone pivot="csharp"
-<Tabs>
-  <TabItem label="Minimal" value="minimal">
+# [Minimal](#tab/minimal)
+
     ```csharp
     teams.OnMessage(async context =>
     {
@@ -394,8 +391,7 @@ Notice how the builder pattern keeps the file readable and maintainable:
     });
     ```
 
-  </TabItem>
-</Tabs>
+---
 
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end

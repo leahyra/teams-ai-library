@@ -136,11 +136,8 @@ await send(result.content ?? 'Sorry I could not find that pokemon');
 
 Here's a complete example showing how to create a Pokemon search function that the LLM can call.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# [Imperative](#tab/imperative)
 
-<Tabs>
-  <TabItem label="Imperative" value="imperative" default>
     ```csharp
     using System.Text.Json;
     using Microsoft.Teams.AI.Annotations;
@@ -219,8 +216,8 @@ import TabItem from '@theme/TabItem';
     }
     ```
 
-  </TabItem>
-  <TabItem label="Declarative" value="declarative">
+# [Declarative](#tab/declarative)
+
     This approach uses attributes to declare prompts and functions, providing clean separation of concerns.
 
     **Create a Prompt Class:**
@@ -299,8 +296,7 @@ import TabItem from '@theme/TabItem';
     });
     ```
 
-  </TabItem>
-</Tabs>
+---
 
 ### How It Works
 
@@ -451,8 +447,8 @@ await send(result.content ?? 'Sorry I could not figure it out');
 
 Additionally, for complex scenarios, you can add multiple functions to the `ChatPrompt`. The LLM will then decide which function(s) to call based on the context of the conversation.
 
-<Tabs>
-  <TabItem label="Imperative" value="imperative" default>
+# [Imperative](#tab/imperative)
+
     ```csharp
     /// <summary>
     /// Get user location (mock)
@@ -525,8 +521,8 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
     }
     ```
 
-  </TabItem>
-  <TabItem label="Declarative" value="declarative">
+# [Declarative](#tab/declarative)
+
     **Create a Prompt Class:**
 
     ```csharp
@@ -596,8 +592,7 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
     });
     ```
 
-  </TabItem>
-</Tabs>
+---
 
 ### Multiple Function Execution Flow
 

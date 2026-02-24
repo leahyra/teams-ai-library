@@ -49,10 +49,6 @@ app.on('message', async ({ activity, api }) => {
 ::: zone-end
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
 ```csharp
 app.OnMessage(async context =>
 {
@@ -92,7 +88,6 @@ var members = await app.Api.Conversations.Members.Get("...");
 members = await app.api.conversations.members.get("...")
 ```
 ::: zone-end
-
 
 ## Meetings Example
 

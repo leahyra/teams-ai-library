@@ -6,17 +6,14 @@ ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # User Authentication
 
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
 equivalent feature for dialogs, but we do support auth flows in our own way via our :::zone pivot="typescript" inline :::`signin` and `signout`:::zone-end:::zone pivot="csharp" inline :::`SignIn` and `SignOut`:::zone-end:::zone pivot="python" inline :::`sign_in` and `sign_out`:::zone-end methods.
 
 ::: zone pivot="typescript"
-<Tabs groupId="user-auth">
-    <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
+
       ```typescript showLineNumbers
       import restify from 'restify';
       import {
@@ -151,8 +148,8 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
       });
       ```
 
-    </TabItem>
-    <TabItem value="Teams SDK">
+# [Teams SDK](#tab/teams-sdk)
+
       ```typescript showLineNumbers
       import { App } from '@microsoft/teams.apps';
       import { ConsoleLogger } from '@microsoft/teams.common/logging';
@@ -184,13 +181,12 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
       })();
       ```
 
-    </TabItem>
-  </Tabs>
+---
 ::: zone-end
 
 ::: zone pivot="csharp"
-<Tabs groupId="user-auth">
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
+
     ```csharp showLineNumbers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Dialogs;
@@ -271,8 +267,8 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     );
     ```
 
-  </TabItem>
-  <TabItem value="Teams SDK">
+# [Teams SDK](#tab/teams-sdk)
+
     ```csharp showLineNumbers
     using Microsoft.Teams.Apps;
 
@@ -305,13 +301,12 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     app.Run()
     ```
 
-  </TabItem>
-</Tabs>
+---
 ::: zone-end
 
 ::: zone pivot="python"
-<Tabs groupId="user-auth">
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
+
     ```python showLineNumbers
     from botbuilder.core import (
         ActivityHandler,
@@ -395,8 +390,8 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     )
     ```
 
-  </TabItem>
-  <TabItem value="Teams SDK">
+# [Teams SDK](#tab/teams-sdk)
+
     ```python showLineNumbers
     from microsoft_teams.apps import ActivityContext, App, SignInEvent
     from microsoft_teams.api import MessageActivity
@@ -421,6 +416,5 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
         await context.send("You have been signed in.")
     ```
 
-  </TabItem>
-</Tabs>
+---
 ::: zone-end

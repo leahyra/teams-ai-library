@@ -6,9 +6,6 @@ ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # The API Client
 
 BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams SDK
@@ -18,8 +15,8 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 > The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to discover available methods through IDE autocompletion.
 
 ::: zone pivot="typescript"
-<Tabs groupId="api-client">
-  <TabItem value="Diff" default>
+# [Diff](#tab/diff)
+
   ```typescript
   // highlight-error-start
 -  import {
@@ -54,8 +51,9 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +  });
   // highlight-success-end
   ```
-  </TabItem>
-  <TabItem value="BotBuilder">
+
+# [BotBuilder](#tab/botbuilder)
+
     ```typescript showLineNumbers
     import {
       CloudAdapter,
@@ -76,8 +74,9 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
       }
     }
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
+
+# [Teams SDK](#tab/teams-sdk)
+
     ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
@@ -88,13 +87,13 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
       const members = await api.conversations.members(activity.conversation.id).get();
     });
     ```
-  </TabItem>
-</Tabs>
+
+---
 ::: zone-end
 
 ::: zone pivot="csharp"
-<Tabs groupId="api-client">
-  <TabItem value="Diff" default>
+# [Diff](#tab/diff)
+
   ```csharp
   // highlight-error-start
 -  using Microsoft.Bot.Builder;
@@ -122,8 +121,9 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +  });
   // highlight-success-end
   ```
-  </TabItem>
-  <TabItem value="BotBuilder">
+
+# [BotBuilder](#tab/botbuilder)
+
     ```csharp showLineNumbers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Teams;
@@ -139,8 +139,9 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         }
     }
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
+
+# [Teams SDK](#tab/teams-sdk)
+
     ```csharp showLineNumbers
     using Microsoft.Teams.Apps;
     
@@ -150,13 +151,13 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
     });
     ```
-  </TabItem>
-</Tabs>
+
+---
 ::: zone-end
 
 ::: zone pivot="python"
-<Tabs groupId="api-client">
-  <TabItem value="Diff" default>
+# [Diff](#tab/diff)
+
   ```python
   # highlight-error-start
 -  from botbuilder.core import ActivityHandler, TurnContext
@@ -177,8 +178,9 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +      members = await context.api.conversations.members(context.activity.conversation.id).get_all()
   # highlight-success-end
   ```
-  </TabItem>
-  <TabItem value="BotBuilder">
+
+# [BotBuilder](#tab/botbuilder)
+
     ```python showLineNumbers
     from botbuilder.core import ActivityHandler, TurnContext
     from botbuilder.core.teams import TeamsInfo
@@ -188,8 +190,9 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
             # highlight-next-line
             members = await TeamsInfo.get_members(turn_context)
     ```
-  </TabItem>
-  <TabItem value="Teams SDK">
+
+# [Teams SDK](#tab/teams-sdk)
+
     ```python showLineNumbers
     from microsoft_teams.api import MessageActivity
     from microsoft_teams.apps import ActivityContext
@@ -199,8 +202,8 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         # highlight-next-line
         members = await context.api.conversations.members(context.activity.conversation.id).get()
     ```
-  </TabItem>
-</Tabs>
+
+---
 ::: zone-end
 
 ## Mapping TeamsInfo APIs to Teams SDK ApiClient Methods

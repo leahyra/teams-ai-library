@@ -34,11 +34,8 @@ app.on('install.add', async ({ activity, send }) => {
 ::: zone-end
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# [Minimal](#tab/minimal)
 
-<Tabs>
-  <TabItem label="Minimal" value="minimal">
     ```csharp 
     app.OnInstall(async context =>
     {
@@ -48,8 +45,8 @@ import TabItem from '@theme/TabItem';
         notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
     });
     ```
-  </TabItem>
-</Tabs>
+
+---
 ::: zone-end
 
 ::: zone pivot="python"

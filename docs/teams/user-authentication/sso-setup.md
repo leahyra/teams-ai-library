@@ -64,7 +64,6 @@ az bot authsetting create \
   --parameters "clientId=$appId" "clientSecret=$clientSecret" "tenantId=$tenantId" "tokenExchangeUrl=api://$appId"
 ```
 
-
 ## Configure the App Manifest
 
 The Teams application manifest needs to be updated to reflect the settings configure above, with the `Application Id` and `Application ID URI`, if not using `devtunnels`, replace the valid domain with the domain hosting your application. 

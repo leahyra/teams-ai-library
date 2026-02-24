@@ -6,9 +6,6 @@ ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Using the BotBuilder Plugin
 
 # Adapters
@@ -48,8 +45,8 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 > This snippet shows how to use the `BotBuilderPlugin` to send and receive activities using botbuilder instead of the default Teams SDK http plugin.
 
 ::: zone pivot="typescript"
-<Tabs>
-  <TabItem value="index.ts" default>
+# [index.ts](#tab/index.ts)
+
     ```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
@@ -71,8 +68,8 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     })();
     ```
 
-  </TabItem>
-  <TabItem value="adapter.ts">
+# [adapter.ts](#tab/adapter.ts)
+
     ```typescript
     import { CloudAdapter } from 'botbuilder';
 
@@ -94,8 +91,8 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     export default adapter;
     ```
 
-  </TabItem>
-  <TabItem value="activity-handler.ts">
+# [activity-handler.ts](#tab/activity-handler.ts)
+
     ```typescript
     import { TeamsActivityHandler } from 'botbuilder';
 
@@ -116,13 +113,12 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     export default handler;
     ```
 
-  </TabItem>
-</Tabs>
+---
 ::: zone-end
 
 ::: zone pivot="csharp"
-<Tabs>
-  <TabItem value="Program.cs" default>
+# [Program.cs](#tab/program.cs)
+
     ```csharp
 
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
@@ -156,8 +152,8 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     }
     ```
 
-  </TabItem>
-  <TabItem value="BotBuilderAdapter.cs">
+# [BotBuilderAdapter.cs](#tab/botbuilderadapter.cs)
+
     ```csharp
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Bot.Connector.Authentication;
@@ -181,8 +177,8 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     // highlight-end
     ```
 
-  </TabItem>
-  <TabItem value="ActivityHandler.cs">
+# [ActivityHandler.cs](#tab/activityhandler.cs)
+
     ```csharp
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Schema;
@@ -200,13 +196,12 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     // highlight-end
     ```
 
-  </TabItem>
-</Tabs>
+---
 ::: zone-end
 
 ::: zone pivot="python"
-<Tabs>
-  <TabItem value="app.py" default>
+# [app.py](#tab/app.py)
+
     ```python
     import asyncio
     from adapter import adapter
@@ -223,13 +218,12 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         print("Handling message in app...")
         await ctx.send("hi from teams...")
 
-
     if __name__ == "__main__":
         asyncio.run(app.start())
     ```
 
-  </TabItem>
-  <TabItem value="adapter.py">
+# [adapter.py](#tab/adapter.py)
+
     ```python
     from botbuilder.core import TurnContext
     from botbuilder.integration.aiohttp import (
@@ -258,8 +252,8 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     # highlight-end
     ```
 
-  </TabItem>
-  <TabItem value="activity_handler.py">
+# [activity_handler.py](#tab/activity_handler.py)
+
     ```python
     from botbuilder.core import ActivityHandler, TurnContext
 
@@ -271,8 +265,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     # highlight-end
     ```
 
-  </TabItem>
-</Tabs>
+---
 ::: zone-end
 
 In this example:

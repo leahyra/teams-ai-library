@@ -4,9 +4,6 @@ title: User Managed Identity Setup
 summary: Set up User Managed Identity authentication for your Teams bot in Azure Portal or Azure CLI
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # User Managed Identity Authentication Setup
 
 User Managed Identity authentication eliminates the need for secrets or passwords. A managed identity is created alongside your bot and assigned to your compute resource (App Service, Container App, VM, etc.).
@@ -32,8 +29,7 @@ This will automatically create a User Managed Identity resource alongside your b
 
 The User Managed Identity created with your bot must be assigned to the service running your application.
 
-<Tabs>
-<TabItem value="portal" label="Azure Portal">
+# [Azure Portal](#tab/portal)
 
 1. Navigate to your compute resource (App Service, Container App, VM, etc.) in the Azure Portal
 2. Go to **Identity** section in the left menu
@@ -42,8 +38,7 @@ The User Managed Identity created with your bot must be assigned to the service 
 5. Select the User Managed Identity that was created with your Azure Bot
 6. Click **Add** to confirm
 
-</TabItem>
-<TabItem value="cli" label="Azure CLI">
+# [Azure CLI](#tab/cli)
 
 ```bash
 # Assign user managed identity to your compute resource
@@ -60,8 +55,7 @@ az containerapp identity assign \
   --user-assigned $MANAGED_IDENTITY_RESOURCE_ID
 ```
 
-</TabItem>
-</Tabs>
+---
 
 ## Next Steps
 

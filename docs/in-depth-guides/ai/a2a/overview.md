@@ -62,7 +62,6 @@ flowchart RL
     B[A2APlugin]
     D[External A2A Client]
 
-
     D -- "task/send" message --> A_S
     subgraph A2A Server
         direction LR

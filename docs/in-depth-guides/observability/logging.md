@@ -70,7 +70,6 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
     await ctx.reply(TypingActivityInput())
     await ctx.send(f"You said '{ctx.activity.text}'")
 
-
 if __name__ == "__main__":
     asyncio.run(app.start())
 ```

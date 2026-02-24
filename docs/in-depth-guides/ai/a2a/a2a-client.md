@@ -135,7 +135,6 @@ def get_required_env(key: str) -> str:
         raise ValueError(f"Required environment variable {key} is not set")
     return value
 
-
 AZURE_OPENAI_MODEL = get_required_env("AZURE_OPENAI_MODEL")
 completions_model = OpenAICompletionsAIModel(model=AZURE_OPENAI_MODEL)
 
@@ -236,7 +235,6 @@ def build_function_metadata(card: AgentCard) -> FunctionMetadata:
         description=f"Ask {card.name} about {card.description or 'anything'}",
     )
 
-
 def build_message_for_agent(data: BuildMessageForAgentMetadata) -> Union[Message, str]:
     # Return a string - will be automatically wrapped in a Message
     return f"[To {data.card.name}]: {data.input}"
@@ -251,7 +249,6 @@ def build_message_for_agent(data: BuildMessageForAgentMetadata) -> Union[Message
     #             )
     # return message
 
-
 def build_message_from_agent_response(data: BuildMessageFromAgentMetadata) -> str:
     if isinstance(data.response, Message):
         text_parts: List[str] = []
@@ -261,7 +258,6 @@ def build_message_from_agent_response(data: BuildMessageFromAgentMetadata) -> st
                 text_parts.append(text_part.text)
         return f"{data.card.name} says: {' '.join(text_parts)}"
     return f"{data.card.name} sent a non-text response."
-
 
 ## Advanced A2AClientPlugin
 advanced_plugin = A2AClientPlugin(

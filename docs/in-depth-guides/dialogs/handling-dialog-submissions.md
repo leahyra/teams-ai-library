@@ -78,7 +78,6 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
         ? submissionTypeObj.ToString()
         : null;
 
-
     string? GetFormValue(string key)
     {
         if (data.Value.TryGetProperty(key, out var val))

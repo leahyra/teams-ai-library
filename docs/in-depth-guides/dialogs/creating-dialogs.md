@@ -397,7 +397,6 @@ async def handle_dialog_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
         ]
     )
 
-
     # Return an object with the task value that renders a card
     return InvokeResponse(
                 body=TaskModuleResponse(
