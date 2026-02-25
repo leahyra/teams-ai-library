@@ -8,7 +8,7 @@ zone_pivot_groups: dev-lang
 
 # Using the BotBuilder Plugin
 
-# Adapters
+## Adapters
 A BotBuilder `CloudAdapter` is responsible for managing communication between a bot and its users.
 It serves as the entry point for incoming activities and forwards them to the registered `ActivityHandler` for processing.
 You can customize the adapter to add middleware for logging, authentication, and define error handling.
@@ -17,14 +17,14 @@ The `BotBuilderPlugin` provided within the Teams SDK, connects the SDK with the 
 It can either use an existing `CloudAdapter` or create a new default one, allowing activities to be processed through BotBuilder
 while still handling events via the Teams SDK App framework.
 
-# Activity Handlers
+## Activity Handlers
 The BotBuilder `ActivityHandler` contains the actual bot logic for processing messages or events
 similar to how the Teams SDK `App` routes messages and events. You can override any number of methods,
 such as :::zone pivot="typescript" inline :::`OnMembersAdded`:::zone-end:::zone pivot="csharp" inline :::`OnMembersAddedAsync`:::zone-end:::zone pivot="python" inline :::`on_members_added_activity`:::zone-end
 or :::zone pivot="typescript" inline :::`onMessage`:::zone-end:::zone pivot="csharp" inline :::`OnMessageActivityAsync`:::zone-end:::zone pivot="python" inline :::`on_message_activity`:::zone-end ,
 to handle different activity types.
 
-# Turn Context
+## Turn Context
 Each incoming activity is wrapped in a `TurnContext`, which represents the context of a single turn in the conversation.
 TurnContext provides access to:
 - The incoming activity (message, event).
@@ -33,7 +33,7 @@ TurnContext provides access to:
 
 Teams SDK has :::zone pivot="typescript" inline :::`IActivityContext`:::zone-end:::zone pivot="csharp" inline :::`IActivityContext`:::zone-end:::zone pivot="python" inline :::`ActivityContext`:::zone-end for the same purpose.
 
-# How it all comes together
+## How it all comes together
 
 The `CloudAdapter` creates the `TurnContext`, and the `ActivityHandler` uses it to read the activity and send responses.
 

@@ -10,7 +10,7 @@ zone_pivot_groups: dev-lang
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
-# Setup
+## Setup
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
