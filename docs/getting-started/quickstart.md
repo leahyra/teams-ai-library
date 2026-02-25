@@ -37,7 +37,7 @@ npx @microsoft/teams.cli --version
 ```
 
 > [!NOTE]
-> _The [Teams CLI](developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+> _The [Teams CLI](../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
 > Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
 
 ## Creating Your First Agent
@@ -202,13 +202,13 @@ Now, navigate to the devtools server by opening your browser and navigating to [
 
 ## Next steps
 
-After creating and running your first agent, read about [the code basics](code-basics) to better understand its components and structure.
+After creating and running your first agent, read about [the code basics](./code-basics.md) to better understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](running-in-teams) guide.
+Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](./running-in-teams/overview.md) guide.
 
 ## Resources
 
-- [Teams CLI documentation](developer-tools/cli)
-- [Teams DevTools documentation](developer-tools/devtools)
+- [Teams CLI documentation](../developer-tools/cli.md)
+- [Teams DevTools documentation](../developer-tools/devtools/overview.md)
 - [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
 - [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

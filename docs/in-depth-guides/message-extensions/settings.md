@@ -255,12 +255,12 @@ app.page("settings", str(Path(__file__).parent), "/tabs/settings")
 
 ::: zone pivot="typescript"
 > [!NOTE]
-> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs.md) to learn more.
+> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/overview.md) to learn more.
 ::: zone-end
 
 ::: zone pivot="csharp"
 > [!NOTE]
-> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs.md) to learn more.
+> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/overview.md) to learn more.
 ::: zone-end
 
 ::: zone pivot="python"

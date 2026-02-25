@@ -8,7 +8,7 @@ zone_pivot_groups: dev-lang
 
 #  Chat Generation
 
-Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.mdx) guide.
+Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
 # Setup
 

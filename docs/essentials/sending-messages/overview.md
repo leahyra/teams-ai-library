@@ -66,7 +66,7 @@ async def handle_sign_in(event: SignInEvent):
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to :::zone pivot="typescript" inline :::`signin.verify-state`:::zone-end:::zone pivot="csharp" inline :::`SignIn.VerifyState`:::zone-end:::zone pivot="python" inline :::`sign_in`:::zone-end events, which are sent when a user successfully signs in.
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards.md) section for more details.
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
 
 ## Streaming
 

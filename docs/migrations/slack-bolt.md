@@ -33,13 +33,13 @@ Let's take a look at some similarities and differences between Slack and Teams c
 | **Targeted messages** | Teams does not currently support targeted messages. | Slack supports targeted ephemeral messages. |
 | **Slash commands** | Teams supports [slash commands](/microsoftteams/platform/bots/how-to/create-a-bot-commands-menu) that are declared in the app manifest. Unlike Slack, commands are sent as messages and thus are visible to all users in the conversation. Listen for new commands using `app.message` handler, either via `app.message('/command')` or `app.message(regexp)`. | Slack Bolt has a dedicated `app.command` handler for commands in the Slack app manifest. Slash commands are not displayed to other users in collaborative contexts. |
 | **Workflows** | Teams Workflows is not integrated with the Teams SDK. To integrate with Teams Workflows, you must create a [custom Power Platform Connector](/connectors/custom-connectors/). | Slack Workflows are integrated with Slack Bolt. |
-| **UI dialogs** | Adaptive Cards can include actions that open [UI dialogs](../in-depth-guides/dialogs.md) with an embedded website or another adaptive card. Dialogs must be opened via an adaptive card action and thus cannot be opened directly via a slash command. | BlockKit UI modals can be opened via slash commands (using `client.views.open`) or BlockKit actions. |
+| **UI dialogs** | Adaptive Cards can include actions that open [UI dialogs](../in-depth-guides/dialogs/overview.md) with an embedded website or another adaptive card. Dialogs must be opened via an adaptive card action and thus cannot be opened directly via a slash command. | BlockKit UI modals can be opened via slash commands (using `client.views.open`) or BlockKit actions. |
 | **AI strategy** | Teams has unique AI-native features for things like user feedback, AI-generated labels, prompt suggestions, streaming, and citations. We also feature an optional `ChatPrompt` class to simplify integrating LLMs into your bot. Leverage grounded search via the [Microsoft 365 Copilot Retrieval Graph API](/microsoft-365-copilot/extensibility/api/ai-services/retrieval/overview). AI features are generally designed for use in any conversation type. | Slack has a dedicated `Assistant` class for AI interactions in a dedicated agent side panel view, which differs from Teams's strategy of using existing bot interaction patterns. Can still use AI in other conversation types using standard bot APIs. Can use Slack Data Access API for grounded search. |
 | **AI user feedback** | User feedback buttons are natively rendered in Teams with dedicated APIs for handling feedback. After user gives positive or negative feedback, a modal is opened where additional information (e.g., plain text response) can be captured. | Slack uses a dedicated `feedback_buttons` BlockKit element type and `app.action('feedback')` for attaching user feedback (positive vs. negative) to messages. |
 
 ## Configuring your application
 
-First, setup a new Teams application, as shown in [Teams Integration](../../../../docs/main/teams/README.md).
+First, setup a new Teams application, as shown in [Teams Integration](../teams/overview.md).
 
 ## Installing Teams SDK
 
@@ -407,7 +407,7 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
 <!-- TODO: section "adaptive-cards" missing for python -->
 ::: zone-end
 
-Learn more in the [Adaptive Cards guide](../in-depth-guides/adaptive-cards.md).
+Learn more in the [Adaptive Cards guide](../in-depth-guides/adaptive-cards/overview.md).
 
 ## User authentication
 
@@ -417,7 +417,7 @@ There are two primary types of user authentication for Teams and Slack: authenti
 
 In Slack, if you want to use Slack REST APIs that require user-delegated scopes, you need to implement an OAuth 2.0 installation flow in your application to obtain and store Slack user tokens, even if the app was already installed by another user. In Teams, you can leverage Teams SSO to obtain user Entra tokens for calling Graph REST APIs. The Teams SDK integrates with Teams SSO and Azure Bot Token Service to handle token acquisition, storage, and refresh automatically for you.
 
-First, follow the instructions in the [Teams SSO guide](../../../../docs/main/teams/user-authentication/sso-setup.md).
+First, follow the instructions in the [Teams SSO guide](../teams/user-authentication/sso-setup.md).
 
 Then, configure the authentication in your code.
 

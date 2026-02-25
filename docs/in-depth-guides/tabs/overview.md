@@ -47,7 +47,6 @@ This SDK does not offer features for implementing Tab apps in C#. It does howeve
 ### Additional resources
 
 - [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)
-- [TypeScript Tabs in-depth guide](../../../typescript/in-depth-guides/tabs.md)
 ::: zone-end
 
 ::: zone pivot="python"
