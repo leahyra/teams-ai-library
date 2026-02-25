@@ -93,7 +93,7 @@ app.start().catch(console.error);
 ::: zone pivot="csharp"
 # [Minimal](#tab/minimal)
 
-    ```csharp
+```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
     using Microsoft.Teams.AI.Prompts;
     using Microsoft.Teams.Api.Activities;
@@ -126,7 +126,7 @@ app.start().catch(console.error);
         await context.Send(result.Content);
     });
     webApp.Run();
-    ```
+```
 
 ---
 ::: zone-end

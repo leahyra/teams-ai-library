@@ -51,7 +51,7 @@ app.on('signin.verify-state', async ({ send }) => {
   {
       await context.Send("You have successfully signed in!");
   });
-  ```
+```
 ::: zone-end
 
 ::: zone pivot="python"

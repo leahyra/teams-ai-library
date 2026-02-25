@@ -47,7 +47,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone pivot="typescript"
 # [index.ts](#tab/index.ts)
 
-    ```typescript
+```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
 
@@ -66,11 +66,11 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     (async () => {
       await app.start();
     })();
-    ```
+```
 
 # [adapter.ts](#tab/adapter.ts)
 
-    ```typescript
+```typescript
     import { CloudAdapter } from 'botbuilder';
 
     // replace with your BotAdapter
@@ -89,11 +89,11 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     // highlight-end
 
     export default adapter;
-    ```
+```
 
 # [activity-handler.ts](#tab/activity-handler.ts)
 
-    ```typescript
+```typescript
     import { TeamsActivityHandler } from 'botbuilder';
 
     // replace with your TeamsActivityHandler
@@ -111,7 +111,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
     const handler = new ActivityHandler();
     export default handler;
-    ```
+```
 
 ---
 ::: zone-end
@@ -119,7 +119,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone pivot="csharp"
 # [Program.cs](#tab/program.cs)
 
-    ```csharp
+```csharp
 
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Teams.Api.Activities;
@@ -150,11 +150,11 @@ With the `BotBuilderPlugin`, when a message or activity is received:
             await context.Client.Send($"hi from teams...");
         });
     }
-    ```
+```
 
 # [BotBuilderAdapter.cs](#tab/botbuilderadapter.cs)
 
-    ```csharp
+```csharp
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Bot.Connector.Authentication;
 
@@ -175,11 +175,11 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         }
     }
     // highlight-end
-    ```
+```
 
 # [ActivityHandler.cs](#tab/activityhandler.cs)
 
-    ```csharp
+```csharp
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Schema;
 
@@ -194,7 +194,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         }
     }
     // highlight-end
-    ```
+```
 
 ---
 ::: zone-end
@@ -202,7 +202,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone pivot="python"
 # [app.py](#tab/app.py)
 
-    ```python
+```python
     import asyncio
     from adapter import adapter
     from activity_handler import MyActivityHandler
@@ -220,11 +220,11 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
     if __name__ == "__main__":
         asyncio.run(app.start())
-    ```
+```
 
 # [adapter.py](#tab/adapter.py)
 
-    ```python
+```python
     from botbuilder.core import TurnContext
     from botbuilder.integration.aiohttp import (
         CloudAdapter,
@@ -250,11 +250,11 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
     adapter.on_turn_error = on_error
     # highlight-end
-    ```
+```
 
 # [activity_handler.py](#tab/activity_handler.py)
 
-    ```python
+```python
     from botbuilder.core import ActivityHandler, TurnContext
 
     # replace with your ActivityHandler
@@ -263,7 +263,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         async def on_message_activity(self, turn_context: TurnContext):
             await turn_context.send_activity("hi from botbuilder...")
     # highlight-end
-    ```
+```
 
 ---
 ::: zone-end

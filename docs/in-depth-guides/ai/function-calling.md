@@ -84,7 +84,7 @@ Here's a complete example showing how to create a Pokemon search function that t
 
 # [Imperative](#tab/imperative)
 
-    ```csharp
+```csharp
     using System.Text.Json;
     using Microsoft.Teams.AI.Annotations;
     using Microsoft.Teams.AI.Models.OpenAI;
@@ -160,7 +160,7 @@ Here's a complete example showing how to create a Pokemon search function that t
             await context.Reply("Sorry I could not find that pokemon");
         }
     }
-    ```
+```
 
 # [Declarative](#tab/declarative)
 
@@ -168,7 +168,7 @@ Here's a complete example showing how to create a Pokemon search function that t
 
     **Create a Prompt Class:**
 
-    ```csharp
+```csharp
     using System.Text.Json;
     using Microsoft.Teams.AI.Annotations;
 
@@ -213,11 +213,11 @@ Here's a complete example showing how to create a Pokemon search function that t
             }
         }
     }
-    ```
+```
 
     **Usage in Program.cs:**
 
-    ```csharp
+```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
     using Microsoft.Teams.Api.Activities;
 
@@ -240,7 +240,7 @@ Here's a complete example showing how to create a Pokemon search function that t
             await context.Reply("Sorry I could not find that pokemon");
         }
     });
-    ```
+```
 
 ---
 
@@ -395,7 +395,7 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
 
 # [Imperative](#tab/imperative)
 
-    ```csharp
+```csharp
     /// <summary>
     /// Get user location (mock)
     /// </summary>
@@ -465,13 +465,13 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
             await context.Reply("Sorry I could not figure it out");
         }
     }
-    ```
+```
 
 # [Declarative](#tab/declarative)
 
     **Create a Prompt Class:**
 
-    ```csharp
+```csharp
     using Microsoft.Teams.AI.Annotations;
 
     namespace Samples.AI.Prompts;
@@ -509,11 +509,11 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
             return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}°F";
         }
     }
-    ```
+```
 
     **Usage in Program.cs:**
 
-    ```csharp
+```csharp
     using Microsoft.Teams.AI.Models.OpenAI;
     using Microsoft.Teams.Api.Activities;
 
@@ -536,7 +536,7 @@ Additionally, for complex scenarios, you can add multiple functions to the `Chat
             await context.Reply("Sorry I could not figure it out");
         }
     });
-    ```
+```
 
 ---
 

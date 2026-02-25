@@ -377,7 +377,7 @@ Notice how the builder pattern keeps the file readable and maintainable:
 ::: zone pivot="csharp"
 # [Minimal](#tab/minimal)
 
-    ```csharp
+```csharp
     teams.OnMessage(async context =>
     {
         var text = context.Activity.Text?.ToLowerInvariant() ?? "";
@@ -389,7 +389,7 @@ Notice how the builder pattern keeps the file readable and maintainable:
             await context.Send(card);
         }
     });
-    ```
+```
 
 ---
 

@@ -36,7 +36,7 @@ app.on('install.add', async ({ activity, send }) => {
 ::: zone pivot="csharp"
 # [Minimal](#tab/minimal)
 
-    ```csharp
+```csharp
     app.OnInstall(async context =>
     {
         // Save the conversation id in
@@ -44,7 +44,7 @@ app.on('install.add', async ({ activity, send }) => {
         await context.Send("Hi! I am going to remind you to say something to me soon!");
         notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
     });
-    ```
+```
 
 ---
 ::: zone-end

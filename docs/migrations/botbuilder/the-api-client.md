@@ -17,7 +17,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 ::: zone pivot="typescript"
 # [Diff](#tab/diff)
 
-  ```typescript
+```typescript
   // highlight-error-start
 -  import {
 -    CloudAdapter,
@@ -50,11 +50,11 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +    const members = await api.conversations.members(activity.conversation.id).get();
 +  });
   // highlight-success-end
-  ```
+```
 
 # [BotBuilder](#tab/botbuilder)
 
-    ```typescript showLineNumbers
+```typescript showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -73,11 +73,11 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         });
       }
     }
-    ```
+```
 
 # [Teams SDK](#tab/teams-sdk)
 
-    ```typescript showLineNumbers
+```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();
@@ -86,7 +86,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
       // highlight-next-line
       const members = await api.conversations.members(activity.conversation.id).get();
     });
-    ```
+```
 
 ---
 ::: zone-end
@@ -94,7 +94,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 ::: zone pivot="csharp"
 # [Diff](#tab/diff)
 
-  ```csharp
+```csharp
   // highlight-error-start
 -  using Microsoft.Bot.Builder;
 -  using Microsoft.Bot.Builder.Teams;
@@ -120,11 +120,11 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +      var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
 +  });
   // highlight-success-end
-  ```
+```
 
 # [BotBuilder](#tab/botbuilder)
 
-    ```csharp showLineNumbers
+```csharp showLineNumbers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Teams;
 
@@ -138,11 +138,11 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
             var members = await TeamsInfo.GetMembersAsync(turnContext, cancellationToken);
         }
     }
-    ```
+```
 
 # [Teams SDK](#tab/teams-sdk)
 
-    ```csharp showLineNumbers
+```csharp showLineNumbers
     using Microsoft.Teams.Apps;
 
     app.OnMessage(async (context) =>
@@ -150,7 +150,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         // highlight-next-line
         var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
     });
-    ```
+```
 
 ---
 ::: zone-end
@@ -158,7 +158,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 ::: zone pivot="python"
 # [Diff](#tab/diff)
 
-  ```python
+```python
   # highlight-error-start
 -  from botbuilder.core import ActivityHandler, TurnContext
 -  from botbuilder.core.teams import TeamsInfo
@@ -177,11 +177,11 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 +  async def on_message(context: ActivityContext[MessageActivity]):
 +      members = await context.api.conversations.members(context.activity.conversation.id).get_all()
   # highlight-success-end
-  ```
+```
 
 # [BotBuilder](#tab/botbuilder)
 
-    ```python showLineNumbers
+```python showLineNumbers
     from botbuilder.core import ActivityHandler, TurnContext
     from botbuilder.core.teams import TeamsInfo
 
@@ -189,11 +189,11 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
         async def on_message_activity(self, turn_context: TurnContext):
             # highlight-next-line
             members = await TeamsInfo.get_members(turn_context)
-    ```
+```
 
 # [Teams SDK](#tab/teams-sdk)
 
-    ```python showLineNumbers
+```python showLineNumbers
     from microsoft_teams.api import MessageActivity
     from microsoft_teams.apps import ActivityContext
 
@@ -201,7 +201,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
     async def on_message(context: ActivityContext[MessageActivity]):
         # highlight-next-line
         members = await context.api.conversations.members(context.activity.conversation.id).get()
-    ```
+```
 
 ---
 ::: zone-end
