@@ -19,7 +19,7 @@ Get started with Teams SDK quickly using the Teams CLI.
 ::: zone-end
 
 ::: zone pivot="csharp"
-- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/en-us/download).
+- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/download).
 ::: zone-end
 
 ::: zone pivot="python"
