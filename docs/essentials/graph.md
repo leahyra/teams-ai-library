@@ -152,7 +152,6 @@ Here, the :::zone pivot="typescript" inline :::`userGraph`:::zone-end:::zone piv
 
 > [!TIP]
 > You also have access to thezone pivot="typescript" inline :::`appGraph`:::zone-end:::zone pivot="csharp" inline :::`appGraph`:::zone-end:::zone pivot="python" inline :::`app_graph`:::zone-end object in the activity handler. This is equivalent to :::zone pivot="typescript" inline :::`app.graph`:::zone-end:::zone pivot="csharp" inline :::`app.Graph`:::zone-end:::zone pivot="python" inline :::`app.graph`:::zone-end.
-:::
 
 ::: zone pivot="typescript"
 ## The Graph Client

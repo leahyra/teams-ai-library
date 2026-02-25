@@ -120,7 +120,6 @@ async def send_proactive_notification(user_id: str):
 
 > [!TIP]
 > In this example, you see how to get thezone pivot="typescript" inline :::`conversationId`:::zone-end:::zone pivot="csharp" inline :::`conversationId`:::zone-end:::zone pivot="python" inline :::`conversation_id`:::zone-end using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.
-:::
 
 ## Targeted Proactive Messages
 
