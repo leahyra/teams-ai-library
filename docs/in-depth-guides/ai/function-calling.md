@@ -12,71 +12,17 @@ It's possible to hook up functions that the LLM can decide to call if it thinks 
 
 ::: zone pivot="typescript"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-sequenceDiagram
-  participant User
-  participant ChatPrompt
-  participant LLM
-  participant Function-PokemonSearch
-  participant ExternalAPI
-
-  User->>ChatPrompt: send(activity.text)
-  ChatPrompt->>LLM: Provide instructions, message, and available functions
-    LLM->>ChatPrompt: Decide to call `pokemonSearch` with parameters
-    ChatPrompt->>Function-PokemonSearch: Execute with pokemonName
-    Function-PokemonSearch->>ExternalAPI: fetch pokemon data
-    ExternalAPI-->>Function-PokemonSearch: return pokemon info
-    Function-PokemonSearch-->>ChatPrompt: return result
-  ChatPrompt->>LLM: Send function result(s)
-  LLM-->>ChatPrompt: Final user-facing response
-  ChatPrompt-->>User: send(result.content)
-```
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, and Function" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling.png":::
 ::: zone-end
 
 ::: zone pivot="csharp"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-sequenceDiagram
-  participant User
-  participant ChatPrompt
-  participant LLM
-  participant Function-PokemonSearch
-  participant ExternalAPI
-
-  User->>ChatPrompt: send("Tell me about Pikachu")
-  ChatPrompt->>LLM: Provide instructions, message, and available functions
-    LLM->>ChatPrompt: Decide to call `pokemon_search` with pokemon_name="Pikachu"
-    ChatPrompt->>Function-PokemonSearch: Execute with pokemon_name
-    Function-PokemonSearch->>ExternalAPI: fetch Pokemon data
-    ExternalAPI-->>Function-PokemonSearch: return Pokemon info
-    Function-PokemonSearch-->>ChatPrompt: return result
-  ChatPrompt->>LLM: Send function result(s)
-  LLM-->>ChatPrompt: Final user-facing response
-  ChatPrompt-->>User: send(result.content)
-```
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling-2.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, and Function with tool calls" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling-2.png":::
 ::: zone-end
 
 ::: zone pivot="python"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-sequenceDiagram
-  participant User
-  participant ChatPrompt
-  participant LLM
-  participant Function-PokemonSearch
-  participant ExternalAPI
-
-  User->>ChatPrompt: send(activity.text)
-  ChatPrompt->>LLM: Provide instructions, message, and available functions
-    LLM->>ChatPrompt: Decide to call `pokemon_search` with pokemon_name
-    ChatPrompt->>Function-PokemonSearch: Execute with pokemon_name
-    Function-PokemonSearch->>ExternalAPI: fetch pokemon data
-    ExternalAPI-->>Function-PokemonSearch: return pokemon info
-    Function-PokemonSearch-->>ChatPrompt: return result
-  ChatPrompt->>LLM: Send function result(s)
-  LLM-->>ChatPrompt: Final user-facing response
-  ChatPrompt-->>User: send(result.content)
-```
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling-3.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, and Function with tool calls" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling-3.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"

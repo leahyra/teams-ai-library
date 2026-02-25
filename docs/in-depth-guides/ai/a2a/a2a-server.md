@@ -168,16 +168,4 @@ async def handle_a2a_message(message: A2AMessageEvent) -> None:
 ## Sequence Diagram
 
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-sequenceDiagram
-    participant A2A Client
-    participant App
-    participant A2APlugin
-    participant YourEventHandler
-
-    A2A Client->>App: /task/send
-    App->>A2APlugin: Call A2APlugin
-    A2APlugin->>YourEventHandler: Call your event handler a2a:message
-    YourEventHandler->>A2APlugin: Call respond
-    A2APlugin->>A2A Client: Return response
-```
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-server.png" alt-text="Sequence diagram showing interaction between A2A client, App, A2APlugin, and event handlers" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-server.png":::

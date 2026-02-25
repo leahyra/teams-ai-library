@@ -12,59 +12,17 @@ An **event** is a foundational concept in building agents — it represents some
 
 ::: zone pivot="typescript"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-flowchart LR
-    Teams["Teams"]:::less-interesting
-    Server["App Server"]:::interesting
-    AppEventHandlers["Event Handler (app.event())"]:::interesting
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-
-    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
-    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
-```
+:::image type="content" source="~/assets/diagrams/essentials-on-event.png" alt-text="Flowchart showing Teams sending events to the App Server and Event Handler" lightbox="~/assets/diagrams/essentials-on-event.png":::
 ::: zone-end
 
 ::: zone pivot="csharp"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-flowchart LR
-    Teams["Teams"]:::less-interesting
-    Server["App Server"]:::interesting
-    AppEventHandlers["Event Handler (app.OnEvent())"]:::interesting
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-
-    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
-    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
-```
+:::image type="content" source="~/assets/diagrams/essentials-on-event-2.png" alt-text="Flowchart showing Teams sending events to the App Server and Event Handler" lightbox="~/assets/diagrams/essentials-on-event-2.png":::
 ::: zone-end
 
 ::: zone pivot="python"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-flowchart LR
-    Teams["Teams"]:::less-interesting
-    Server["App Server"]:::interesting
-    AppEventHandlers["Event Handler (app.event())"]:::interesting
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-
-    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
-    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
-```
+:::image type="content" source="~/assets/diagrams/essentials-on-event-3.png" alt-text="Flowchart showing Teams sending events to the App Server and Event Handler" lightbox="~/assets/diagrams/essentials-on-event-3.png":::
 ::: zone-end
 
 The Teams SDK makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.

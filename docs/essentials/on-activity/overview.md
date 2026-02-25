@@ -24,20 +24,7 @@ The Teams SDK exposes a fluent router so you can subscribe to these activities w
 ::: zone-end
 
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-flowchart LR
-    Teams["Teams"]:::less-interesting
-    Server["App Server"]:::interesting
-    ActivityRouter["Activity Router (app.on())"]:::interesting
-    Handlers["Your Activity Handlers"]:::interesting
-
-    Teams --> |Events| Server
-    Server --> |Activity Event| ActivityRouter
-    ActivityRouter --> |handler invoked| Handlers
-
-    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
-    classDef less-interesting fill:#666,stroke:#333,stroke-width:4px;
-```
+:::image type="content" source="~/assets/diagrams/essentials-on-activity-overview.png" alt-text="Flowchart showing Teams sending activities to the App Server, Activity Router, and Activity Handlers" lightbox="~/assets/diagrams/essentials-on-activity-overview.png":::
 
 Here is an example of a basic message handler:
 

@@ -36,28 +36,6 @@ Before diving in, let's define a few key terms:
 ::: zone-end
 
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-flowchart LR
-    Teams["Teams"]
-    Server["App Server"]
-    AppEventHandlers[":::zone pivot="typescript" inline :::Event Handler (app.event()):::zone-end:::zone pivot="csharp" inline :::Event Handler (app.OnEvent()):::zone-end:::zone pivot="python" inline :::Event Handler decorator (@app.event()):::zone-end"]
-    AppRouter["Activity Event Router"]
-    AppActivityHandlers[":::zone pivot="typescript" inline :::Activity Handlers (app.on()):::zone-end:::zone pivot="csharp" inline :::Activity Handlers (app.OnActivity()):::zone-end:::zone pivot="python" inline :::Activity Handler decorators (@app.on_activity()):::zone-end"]
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server --> |ActivityEvent<br/>or InvokeEvent| AppRouter
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-    AppRouter --> |message activity| AppActivityHandlers
-    AppRouter --> |card activity| AppActivityHandlers
-    AppRouter --> |installation activity| AppActivityHandlers
-    AppRouter --> |...other activities| AppActivityHandlers
-
-    linkStyle 0,3 stroke:#66fdf3,stroke-width:1px,color:Tomato
-    linkStyle 1,2,4,5 stroke:#66fdf3,stroke-width:1px
-    linkStyle 6,7,8,9 color:Tomato
-```
+:::image type="content" source="~/assets/diagrams/essentials-overview.png" alt-text="Flowchart showing Teams sending events to App Server, which routes them to Event Handlers and Activity Handlers" lightbox="~/assets/diagrams/essentials-overview.png":::
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.

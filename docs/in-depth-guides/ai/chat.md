@@ -15,31 +15,7 @@ Before going through this guide, please make sure you have completed the [setup 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-```mermaid
-flowchart LR
-    Prompt
-
-    subgraph Application
-        Send --> Prompt
-        UserMessage["User Message<br/>Hi how are you?"] --> Send
-        Send --> Content["Content<br/>I am doing great! How can I help you?"]
-
-        subgraph Setup
-            Messages --> Prompt
-            Instructions --> Prompt
-            Options["Other options..."] --> Prompt
-
-            Prompt --> Model
-        end
-    end
-
-    subgraph LLMProvider
-        Model --> AOAI["Azure Open AI"]
-        Model --> OAI["Open AI"]
-        Model --> Anthropic["Claude"]
-        Model --> OtherModels["..."]
-    end
-```
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-chat.png" alt-text="Flowchart showing a user message sent to Azure OpenAI and receiving a content response" lightbox="~/assets/diagrams/in-depth-guides-ai-chat.png":::
 
 ## Simple chat generation
 
