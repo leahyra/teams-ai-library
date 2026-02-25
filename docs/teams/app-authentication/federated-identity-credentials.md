@@ -1,7 +1,8 @@
 ---
-sidebar_position: 3
 title: Federated Identity Credentials Setup
-summary: Set up Federated Identity Credentials authentication for your Teams bot in Azure Portal or Azure CLI
+description: Set up Federated Identity Credentials authentication for your Teams bot in Azure Portal or Azure CLI
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 # Federated Identity Credentials Setup

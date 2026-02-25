@@ -2,7 +2,7 @@
 title: App Basics
 description: Comprehensive guide to the App class, the main entry point for Teams SDK agents that handles server hosting, request routing, authentication, and plugin management.
 ms.topic: how-to
-ms.date: '2026-02-24'
+ms.date: 02/25/2026
 ---
 
 # App Basics

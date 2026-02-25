@@ -1,6 +1,8 @@
 ---
-sidebar_position: 4
-summary: Set up authentication for your Teams bot using client secrets, user managed identities, or federated identity credentials
+title: App Authentication Setup
+description: Set up authentication for your Teams bot using client secrets, user managed identities, or federated identity credentials
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 import LangLink from '@site/src/components/LangLink';

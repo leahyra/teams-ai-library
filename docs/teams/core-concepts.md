@@ -1,6 +1,8 @@
 ---
-sidebar_position: 1
-summary: Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.
+title: Teams Core Concepts
+description: Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 # Teams Core Concepts

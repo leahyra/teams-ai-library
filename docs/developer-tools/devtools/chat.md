@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
-summary: Test chat functionality with your Teams agent using the lightweight DevTools without sideloading into Teams.
-llms: ignore
+title: Devtools chat
+description: Test chat functionality with your Teams agent using the lightweight DevTools without sideloading into Teams.
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 #  Devtools chat

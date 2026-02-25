@@ -1,7 +1,8 @@
 ---
-sidebar_position: 0
-summary: Welcome guide to Teams SDK, covering the quickstart process and how to build agents and applications for Microsoft Teams.
-llms: ignore
+title: Welcome
+description: Welcome guide to Teams SDK, covering the quickstart process and how to build agents and applications for Microsoft Teams.
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 import LangLink from '@site/src/components/LangLink';

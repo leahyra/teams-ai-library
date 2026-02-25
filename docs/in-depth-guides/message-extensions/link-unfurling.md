@@ -1,9 +1,9 @@
 ---
-title: Link Unfurling
+title: Link unfurling
 description: Enable your app to respond when users paste URLs by creating preview cards with additional information and actions.
 ms.topic: how-to
-ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
+ms.date: 02/25/2026
 ---
 
 #  Link unfurling

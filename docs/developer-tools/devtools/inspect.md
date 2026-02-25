@@ -1,7 +1,8 @@
 ---
-sidebar_position: 2
-summary: Inspect all incoming and outgoing activities with your agent using DevTools Activities page for debugging.
-llms: ignore
+title: Inspect activities
+description: Inspect all incoming and outgoing activities with your agent using DevTools Activities page for debugging.
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 #  Inspect activities

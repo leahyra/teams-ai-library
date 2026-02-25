@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
-summary: Explanation of why an SDK is beneficial for building Teams agent applications, covering event handling and proactive messaging patterns.
-llms: ignore
+title: Why An SDK?
+description: Explanation of why an SDK is beneficial for building Teams agent applications, covering event handling and proactive messaging patterns.
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 # Why An SDK?

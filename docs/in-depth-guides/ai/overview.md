@@ -3,6 +3,7 @@ title: AI
 description: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
+ms.date: 02/25/2026
 ---
 
 # AI

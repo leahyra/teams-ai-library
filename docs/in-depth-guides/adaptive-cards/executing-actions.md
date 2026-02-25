@@ -2,8 +2,8 @@
 title: Executing Actions
 description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
 ms.topic: how-to
-ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
+ms.date: 02/25/2026
 ---
 
 # Executing Actions

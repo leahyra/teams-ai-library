@@ -1,9 +1,9 @@
 ---
-title: Listening to Activities
+title: Listening To Activities
 description: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
 ms.topic: how-to
-ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
+ms.date: 02/25/2026
 ---
 
 # Listening To Activities

@@ -1,9 +1,9 @@
 ---
-title: API Client
+title: Teams API Client
 description: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
 ms.topic: how-to
-ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
+ms.date: 02/25/2026
 ---
 
 # Teams API Client

@@ -2,7 +2,7 @@
 title: App Options
 description: Configure app settings for observability, MSAL authentication, and remote agent function calling.
 ms.topic: how-to
-ms.date: '2026-02-24'
+ms.date: 02/25/2026
 ---
 
 # App Options

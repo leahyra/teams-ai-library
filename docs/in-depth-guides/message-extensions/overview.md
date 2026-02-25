@@ -2,7 +2,7 @@
 title: Message Extensions
 description: Overview of message extensions for enhancing user productivity with quick access to information and actions within Teams.
 ms.topic: how-to
-ms.date: '2026-02-24'
+ms.date: 02/25/2026
 ---
 
 #  Message Extensions

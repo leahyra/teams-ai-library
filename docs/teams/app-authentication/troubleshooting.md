@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
-title: Troubleshooting
-summary: Common authentication errors and how to resolve them
-llms: ignore
+title: Authentication Troubleshooting
+description: Common authentication errors and how to resolve them
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 # Authentication Troubleshooting

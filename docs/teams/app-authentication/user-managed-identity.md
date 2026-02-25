@@ -1,7 +1,8 @@
 ---
-sidebar_position: 2
-title: User Managed Identity Setup
-summary: Set up User Managed Identity authentication for your Teams bot in Azure Portal or Azure CLI
+title: User Managed Identity Authentication Setup
+description: Set up User Managed Identity authentication for your Teams bot in Azure Portal or Azure CLI
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 # User Managed Identity Authentication Setup

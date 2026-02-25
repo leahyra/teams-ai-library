@@ -1,8 +1,8 @@
 ---
-title: Using the App
+title: Using The App
 description: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
 ms.topic: how-to
-ms.date: '2026-02-24'
+ms.date: 02/25/2026
 ---
 
 # Using The App

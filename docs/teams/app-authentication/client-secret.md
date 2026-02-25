@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
-title: Client Secret Setup
-summary: Set up client secret authentication for your Teams bot in Azure Portal or Azure CLI
+title: Client Secret Authentication Setup
+description: Set up client secret authentication for your Teams bot in Azure Portal or Azure CLI
+ms.topic: how-to
+ms.date: 02/25/2026
 ---
 
 # Client Secret Authentication Setup

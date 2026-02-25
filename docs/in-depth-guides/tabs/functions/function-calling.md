@@ -2,7 +2,7 @@
 title: Executing Functions
 description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
 ms.topic: how-to
-ms.date: '2026-02-24'
+ms.date: 02/25/2026
 ---
 
 # Executing Functions

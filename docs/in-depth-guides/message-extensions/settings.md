@@ -2,8 +2,8 @@
 title: Settings
 description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
 ms.topic: how-to
-ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
+ms.date: 02/25/2026
 ---
 
 import SettingsImgUrl from '@site/static/screenshots/settings.png';

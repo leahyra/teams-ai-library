@@ -2,8 +2,8 @@
 title: A2A Client
 description: How to implement an A2A client to proactively send tasks to A2A servers using the AgentManager.
 ms.topic: how-to
-ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
+ms.date: 02/25/2026
 ---
 
 # A2A Client

@@ -1,9 +1,9 @@
 ---
-title: Action Commands
+title: Action commands
 description: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
 ms.topic: how-to
-ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
+ms.date: 02/25/2026
 ---
 
 # Action commands
