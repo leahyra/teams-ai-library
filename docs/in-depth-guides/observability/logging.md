@@ -9,7 +9,18 @@ ms.date: 02/25/2026
 #  Custom Logger
 
 The `App` will provide a default logger, but you can also provide your own.
-The default `Logger` instance will be set to :::zone pivot="typescript" inline :::`ConsoleLogger`:::zone-end:::zone pivot="csharp" inline :::`ConsoleLogger`:::zone-end:::zone pivot="python" inline :::`ConsoleLogger`:::zone-end from the :::zone pivot="typescript" inline :::`@microsoft/teams.common`:::zone-end:::zone pivot="csharp" inline :::`Microsoft.Teams.Common`:::zone-end:::zone pivot="python" inline :::`microsoft-teams-common`:::zone-end package.
+::: zone pivot="typescript"
+The default `Logger` instance will be set to `ConsoleLogger` from the `@microsoft/teams.common` package.
+::: zone-end
+
+::: zone pivot="csharp"
+The default `Logger` instance will be set to `ConsoleLogger` from the `Microsoft.Teams.Common` package.
+::: zone-end
+
+::: zone pivot="python"
+The default `Logger` instance will be set to `ConsoleLogger` from the `microsoft-teams-common` package.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 ```typescript

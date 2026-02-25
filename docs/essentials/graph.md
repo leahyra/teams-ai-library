@@ -10,7 +10,18 @@ ms.date: 02/25/2026
 
 [Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
 
-The SDK gives your application easy access to the Microsoft Graph API via the :::zone pivot="typescript" inline :::`@microsoft/teams.graph`, `@microsoft/teams.graph-endpoints` and `@microsoft/teams.graph-endpoints-beta` packages:::zone-end:::zone pivot="csharp" inline :::`Microsoft.Graph` package:::zone-end:::zone pivot="python" inline :::`microsoft-teams-graph` package:::zone-end.
+::: zone pivot="typescript"
+The SDK gives your application easy access to the Microsoft Graph API via the `@microsoft/teams.graph`, `@microsoft/teams.graph-endpoints` and `@microsoft/teams.graph-endpoints-beta` packages.
+::: zone-end
+
+::: zone pivot="csharp"
+The SDK gives your application easy access to the Microsoft Graph API via the `Microsoft.Graph` package.
+::: zone-end
+
+::: zone pivot="python"
+The SDK gives your application easy access to the Microsoft Graph API via the `microsoft-teams-graph` package.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 > [!NOTE]
@@ -55,7 +66,18 @@ npm install @microsoft/teams.graph-endpoints
 
 Microsoft Graph can be accessed by your application using its own application token, or by using the user's token. If you need access to resources that your application may not have, but your user does, you will need to use the user's scoped graph client. To grant explicit consent for your application to access resources on behalf of a user, follow the [auth guide](../in-depth-guides/user-authentication.md).
 
-To access the graph using the Graph using the app, you may use the :::zone pivot="typescript" inline :::`app.graph`:::zone-end:::zone pivot="csharp" inline :::`app.Graph`:::zone-end:::zone pivot="python" inline :::`app.graph`:::zone-end object :::zone pivot="typescript" inline :::to call the endpoint of your choice:::zone-end:::zone pivot="csharp" inline :::<!-- Not applicable -->:::zone-end:::zone pivot="python" inline :::to call the endpoint of your choice:::zone-end.
+::: zone pivot="typescript"
+To access the graph using the Graph using the app, you may use the `app.graph` object to call the endpoint of your choice.
+::: zone-end
+
+::: zone pivot="csharp"
+To access the graph using the Graph using the app, you may use the `app.Graph` object <!-- Not applicable -->.
+::: zone-end
+
+::: zone pivot="python"
+To access the graph using the Graph using the app, you may use the `app.graph` object to call the endpoint of your choice.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 ```typescript
@@ -148,10 +170,34 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-Here, the :::zone pivot="typescript" inline :::`userGraph`:::zone-end:::zone pivot="csharp" inline :::`userGraph`:::zone-end:::zone pivot="python" inline :::`user_graph`:::zone-end object is a scoped graph client for the user that sent the message.
+::: zone pivot="typescript"
+Here, the `userGraph` object is a scoped graph client for the user that sent the message.
+::: zone-end
 
+::: zone pivot="csharp"
+Here, the `userGraph` object is a scoped graph client for the user that sent the message.
+::: zone-end
+
+::: zone pivot="python"
+Here, the `user_graph` object is a scoped graph client for the user that sent the message.
+::: zone-end
+
+
+::: zone pivot="typescript"
 > [!TIP]
-> You also have access to thezone pivot="typescript" inline :::`appGraph`:::zone-end:::zone pivot="csharp" inline :::`appGraph`:::zone-end:::zone pivot="python" inline :::`app_graph`:::zone-end object in the activity handler. This is equivalent to :::zone pivot="typescript" inline :::`app.graph`:::zone-end:::zone pivot="csharp" inline :::`app.Graph`:::zone-end:::zone pivot="python" inline :::`app.graph`:::zone-end.
+> You also have access to `appGraph` object in the activity handler. This is equivalent to `app.graph`.
+::: zone-end
+
+::: zone pivot="csharp"
+> [!TIP]
+> You also have access to `appGraph` object in the activity handler. This is equivalent to `app.Graph`.
+::: zone-end
+
+::: zone pivot="python"
+> [!TIP]
+> You also have access to `app_graph` object in the activity handler. This is equivalent to `app.graph`.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 ## The Graph Client

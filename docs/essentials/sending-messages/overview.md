@@ -63,7 +63,18 @@ async def handle_sign_in(event: SignInEvent):
 ```
 ::: zone-end
 
-You are not restricted to only replying to `message` activities. In the above example, the handler is listening to :::zone pivot="typescript" inline :::`signin.verify-state`:::zone-end:::zone pivot="csharp" inline :::`SignIn.VerifyState`:::zone-end:::zone pivot="python" inline :::`sign_in`:::zone-end events, which are sent when a user successfully signs in.
+::: zone pivot="typescript"
+You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `signin.verify-state` events, which are sent when a user successfully signs in.
+::: zone-end
+
+::: zone pivot="csharp"
+You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `SignIn.VerifyState` events, which are sent when a user successfully signs in.
+::: zone-end
+
+::: zone pivot="python"
+You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `sign_in` events, which are sent when a user successfully signs in.
+::: zone-end
+
 
 > [!TIP]
 > This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
@@ -120,7 +131,18 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ## @Mention
 
-Sending a message at `@mentions` a user is as simple including the details of the user using the :::zone pivot="typescript" inline :::`addMention`:::zone-end:::zone pivot="csharp" inline :::`AddMention`:::zone-end:::zone pivot="python" inline :::`add_mention`:::zone-end method
+::: zone pivot="typescript"
+Sending a message at `@mentions` a user is as simple including the details of the user using the `addMention` method
+::: zone-end
+
+::: zone pivot="csharp"
+Sending a message at `@mentions` a user is as simple including the details of the user using the `AddMention` method
+::: zone-end
+
+::: zone pivot="python"
+Sending a message at `@mentions` a user is as simple including the details of the user using the `add_mention` method
+::: zone-end
+
 
 ::: zone pivot="typescript"
 ```typescript
@@ -154,7 +176,18 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 Targeted messages, also known as ephemeral messages, are delivered to a specific user in a shared conversation. From a single user's perspective, they appear as regular inline messages in a conversation. Other participants won't see these messages, making them useful for authentication flows, help or error responses, personal reminders, or sharing contextual information without cluttering the group conversation.
 
-To send a targeted message when responding to an incoming activity, use the :::zone pivot="typescript" inline :::`withRecipient`:::zone-end:::zone pivot="csharp" inline :::`WithRecipient`:::zone-end:::zone pivot="python" inline :::`with_recipient`:::zone-end method with the recipient account and set the targeting flag to true.
+::: zone pivot="typescript"
+To send a targeted message when responding to an incoming activity, use the `withRecipient` method with the recipient account and set the targeting flag to true.
+::: zone-end
+
+::: zone pivot="csharp"
+To send a targeted message when responding to an incoming activity, use the `WithRecipient` method with the recipient account and set the targeting flag to true.
+::: zone-end
+
+::: zone pivot="python"
+To send a targeted message when responding to an incoming activity, use the `with_recipient` method with the recipient account and set the targeting flag to true.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 ```typescript

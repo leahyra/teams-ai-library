@@ -144,8 +144,21 @@ Benefits:
 
 ## Type-safe Authoring & IntelliSense
 
-The package bundles the **Adaptive Card v1.5 schema** as strict :::zone pivot="typescript" inline :::TypeScript/JavaScript:::zone-end:::zone pivot="csharp" inline :::C#:::zone-end:::zone pivot="python" inline :::Python:::zone-end types.
+::: zone pivot="typescript"
+The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript/JavaScript types.
 While coding you get:
+::: zone-end
+
+::: zone pivot="csharp"
+The package bundles the **Adaptive Card v1.5 schema** as strict C# types.
+While coding you get:
+::: zone-end
+
+::: zone pivot="python"
+The package bundles the **Adaptive Card v1.5 schema** as strict Python types.
+While coding you get:
+::: zone-end
+
 
 - **Autocomplete** for every element and attribute.
 - **In-editor validation**--invalid enum values or missing required properties produce build errors.
@@ -361,7 +374,18 @@ message = MessageActivityInput(text="Hello text!").add_card(card)
 ```
 ::: zone-end
 
-This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to :::zone pivot="typescript" inline :::`IAdaptiveCard`:::zone-end:::zone pivot="csharp" inline :::`AdaptiveCard`:::zone-end:::zone pivot="python" inline :::`AdaptiveCard`:::zone-end.
+::: zone pivot="typescript"
+This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `IAdaptiveCard`.
+::: zone-end
+
+::: zone pivot="csharp"
+This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `AdaptiveCard`.
+::: zone-end
+
+::: zone pivot="python"
+This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `AdaptiveCard`.
+::: zone-end
+
 
 > [!TIP]
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.

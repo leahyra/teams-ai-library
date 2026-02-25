@@ -5,7 +5,6 @@ ms.topic: how-to
 ms.date: 02/25/2026
 ---
 
-import LangLink from '@site/src/components/LangLink';
 
 #  Welcome
 
@@ -35,7 +34,7 @@ npx @microsoft/teams.cli@latest new python quote-agent --template echo
 
 ## Overview
 
-Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams SDK. Whether you are building <LangLink to="in-depth-guides/ai">AI-powered agents</LangLink>, <LangLink to="in-depth-guides/message-extensions">message extensions</LangLink>, embedded web applications, or Graph, Teams SDK has you covered.
+Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams SDK. Whether you are building [AI-powered agents](in-depth-guides/ai/overview.md), [message extensions](in-depth-guides/message-extensions/overview.md), embedded web applications, or Graph, Teams SDK has you covered.
 
 ##  What's new?
 

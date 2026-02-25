@@ -6,7 +6,6 @@ zone_pivot_groups: dev-lang
 ms.date: 02/25/2026
 ---
 
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
 
 # A2A Server
 
@@ -16,7 +15,18 @@ An A2A server is an agent that exposes its capabilities to other agents using th
 
 ## Adding the `A2APlugin`
 
-To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an :::zone pivot="typescript" inline :::`agentCard`:::zone-end:::zone pivot="csharp" inline :::<!-- TODO: section "agent-card" missing for csharp -->:::zone-end:::zone pivot="python" inline :::`agent_card`:::zone-end:
+::: zone pivot="typescript"
+To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agentCard`:
+::: zone-end
+
+::: zone pivot="csharp"
+To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an <!-- TODO: section "agent-card" missing for csharp -->:
+::: zone-end
+
+::: zone pivot="python"
+To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agent_card`:
+::: zone-end
+
 
 ::: zone pivot="typescript"
 ```typescript

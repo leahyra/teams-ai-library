@@ -137,7 +137,18 @@ action_set = ActionSet(
 
 ### Raw JSON Alternative
 
-Just like when building cards, if you prefer to work with raw JSON, you can do just that. :::zone pivot="typescript" inline :::You get type safety for free in TypeScript.:::zone-end:::zone pivot="csharp" inline :::<!-- Not applicable -->:::zone-end:::zone pivot="python" inline :::You get type safety for free in Python.:::zone-end
+::: zone pivot="typescript"
+Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get type safety for free in TypeScript.
+::: zone-end
+
+::: zone pivot="csharp"
+Just like when building cards, if you prefer to work with raw JSON, you can do just that. <!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
+Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get type safety for free in Python.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 ```typescript

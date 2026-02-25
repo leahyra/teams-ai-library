@@ -8,7 +8,18 @@ ms.date: 02/25/2026
 
 # MCP Client
 
-You are able to leverage other MCP servers that expose tools via the :::zone pivot="typescript" inline :::Streamable HTTP protocol:::zone-end:::zone pivot="csharp" inline :::SSE protocol:::zone-end:::zone pivot="python" inline :::SSE protocol:::zone-end as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
+::: zone pivot="typescript"
+You are able to leverage other MCP servers that expose tools via the Streamable HTTP protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
+::: zone-end
+
+::: zone pivot="csharp"
+You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
+::: zone-end
+
+::: zone pivot="python"
+You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 Install it to your application:
@@ -42,14 +53,49 @@ pip install microsoft-teams-mcpplugin
 The first thing that's needed is access to a **remote** MCP server. MCP Servers (at present) come using two main types protocols:
 
 1. StandardIO - This is a _local_ MCP server, which runs on your machine. An MCP client may connect to this server, and use standard input and outputs to communicate with it. Since our application is running remotely, this is not something that we want to use
-2. :::zone pivot="typescript" inline :::Streamable HTTP/SSE:::zone-end:::zone pivot="csharp" inline :::SSE:::zone-end:::zone pivot="python" inline :::StreamableHttp/SSE:::zone-end - This is a _remote_ MCP server. An MCP client may
-   send it requests and the server responds in the expected MCP protocol.
+::: zone pivot="typescript"
+2. Streamable HTTP/SSE - This is a _remote_ MCP server. An MCP client may
+ send it requests and the server responds in the expected MCP protocol.
+::: zone-end
 
-For hooking up to your :::zone pivot="typescript" inline :::valid remote:::zone-end:::zone pivot="csharp" inline :::a valid SSE:::zone-end:::zone pivot="python" inline :::a valid SSE:::zone-end server, you will need to know the URL of the server, and if applicable, :::zone pivot="typescript" inline :::and keys:::zone-end:::zone pivot="csharp" inline :::and keys:::zone-end:::zone pivot="python" inline :::any keys:::zone-end that must be included as part of the header.
+::: zone pivot="csharp"
+2. SSE - This is a _remote_ MCP server. An MCP client may
+ send it requests and the server responds in the expected MCP protocol.
+::: zone-end
+
+::: zone pivot="python"
+2. StreamableHttp/SSE - This is a _remote_ MCP server. An MCP client may
+ send it requests and the server responds in the expected MCP protocol.
+::: zone-end
+
+
+::: zone pivot="typescript"
+For hooking up to your valid remote server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
+::: zone-end
+
+::: zone pivot="csharp"
+For hooking up to your a valid SSE server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
+::: zone-end
+
+::: zone pivot="python"
+For hooking up to your a valid SSE server, you will need to know the URL of the server, and if applicable, any keys that must be included as part of the header.
+::: zone-end
+
 
 ## MCP Client Plugin
 
-The :::zone pivot="typescript" inline :::`MCPClientPlugin` (from `@microsoft/teams.mcpclient` package):::zone-end:::zone pivot="csharp" inline :::`MCPClientPlugin` (from `Microsoft.Teams.Plugins.External.McpClient` package):::zone-end:::zone pivot="python" inline :::`McpClientPlugin`:::zone-end integrates directly with the `ChatPrompt` :::zone pivot="typescript" inline :::object as a plugin:::zone-end:::zone pivot="csharp" inline :::object as a plugin:::zone-end:::zone pivot="python" inline :::as a plugin:::zone-end. When the `ChatPrompt`'s :::zone pivot="typescript" inline :::`send`:::zone-end:::zone pivot="csharp" inline :::`send`:::zone-end:::zone pivot="python" inline :::`send`:::zone-end function is called, it calls the external MCP server and loads up all the tools that are available to it.
+::: zone pivot="typescript"
+The `MCPClientPlugin` (from `@microsoft/teams.mcpclient` package) integrates directly with the `ChatPrompt` object as a plugin. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
+::: zone-end
+
+::: zone pivot="csharp"
+The `MCPClientPlugin` (from `Microsoft.Teams.Plugins.External.McpClient` package) integrates directly with the `ChatPrompt` object as a plugin. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
+::: zone-end
+
+::: zone pivot="python"
+The `McpClientPlugin` integrates directly with the `ChatPrompt` as a plugin. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
+::: zone-end
+
 
 Once loaded, it treats these tools like any functions that are available to the `ChatPrompt` object. If the LLM then decides to call one of these remote MCP tools, the MCP Client plugin will call the remote MCP server and return the result back to the LLM. The LLM can then use this result in its response.
 

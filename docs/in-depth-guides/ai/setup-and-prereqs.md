@@ -40,7 +40,18 @@ dotnet add package Microsoft.Teams.AI
 <!-- Not applicable -->
 ::: zone-end
 
-- In your application, you should include your keys in a secure way. :::zone pivot="typescript" inline :::We recommend putting it in an .env file at the root level of your project:::zone-end:::zone pivot="csharp" inline :::You should include your keys securely using `appsettings.json` or environment variables:::zone-end:::zone pivot="python" inline :::We recommend putting it in an .env file at the root level of your project:::zone-end
+::: zone pivot="typescript"
+- In your application, you should include your keys in a secure way. We recommend putting it in an .env file at the root level of your project
+::: zone-end
+
+::: zone pivot="csharp"
+- In your application, you should include your keys in a secure way. You should include your keys securely using `appsettings.json` or environment variables
+::: zone-end
+
+::: zone pivot="python"
+- In your application, you should include your keys in a secure way. We recommend putting it in an .env file at the root level of your project
+::: zone-end
+
 
 ::: zone pivot="typescript"
 ```

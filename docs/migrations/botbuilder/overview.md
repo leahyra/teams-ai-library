@@ -9,9 +9,24 @@ ms.date: 02/25/2026
 # From BotBuilder
 
 This new iteration of Teams SDK has been rebuilt from the ground up.
-To ease the migration process, we've introduced a plugin :::zone pivot="typescript" inline :::`@microsoft/teams.botbuilder`:::zone-end:::zone pivot="csharp" inline :::`Microsoft.Teams.Plugins.AspNetCore.BotBuilder`:::zone-end:::zone pivot="python" inline :::microsoft-teams-botbuilder:::zone-end that
+::: zone pivot="typescript"
+To ease the migration process, we've introduced a plugin `@microsoft/teams.botbuilder` that
 allows you to continue using BotBuilder components like `ActivityHandler` and `CloudAdapter`
 to receive, process and send activities within the new Teams SDK abstractions.
+::: zone-end
+
+::: zone pivot="csharp"
+To ease the migration process, we've introduced a plugin `Microsoft.Teams.Plugins.AspNetCore.BotBuilder` that
+allows you to continue using BotBuilder components like `ActivityHandler` and `CloudAdapter`
+to receive, process and send activities within the new Teams SDK abstractions.
+::: zone-end
+
+::: zone pivot="python"
+To ease the migration process, we've introduced a plugin microsoft-teams-botbuilder that
+allows you to continue using BotBuilder components like `ActivityHandler` and `CloudAdapter`
+to receive, process and send activities within the new Teams SDK abstractions.
+::: zone-end
+
 
 ## Why a Plugin?
 

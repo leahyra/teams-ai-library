@@ -362,7 +362,7 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
 
 # [Slack Bolt](#tab/slack)
 
-    For existing cards like this, the simplest way to convert that to Teams SDK is this:
+For existing cards like this, the simplest way to convert that to Teams SDK is this:
 
 ```ts
     app.message('card', async (client) => {
@@ -382,7 +382,7 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
 
 # [Teams SDK](#tab/teams)
 
-    For a more thorough port, you could also do the following:
+For a more thorough port, you could also do the following:
 
 ```ts
     import { Card, TextBlock } from '@microsoft/teams.cards';

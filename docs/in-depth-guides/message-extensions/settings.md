@@ -6,7 +6,6 @@ zone_pivot_groups: dev-lang
 ms.date: 02/25/2026
 ---
 
-import SettingsImgUrl from '@site/static/screenshots/settings.png';
 
 #  Settings
 

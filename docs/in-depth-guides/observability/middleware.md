@@ -9,7 +9,18 @@ ms.date: 02/25/2026
 # Middleware
 
 Middleware is a useful tool for logging, validation, and more.
-You can easily register your own middleware using the :::zone pivot="typescript" inline :::`app.use`:::zone-end:::zone pivot="csharp" inline :::`app.Use`:::zone-end:::zone pivot="python" inline :::`app.use`:::zone-end method.
+::: zone pivot="typescript"
+You can easily register your own middleware using the `app.use` method.
+::: zone-end
+
+::: zone pivot="csharp"
+You can easily register your own middleware using the `app.Use` method.
+::: zone-end
+
+::: zone pivot="python"
+You can easily register your own middleware using the `app.use` method.
+::: zone-end
+
 
 Below is an example of a middleware that will log the elapse time of all handlers that come after it.
 

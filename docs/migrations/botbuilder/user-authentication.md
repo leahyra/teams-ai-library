@@ -1,5 +1,5 @@
 ---
-title: User Authentication
+title: Migrate User Authentication from BotBuilder
 description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
@@ -9,7 +9,18 @@ ms.date: 02/25/2026
 # User Authentication
 
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
-equivalent feature for dialogs, but we do support auth flows in our own way via our :::zone pivot="typescript" inline :::`signin` and `signout`:::zone-end:::zone pivot="csharp" inline :::`SignIn` and `SignOut`:::zone-end:::zone pivot="python" inline :::`sign_in` and `sign_out`:::zone-end methods.
+::: zone pivot="typescript"
+equivalent feature for dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
+::: zone-end
+
+::: zone pivot="csharp"
+equivalent feature for dialogs, but we do support auth flows in our own way via our `SignIn` and `SignOut` methods.
+::: zone-end
+
+::: zone pivot="python"
+equivalent feature for dialogs, but we do support auth flows in our own way via our `sign_in` and `sign_out` methods.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 # [BotBuilder](#tab/botbuilder)

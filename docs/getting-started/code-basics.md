@@ -122,7 +122,18 @@ The app configuration includes a variety of options that allow you to customize 
 
 ### Plugins
 
-Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events :::zone pivot="typescript" inline :::(onActivity, onActivitySent, etc.):::zone-end:::zone pivot="csharp" inline :::(onActivity, onActivitySent, etc.):::zone-end:::zone pivot="python" inline :::(on_activity, on_activity_sent, etc.):::zone-end. In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+::: zone pivot="typescript"
+Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+::: zone-end
+
+::: zone pivot="csharp"
+Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+::: zone-end
+
+::: zone pivot="python"
+Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (on_activity, on_activity_sent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+::: zone-end
+
 
 > [!WARNING]
 > DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.
@@ -167,9 +178,24 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 This code:
 
-1. :::zone pivot="typescript" inline :::Listens for all incoming messages using `app.on('message')`.:::zone-end:::zone pivot="csharp" inline :::Listens for all incoming messages using `onMessage` handler.:::zone-end:::zone pivot="python" inline :::Listens for all incoming messages using `app.on_message`:::zone-end
+::: zone pivot="typescript"
+1. Listens for all incoming messages using `app.on('message')`.
 2. Sends a typing indicator, which renders as an animated ellipsis (...) in the chat.
-3. :::zone pivot="typescript" inline :::Responds by echoing back the received message.:::zone-end:::zone pivot="csharp" inline :::Responds by echoing back the received message.:::zone-end:::zone pivot="python" inline :::Responds by echoing back the received message if any other text aside from "reply" is sent.:::zone-end
+3. Responds by echoing back the received message.
+::: zone-end
+
+::: zone pivot="csharp"
+1. Listens for all incoming messages using `onMessage` handler.
+2. Sends a typing indicator, which renders as an animated ellipsis (...) in the chat.
+3. Responds by echoing back the received message.
+::: zone-end
+
+::: zone pivot="python"
+1. Listens for all incoming messages using `app.on_message`
+2. Sends a typing indicator, which renders as an animated ellipsis (...) in the chat.
+3. Responds by echoing back the received message if any other text aside from "reply" is sent.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 > [!NOTE]

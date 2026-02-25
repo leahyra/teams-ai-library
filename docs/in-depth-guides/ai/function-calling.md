@@ -8,7 +8,18 @@ ms.date: 02/25/2026
 
 # Function / Tool calling
 
-It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by :::zone pivot="typescript" inline :::adding a `function` to the `ChatPrompt`:::zone-end:::zone pivot="csharp" inline :::registering functions with a `ChatPrompt` using the `.Function()` method:::zone-end:::zone pivot="python" inline :::adding a `function` to the `ChatPrompt`:::zone-end.
+::: zone pivot="typescript"
+It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
+::: zone-end
+
+::: zone pivot="csharp"
+It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by registering functions with a `ChatPrompt` using the `.Function()` method.
+::: zone-end
+
+::: zone pivot="python"
+It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
+::: zone-end
+
 
 ::: zone pivot="typescript"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
