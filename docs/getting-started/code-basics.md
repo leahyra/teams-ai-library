@@ -53,16 +53,16 @@ quote-agent/
 ::: zone-end
 
 ::: zone pivot="typescript"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
+- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 - **src/**: Contains the main application code. The `index.ts` file is the entry point for your application.
 ::: zone-end
 
 ::: zone pivot="csharp"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
+- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 ::: zone-end
 
 ::: zone pivot="python"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
+- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 - **src/**: Contains the main application code. The `main.py` file is the entry point for your application.
 ::: zone-end
 
@@ -122,7 +122,7 @@ The app configuration includes a variety of options that allow you to customize 
 
 ### Plugins
 
-Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events :::zone pivot="typescript" inline :::(onActivity, onActivitySent, etc.):::zone-end:::zone pivot="csharp" inline :::(onActivity, onActivitySent, etc.):::zone-end:::zone pivot="python" inline :::(on_activity, on_activity_sent, etc.):::zone-end. In fact, the [DevTools](/developer-tools/devtools) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events :::zone pivot="typescript" inline :::(onActivity, onActivitySent, etc.):::zone-end:::zone pivot="csharp" inline :::(onActivity, onActivitySent, etc.):::zone-end:::zone pivot="python" inline :::(on_activity, on_activity_sent, etc.):::zone-end. In fact, the [DevTools](developer-tools/devtools) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 
 > [!WARNING]
 > DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.

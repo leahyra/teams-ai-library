@@ -37,7 +37,7 @@ npx @microsoft/teams.cli --version
 ```
 
 > [!NOTE]
-> _The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+> _The [Teams CLI](developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
 > Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
 
 ## Creating Your First Agent
@@ -67,19 +67,19 @@ This command:
 ::: zone pivot="typescript"
 1. Creates a new directory called `quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
 
 ::: zone pivot="csharp"
 1. Creates a new directory called `Quote.Agent`.
 2. Bootstraps the echo agent template files into your project directory.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
 
 ::: zone pivot="python"
 1. Creates a new directory called `quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
 
 > The `echo` template creates a basic agent that repeats back any message it receives - perfect for learning the fundamentals.
@@ -208,7 +208,7 @@ Otherwise, if you want to run your agent in Teams, you can check out the [Runnin
 
 ## Resources
 
-- [Teams CLI documentation](/developer-tools/cli)
-- [Teams DevTools documentation](/developer-tools/devtools)
-- [Teams manifest schema](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema)
-- [Teams sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
+- [Teams CLI documentation](developer-tools/cli)
+- [Teams DevTools documentation](developer-tools/devtools)
+- [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
+- [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

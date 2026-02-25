@@ -11,15 +11,15 @@ zone_pivot_groups: dev-lang
 At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 
 > [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
+> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](teams/core-concepts) before attempting this guide.
 
 > [!WARNING]
-> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](/typescript/getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](typescript/getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
 
 > [!NOTE]
-> It is possible to authenticate the user into [other auth providers](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
+> It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 
-Once you have configured your Azure Bot resource OAuth settings, as described in the [official documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0), add the following code to your `App`:
+Once you have configured your Azure Bot resource OAuth settings, as described in the [official documentation](/azure/bot-service/bot-builder-concept-authentication), add the following code to your `App`:
 
 ## Project Setup
 
@@ -74,7 +74,7 @@ npx @microsoft/teams.cli config add atk.oauth
 
 The `atk.oauth` configuration is a basic setup for Agents Toolkit along with configurations to authenticate the user with Microsoft Entra ID to access Microsoft Graph APIs.
 
-This [CLI](/developer-tools/cli) command adds configuration files required by Agents Toolkit, including:
+This [CLI](developer-tools/cli) command adds configuration files required by Agents Toolkit, including:
 
 - Azure Application Entra ID manifest file `aad.manifest.json`.
 - Azure bicep files to provision Azure bot in `infra/` folder.
@@ -134,7 +134,7 @@ app = App(
 ## Signing In
 
 > [!NOTE]
-> This uses the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [official documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0).
+> This uses the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [official documentation](/azure/bot-service/bot-builder-concept-authentication).
 
 You must call the `signin` method inside your route handler, for example: to signin when receiving the `/signin` message:
 
@@ -410,4 +410,4 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 
 ## Resources
 
-[User Authentication Basics](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)

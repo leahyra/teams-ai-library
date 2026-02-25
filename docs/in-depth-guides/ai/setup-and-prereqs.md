@@ -68,7 +68,7 @@ my-app/
 
 ### Azure OpenAI
 
-You will need to deploy a model in Azure OpenAI. View the [resource creation guide](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model 'Azure OpenAI Model Deployment Guide') for more information on how to do this.
+You will need to deploy a model in Azure OpenAI. View the [resource creation guide](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model 'Azure OpenAI Model Deployment Guide') for more information on how to do this.
 
 ::: zone pivot="typescript"
 Once you have deployed a model, include the following key/values in your `.env` file:
@@ -129,7 +129,7 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 
 ::: zone pivot="typescript"
 > [!NOTE]
-> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
+> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
 ::: zone-end
 
 ::: zone pivot="csharp"
@@ -139,7 +139,7 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 
 ::: zone pivot="python"
 > [!NOTE]
-> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
+> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
 ::: zone-end
 
 ### OpenAI
