@@ -329,4 +329,4 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-![Animated image showing agent response text incrementally appearing in the chat window.](/screenshots/streaming-chat.gif)
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window." lightbox="~/assets/screenshots/streaming-chat.gif" :::

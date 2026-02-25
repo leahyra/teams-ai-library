@@ -182,7 +182,7 @@ app = App(plugins=[mcp_server_plugin, DevToolsPlugin()])
 ::: zone-end
 
 ::: zone pivot="typescript"
-![MCP Server in Devtools](/screenshots/mcp-devtools.gif)
+:::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="MCP Server in Devtools" lightbox="~/assets/screenshots/mcp-devtools.gif" :::
 ::: zone-end
 
 ::: zone pivot="csharp"
@@ -190,7 +190,7 @@ app = App(plugins=[mcp_server_plugin, DevToolsPlugin()])
 ::: zone-end
 
 ::: zone pivot="python"
-![MCP Server in Devtools](/screenshots/mcp-inspector.gif)
+:::image type="content" source="~/assets/screenshots/mcp-inspector.gif" alt-text="MCP Server in Devtools" lightbox="~/assets/screenshots/mcp-inspector.gif" :::
 ::: zone-end
 
 ## Piping messages to the user

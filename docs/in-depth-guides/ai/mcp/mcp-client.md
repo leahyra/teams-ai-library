@@ -277,15 +277,15 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ::: zone-end
 
 ::: zone pivot="typescript"
-![Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned.](/screenshots/mcp-client-pokemon.gif)
+:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned." lightbox="~/assets/screenshots/mcp-client-pokemon.gif" :::
 ::: zone-end
 
 ::: zone pivot="csharp"
-![Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned.](/screenshots/mcp-client-pokemon.gif)
+:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned." lightbox="~/assets/screenshots/mcp-client-pokemon.gif" :::
 ::: zone-end
 
 ::: zone pivot="python"
-![Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned.](/screenshots/mcp-client-pokemon.gif)
+:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned." lightbox="~/assets/screenshots/mcp-client-pokemon.gif" :::
 ::: zone-end
 
 ::: zone pivot="typescript"

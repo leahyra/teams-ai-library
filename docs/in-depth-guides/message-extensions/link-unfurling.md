@@ -310,11 +310,11 @@ def create_link_unfurl_card(url: str) -> Dict[str, Any]:
 
 The link unfurling response includes both a full adaptive card and a preview card. The preview card appears in the compose box when a user pastes a URL:
 
-![Screenshot showing a preview card for an unfurled URL in the Teams compose box.](/screenshots/link-unfurl-preview.png)
+:::image type="content" source="~/assets/screenshots/link-unfurl-preview.png" alt-text="Screenshot showing a preview card for an unfurled URL in the Teams compose box." lightbox="~/assets/screenshots/link-unfurl-preview.png" :::
 
 The user can expand the preview card by clicking on the _expand_ button on the top right.
 
-![Screenshot of Teams compose box with an outline around the unfurled link card labeled 'Adaptive Card'.](/screenshots/link-unfurl-card.png)
+:::image type="content" source="~/assets/screenshots/link-unfurl-card.png" alt-text="Screenshot of Teams compose box with an outline around the unfurled link card labeled 'Adaptive Card'." lightbox="~/assets/screenshots/link-unfurl-card.png" :::
 
 The user can then choose to send either the preview or the full adaptive card as a message.
 

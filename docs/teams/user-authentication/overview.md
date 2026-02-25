@@ -41,7 +41,7 @@ The SSO signin flow involves several components working together. Here's how it 
 
 This is what the SSO consent form looks like in Teams:
 
-![SSO Consent Form](/screenshots/auth-consent-popup.png)
+:::image type="content" source="~/assets/screenshots/auth-consent-popup.png" alt-text="SSO Consent Form" lightbox="~/assets/screenshots/auth-consent-popup.png" :::
 
 ### OAuth
 
@@ -64,7 +64,7 @@ When an access token expires, the user will need to go through the sign-in proce
 
 This is what the OAuth card looks like in Teams:
 
-![OAuthCard](/screenshots/auth-explicit-signin.png)
+:::image type="content" source="~/assets/screenshots/auth-explicit-signin.png" alt-text="OAuthCard" lightbox="~/assets/screenshots/auth-explicit-signin.png" :::
 
 ## OAuth vs SSO - Head-to-Head Comparison
 

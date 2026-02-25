@@ -20,7 +20,7 @@ Before you begin, ensure you have:
 
 When creating your Azure Bot Service, you must select `Single Tenant` for the `Type of App`.
 
-![Single Tenant Bot Creation](/screenshots/single-tenant-bot.png)
+:::image type="content" source="~/assets/screenshots/single-tenant-bot.png" alt-text="Single Tenant Bot Creation" lightbox="~/assets/screenshots/single-tenant-bot.png" :::
 
 ### Step 2: Create Client Secret
 
@@ -33,7 +33,7 @@ When creating your Azure Bot Service, you must select `Single Tenant` for the `T
 5. Click **Add**
 6. **Important**: Copy the secret value immediately - it won't be shown again
 
-![Secret in Certificates and Secrets](/screenshots/client-secret.png)
+:::image type="content" source="~/assets/screenshots/client-secret.png" alt-text="Secret in Certificates and Secrets" lightbox="~/assets/screenshots/client-secret.png" :::
 
 # [Azure CLI](#tab/cli)
 

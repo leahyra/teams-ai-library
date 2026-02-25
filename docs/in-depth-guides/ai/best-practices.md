@@ -35,7 +35,7 @@ message_to_be_sent = MessageActivityInput(text="Hello!").add_ai_generated()
 ```
 ::: zone-end
 
-![Screenshot of outgoing agent message to user marked with 'AI generated' badge.](/screenshots/ai-generated.gif)
+:::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="Screenshot of outgoing agent message to user marked with 'AI generated' badge." lightbox="~/assets/screenshots/ai-generated.gif" :::
 
 ## Gather feedback to improve prompts
 
@@ -98,7 +98,7 @@ for i, doc in enumerate(cited_docs):
 ```
 ::: zone-end
 
-![Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text.](/screenshots/citation.gif)
+:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text." lightbox="~/assets/screenshots/citation.gif" :::
 
 ## Suggested actions
 
