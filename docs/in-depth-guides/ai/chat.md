@@ -1,12 +1,12 @@
 ---
-title: 💬 Chat Generation
+title:  Chat Generation
 description: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
 ms.topic: how-to
 ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-# 💬 Chat Generation
+#  Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.mdx) guide.
 

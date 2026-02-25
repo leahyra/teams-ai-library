@@ -144,7 +144,7 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 
     ```csharp showLineNumbers
     using Microsoft.Teams.Apps;
-    
+
     app.OnMessage(async (context) =>
     {
         // highlight-next-line

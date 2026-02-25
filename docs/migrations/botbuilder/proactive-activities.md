@@ -8,8 +8,8 @@ zone_pivot_groups: dev-lang
 
 # Proactive Activities
 
-The BotBuilder proactive message flow requires storing a conversation reference. 
-In Teams SDK, we expose a :::zone pivot="typescript" inline :::`send`:::zone-end:::zone pivot="csharp" inline :::`SendAsync`:::zone-end:::zone pivot="python" inline :::`send`:::zone-end method in the `App` class, almost identical to the one 
+The BotBuilder proactive message flow requires storing a conversation reference.
+In Teams SDK, we expose a :::zone pivot="typescript" inline :::`send`:::zone-end:::zone pivot="csharp" inline :::`SendAsync`:::zone-end:::zone pivot="python" inline :::`send`:::zone-end method in the `App` class, almost identical to the one
 passed into our activity handlers through our context. This method accepts a :::zone pivot="typescript" inline :::`conversationId`:::zone-end:::zone pivot="csharp" inline :::`conversationId`:::zone-end:::zone pivot="python" inline :::`conversation_id`:::zone-end, so storing just that is enough!
 
 ::: zone pivot="typescript"

@@ -69,8 +69,8 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 
 3. **Search for your application**
    Use the **BOT_ID** from your environment file:
-   - Local development → `env/.env.local`
-   - Azure deployment → `env/.env.dev`
+   - Local development -> `env/.env.local`
+   - Azure deployment -> `env/.env.dev`
 
 4. **Check if a Service Principal exists**
    Open the app registration and verify if a Service Principal is created. If it exists already, you should see an entry for a **Managed Application in your local directory**.

@@ -6,7 +6,7 @@ ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-# 🔍 Search commands
+#  Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 

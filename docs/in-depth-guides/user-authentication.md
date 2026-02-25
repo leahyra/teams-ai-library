@@ -1,12 +1,12 @@
 ---
-title: 🔒 User Authentication
+title:  User Authentication
 description: API guide to implement User Authentication with SSO in Teams Apps.
 ms.topic: how-to
 ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-# 🔒 User Authentication
+#  User Authentication
 
 At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 
@@ -346,7 +346,7 @@ These examples use West Europe, but follow the equivalent for other regions.
 
 # [Azure Portal](#tab/portal)
 
-To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region. 
+To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region.
 
 1. Deploy a new App Registration in `westeurope`.
 2. Deploy and link a new Enterprise Application (Service Principal) on Microsoft Entra in `westeurope`.
@@ -383,7 +383,7 @@ These examples use West Europe, but follow the equivalent for other regions.
 
 # [Azure Portal](#tab/portal)
 
-To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region. 
+To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region.
 
 1. Deploy a new App Registration in `westeurope`.
 2. Deploy and link a new Enterprise Application (Service Principal) on Microsoft Entra in `westeurope`.

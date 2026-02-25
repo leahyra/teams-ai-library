@@ -1,12 +1,12 @@
 ---
-title: 🗃️ Custom Logger
+title:  Custom Logger
 description: Configure custom loggers in your Teams app to control log levels and output destinations.
 ms.topic: how-to
 ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-# 🗃️ Custom Logger
+#  Custom Logger
 
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to :::zone pivot="typescript" inline :::`ConsoleLogger`:::zone-end:::zone pivot="csharp" inline :::`ConsoleLogger`:::zone-end:::zone pivot="python" inline :::`ConsoleLogger`:::zone-end from the :::zone pivot="typescript" inline :::`@microsoft/teams.common`:::zone-end:::zone pivot="csharp" inline :::`Microsoft.Teams.Common`:::zone-end:::zone pivot="python" inline :::`microsoft-teams-common`:::zone-end package.

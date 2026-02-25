@@ -192,13 +192,13 @@ OPENAI_MODEL=gpt-4  # Optional: defaults to gpt-4o if not specified
 ::: zone pivot="typescript"
 > [!NOTE]
 > **Automatic Environment Variable Loading**: The OpenAI model automatically reads environment variables when options are not explicitly provided. You can pass values explicitly as constructor parameters if needed for advanced configurations.
-> 
+>
 > ```typescript
 > // Automatic (recommended) - uses environment variables
 > const model = new OpenAIChatModel({
 >   model: 'gpt-4o',
 > });
-> 
+>
 > // Explicit (for advanced use cases)
 > const model = new OpenAIChatModel({
 >   apiKey: 'your-api-key',
@@ -210,7 +210,7 @@ OPENAI_MODEL=gpt-4  # Optional: defaults to gpt-4o if not specified
 >   project: 'your-project-id',     // Optional
 > });
 > ```
-> 
+>
 > **Environment variables automatically loaded:**
 > - `OPENAI_API_KEY` or `AZURE_OPENAI_API_KEY`
 > - `AZURE_OPENAI_ENDPOINT` (Azure only)
@@ -224,11 +224,11 @@ OPENAI_MODEL=gpt-4  # Optional: defaults to gpt-4o if not specified
 ::: zone pivot="python"
 > [!NOTE]
 > **Automatic Environment Variable Loading**: The AI models automatically read these environment variables when initialized. You can also pass these values explicitly as constructor parameters if needed for advanced configurations.
-> 
+>
 > ```python
 > # Automatic (recommended)
 > model = OpenAICompletionsAIModel(model="your-model-name")
-> 
+>
 > # Explicit (for advanced use cases)
 > model = OpenAICompletionsAIModel(
 >     key="your-api-key",

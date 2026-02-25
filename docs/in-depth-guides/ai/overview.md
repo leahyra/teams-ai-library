@@ -1,23 +1,23 @@
 ---
-title: 🤖 AI
+title:  AI
 description: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
 ms.topic: how-to
 ms.date: '2026-02-24'
 zone_pivot_groups: dev-lang
 ---
 
-# 🤖 AI
+#  AI
 
 The AI packages in this SDK are designed to make it easier to build applications with LLMs.
 The :::zone pivot="typescript" inline :::`@microsoft/teams.ai` package:::zone-end:::zone pivot="csharp" inline :::`Microsoft.Teams.AI`:::zone-end:::zone pivot="python" inline :::`microsoft-teams-ai` package:::zone-end has two main components:
 
-## 📦 Prompts
+##  Prompts
 
 A `Prompt` is the component that orchestrates everything, it handles state management,
 function definitions, and invokes the model/template when needed. This layer abstracts many of
 the complexities of the Models to provide a common interface.
 
-## 🧠 Models
+##  Models
 
 A `Model` is the component that interfaces with the LLM, being given some `input` and returning the `output`.
 This layer deals with any of the nuances of the particular Models being used.

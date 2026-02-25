@@ -8,7 +8,7 @@ zone_pivot_groups: dev-lang
 
 # From BotBuilder
 
-This new iteration of Teams SDK has been rebuilt from the ground up. 
+This new iteration of Teams SDK has been rebuilt from the ground up.
 To ease the migration process, we've introduced a plugin :::zone pivot="typescript" inline :::`@microsoft/teams.botbuilder`:::zone-end:::zone pivot="csharp" inline :::`Microsoft.Teams.Plugins.AspNetCore.BotBuilder`:::zone-end:::zone pivot="python" inline :::microsoft-teams-botbuilder:::zone-end that
 allows you to continue using BotBuilder components like `ActivityHandler` and `CloudAdapter`
 to receive, process and send activities within the new Teams SDK abstractions.

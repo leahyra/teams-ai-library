@@ -8,7 +8,7 @@ zone_pivot_groups: dev-lang
 
 import SettingsImgUrl from '@site/static/screenshots/settings.png';
 
-# ⚙️ Settings
+#  Settings
 
 You can add a settings page that allows users to configure settings for your app.
 

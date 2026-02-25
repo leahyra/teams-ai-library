@@ -4,7 +4,7 @@ summary: Test chat functionality with your Teams agent using the lightweight Dev
 llms: ignore
 ---
 
-# 💬 Devtools chat
+#  Devtools chat
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 
@@ -125,6 +125,6 @@ The capabilities above will also populate activities to the Activities page, whe
 
 ### Developer message shortcut
 
-For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>↑</kbd> arrow key to cycle through your message history and resend messages.
+For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>Up</kbd> arrow key to cycle through your message history and resend messages.
 
 ![Devtools Up Arrow Feature](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_uparrow_feature.gif?raw=true)

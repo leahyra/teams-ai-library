@@ -123,8 +123,8 @@ Benefits:
 
 | Benefit     | Description                                                                   |
 | ----------- | ----------------------------------------------------------------------------- |
-| Readability | No deep JSON trees—just chain simple methods.                                 |
-| Re‑use      | Extract snippets to functions or classes and share across cards.              |
+| Readability | No deep JSON trees--just chain simple methods.                                 |
+| Re-use      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
 ::: zone pivot="typescript"
@@ -142,13 +142,13 @@ Benefits:
 > The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
 ::: zone-end
 
-## Type‑safe Authoring & IntelliSense
+## Type-safe Authoring & IntelliSense
 
 The package bundles the **Adaptive Card v1.5 schema** as strict :::zone pivot="typescript" inline :::TypeScript/JavaScript:::zone-end:::zone pivot="csharp" inline :::C#:::zone-end:::zone pivot="python" inline :::Python:::zone-end types.
 While coding you get:
 
 - **Autocomplete** for every element and attribute.
-- **In‑editor validation**—invalid enum values or missing required properties produce build errors.
+- **In-editor validation**--invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
 ::: zone pivot="typescript"
@@ -179,7 +179,7 @@ text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 
 ## The Visual Designer
 
-Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
+Prefer a drag-and-drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
 1. Add elements visually until the card looks right.
 2. Copy the JSON payload from the editor pane.
@@ -366,7 +366,7 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 > [!TIP]
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
 
-## End‑to‑end Example – Task Form Card
+## End-to-end Example - Task Form Card
 
 Below is a complete example showing a task management form.
 
@@ -569,4 +569,4 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building! 🎉
+Happy card building!

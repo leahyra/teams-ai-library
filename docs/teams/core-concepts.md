@@ -14,7 +14,7 @@ When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Tea
 **Teams**
 
 - Teams Client: User-facing agent that interacts with the user.
-- Teams Backend: Part of your app package; includes a manifest with your app’s client ID.
+- Teams Backend: Part of your app package; includes a manifest with your app's client ID.
 
 **Azure**
 

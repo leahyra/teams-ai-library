@@ -10,7 +10,7 @@ zone_pivot_groups: dev-lang
 
 # Adapters
 A BotBuilder `CloudAdapter` is responsible for managing communication between a bot and its users.
-It serves as the entry point for incoming activities and forwards them to the registered `ActivityHandler` for processing. 
+It serves as the entry point for incoming activities and forwards them to the registered `ActivityHandler` for processing.
 You can customize the adapter to add middleware for logging, authentication, and define error handling.
 
 The `BotBuilderPlugin` provided within the Teams SDK, connects the SDK with the BotBuilder framework.
@@ -232,7 +232,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     )
     from botbuilder.schema import Activity, ActivityTypes
     from types import SimpleNamespace
-    
+
     config = SimpleNamespace(
                 APP_TYPE="SingleTenant" if tenant_id else "MultiTenant",
                 APP_ID=client_id,
@@ -276,7 +276,7 @@ handling incoming messages and sending responses via the `TurnContext`.
 - :::zone pivot="typescript" inline :::`index.ts`:::zone-end:::zone pivot="csharp" inline :::`Program.cs`:::zone-end:::zone pivot="python" inline :::`app.py`:::zone-end sets up a Teams SDK `app`
 and registers the `BotBuilderPlugin` with your adapter and activity handler. It also defines a native Teams SDK activity handler that responds to messages.
 
-In the ouptut below, 
+In the ouptut below,
 The first line comes from the BotBuilder ActivityHandler. The second line comes from the Teams SDK message activity handler.
 This shows that both handlers can process the same message sequentially when using the BotBuilder Plugin.
 This strategy can now be used to incrementally migrate from BotBuilder to the Teams SDK.

@@ -8,7 +8,7 @@ zone_pivot_groups: dev-lang
 
 # Executing Actions
 
-Adaptive Cards support interactive elements through **actions**—buttons, links, and input submission triggers that respond to user interaction.
+Adaptive Cards support interactive elements through **actions**--buttons, links, and input submission triggers that respond to user interaction.
 You can use these to collect form input, trigger workflows, show task modules, open URLs, and more.
 
 ## Action Types
@@ -17,7 +17,7 @@ The Teams SDK supports several action types for different interaction patterns:
 
 | Action Type               | Purpose                | Description                                                                  |
 | ------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
-| `Action.Execute`          | Server‑side processing | Send data to your bot for processing. Best for forms & multi‑step workflows. |
+| `Action.Execute`          | Server-side processing | Send data to your bot for processing. Best for forms & multi-step workflows. |
 | `Action.Submit`           | Simple data submission | Legacy action type. Prefer `Execute` for new projects.                       |
 | `Action.OpenUrl`          | External navigation    | Open a URL in the user's browser.                                            |
 | `Action.ShowCard`         | Progressive disclosure | Display a nested card when clicked.                                          |

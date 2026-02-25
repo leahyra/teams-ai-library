@@ -284,7 +284,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 -           CancellationToken cancellationToken)
 -       {
 -           await turnContext.SendActivityAsync(
--               Activity.CreateTypingActivity(), 
+-               Activity.CreateTypingActivity(),
 -               cancellationToken: cancellationToken);
 -       }
 -   }
@@ -312,7 +312,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         {
             // highlight-next-line
             await turnContext.SendActivityAsync(
-                Activity.CreateTypingActivity(), 
+                Activity.CreateTypingActivity(),
                 cancellationToken: cancellationToken);
         }
     }
@@ -568,7 +568,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
     using Microsoft.Teams.Api;
     using Microsoft.Teams.Apps;
     using Microsoft.Teams.Plugins.AspNetCore.Extensions;
-    
+
     var teams = app.UseTeams();
     teams.OnMessage(async (context) =>
     {

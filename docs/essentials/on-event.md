@@ -8,7 +8,7 @@ zone_pivot_groups: dev-lang
 
 # Listening To Events
 
-An **event** is a foundational concept in building agents — it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).
+An **event** is a foundational concept in building agents -- it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).
 
 ::: zone pivot="typescript"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
@@ -25,7 +25,7 @@ An **event** is a foundational concept in building agents — it represents some
 :::image type="content" source="~/assets/diagrams/essentials-on-event-3.png" alt-text="Flowchart showing Teams sending events to the App Server and Event Handler" lightbox="~/assets/diagrams/essentials-on-event-3.png":::
 ::: zone-end
 
-The Teams SDK makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.
+The Teams SDK makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur -- such as logging errors, triggering workflows, or sending follow-up messages.
 
 Here are the events that you can start building handlers for:
 

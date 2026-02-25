@@ -126,7 +126,7 @@ Plugins are a core part of the Teams SDK. They allow you to hook into various li
 
 > [!WARNING]
 > DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.
-> 
+>
 > **Be sure to remove the DevTools plugin from your production code.**
 
 ### Message Handling
@@ -168,7 +168,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 This code:
 
 1. :::zone pivot="typescript" inline :::Listens for all incoming messages using `app.on('message')`.:::zone-end:::zone pivot="csharp" inline :::Listens for all incoming messages using `onMessage` handler.:::zone-end:::zone pivot="python" inline :::Listens for all incoming messages using `app.on_message`:::zone-end
-2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
+2. Sends a typing indicator, which renders as an animated ellipsis (...) in the chat.
 3. :::zone pivot="typescript" inline :::Responds by echoing back the received message.:::zone-end:::zone pivot="csharp" inline :::Responds by echoing back the received message.:::zone-end:::zone pivot="python" inline :::Responds by echoing back the received message if any other text aside from "reply" is sent.:::zone-end
 
 ::: zone pivot="typescript"
