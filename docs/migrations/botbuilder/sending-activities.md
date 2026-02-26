@@ -3,7 +3,7 @@ title: Sending Activities
 description: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Sending Activities
@@ -11,6 +11,256 @@ ms.date: 02/13/2026
 BotBuilder's pattern for sending activities via its `TurnContext` is similar to that in Teams SDK,
 but one key difference is that sending adaptive cards doesn't require constructing the entire activity yourself.
 
+::: zone pivot="typescript"
+# [Diff](#tab/diff)
+
+```typescript
+    // highlight-error-start
+-    import { TeamsActivityHandler } from 'botbuilder';
+
+-    export class ActivityHandler extends TeamsActivityHandler {
+-      constructor() {
+-        super();
+-        this.onMessage(async (context) => {
+-          await context.sendActivity({ type: 'typing' });
+-        });
+-      }
+-    }
+    // highlight-error-end
+    // highlight-success-start
++    app.on('message', async ({ send }) => {
++      await send({ type: 'typing' });
++    });
+    // highlight-success-end
+```
+
+# [BotBuilder](#tab/botbuilder)
+
+```typescript showLineNumbers
+    import { TeamsActivityHandler } from 'botbuilder';
+
+    export class ActivityHandler extends TeamsActivityHandler {
+      constructor() {
+        super();
+        this.onMessage(async (context) => {
+          // highlight-next-line
+          await context.sendActivity({ type: 'typing' });
+        });
+      }
+    }
+```
+
+# [Teams SDK](#tab/teams-sdk)
+
+```typescript showLineNumbers
+    app.on('message', async ({ send }) => {
+      // highlight-next-line
+      await send({ type: 'typing' });
+    });
+```
+
+---
+
+## Strings
+
+# [Diff](#tab/diff)
+
+```typescript
+    // highlight-error-start
+-    import { TeamsActivityHandler } from 'botbuilder';
+
+-    export class ActivityHandler extends TeamsActivityHandler {
+-      constructor() {
+-        super();
+-        this.onMessage(async (context) => {
+-          await context.sendActivity('hello world');
+-        });
+-      }
+-    }
+    // highlight-error-end
+    // highlight-success-start
++    app.on('message', async ({ send }) => {
++      await send('hello world');
++    });
+    // highlight-success-end
+```
+
+# [BotBuilder](#tab/botbuilder)
+
+```typescript showLineNumbers
+    import { TeamsActivityHandler } from 'botbuilder';
+
+    export class ActivityHandler extends TeamsActivityHandler {
+      constructor() {
+        super();
+        this.onMessage(async (context) => {
+          // highlight-next-line
+          await context.sendActivity('hello world');
+        });
+      }
+    }
+```
+
+# [Teams SDK](#tab/teams-sdk)
+
+```typescript showLineNumbers
+    app.on('message', async ({ send }) => {
+      // highlight-next-line
+      await send('hello world');
+    });
+```
+
+---
+
+## Adaptive Cards
+
+# [Diff](#tab/diff)
+
+```typescript
+    // highlight-error-line
+-    import { TeamsActivityHandler, CardFactory } from 'botbuilder';
+    // highlight-success-line
++    import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+
+    // highlight-error-start
+-    export class ActivityHandler extends TeamsActivityHandler {
+-      constructor() {
+-        super();
+-        this.onMessage(async (context) => {
+-          await context.sendActivity({
+-            type: 'message',
+-            attachments: [
+-              CardFactory.adaptiveCard({
+-                $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
+-                type: 'AdaptiveCard',
+-                version: '1.0',
+-                body: [{
+-                  type: 'TextBlock',
+-                  text: 'hello world'
+-                }]
+-              })
+-            ]
+-          });
+-        });
+-      }
+-    }
+    // highlight-error-end
+    // highlight-success-start
++    app.on('message', async ({ send }) => {
++      await send(new AdaptiveCard(new TextBlock('hello world')));
++    });
+    // highlight-success-end
+```
+
+# [BotBuilder](#tab/botbuilder)
+
+```typescript showLineNumbers
+    import { TeamsActivityHandler, CardFactory } from 'botbuilder';
+
+    export class ActivityHandler extends TeamsActivityHandler {
+      constructor() {
+        super();
+        this.onMessage(async (context) => {
+          // highlight-start
+          await context.sendActivity({
+            type: 'message',
+            attachments: [
+              CardFactory.adaptiveCard({
+                $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
+                type: 'AdaptiveCard',
+                version: '1.0',
+                body: [{
+                  type: 'TextBlock',
+                  text: 'hello world'
+                }]
+              })
+            ]
+          });
+          // highlight-end
+        });
+      }
+    }
+```
+
+# [Teams SDK](#tab/teams-sdk)
+
+```typescript showLineNumbers
+    import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+
+    app.on('message', async ({ send }) => {
+      // highlight-next-line
+      await send(new AdaptiveCard(new TextBlock('hello world')));
+    });
+```
+
+---
+
+## Attachments
+
+# [Diff](#tab/diff)
+
+```typescript
+    // highlight-error-line
+-    import { TeamsActivityHandler } from 'botbuilder';
+    // highlight-success-line
++    import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+
+    // highlight-error-start
+-    export class ActivityHandler extends TeamsActivityHandler {
+-      constructor() {
+-        super();
+-        this.onMessage(async (context) => {
+-          await context.sendActivity({
+-            type: 'message',
+-            attachments: [
+-              ...
+-            ]
+-          });
+-        });
+-      }
+-    }
+    // highlight-error-end
+    // highlight-success-start
++    app.on('message', async ({ send }) => {
++      await send(new MessageActivity().addAttachment(...));
++    });
+    // highlight-success-end
+```
+
+# [BotBuilder](#tab/botbuilder)
+
+```typescript showLineNumbers
+    import { TeamsActivityHandler } from 'botbuilder';
+
+    export class ActivityHandler extends TeamsActivityHandler {
+      constructor() {
+        super();
+        this.onMessage(async (context) => {
+          // highlight-start
+          await context.sendActivity({
+            type: 'message',
+            attachments: [
+              ...
+            ]
+          });
+          // highlight-end
+        });
+      }
+    }
+```
+
+# [Teams SDK](#tab/teams-sdk)
+
+```typescript showLineNumbers
+
+    app.on('message', async ({ send }) => {
+      // highlight-next-line
+      await send(new MessageActivity().addAttachment(...));
+    });
+```
+
+---
+::: zone-end
 
 ::: zone pivot="csharp"
 # [Diff](#tab/diff)
@@ -34,7 +284,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 -           CancellationToken cancellationToken)
 -       {
 -           await turnContext.SendActivityAsync(
--               Activity.CreateTypingActivity(), 
+-               Activity.CreateTypingActivity(),
 -               cancellationToken: cancellationToken);
 -       }
 -   }
@@ -47,6 +297,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +   });
     // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -61,11 +312,12 @@ but one key difference is that sending adaptive cards doesn't require constructi
         {
             // highlight-next-line
             await turnContext.SendActivityAsync(
-                Activity.CreateTypingActivity(), 
+                Activity.CreateTypingActivity(),
                 cancellationToken: cancellationToken);
         }
     }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -80,6 +332,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         await context.Send(new Activity(type:"typing"));
     });
 ```
+
 ---
 
 ## Strings
@@ -115,6 +368,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +   });
     // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -132,6 +386,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         }
     }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -145,6 +400,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         await context.Send("hello world");
     });
 ```
+
 ---
 
 ## Adaptive Cards
@@ -196,6 +452,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +   });
     // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -229,6 +486,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         }
     }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
@@ -243,6 +501,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         await context.Send(new AdaptiveCard(new TextBlock("hello world")));
     });
 ```
+
 ---
 
 ## Attachments
@@ -282,6 +541,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +   });
     // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
 
 ```csharp showLineNumbers
@@ -301,13 +561,14 @@ but one key difference is that sending adaptive cards doesn't require constructi
         }
     }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
 
 ```csharp showLineNumbers
     using Microsoft.Teams.Api;
     using Microsoft.Teams.Apps;
     using Microsoft.Teams.Plugins.AspNetCore.Extensions;
-    
+
     var teams = app.UseTeams();
     teams.OnMessage(async (context) =>
     {
@@ -318,8 +579,8 @@ but one key difference is that sending adaptive cards doesn't require constructi
         // highlight-end
     });
 ```
----
 
+---
 ::: zone-end
 
 ::: zone pivot="python"
@@ -346,6 +607,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       await context.send(TypingActivityInput())
     # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -357,6 +619,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
             # highlight-next-line
             await turn_context.send_activity(Activity(type="typing"))
 ```
+
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -368,6 +631,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         # highlight-next-line
         await context.send(TypingActivityInput())
 ```
+
 ---
 
 ## Strings
@@ -394,6 +658,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       await context.send("hello world")
     # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -404,6 +669,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
             # highlight-next-line
             await turn_context.send_activity("hello world")
 ```
+
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -415,6 +681,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         # highlight-next-line
         await context.send("hello world")
 ```
+
 ---
 
 ## Adaptive Cards
@@ -446,6 +713,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       await context.send(AdaptiveCard().with_body([TextBlock(text="Hello from Adaptive Card!")]))
     # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -461,6 +729,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
           await turn_context.send_activity(activity)
           # highlight-end
 ```
+
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -473,6 +742,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
         # highlight-next-line
         await context.send(AdaptiveCard(body=[TextBlock(text="Hello from Adaptive Card!")]))
 ```
+
 ---
 
 ## Attachments
@@ -504,6 +774,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
 +       await context.send(activity)
     # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
 
 ```python showLineNumbers
@@ -518,6 +789,7 @@ but one key difference is that sending adaptive cards doesn't require constructi
             await turn_context.send_activity(activity)
             # highlight-end
 ```
+
 # [Teams SDK](#tab/teams-sdk)
 
 ```python showLineNumbers
@@ -532,247 +804,6 @@ but one key difference is that sending adaptive cards doesn't require constructi
         await context.send(activity)
         # highlight-end
 ```
----
 
+---
 ::: zone-end
-
-::: zone pivot="typescript"
-# [Diff](#tab/diff)
-
-```typescript
-    // highlight-error-start
--    import { TeamsActivityHandler } from 'botbuilder';
-
--    export class ActivityHandler extends TeamsActivityHandler {
--      constructor() {
--        super();
--        this.onMessage(async (context) => {
--          await context.sendActivity({ type: 'typing' });
--        });
--      }
--    }
-    // highlight-error-end
-    // highlight-success-start
-+    app.on('message', async ({ send }) => {
-+      await send({ type: 'typing' });
-+    });
-    // highlight-success-end
-```
-# [BotBuilder](#tab/botbuilder)
-
-```typescript showLineNumbers
-    import { TeamsActivityHandler } from 'botbuilder';
-
-    export class ActivityHandler extends TeamsActivityHandler {
-      constructor() {
-        super();
-        this.onMessage(async (context) => {
-          // highlight-next-line
-          await context.sendActivity({ type: 'typing' });
-        });
-      }
-    }
-```
-# [Teams SDK](#tab/teams-sdk)
-
-```typescript showLineNumbers
-    app.on('message', async ({ send }) => {
-      // highlight-next-line
-      await send({ type: 'typing' });
-    });
-```
----
-
-## Strings
-
-# [Diff](#tab/diff)
-
-```typescript
-    // highlight-error-start
--    import { TeamsActivityHandler } from 'botbuilder';
-
--    export class ActivityHandler extends TeamsActivityHandler {
--      constructor() {
--        super();
--        this.onMessage(async (context) => {
--          await context.sendActivity('hello world');
--        });
--      }
--    }
-    // highlight-error-end
-    // highlight-success-start
-+    app.on('message', async ({ send }) => {
-+      await send('hello world');
-+    });
-    // highlight-success-end
-```
-# [BotBuilder](#tab/botbuilder)
-
-```typescript showLineNumbers
-    import { TeamsActivityHandler } from 'botbuilder';
-
-    export class ActivityHandler extends TeamsActivityHandler {
-      constructor() {
-        super();
-        this.onMessage(async (context) => {
-          // highlight-next-line
-          await context.sendActivity('hello world');
-        });
-      }
-    }
-```
-# [Teams SDK](#tab/teams-sdk)
-
-```typescript showLineNumbers
-    app.on('message', async ({ send }) => {
-      // highlight-next-line
-      await send('hello world');
-    });
-```
----
-
-## Adaptive Cards
-
-# [Diff](#tab/diff)
-
-```typescript
-    // highlight-error-line
--    import { TeamsActivityHandler, CardFactory } from 'botbuilder';
-    // highlight-success-line
-+    import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
-
-    // highlight-error-start
--    export class ActivityHandler extends TeamsActivityHandler {
--      constructor() {
--        super();
--        this.onMessage(async (context) => {
--          await context.sendActivity({
--            type: 'message',
--            attachments: [
--              CardFactory.adaptiveCard({
--                $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
--                type: 'AdaptiveCard',
--                version: '1.0',
--                body: [{
--                  type: 'TextBlock',
--                  text: 'hello world'
--                }]
--              })
--            ]
--          });
--        });
--      }
--    }
-    // highlight-error-end
-    // highlight-success-start
-+    app.on('message', async ({ send }) => {
-+      await send(new AdaptiveCard(new TextBlock('hello world')));
-+    });
-    // highlight-success-end
-```
-# [BotBuilder](#tab/botbuilder)
-
-```typescript showLineNumbers
-    import { TeamsActivityHandler, CardFactory } from 'botbuilder';
-
-    export class ActivityHandler extends TeamsActivityHandler {
-      constructor() {
-        super();
-        this.onMessage(async (context) => {
-          // highlight-start
-          await context.sendActivity({
-            type: 'message',
-            attachments: [
-              CardFactory.adaptiveCard({
-                $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
-                type: 'AdaptiveCard',
-                version: '1.0',
-                body: [{
-                  type: 'TextBlock',
-                  text: 'hello world'
-                }]
-              })
-            ]
-          });
-          // highlight-end
-        });
-      }
-    }
-```
-# [Teams SDK](#tab/teams-sdk)
-
-```typescript showLineNumbers
-    import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
-
-    app.on('message', async ({ send }) => {
-      // highlight-next-line
-      await send(new AdaptiveCard(new TextBlock('hello world')));
-    });
-```
----
-
-## Attachments
-
-# [Diff](#tab/diff)
-
-```typescript
-    // highlight-error-line
--    import { TeamsActivityHandler } from 'botbuilder';
-    // highlight-success-line
-+    import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
-
-    // highlight-error-start
--    export class ActivityHandler extends TeamsActivityHandler {
--      constructor() {
--        super();
--        this.onMessage(async (context) => {
--          await context.sendActivity({
--            type: 'message',
--            attachments: [
--              ...
--            ]
--          });
--        });
--      }
--    }
-    // highlight-error-end
-    // highlight-success-start
-+    app.on('message', async ({ send }) => {
-+      await send(new MessageActivity().addAttachment(...));
-+    });
-    // highlight-success-end
-```
-# [BotBuilder](#tab/botbuilder)
-
-```typescript showLineNumbers
-    import { TeamsActivityHandler } from 'botbuilder';
-
-    export class ActivityHandler extends TeamsActivityHandler {
-      constructor() {
-        super();
-        this.onMessage(async (context) => {
-          // highlight-start
-          await context.sendActivity({
-            type: 'message',
-            attachments: [
-              ...
-            ]
-          });
-          // highlight-end
-        });
-      }
-    }
-```
-# [Teams SDK](#tab/teams-sdk)
-
-```typescript showLineNumbers
-
-    app.on('message', async ({ send }) => {
-      // highlight-next-line
-      await send(new MessageActivity().addAttachment(...));
-    });
-```
----
-
-::: zone-end
-

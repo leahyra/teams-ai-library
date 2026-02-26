@@ -1,8 +1,8 @@
 ---
 title: Dialogs
-description: Learn how to use dialogs in Teams to improve interactions between your agent and users.
+description: Overview of dialogs in Teams SDK — popup modal windows that improve agent-user interaction using Adaptive Card content.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Dialogs

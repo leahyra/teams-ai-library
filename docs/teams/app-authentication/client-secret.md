@@ -2,7 +2,7 @@
 title: Client Secret Authentication Setup
 description: Set up client secret authentication for your Teams bot in Azure Portal or Azure CLI
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Client Secret Authentication Setup
@@ -21,7 +21,7 @@ Before you begin, ensure you have:
 
 When creating your Azure Bot Service, you must select `Single Tenant` for the `Type of App`.
 
-:::image type="content" source="~/assets/screenshots/single-tenant-bot.png" alt-text="Single Tenant Bot Creation":::
+:::image type="content" source="~/assets/screenshots/single-tenant-bot.png" alt-text="Single Tenant Bot Creation" lightbox="~/assets/screenshots/single-tenant-bot.png" :::
 
 ### Step 2: Create Client Secret
 
@@ -34,7 +34,7 @@ When creating your Azure Bot Service, you must select `Single Tenant` for the `T
 5. Click **Add**
 6. **Important**: Copy the secret value immediately - it won't be shown again
 
-:::image type="content" source="~/assets/screenshots/client-secret.png" alt-text="Secret in Certificates and Secrets":::
+:::image type="content" source="~/assets/screenshots/client-secret.png" alt-text="Secret in Certificates and Secrets" lightbox="~/assets/screenshots/client-secret.png" :::
 
 # [Azure CLI](#tab/cli)
 

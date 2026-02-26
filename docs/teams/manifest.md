@@ -2,7 +2,7 @@
 title: Teams Manifest
 description: Learn about Teams app manifest requirements, permissions, and sideloading process for app installation.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Teams Manifest

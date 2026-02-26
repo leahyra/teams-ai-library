@@ -8,7 +8,7 @@ metadata:
   description: Developer documentation for the Teams SDK (Teams AI Library), which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
-  ms.date: 02/13/2026
+  ms.date: 02/25/2026
   ms.author: mosdevdocs
   author: erikadoyle
 
@@ -42,6 +42,8 @@ landingContent:
             url: ./essentials/on-activity/overview.md
           - text: Sending Messages
             url: ./essentials/sending-messages/overview.md
+          - text: Targeted Messages (preview)
+            url: ./essentials/sending-messages/overview.md#targeted-messages
           - text: Proactive Messaging
             url: ./essentials/sending-messages/proactive-messaging.md
 
@@ -64,10 +66,14 @@ landingContent:
             url: ./in-depth-guides/ai/function-calling.md
           - text: Keeping State
             url: ./in-depth-guides/ai/keeping-state.md
-      - linkListType: architecture
+      - linkListType: concept
         links:
           - text: Agent-to-Agent Protocol
             url: ./in-depth-guides/ai/a2a/overview.md
+          - text: A2A Server
+            url: ./in-depth-guides/ai/a2a/a2a-server.md
+          - text: A2A Client
+            url: ./in-depth-guides/ai/a2a/a2a-client.md
           - text: MCP Overview
             url: ./in-depth-guides/ai/mcp/overview.md
           - text: MCP Server
@@ -84,12 +90,16 @@ landingContent:
             url: ./in-depth-guides/adaptive-cards/overview.md
           - text: Building Adaptive Cards
             url: ./in-depth-guides/adaptive-cards/building-adaptive-cards.md
+          - text: Executing Actions
+            url: ./in-depth-guides/adaptive-cards/executing-actions.md
           - text: Dialogs
             url: ./in-depth-guides/dialogs/overview.md
           - text: Message Extensions
             url: ./in-depth-guides/message-extensions/overview.md
           - text: Tabs
             url: ./in-depth-guides/tabs/overview.md
+          - text: Meeting Events
+            url: ./in-depth-guides/meeting-events.md
       - linkListType: how-to-guide
         links:
           - text: User Authentication
@@ -110,8 +120,6 @@ landingContent:
         links:
           - text: Running in Teams
             url: ./getting-started/running-in-teams/overview.md
-          - text: Teams Configuration Overview
-            url: ./teams/configuration/overview.md
           - text: Microsoft 365 Agents Toolkit
             url: ./teams/configuration/agents-toolkit.md
           - text: Manual Configuration
@@ -124,6 +132,8 @@ landingContent:
             url: ./teams/app-authentication/overview.md
           - text: App Authentication Configuration
             url: ./essentials/app-authentication.md
+          - text: Authentication Troubleshooting
+            url: ./teams/app-authentication/troubleshooting.md
           - text: User Authentication Setup
             url: ./teams/user-authentication/overview.md
           - text: SSO Setup
@@ -146,6 +156,8 @@ landingContent:
             url: ./developer-tools/devtools/cards.md
       - linkListType: how-to-guide
         links:
+          - text: Observability Overview
+            url: ./in-depth-guides/observability/overview.md
           - text: Observability & Logging
             url: ./in-depth-guides/observability/logging.md
           - text: Middleware
@@ -154,6 +166,8 @@ landingContent:
             url: ./in-depth-guides/feedback.md
       - linkListType: concept
         links:
+          - text: Migrations Overview
+            url: ./migrations/overview.md
           - text: Migrate from BotBuilder
             url: ./migrations/botbuilder/overview.md
           - text: Migrate from Teams AI Library v1

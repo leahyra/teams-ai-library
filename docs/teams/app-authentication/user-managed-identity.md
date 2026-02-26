@@ -2,7 +2,7 @@
 title: User Managed Identity Authentication Setup
 description: Set up User Managed Identity authentication for your Teams bot in Azure Portal or Azure CLI
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # User Managed Identity Authentication Setup
@@ -22,7 +22,7 @@ Before you begin, ensure you have:
 
 When creating your Azure Bot Service, select `User Managed Identity` for the `Type of App`.
 
-:::image type="content" source="~/assets/screenshots/umi-auth.png" alt-text="User Managed Identity":::
+:::image type="content" source="~/assets/screenshots/umi-auth.png" alt-text="User Managed Identity" lightbox="~/assets/screenshots/umi-auth.png" :::
 
 This will automatically create a User Managed Identity resource alongside your bot.
 

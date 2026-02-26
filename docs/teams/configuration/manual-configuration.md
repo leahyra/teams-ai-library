@@ -2,7 +2,7 @@
 title: Manual Configuration
 description: Describe how to deploy the Azure Bot Service resource required for Teams bot apps
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Manual Configuration

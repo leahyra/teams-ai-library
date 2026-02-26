@@ -3,21 +3,12 @@ title: Tabs
 description: Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Tabs
 
 Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
-
-
-::: zone pivot="csharp"
-This SDK does not offer features for implementing Tab apps in C#. It does however let you host tab apps and implement functions that can be called by Tab apps.
-::: zone-end
-
-::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
 
 ::: zone pivot="typescript"
 Tab apps will often need to interact with remote services. They may need to fetch data from [Microsoft Graph](/graph/overview) or invoke remote agent functions, using the [Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication) (NAA) and the [Microsoft Authentication Library](/entra/identity-platform/msal-overview) (MSAL) to ensure user consent and to allow the remote service authenticate the user.
@@ -30,6 +21,13 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 - **Scope Consent Management** by providing simple APIs to test for and request user consent.
 ::: zone-end
 
+::: zone pivot="csharp"
+This SDK does not offer features for implementing Tab apps in C#. It does however let you host tab apps and implement functions that can be called by Tab apps.
+::: zone-end
+
+::: zone pivot="python"
+<!-- TODO: section "overview" missing for python -->
+::: zone-end
 
 ## Resources
 
@@ -39,20 +37,18 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 - [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
 - [Nested App Authentication (NAA)](/microsoftteams/platform/concepts/authentication/nested-authentication)
 
+::: zone pivot="typescript"
+### Additional resources
+
+- [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)
+::: zone-end
 
 ::: zone pivot="csharp"
-
 ### Additional resources
 
 - [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
-
-::: zone pivot="typescript"
-### Additional resources
-
-- [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)
+<!-- TODO: section "additional-resources" missing for python -->
 ::: zone-end
