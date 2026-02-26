@@ -3,14 +3,17 @@ title: Listening To Activities
 description: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Listening To Activities
 
-An **Activity** is the Teams‑specific payload that flows between the user and your bot.
-Where _events_ describe high‑level happenings inside your app, _activities_ are the raw Teams messages such as chat text, card actions, installs, or invoke calls.
+An **Activity** is the Teams-specific payload that flows between the user and your bot.
+Where _events_ describe high-level happenings inside your app, _activities_ are the raw Teams messages such as chat text, card actions, installs, or invoke calls.
 
+::: zone pivot="typescript"
+The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.on('<route>', ...)`.
+::: zone-end
 
 ::: zone pivot="csharp"
 The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.OnActivity(...)` using minimal APIs.
@@ -20,15 +23,18 @@ The Teams SDK exposes a fluent router so you can subscribe to these activities w
 The Teams SDK exposes a fluent router so you can subscribe to these activities with `@app.event("activity")`.
 ::: zone-end
 
-::: zone pivot="typescript"
-The Teams SDK exposes a fluent routerso you can subscribe to these activities with `app.on('<route>', …)`.
-::: zone-end
-
-
-:::image type="content" source="~/assets/diagrams/essentials-on-activity-overview.png" alt-text="Flowchart diagram showing Teams, App Server, Activity Router (app.on()), Your Activity Handlers" lightbox="~/assets/diagrams/essentials-on-activity-overview.png":::
+<!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
+:::image type="content" source="~/assets/diagrams/essentials-on-activity-overview.png" alt-text="Flowchart showing Teams sending activities to the App Server, Activity Router, and Activity Handlers" lightbox="~/assets/diagrams/essentials-on-activity-overview.png":::
 
 Here is an example of a basic message handler:
 
+::: zone pivot="typescript"
+```typescript
+app.on('message', async ({ activity, send }) => {
+  await send(`You said: ${activity.text}`);
+});
+```
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -48,14 +54,10 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ::: zone-end
 
 ::: zone pivot="typescript"
-```typescript
-app.on('message', async ({ activity, send }) => {
-  await send(`You said: ${activity.text}`);
-});
-```
+In the above example, the `activity` parameter is of type `MessageActivity`, which has a `text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
+
+[Other activity types](./activity-ref.md) have different properties and different required results. For a given handler, the SDK will automatically determine the type of `activity` and also enforce the correct return type.
 ::: zone-end
-
-
 
 ::: zone pivot="csharp"
 In the above example, the `context.activity` parameter is of type `MessageActivity`, which has a `Text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
@@ -65,15 +67,11 @@ In the above example, the `context.activity` parameter is of type `MessageActivi
 In the above example, the `ctx.activity` parameter is of type `MessageActivity`, which has a `text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 ::: zone-end
 
-::: zone pivot="typescript"
-In the above example, the `activity` parameter is of type `MessageActivity`, which has a `text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
-
-[Other activity types](./activity-ref.md) have different properties and different required results. For a given handler, the SDK will automatically determine the type of `activity` and also enforce the correct return type.
-::: zone-end
-
-
 ## Middleware pattern
 
+::: zone pivot="typescript"
+The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `express` middlewares work. This means that for each activity handler, a `next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
+::: zone-end
 
 ::: zone pivot="csharp"
 The `OnActivity` activity handlers (and attributes) follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `dotnet` middlewares work. This means that for each activity handler, a `Next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
@@ -84,10 +82,32 @@ The `event` activity handlers (and attributes) follow a [middleware](https://www
 ::: zone-end
 
 ::: zone pivot="typescript"
-The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `express` middlewares work. This means that for each activity handler, a `next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
+```typescript
+app.on('message', async ({ next }) => {
+  console.log('global logger');
+  next(); // pass control onward
+});
+```
+
+```typescript
+app.on('message', async ({ activity, next }) => {
+  if (activity.text === '/help') {
+    await send('Here are all the ways I can help you...');
+    return;
+  }
+
+  // Conditionally pass control to the next handler
+  next();
+});
+```
+
+```typescript
+app.on('message', async ({ activity }) => {
+  // Fallthrough to the final handler
+  await send(`Hello! you said ${activity.text}`);
+});
+```
 ::: zone-end
-
-
 
 ::: zone pivot="csharp"
 ```csharp
@@ -110,7 +130,7 @@ app.OnMessage(async context =>
     // Conditionally pass control to the next handler
     context.Next();
 });
-    
+
   app.OnMessage(async context =>
   {
       // Fallthrough to the final handler
@@ -144,38 +164,14 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-```typescript
-app.on('message', async ({ next }) => {
-  console.log('global logger');
-  next(); // pass control onward
-});
-```
-
-```typescript
-app.on('message', async ({ activity, next }) => {
-  if (activity.text === '/help') {
-    await send('Here are all the ways I can help you...');
-    return;
-  }
-
-  // Conditionally pass control to the next handler
-  next();
-});
-```
-
-```typescript
-app.on('message', async ({ activity }) => {
-  // Fallthrough to the final handler
-  await send(`Hello! you said ${activity.text}`);
-});
-```
-::: zone-end
-
-
 > [!NOTE]
 > Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler. The order of registration for the handlers also matters as that determines how the handlers will be called.
 
+::: zone pivot="typescript"
+## Activity Reference
+
+For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref.md).
+::: zone-end
 
 ::: zone pivot="csharp"
 <!-- Not applicable -->
@@ -184,10 +180,3 @@ app.on('message', async ({ activity }) => {
 ::: zone pivot="python"
 <!-- Not applicable -->
 ::: zone-end
-
-::: zone pivot="typescript"
-## Activity Reference
-
-For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref.md).
-::: zone-end
-

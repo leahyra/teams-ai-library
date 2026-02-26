@@ -3,7 +3,7 @@ title: Porting your Slack Bolt bot
 description: Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Porting your Slack Bolt bot
@@ -43,37 +43,26 @@ First, setup a new Teams application, as shown in [Teams Integration](../teams/o
 
 ## Installing Teams SDK
 
-
-::: zone pivot="csharp"
-This page isn't available for C#.
-::: zone-end
-
-::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
-
 ::: zone pivot="typescript"
-First, let's install the Teams SDK into your project. This will install the Teams SDK alongside any existing packages.After you've completed your migration, you can safely remove the `@microsoft/teams-ai` dependency from your `package.json` file.
+First, let's install the Teams SDK into your project. This will install the Teams SDK alongside any existing packages. After you've completed your migration, you can safely remove the `@microsoft/teams-ai` dependency from your `package.json` file.
 
 ```sh
 npm install @microsoft/teams.apps
 ```
 ::: zone-end
 
-
-## Configure application
-
-
 ::: zone pivot="csharp"
-This page isn't available for C#.
+<!-- TODO: section "installation" missing for csharp -->
 ::: zone-end
 
 ::: zone pivot="python"
-This page isn't available for Python.
+<!-- TODO: section "installation" missing for python -->
 ::: zone-end
 
+## Configure application
+
 ::: zone pivot="typescript"
-First, let's configure the `App` class in Teams JS.This is equivalent to Slack Bolt's `App` class.
+First, let's configure the `App` class in Teams JS. This is equivalent to Slack Bolt's `App` class.
 
 # [Diff](#tab/diff)
 
@@ -153,6 +142,7 @@ First, let's configure the `App` class in Teams JS.This is equivalent to Slack B
         await app.start();
     })();
 ```
+
 # [Slack Bolt](#tab/slack)
 
 ```ts
@@ -218,6 +208,7 @@ First, let's configure the `App` class in Teams JS.This is equivalent to Slack B
         await app.start();
     })();
 ```
+
 # [Teams SDK](#tab/teams)
 
 ```ts
@@ -237,25 +228,23 @@ First, let's configure the `App` class in Teams JS.This is equivalent to Slack B
         await app.start();
     })();
 ```
----
 
+---
 ::: zone-end
 
+::: zone pivot="csharp"
+<!-- TODO: section "application" missing for csharp -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- TODO: section "application" missing for python -->
+::: zone-end
 
 ## Migrate message handlers
 
 In Slack, there are message handlers for events with different subtypes (e.g., undefined subtype is a regular message, `event.subtype == 'file_share'` is a file share message, etc.). In Teams, there are different `Activity` handers for different types of events that are enumerated via the `ActivityTypes` enum (e.g., `app.activity(ActivityTypes.Message)`), with some `Activity` types having tailored APIs within the SDK (e.g., `app.message`). These concepts are roughly similar, though the naming conventions and syntax differ.
 
 ### Message handlers
-
-
-::: zone pivot="csharp"
-This page isn't available for C#.
-::: zone-end
-
-::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
 
 ::: zone pivot="typescript"
 # [Diff](#tab/diff)
@@ -290,6 +279,7 @@ This page isn't available for Python.
     });
     // highlight-success-end
 ```
+
 # [Slack Bolt](#tab/slack)
 
 ```ts
@@ -307,6 +297,7 @@ This page isn't available for Python.
         await say(`you said: ${message.text}`);
     });
 ```
+
 # [Teams SDK](#tab/teams)
 
 ```ts
@@ -320,23 +311,21 @@ This page isn't available for Python.
         await send(`you said: ${activity.text}`);
     });
 ```
----
 
+---
 ::: zone-end
 
+::: zone pivot="csharp"
+<!-- TODO: section "message-handlers" missing for csharp -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- TODO: section "message-handlers" missing for python -->
+::: zone-end
 
 ## BlockKit -> Adaptive Cards
 
 To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent to Teams's Adaptive Cards.
-
-
-::: zone pivot="csharp"
-This page isn't available for C#.
-::: zone-end
-
-::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
 
 ::: zone pivot="typescript"
 # [Diff](#tab/diff)
@@ -370,6 +359,7 @@ This page isn't available for Python.
     });
     // highlight-success-end
 ```
+
 # [Slack Bolt](#tab/slack)
 
 For existing cards like this, the simplest way to convert that to Teams SDK is this:
@@ -407,9 +397,15 @@ For a more thorough port, you could also do the following:
 ```
 
 ---
-
 ::: zone-end
 
+::: zone pivot="csharp"
+<!-- TODO: section "adaptive-cards" missing for csharp -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- TODO: section "adaptive-cards" missing for python -->
+::: zone-end
 
 Learn more in the [Adaptive Cards guide](../in-depth-guides/adaptive-cards/overview.md).
 
@@ -425,21 +421,12 @@ First, follow the instructions in the [Teams SSO guide](../teams/user-authentica
 
 Then, configure the authentication in your code.
 
-
-::: zone pivot="csharp"
-This page isn't available for C#.
-::: zone-end
-
-::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
-
 ::: zone pivot="typescript"
 # [Diff](#tab/diff)
 
 ```ts
     // highlight-error-start
-    // TODO: Configure App class with user OAuth permissionsand install app for user
+    // TODO: Configure App class with user OAuth permissions and install app for user
 
     app.message('me', async ({ client, message }) => {
         const me = await client.users.info({ user: message.user });
@@ -505,9 +492,15 @@ This page isn't available for Python.
 ```
 
 ---
-
 ::: zone-end
 
+::: zone pivot="csharp"
+<!-- TODO: section "graph" missing for csharp -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- TODO: section "graph" missing for python -->
+::: zone-end
 
 ### User authentication for external services
 
@@ -515,18 +508,9 @@ In Slack, you can access external services by implementing an account binding fl
 
 First, setup your OAuth 2.0 connection settings in the [Azure Portal](https://portal.azure.com/) for your Azure Bot resource.
 
-:::image type="content" source="~/assets/screenshots/abs-custom-oauth-connection.png" alt-text="Screenshot showing Azure Bot custom OAuth connection settings.":::
+:::image type="content" source="~/assets/screenshots/abs-custom-oauth-connection.png" alt-text="Screenshot showing Azure Bot custom OAuth connection settings." lightbox="~/assets/screenshots/abs-custom-oauth-connection.png" :::
 
 Then, add the authentication code to your application to get the relevant user token and call your external service.
-
-
-::: zone pivot="csharp"
-This page isn't available for C#.
-::: zone-end
-
-::: zone pivot="python"
-This page isn't available for Python.
-::: zone-end
 
 ::: zone pivot="typescript"
 ```ts
@@ -562,3 +546,10 @@ app.message('me', async ({ activity, signin, token, send }) => {
 ```
 ::: zone-end
 
+::: zone pivot="csharp"
+<!-- TODO: section "3p-auth" missing for csharp -->
+::: zone-end
+
+::: zone pivot="python"
+<!-- TODO: section "3p-auth" missing for python -->
+::: zone-end

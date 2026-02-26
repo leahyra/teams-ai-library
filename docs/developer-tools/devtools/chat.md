@@ -2,10 +2,10 @@
 title: Devtools chat
 description: Test chat functionality with your Teams agent using the lightweight DevTools without sideloading into Teams.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
-# Devtools chat
+#  Devtools chat
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 
@@ -49,7 +49,7 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 ```bash
 [nodemon] watching extensions: ts
 [nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
-[INFO] @samples/echo/http listening on port 3978
+[INFO] @samples/echo/http listening on port 3978 🚀
 [INFO] @samples/echo/devtools available at http://localhost:3979/devtools
 ```
 
@@ -58,7 +58,7 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'.":::
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'." lightbox="~/assets/screenshots/devtools-echo-chat.png" :::
 
 ## Teams chat terminology
 
@@ -109,9 +109,9 @@ Soft delete messages by hovering over your message, pressing the More (ellipsis)
 
 ### Streaming
 
-If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
+If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](./inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Send feedback
+### User feedback
 
 Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 
@@ -120,6 +120,6 @@ Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in t
 
 ### Developer message shortcut
 
-For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>↑</kbd> arrow key to cycle through your message history and resend messages.
+For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>Up</kbd> arrow key to cycle through your message history and resend messages.
 
 ![Devtools Up Arrow Feature](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_uparrow_feature.gif?raw=true)

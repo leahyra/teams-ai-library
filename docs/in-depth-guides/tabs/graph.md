@@ -2,7 +2,7 @@
 title: Microsoft Graph Client
 description: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Microsoft Graph Client

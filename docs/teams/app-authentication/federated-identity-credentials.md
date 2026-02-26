@@ -2,7 +2,7 @@
 title: Federated Identity Credentials Setup
 description: Set up Federated Identity Credentials authentication for your Teams bot in Azure Portal or Azure CLI
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 02/25/2026
 ---
 
 # Federated Identity Credentials Setup
@@ -23,7 +23,7 @@ Before you begin, ensure you have:
 
 When creating your Azure Bot Service, select `Single Tenant` for the `Type of App`.
 
-:::image type="content" source="~/assets/screenshots/single-tenant-bot.png" alt-text="Single Tenant Bot Creation":::
+:::image type="content" source="~/assets/screenshots/single-tenant-bot.png" alt-text="Single Tenant Bot Creation" lightbox="~/assets/screenshots/single-tenant-bot.png" :::
 
 ### Step 2: Configure Federated Credentials
 
@@ -39,7 +39,7 @@ Assign managed identities to your App Registration using Federated Credentials.
 6. Choose the User Managed Identity or configure for System Assigned Identity
 7. Complete the required fields and click **Add**
 
-:::image type="content" source="~/assets/screenshots/fic.png" alt-text="Federated Identity Creds":::
+:::image type="content" source="~/assets/screenshots/fic.png" alt-text="Federated Identity Creds" lightbox="~/assets/screenshots/fic.png" :::
 
 The identity you select here must also be assigned to the compute resource where your application is hosted.
 
