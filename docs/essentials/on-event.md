@@ -17,12 +17,12 @@ An **event** is a foundational concept in building agents -- it represents somet
 
 ::: zone pivot="csharp"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-:::image type="content" source="~/assets/diagrams/essentials-on-event-2.png" alt-text="Flowchart showing Teams sending events to the App Server and Event Handler" lightbox="~/assets/diagrams/essentials-on-event-2.png":::
+:::image type="content" source="~/assets/diagrams/essentials-on-event-csharp.png" alt-text="Flowchart showing Teams sending events to the App Server and Event Handler" lightbox="~/assets/diagrams/essentials-on-event-csharp.png":::
 ::: zone-end
 
 ::: zone pivot="python"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-:::image type="content" source="~/assets/diagrams/essentials-on-event-3.png" alt-text="Flowchart showing Teams sending events to the App Server and Event Handler" lightbox="~/assets/diagrams/essentials-on-event-3.png":::
+:::image type="content" source="~/assets/diagrams/essentials-on-event-1-python.png" alt-text="Flowchart showing Teams sending events to the App Server and Event Handler" lightbox="~/assets/diagrams/essentials-on-event-1-python.png":::
 ::: zone-end
 
 The Teams SDK makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur -- such as logging errors, triggering workflows, or sending follow-up messages.

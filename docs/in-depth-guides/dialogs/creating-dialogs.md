@@ -1,6 +1,6 @@
 ---
 title: Creating Dialogs
-description: 
+description: Step-by-step guide to creating Adaptive Card dialogs in Teams SDK applications, including modal dialogs, form submission, and multi-step dialog flows.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
 ms.date: 02/25/2026

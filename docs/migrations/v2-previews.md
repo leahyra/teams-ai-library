@@ -1,6 +1,6 @@
 ---
 title: From V2 Previews
-description: 
+description: Migration guide for upgrading from Teams SDK v2 preview versions to the latest stable release, covering breaking changes and code updates.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
 ms.date: 02/25/2026

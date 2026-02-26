@@ -292,5 +292,5 @@ Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
 
 ::: zone pivot="python"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-2.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, A2AClientPlugin, and A2ACardResolver" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-2.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-python.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, A2AClientPlugin, and A2ACardResolver" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-a2a-client-python.png":::
 ::: zone-end

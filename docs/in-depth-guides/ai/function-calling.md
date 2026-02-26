@@ -28,12 +28,12 @@ It's possible to hook up functions that the LLM can decide to call if it thinks 
 
 ::: zone pivot="csharp"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling-2.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, and Function with tool calls" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling-2.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling-csharp.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, and Function with tool calls" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling-csharp.png":::
 ::: zone-end
 
 ::: zone pivot="python"
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling-3.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, and Function with tool calls" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling-3.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-function-calling-1-python.png" alt-text="Sequence diagram showing interaction between User, ChatPrompt, LLM, and Function with tool calls" lightbox="~/assets/diagrams/in-depth-guides-ai-function-calling-1-python.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"

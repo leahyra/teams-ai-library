@@ -61,7 +61,7 @@ pip install microsoft-teams-a2a
 ### A2A Client
 
 <!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-overview-2.png" alt-text="Flowchart showing TeamsApp with A2AClientPlugin connecting to an external A2A server" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-overview-2.png":::
+:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-a2a-overview-1.png" alt-text="Flowchart showing TeamsApp with A2AClientPlugin connecting to an external A2A server" lightbox="~/assets/diagrams/in-depth-guides-ai-a2a-overview-1.png":::
 
 ## Protocol Details
 

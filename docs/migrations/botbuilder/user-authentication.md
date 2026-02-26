@@ -6,7 +6,7 @@ zone_pivot_groups: dev-lang
 ms.date: 02/25/2026
 ---
 
-# User Authentication
+# Migrate User Authentication from BotBuilder
 
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
 ::: zone pivot="typescript"

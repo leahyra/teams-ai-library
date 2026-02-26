@@ -256,5 +256,5 @@ Continue on to the next page to learn about these advanced features.
 ## Other Resources
 
 - [Essentials](../essentials/overview.md)
-- [Teams concepts](/teams)
-- [Teams developer tools](/developer-tools)
+- [Teams concepts](../teams/overview.md)
+- [Teams developer tools](../developer-tools/devtools/overview.md)

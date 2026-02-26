@@ -71,7 +71,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 > This snippet shows how to use the `BotBuilderPlugin` to send and receive activities using botbuilder instead of the default Teams SDK http plugin.
 
 ::: zone pivot="typescript"
-# [index.ts](#tab/index.ts)
+## [index.ts](#tab/index-ts)
 
 ```typescript
     import { App } from '@microsoft/teams.apps';
@@ -94,7 +94,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     })();
 ```
 
-# [adapter.ts](#tab/adapter.ts)
+## [adapter.ts](#tab/adapter-ts)
 
 ```typescript
     import { CloudAdapter } from 'botbuilder';
@@ -117,7 +117,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     export default adapter;
 ```
 
-# [activity-handler.ts](#tab/activity-handler.ts)
+## [activity-handler.ts](#tab/activity-handler-ts)
 
 ```typescript
     import { TeamsActivityHandler } from 'botbuilder';
@@ -143,7 +143,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone-end
 
 ::: zone pivot="csharp"
-# [Program.cs](#tab/program.cs)
+## [Program.cs](#tab/program-cs)
 
 ```csharp
 
@@ -178,7 +178,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     }
 ```
 
-# [BotBuilderAdapter.cs](#tab/botbuilderadapter.cs)
+## [BotBuilderAdapter.cs](#tab/botbuilderadapter-cs)
 
 ```csharp
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
@@ -203,7 +203,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     // highlight-end
 ```
 
-# [ActivityHandler.cs](#tab/activityhandler.cs)
+## [ActivityHandler.cs](#tab/activityhandler-cs)
 
 ```csharp
     using Microsoft.Bot.Builder;
@@ -226,7 +226,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 ::: zone-end
 
 ::: zone pivot="python"
-# [app.py](#tab/app.py)
+## [app.py](#tab/app-py)
 
 ```python
     import asyncio
@@ -248,7 +248,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
         asyncio.run(app.start())
 ```
 
-# [adapter.py](#tab/adapter.py)
+## [adapter.py](#tab/adapter-py)
 
 ```python
     from botbuilder.core import TurnContext
@@ -278,7 +278,7 @@ With the `BotBuilderPlugin`, when a message or activity is received:
     # highlight-end
 ```
 
-# [activity_handler.py](#tab/activity_handler.py)
+## [activity_handler.py](#tab/activity-handler-py)
 
 ```python
     from botbuilder.core import ActivityHandler, TurnContext

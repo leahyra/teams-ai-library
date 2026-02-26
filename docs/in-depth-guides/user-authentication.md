@@ -6,7 +6,7 @@ zone_pivot_groups: dev-lang
 ms.date: 02/25/2026
 ---
 
-#  User Authentication
+# Implementing User Authentication
 
 At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 
@@ -14,7 +14,7 @@ At times agents must access secured online resources on behalf of the user, such
 > This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../teams/core-concepts.md) before attempting this guide.
 
 > [!WARNING]
-> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../getting-started/running-in-teams/overview.md#debugging-in-teams) to run your app in Teams.
 
 > [!NOTE]
 > It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
